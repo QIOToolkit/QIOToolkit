@@ -1,0 +1,14 @@
+- name: "Blume Capel"
+  href: blume-capel.md
+- name: "Clock"
+  href: clock.md
+- name: "Ising"
+  href: ising.md
+- name: "Potts"
+  href: potts.md
+- name: "PUBO"
+  href: pubo.md
+- name: "Traveling Salesman"
+  href: tsp.md
+- name: "Poly"
+  href: poly.md

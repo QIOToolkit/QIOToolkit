@@ -1,0 +1,7 @@
+{
+    "params": {
+        "sweeps": 32,
+        "seed": 29175,
+        "population": 64
+    }
+}

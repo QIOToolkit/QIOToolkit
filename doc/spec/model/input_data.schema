@@ -1,0 +1,16 @@
+{
+  "$id": "input_data.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Input Data",
+  "type": "object",
+  "description": "Expected contents of a resource pointed to by 'input_data_uri'.",
+
+  "required": ["cost_function"],
+
+  "properties": {
+    "cost_function": {
+      "description": "",
+      "items": { "$ref": "problem.schema#" }
+    }
+  }
+}

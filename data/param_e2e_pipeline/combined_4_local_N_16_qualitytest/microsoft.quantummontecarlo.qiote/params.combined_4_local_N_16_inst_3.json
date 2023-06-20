@@ -1,0 +1,11 @@
+{
+    "params": {
+        "beta_stop": 5.756462732,
+        "transverse_field_low": 0.01,
+        "transverse_field_high": 8.338454053,
+        "trotter_number": 16,
+        "restarts": 8,
+        "sweeps": 256,
+        "seed": 46
+    }
+}

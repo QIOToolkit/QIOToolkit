@@ -1,0 +1,48 @@
+{
+  "$id": "model.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Problem",
+  "type": "object",
+  "description": "Description of a problem for the solver to analyze.",
+
+  "required": ["type", "version"],
+
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "",
+      "enum": ["ising", "qubo", "pubo", "blume-capel", "clock", "potts"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the problem description. If not supplied, an error will be thrown."
+    },
+    "terms": {
+      "type": "array",
+      "description": "The goal is defined as to minimize this cost function. cost_function is an array which contains the individual terms as objects.",
+      "items": { "$ref": "#/definitions/term" }
+    }
+  },
+
+  "additionalProperties": false,
+
+  "definitions": {
+    "term": {
+      "type": "object",
+      "properties": {
+        "c": {
+          "type": "number",
+          "description": "c represents the coefficient of a c_(i…)term."
+        },
+        "ids": {
+          "type": "array",
+          "description": "Ids (short for variable indices) represent the x_i terms in the case of a PUBO, and s_i terms in the case of the Ising model.",
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}

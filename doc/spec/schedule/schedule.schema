@@ -1,0 +1,57 @@
+{
+  "$id": "schedule/schedule.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schedule",
+
+  "allOf": [
+    "oneOf": [
+      {"$ref": "constant.schema#"},
+      {"$ref": "linear.schema#"},
+      {"$ref": "geometric.schema#"},
+      {"$ref": "segments.schema#"},
+    ],
+    "oneOf": [
+      {
+        "type": "number",
+        "description": "Shorthand notation for a constant generator."
+      },
+      {
+        "type": "array",
+        "description": "Shorthand notation for a segments generator."
+        "items": {"$ref": "schedule.schema#"},
+      },
+      {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "identifier for the type of schedule generator",
+            "enum": ["constant", "linear", "geometric", "segments"]
+          },
+          "start": {
+            "type": "number",
+            "description": "start of the input value interval",
+            "defaut": 0.0
+          },
+          "stop": {
+            "type": "number"
+            "description": "stop of the input value interval",
+            "default": 1.0
+          },
+          "count": {
+            "type": "integer",
+            "description": "number of values when discretizing this generator to a set",
+            "default": 1,
+            "minimum": 1
+          },
+          "repeat": {
+            "type": "bool",
+            "description": "whether to repeat the schedule outside of the input interval.",
+            "default": false
+          }
+        }
+      }
+    ]
+  ]
+}

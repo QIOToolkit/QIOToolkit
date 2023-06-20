@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>    
+    <id>qiotoolkit-$config$</id>
+    <version>0.0.1</version>
+    <title>qiotoolkit $config$</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>qiotoolkit package include libraries and bins</description>
+    <releaseNotes>Open source qiotoolkit. </releaseNotes>
+    <copyright>Copyright Microsoft Ltd.</copyright>
+    <tags>Quantum Inspired Optimization libraries and executables</tags>
+    <summary>Quantum Inspired Optimization libraries and executables</summary>
+  </metadata>
+  <files>
+    <file src="cpp\$config$_build\utils\*.a" target="libs" />
+	<file src="cpp\$config$_build\graph\*.a" target="libs" />
+	<file src="cpp\$config$_build\markov\*.a" target="libs" />
+	<file src="cpp\$config$_build\matcher\*.a" target="libs" />
+	<file src="cpp\$config$_build\model\*.a" target="libs" />
+	<file src="cpp\$config$_build\observe\*.a" target="libs" />
+	<file src="cpp\$config$_build\schedule\*.a" target="libs" />
+	<file src="cpp\$config$_build\solver\*.a" target="libs" />
+	<file src="cpp\$config$_build\externals\gpp\*.a" target="libs" />
+	<file src="cpp\**\*.h" target="include" />
+	<file src="cpp\$config$_build\app\qiotoolkit" target="qiotoolkit" />
+	<file src="cpp\$config$_build\_deps\rapidjson-src\include\**" target="rapidjson\include" />
+	<file src="cpp\$config$_build\_deps\pcg-src\include\**" target="pcg\include" />
+  </files>
+</package>

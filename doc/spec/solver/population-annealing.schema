@@ -1,0 +1,83 @@
+{
+  "$id": "solver/populationannealing.qiotoolkit.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "qiotoolkit Population Annealing",
+  "type": "object",
+  "required": ["target", "input_params"],
+  "properties": {
+    "target": {
+      "type": "string",
+      "const": "microsoft.populationannealing.qiotoolkit"
+    },
+    "input_params": {
+      "type": "object",
+      "required": ["resampling_strategy"],
+      "properties": {
+        "alpha": {
+          "type": "number",
+          "minimum": 1.0,
+          "default": 2.0,
+          "description": "ratio to trigger a restart"
+        },
+        "population": {
+          "type": "number",
+          "minimum": 2,
+          "description": "desired population size (defaults to the number of threads)"
+        },
+        "constant_population": {
+          "type": "boolean",
+          "default": "false",
+          "description": "whether to keep the population constant between restarts"
+        },
+        "beta": {
+          "type": "object",
+          "$ref": "../schedule/schedule.schema",
+          "description": "How the temperature should be changed over time."
+        },
+        "beta_start": {
+          "type": "number",
+          "description": "float specifying the starting inverse temperature."
+          "minimum": 0,
+        },
+        "beta_stop": {
+          "type": "number",
+          "description": "float specifying the stopping inverse temperature."
+          "minimum": 0,
+        },
+        "resampling_strategy": {
+          "type": "string",
+          "enum": ["linear_schedule", "friction_tensor", "energy_variance", "constant_culling"],
+          "default": 'linear_schedule',
+          "description": "resample by 'linear_schedule', 'friction_tensor', 'energy_variance' or 'constant_culling'."
+        },
+        "friction_tensor_constant": {
+          "type": "number",
+          "minimum": 0.0,
+          "default": 1.0,
+          "description": "friction tensor constant"
+        },
+        "initial_culling_fraction": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.5,
+          "description": "initial culling rate"
+        },
+        "culling_fraction": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.2,
+          "description": "constant culling rate"
+        },
+        "sweeps_per_replica" {
+          "type": "number",
+          "minimum": 1,
+          "multipleOf": 1,
+          "default": 1,
+          "sweeps per replica between resampling."
+        }
+      }
+    }
+  }
+}

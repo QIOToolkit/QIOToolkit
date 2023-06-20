@@ -1,0 +1,14 @@
+- name: Request
+  href: request/index.md
+- name: Solver
+  href: solver/toc.yml
+  topicHref: solver/index.md
+- name: Model
+  href: model/toc.yml
+  topicHref: model/index.md
+- name: Schedule
+  href: schedule/toc.yml
+  topicHref: schedule/index.md
+- name: Response
+  href: response/toc.yml
+  topicHref: response/index.md

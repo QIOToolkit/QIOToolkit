@@ -1,0 +1,43 @@
+{
+    "cost_function": {
+        "version": "1.0",
+        "type": "ising_grouped",
+        "terms_slc": [
+            {
+                "c": 1,
+                "terms": [
+                    {
+                        "c": 1,
+                        "ids": [
+                            0
+                        ]
+                    },
+                    {
+                        "c": 1,
+                        "ids": [
+                        ]
+                    }
+                ]
+            }
+        ],
+        "terms": [
+            {
+                "c": -2,
+                "ids": [
+                ]
+            },
+            {
+                "c": 4,
+                "ids": [
+                    2
+                ]
+            },
+            {
+                "c": 4,
+                "ids": [
+                    3
+                ]
+            }
+        ]
+    }
+}

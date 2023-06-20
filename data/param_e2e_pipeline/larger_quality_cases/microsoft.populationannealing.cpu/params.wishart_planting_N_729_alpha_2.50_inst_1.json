@@ -1,0 +1,14 @@
+{
+    "params": {
+        "sweeps": 100,
+        "seed": 32715,
+        "beta": {
+            "type": "linear",
+            "initial": 0,
+            "final": 20
+        },
+        "population": 128,
+		"alpha":1.000001,
+        "sweeps_per_replica": 2
+    }
+}

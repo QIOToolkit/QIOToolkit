@@ -1,0 +1,38 @@
+{
+  "$id": "solver/substochasticmontecarlo.qiotoolkit.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "qiotoolkit Substochastic Monte Carlo",
+  "type": "object",
+  "required": ["target", "input_params"],
+  "properties": {
+    "target": {
+      "type": "string",
+      "const": "microsoft.substochasticmontecarlo.qiotoolkit"
+    },
+    "input_params": {
+      "type": "object",
+      "required": ["target_population", "alpha", "beta"],
+      "properties": {
+        "target_population": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 1
+          "description": "The desired population size (throughout the simulation)."
+        },
+        "alpha": {
+          "$ref": "../schedule/schedule.schema",
+          "description": "How the stepping probability `alpha` should be changed over time."
+        },
+        "beta": {
+          "$ref": "../schedule/schedule.schema",
+          "description": "How the resampling factor `beta` should be changed over time."
+        },
+        "steps_per_walker" {
+          "type": "integer",
+          "description": "Number of steps to attempt for each walker.",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

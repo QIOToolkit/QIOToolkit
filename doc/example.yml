@@ -1,0 +1,42 @@
+### YamlMime:UniversalReference
+items:
+  - uid: markov::Model
+    id: markov::Model
+    name: Model
+    summary: Interface for Markov models.
+    fullName: markov::Model
+    type: Class
+    children:
+      - 'markov::Model::Model'
+    langs:
+      - cpp
+  - id: 'markov::Model::Model'
+    uid: 'markov::Model::Model'
+    parent: markov::Model
+    name: Model()
+    fullName: markov::Model::Model
+    summary: Create an uninitialized model.
+    type: Constructor
+    syntax:
+      content: 'template<class State, class Transition> markov::Model<State, Transition>::Model()'
+    langs:
+      - cpp
+
+  - uid: 'api-documenter-test!globalFunction:function(1)'
+    summary: An exported function
+    name: globalFunction(x)
+    fullName: globalFunction(x)
+    langs:
+      - typeScript
+    type: function
+    syntax:
+      content: 'export declare function globalFunction(x: number): number;'
+      return:
+        type:
+          - number
+        description: ''
+      parameters:
+        - id: x
+          description: ''
+          type:
+            - number

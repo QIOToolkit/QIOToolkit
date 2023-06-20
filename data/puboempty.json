@@ -1,0 +1,13 @@
+{
+    "cost_function": {
+        "version": "1.0",
+        "type": "pubo",
+        "terms": [
+            {
+                "c": 2,
+                "ids": [
+                ]
+            }
+        ]
+    }
+}

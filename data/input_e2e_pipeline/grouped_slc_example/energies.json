@@ -1,0 +1,9 @@
+{
+	"cases": [{
+		"file": "cpupubogroupedjobstest.json",
+		"energy": -12.0
+	}, {
+		"file": "isinggrouped1.json",
+		"energy": -10.0
+	}]
+}

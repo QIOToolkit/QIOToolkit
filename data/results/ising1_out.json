@@ -1,0 +1,105 @@
+{
+  "benchmark": {
+    "accumulated_dependent_vars": 0,
+    "avg_locality": 1.000000,
+    "cost_difference_evaluation_count": 0,
+    "cost_function_evaluation_count": 99,
+    "cpu_time_ms": 195.635000,
+    "disk_io_read_bytes": 0,
+    "disk_io_write_bytes": 2746,
+    "end2end_cputime_ms": 241.409071,
+    "end2end_time_ms": 39.701056,
+    "extensions": [
+      {
+        "name": "counters",
+        "value": {"accepted_transitions": 0, "difference_evaluations": 0, "function_evaluations": 99}
+      },
+      {
+        "name": "solver",
+        "value": {
+          "cost_milestones": [
+            {"cost": 10.000000, "step": 1.000000}
+          ],
+          "exit_reason": "Stop due to step limit: 999, steps:999",
+          "last_step": 999,
+          "step_limit": 999
+        }
+      },
+      {
+        "name": "model",
+        "value": {
+          "graph": {
+            "size": {
+              "accumulated_dependent_vars": 0,
+              "avg_locality": 1.000000,
+              "edges": 3,
+              "locality": 1,
+              "max_coupling_magnitude": 4.000000,
+              "min_coupling_magnitude": 2.000000,
+              "min_locality": 1,
+              "nodes": 3,
+              "sum_coefficient_degrees_total": 3
+            }
+          }
+        }
+      },
+      {
+        "name": "build",
+        "value": {
+          "branch": "",
+          "build_type": "Debug",
+          "commit_hash": "cc7d716",
+          "compiler": "g++ 9.4",
+          "qiotoolkit_version": "0.0.208"
+        }
+      },
+      {
+        "name": "invocation",
+        "value": {
+          "datetime": "2023-05-10 11:44:04",
+          "directory": "/QIOToolkitV1/cpp",
+          "host": "",
+          "user": ""
+        }
+      }
+    ],
+    "locality": 1,
+    "max_coupling_magnitude": 4.000000,
+    "max_mem_bytes": 10448896,
+    "min_coupling_magnitude": 2.000000,
+    "min_locality": 1,
+    "num_terms": 3,
+    "num_variables": 3,
+    "postprocessing_time_ms": 6.697893,
+    "preprocessing_time_ms": 13.180017,
+    "solver_time_ms": 5.856991,
+    "sum_coefficient_degrees_total": 3,
+    "threads": 20
+  },
+  "solutions": {
+    "version": "1.0",
+    "configuration": {"0": -1, "2": -1, "3": -1},
+    "cost": -10.000000,
+    "parameters": {
+      "beta_start": 0.990000,
+      "beta_stop": 1.990000,
+      "restarts": 99,
+      "seed": 111,
+      "sweeps": 999
+    },
+    "solutions": [
+      {
+        "configuration": {"0": 1, "2": 1, "3": 1},
+        "cost": 10.000000,
+        "stage": "init",
+        "time_in_stage_ms": 13.180017
+      },
+      {
+        "configuration": {"0": -1, "2": -1, "3": -1},
+        "cost": -10.000000,
+        "stage": "microsoft.simulatedannealing.qiotoolkit",
+        "time_in_stage_ms": 5.856991
+      }
+    ]
+  }
+}

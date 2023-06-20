@@ -1,0 +1,40 @@
+{{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
+
+<script type="text/javascript" src="{{_rel}}styles/docfx.vendor.js"></script>
+<script type="text/javascript" src="{{_rel}}styles/docfx.js"></script>
+<script type="text/javascript" src="{{_rel}}styles/main.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+<!--
+<link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+<script src="http://tikzjax.com/v1/tikzjax.js"></script>
+-->
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    var codes = document.getElementsByTagName("code");
+    [].slice.call(codes).forEach(function(code){
+      var pre = code.parentNode;
+      if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+        math_div = document.createElement('div');
+        math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+        pre.parentNode.replaceChild(math_div, pre);
+      } else {
+        var before = code.previousSibling;
+        var after = code.nextSibling;
+        if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+            && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+        {
+          math_span = document.createElement('span');
+          math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+          code.parentNode.replaceChild(math_span, code);
+          before.textContent = before.textContent.replace(/\$$/, '');
+          after.textContent = after.textContent.replace(/^\$/, '');
+        }
+      }
+    });
+  });
+</script>
+
