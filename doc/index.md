@@ -16,8 +16,8 @@ Tools for rapid development, analysis and deployment of quantum inspired optimiz
 Content
 -------
 
-You can find the qiotoolkit source code in the 
-[Azure Quantum repository](https://ms-quantum.visualstudio.com/Quantum%20Program/_git/MS-qiotoolkit).
+You can find the qiotoolkit source code on 
+[GitHub](https://github.com/QIOToolkit/QIOToolkit).
 This documentation contains:
 
 * [API](api/index.md): Documentation of the C++ interfaces of qiotoolkit components,

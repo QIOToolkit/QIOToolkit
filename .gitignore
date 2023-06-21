@@ -281,7 +281,6 @@ cpp/utils/*.pb.cc
 *.gcov
 cpp/cmake/coverage.html
 cpp/cmake/coverage.xml
-/setup
 /benchmarks/hpc/.ipynb_checkpoints
 /cpp/solver/GPUCache
 /cpp/win_release

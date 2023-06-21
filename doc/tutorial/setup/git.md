@@ -11,8 +11,7 @@ Cloning the Repository
 > [!NOTE]
 > These instructions are for \*sh/linux.
 
-1) To get a current copy of qiotoolkit, head on over to its [repository in the Quantum
-   Program](https://ms-quantum.visualstudio.com/Quantum%20Program/_git/qiotoolkit) and
+1) To get a current copy of qiotoolkit, head on over to its [repository on GitHub](https://github.com/QIOToolkit/QIOToolkit) and
    click the \[Clone\] button in the top right corner.
 
 2) Select the mode of download (I recommend SSH, for which you might need to
@@ -20,7 +19,7 @@ Cloning the Repository
 
 3) Copy the repository handle and run `git clone` in your CLI:
    ```bash
-   git clone ms-quantum@vs-ssh.visualstudio.com:v3/ms-quantum/Quantum%20Program/qiotoolkit
+   git clone https://github.com/QIOToolkit/QIOToolkit.git
    ```
    
 4) Check the contents of the `qiotoolkit` folder, which was just created.

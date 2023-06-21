@@ -11,7 +11,7 @@
       {{^_appFooter}}<span>
         Generated with <strong>Doxygen</strong>
         and <strong>DocFX</strong></span>
-        | <a href="https://ms-quantum.visualstudio.com/Quantum%20Program/_git/MS-qiotoolkit?version=GB{{GIT_BRANCH}}">{{GIT_BRANCH}}</a> (<a href="https://ms-quantum.visualstudio.com/Quantum%20Program/_git/MS-qiotoolkit/commit/{{GIT_HASH}}">{{GIT_HASH_SHORT}}</a>)
+        | <a href="[site-url]?version=GB{{GIT_BRANCH}}">{{GIT_BRANCH}}</a> (<a href="[site-url]/{{GIT_HASH}}">{{GIT_HASH_SHORT}}</a>)
       {{/_appFooter}}
     </div>
   </div>

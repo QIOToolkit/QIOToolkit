@@ -29,6 +29,6 @@ rm -rf _site
 docfx
 
 find _site -iname "*.html" | while read file; do
-  sed -i -e"s#href=\"https://vs-ssh.visualstudio.com/v3/ms-quantum/Quantum%20Program#href=\"https://ms-quantum.visualstudio.com/Quantum%20Program/_git#g" $file;
+  sed -i -e"<site-url>" $file;
   sed -i -e"s#amp;version=GBdoc#amp;version=GBmaster#g" $file
 done

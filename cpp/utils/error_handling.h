@@ -11,12 +11,6 @@
 
 namespace utils
 {
-/*
- For full list of error tags and subcodes,
- see
- https://dev.azure.com/ms-quantum/Quantum%20Program/_wiki/wikis/Quantum-OKRs.wiki/1930/Error-Codes-for-QIO-kernels-(Design-Doc)
-*/
-
 // returns codes in form " _<subcode> " in 3 digits and with spaces
 // E.g. format_subcode(1) -> " _AZQ001 "
 // format_subcode(101) -> " _AZQ101 "
