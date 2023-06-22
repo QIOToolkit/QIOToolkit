@@ -263,7 +263,7 @@ __pycache__/
 .clangd/
 
 # Cpp / Cmake
-cpp/*build
+cpp/*build*
 cpp/compile_commands.json
 cpp/doc/html
 *.nupkg
