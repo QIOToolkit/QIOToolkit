@@ -1,0 +1,67 @@
+name: CI 
+
+on:
+  push:
+    branches: 
+      - main
+      - feature/ci-workflow-integration
+  pull_request:
+    branches: 
+      - main
+
+env:
+    DOCKER_BUILDKIT: 1
+    DOCKER_POST_BUILD_NAME: qio_toolkit_build_environment
+
+jobs:   
+    build:
+        runs-on: ubuntu-latest
+        permissions:
+            packages: write
+            contents: read
+        steps:
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+
+        - name: Log in to registry
+          run: | 
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v2
+            
+        - name: Build the Docker image
+          run: |
+            # This will rebuild the docker image if the Dockerfile has changed if not it will pull the image from the registry
+
+            DOCKER_REGISTRY=ghcr.io/${{ github.repository_owner }}
+            # Lower case everything in DOCKER_REGISTRY
+            DOCKER_REGISTRY=$(echo ${DOCKER_REGISTRY} | tr '[:upper:]' '[:lower:]')
+            DOCKERFILE_PATH=./Dockerfile
+            IMAGE_NAME=qio_toolkit_build_environment
+            SHA=$(sha256sum ${DOCKERFILE_PATH} | awk '{ print $1 }')
+            TAG_NAME=${DOCKER_REGISTRY}/${IMAGE_NAME}:${SHA}
+            docker pull ${TAG_NAME} && echo "Image exists in the Docker registry, no need to build." || (echo "Image doesn't exist in the Docker registry. Building now..." && docker build -t ${TAG_NAME} -f ${DOCKERFILE_PATH} . && echo "Pushing image to Docker registry..." && docker push ${TAG_NAME})
+            docker tag ${TAG_NAME} ${{ env.DOCKER_POST_BUILD_NAME }}
+        
+        - name: Run the build
+          run: |
+            docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make build-coverage"
+        
+        - name: Run the tests
+          run: |
+            docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make test-coverage"
+
+        - name: Save coverage html
+          uses: actions/upload-artifact@v2
+          with:
+            name: coverage-html
+            path: cpp/build_coverage/coverage.html
+
+        - uses: dennisjensen95/coverage-scope@v0.3.2
+          with: 
+            coverage-filepath: cpp/build_coverage/coverage.xml
+            branch: main
+            threshold-total: 70
+            threshold-change: 90
