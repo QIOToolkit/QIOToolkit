@@ -9,6 +9,3 @@
 - name: Schedule
   href: schedule/toc.yml
   topicHref: schedule/index.md
-- name: Response
-  href: response/toc.yml
-  topicHref: response/index.md

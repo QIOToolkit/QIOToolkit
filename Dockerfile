@@ -44,6 +44,13 @@ RUN git clone https://github.com/protocolbuffers/protobuf.git \
     && ldconfig \
     && rm -rf /tmp/protobuf
 
+# Install docfx 2.67.5
+ARG DOCFX_VERSION=v2.67.5
+RUN wget https://github.com/dotnet/docfx/releases/download/${DOCFX_VERSION}/docfx-linux-x64-${DOCFX_VERSION}.zip \
+    && unzip docfx-linux-x64-${DOCFX_VERSION}.zip -d /opt/docfx \
+    && ln -s /opt/docfx/docfx /usr/local/bin/docfx \
+    && rm docfx-linux-x64-${DOCFX_VERSION}.zip
+
 # Set working directory
 WORKDIR /workdir
 

@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+pip3 install -r requirements.txt
+
 rm -rf doxygen
 cd ..
 doxygen doxygen.config
@@ -28,7 +30,7 @@ cat templates/cpp/partials/footer.tmpl.partial.in | sed -e"s#{{GIT_BRANCH}}#`git
 rm -rf _site
 docfx
 
-find _site -iname "*.html" | while read file; do
-  sed -i -e"<site-url>" $file;
-  sed -i -e"s#amp;version=GBdoc#amp;version=GBmaster#g" $file
-done
+# find _site -iname "*.html" | while read file; do
+#   sed -i -e "<site-url>" $file;
+#   sed -i -e "s#amp;version=GBdoc#amp;version=GBmaster#g" $file
+# done
