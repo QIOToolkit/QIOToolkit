@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+pip3 install -r requirements.txt
+
 rm -rf doxygen
 cd ..
 doxygen doxygen.config
