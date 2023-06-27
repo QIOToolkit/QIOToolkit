@@ -24,3 +24,4 @@ runs:
         TAG_NAME=${DOCKER_REGISTRY}/${IMAGE_NAME}:${SHA}
         docker pull ${TAG_NAME} && echo "Image exists in the Docker registry, no need to build." || (echo "Image doesn't exist in the Docker registry. Building now..." && docker build -t ${TAG_NAME} -f ${DOCKERFILE_PATH} . && echo "Pushing image to Docker registry..." && docker push ${TAG_NAME})
         docker tag ${TAG_NAME} ${{ inputs.docker-post-build-name }}
+        
