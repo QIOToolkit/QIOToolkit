@@ -1,3 +1,6 @@
+[![QIO Documentation build](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-documentation.yaml/badge.svg?branch=feature%2Fci-workflow-integration)](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-documentation.yaml)
+[![QIO CI Build](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-integration.yaml/badge.svg?branch=feature%2Fci-workflow-integration)](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-integration.yaml)
+
 # Introduction 
 This project provides the components for building and running Quantum Inspired Optimization solvers. These methods can be used to solve different types of optimization problems that can be expressed as unbounded binary optimization problems.
 

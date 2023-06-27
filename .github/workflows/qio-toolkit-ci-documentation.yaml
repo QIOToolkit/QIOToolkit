@@ -1,4 +1,5 @@
-name: QIO CI
+
+name: QIO Documentation build
 
 on:
   push:
@@ -14,15 +15,13 @@ env:
     DOCKER_POST_BUILD_NAME: qio_toolkit_build_environment
 
 jobs:   
-    build-qio:
+    build-documentation:
         runs-on: ubuntu-latest
         permissions:
             packages: write
             contents: read
         steps:
         - uses: actions/checkout@v3
-          with:
-            fetch-depth: 0
 
         - name: Log in to registry
           run: | 
@@ -37,27 +36,6 @@ jobs:
             repository-owner: ${{ github.repository_owner }}
             docker-post-build-name: ${{ env.DOCKER_POST_BUILD_NAME }}
         
-        - name: Run the build
+        - name: Build documentation
           run: |
-            docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make build-coverage"
-        
-        - name: Run the tests
-          run: |
-            docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make test-coverage"
-
-        - name: Save coverage html
-          uses: actions/upload-artifact@v2
-          with:
-            name: coverage-html
-            path: cpp/build_coverage/coverage.html
-
-        - uses: dennisjensen95/coverage-scope@v0.3.2
-          with: 
-            coverage-filepath: cpp/build_coverage/coverage.xml
-            branch: main
-            threshold-total: 70
-            threshold-change: 90
-    
-    
-      
-      
+            docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make build-documentation"
