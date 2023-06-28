@@ -37,6 +37,10 @@ jobs:
             repository-owner: ${{ github.repository_owner }}
             docker-post-build-name: ${{ env.DOCKER_POST_BUILD_NAME }}
         
+        - name: Static code analysis
+          run: |
+            docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make static-code-analysis"
+        
         - name: Run the build
           run: |
             docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make build-coverage"

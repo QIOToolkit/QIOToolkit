@@ -288,3 +288,6 @@ cpp/cmake/coverage.xml
 /cpp/_deps/ 
 /cpp/generated/
 /cpp/CMakeCache.txt
+
+# Static code analysis
+cppcheck-result.xml
