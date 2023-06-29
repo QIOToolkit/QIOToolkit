@@ -48,6 +48,9 @@ jobs:
         - name: Run the tests
           run: |
             docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make test-coverage"
+            # Set the environment variable for the coverage badge
+            export COVERAGE=$(cat cpp/build_coverage/coverage.xml | grep -oP 'line-rate="\K[^"]*' | head -n 1 |  awk '{printf "%.2f", $1 * 100}')%
+            echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
 
         - name: Save coverage html
           uses: actions/upload-artifact@v2
@@ -61,7 +64,14 @@ jobs:
             branch: main
             threshold-total: 70
             threshold-change: 90
-    
-    
       
-      
+        - name: Create the Badge
+          if: false
+          uses: schneegans/dynamic-badges-action@v1.6.0
+          with:
+            auth: ${{ secrets.CODE_COVERAGE_BADGE }}
+            gistID: 2789401c320d5cc8caac2fd89c649e75
+            filename: qio-toolkit-coverage.json
+            label: Test Coverage
+            message: ${{ env.COVERAGE }}
+            color: green
