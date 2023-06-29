@@ -22,5 +22,17 @@ This process will take few minutes to complete.
 # Build and Test
 ## Linux / WSL
 1. After installation is complete, the make and make test commands will be run from the linuxsetup.sh file
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+
+# Contributions
+
+We have a [contributing guide](./doc/CONTRIBUTING.md) that outlines how to
+contribute to the project. Please read it before making any contributions.
+
+# Code of Conduct
+
+We have a [code of conduct](./doc/CODE_OF_CONDUCT.md) that we expect project
+participants to adhere to. Please read it before participating in the project.
+
+# License
+
+[MIT](https://choosealicense.com/licenses/mit/)
