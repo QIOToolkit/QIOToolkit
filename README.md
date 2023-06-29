@@ -59,5 +59,16 @@ Recommended Azure VM image: Visual Studio 2019 or 2022 on Windows 10/11 or Windo
 
 ## Windows
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Contributions
+
+We have a [contributing guide](./doc/CONTRIBUTING.md) that outlines how to
+contribute to the project. Please read it before making any contributions.
+
+# Code of Conduct
+
+We have a [code of conduct](./doc/CODE_OF_CONDUCT.md) that we expect project
+participants to adhere to. Please read it before participating in the project.
+
+# License
+
+[MIT](https://choosealicense.com/licenses/mit/)
