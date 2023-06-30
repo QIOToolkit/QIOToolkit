@@ -13,9 +13,22 @@ env:
     DOCKER_BUILDKIT: 1
     DOCKER_POST_BUILD_NAME: qio_toolkit_build_environment
 
-jobs:   
+jobs:
+    build-docker-container: 
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+
+        - name: Build the Docker image
+          uses: ./.github/build_docker
+          with:
+            repository-owner: ${{ github.repository_owner }}
+            docker-post-build-name: ${{ env.DOCKER_POST_BUILD_NAME }}
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+
     build-qio:
         runs-on: ubuntu-latest
+        needs: build-docker-container
         permissions:
             packages: write
             contents: read
@@ -23,19 +36,13 @@ jobs:
         - uses: actions/checkout@v3
           with:
             fetch-depth: 0
-
-        - name: Log in to registry
-          run: | 
-            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-
-        - name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@v2
-            
+        
         - name: Build the Docker image
           uses: ./.github/build_docker
           with:
             repository-owner: ${{ github.repository_owner }}
             docker-post-build-name: ${{ env.DOCKER_POST_BUILD_NAME }}
+            github-token: ${{ secrets.GITHUB_TOKEN }}
         
         - name: Static code analysis
           run: |
@@ -75,3 +82,33 @@ jobs:
             label: Test Coverage
             message: ${{ env.COVERAGE }}
             color: green
+
+    release-build:
+      needs: build-docker-container
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+
+        - name: Build the Docker image
+          uses: ./.github/build_docker
+          with:
+            repository-owner: ${{ github.repository_owner }}
+            docker-post-build-name: ${{ env.DOCKER_POST_BUILD_NAME }}
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+        
+        - name: Run the build
+          run: |
+            docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make build-release"
+            # Name the binary with the commit hash
+            export COMMIT_HASH=$(git rev-parse --short HEAD)
+            echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
+            sudo mv cpp/build_release/app/qiotoolkit cpp/build_release/app/qiotoolkit_x86_64_$COMMIT_HASH
+            sudo sha256sum cpp/build_release/app/qiotoolkit_x86_64_$COMMIT_HASH > qiotoolkit_x86_64_$COMMIT_HASH.sha256
+        
+        - name: Upload the binary
+          uses: actions/upload-artifact@v2
+          with:
+            name: qiotoolkit_x86_64_${{ env.COMMIT_HASH }}
+            path: |
+              cpp/build_release/app/qiotoolkit_x86_64_${{ env.COMMIT_HASH }}
+              qiotoolkit_x86_64_${{ env.COMMIT_HASH }}.sha256
