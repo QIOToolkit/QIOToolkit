@@ -1,6 +1,7 @@
 PHONY: build test build-coverage test-coverage clean build-documentation
 
 BUILD_DIR := cpp/build_make
+BUILD_RELEASE_DIR := cpp/build_release
 COVERAGE_BUILD_DIR := cpp/build_coverage
 COVERAGE_FLAGS := --html -o coverage.html --xml coverage.xml -e '.*/build.*/.*' -e '.*build.*' -e '.*test.*' -e '.*/test/.*' -e '.*_deps.*' -e '.*/_deps/.*' -e '.*/externals/' -e '.*/examples/'
 
@@ -8,6 +9,11 @@ build:
 	mkdir -p ${BUILD_DIR}
 	cd ${BUILD_DIR} && cmake -GNinja ..
 	cd ${BUILD_DIR} && ninja
+
+build-release:
+	mkdir -p ${BUILD_RELEASE_DIR}
+	cd ${BUILD_RELEASE_DIR} && cmake -DCMAKE_BUILD_TYPE=Release -GNinja ..
+	cd ${BUILD_RELEASE_DIR} && ninja
 
 test: build
 	cd ${BUILD_DIR} && ../run_tests.sh
