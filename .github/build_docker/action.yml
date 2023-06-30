@@ -8,10 +8,21 @@ inputs:
   docker-post-build-name:
     description: "Docker post build name"
     required: true
+  github-token:
+    description: "Github token"
+    required: true
 
 runs:
   using: "composite"
   steps:
+    - id: buildx
+      uses: docker/setup-buildx-action@v2
+    
+    - id: registry
+      shell: bash
+      run: | 
+        echo "${{ inputs.github-token }}" | docker login ghcr.io -u $ --password-stdin
+      
     - id: build
       shell: bash
       run: |

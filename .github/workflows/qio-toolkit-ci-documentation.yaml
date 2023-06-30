@@ -23,18 +23,12 @@ jobs:
         steps:
         - uses: actions/checkout@v3
 
-        - name: Log in to registry
-          run: | 
-            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-
-        - name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@v2
-            
         - name: Build the Docker image
           uses: ./.github/build_docker
           with:
             repository-owner: ${{ github.repository_owner }}
             docker-post-build-name: ${{ env.DOCKER_POST_BUILD_NAME }}
+            github-token: ${{ secrets.GITHUB_TOKEN }}
         
         - name: Build documentation
           run: |
