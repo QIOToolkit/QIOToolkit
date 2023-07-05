@@ -32,11 +32,9 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
     && apt-get update \
     && apt-get install -y cmake
 
-# install protobuf 3.14
-WORKDIR /tmp
 RUN git clone https://github.com/protocolbuffers/protobuf.git \
     && cd protobuf \
-    && git checkout 2514f0bd7da7e2af1bed4c5d1b84f031c4d12c10 \
+    && git checkout v3.20.3 \
     && cd cmake \
     && cmake -Dprotobuf_BUILD_TESTS=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON . \
     && make -j$(nproc) \
