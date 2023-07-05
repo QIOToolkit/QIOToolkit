@@ -1,4 +1,3 @@
-[![QIO Documentation build](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-documentation.yaml/badge.svg?branch=feature%2Fci-workflow-integration)](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-documentation.yaml)
 [![QIO CI Build](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-integration.yaml/badge.svg?branch=feature%2Fci-workflow-integration)](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-integration.yaml)
 ![Code coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/QIOToolkit/some-gist-id/raw/qio-toolkit-coverage.json)
 

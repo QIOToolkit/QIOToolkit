@@ -16,6 +16,9 @@ env:
 jobs:
     build-docker-container: 
       runs-on: ubuntu-latest
+      permissions:
+        packages: write
+        contents: read
       steps:
         - uses: actions/checkout@v3
 
@@ -26,7 +29,7 @@ jobs:
             docker-post-build-name: ${{ env.DOCKER_POST_BUILD_NAME }}
             github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    build-qio:
+    build-qio-test-and-analyze:
         runs-on: ubuntu-latest
         needs: build-docker-container
         permissions:
@@ -83,7 +86,7 @@ jobs:
             message: ${{ env.COVERAGE }}
             color: green
 
-    release-build:
+    build-qio-release:
       needs: build-docker-container
       runs-on: ubuntu-latest
       steps:
@@ -112,3 +115,23 @@ jobs:
             path: |
               cpp/build_release/app/qiotoolkit_x86_64_${{ env.COMMIT_HASH }}
               qiotoolkit_x86_64_${{ env.COMMIT_HASH }}.sha256
+      
+    build-documentation:
+      runs-on: ubuntu-latest
+      needs: build-docker-container
+      permissions:
+          packages: write
+          contents: read
+      steps:
+      - uses: actions/checkout@v3
+
+      - name: Build the Docker image
+        uses: ./.github/build_docker
+        with:
+          repository-owner: ${{ github.repository_owner }}
+          docker-post-build-name: ${{ env.DOCKER_POST_BUILD_NAME }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Build documentation
+        run: |
+          docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make build-documentation"
