@@ -30,6 +30,7 @@ test-coverage: build-coverage
 clean:
 	rm -rf ${BUILD_DIR}
 	rm -rf ${COVERAGE_BUILD_DIR}
+	rm -rf ${BUILD_RELEASE_DIR}
 
 build-documentation:
 	cd doc && ./generate.sh
