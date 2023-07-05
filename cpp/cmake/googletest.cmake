@@ -11,6 +11,7 @@ if(NOT googletest_POPULATED)
   FetchContent_Populate(googletest)
   add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
 endif()
+FetchContent_MakeAvailable(googletest)
 
 function(add_gtest name source)
   add_executable(${name} ${source})
