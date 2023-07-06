@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct optimal_learning::UniformRandomGenerator
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct optimal_learning::UniformRandomGenerator
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="structoptimal__learning_1_1UniformRandomGenerator">
+
+
+
+  <h1 id="structoptimal__learning_1_1UniformRandomGenerator" data-uid="structoptimal__learning_1_1UniformRandomGenerator" class="text-break">Struct optimal_learning::UniformRandomGenerator
+</h1>
+  <div class="markdown level0 summary"><p>\rst Container for an uniform random generator (e.g., mersenne twister). Member functions are for easy manipulation of seeds and have signatures matching corresponding members of <a class="xref" href="normal-rng.html">NormalRNG</a>.
+.. Note:: seed values take type <code>EngineType::result_type</code>. Do not pass in a wider integer type!
+.. WARNING:: this class is NOT THREAD-SAFE. You must construct one object per thread (and ensure that the seeds are different for practical computations). \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="structoptimal__learning_1_1UniformRandomGenerator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1aba0fb161938066bf72f44d92fae381f2" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1aba0fb161938066bf72f44d92fae381f2">UniformRandomGenerator()</h4>
+  <div class="markdown level1 summary"><p>\rst Default-constructs a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a>, seeding with kDefaultSeed. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::UniformRandomGenerator::UniformRandomGenerator() noexcept</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1a9a522b261ad8a3b9ef4559cf1108d240" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1a9a522b261ad8a3b9ef4559cf1108d240">UniformRandomGenerator()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a>, seeding with the specified seed. See <a class="xref" href="uniform-random-generator.html#structoptimal__learning_1_1UniformRandomGenerator_1afdead6f85ad8982ea16722918808208c">UniformRandomGenerator::SetExplicitSeed</a> for details.</p>
+<p>:seed</p>
+<p>new seed to set \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::UniformRandomGenerator::UniformRandomGenerator(EngineType::result_type seed) noexcept</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1a13aab142d5bba40dad01e8b365031cfa" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1a13aab142d5bba40dad01e8b365031cfa">UniformRandomGenerator()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a>, seeding with an automatically selected seed based on time, thread_id, etc. See <a class="xref" href="uniform-random-generator.html#structoptimal__learning_1_1UniformRandomGenerator_1aa536b4e401574cc281ea7a4263e4aa2e">UniformRandomGenerator::SetRandomizedSeed</a> for details.</p>
+<p>:base_seed</p>
+<p>base value for the new seed :thread_id: id of the thread using this object \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::UniformRandomGenerator::UniformRandomGenerator(EngineType::result_type seed, int thread_id) noexcept</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1a0b09f543efda96b2df1b304f913e2799" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1a0b09f543efda96b2df1b304f913e2799">GetEngine()</h4>
+  <div class="markdown level1 summary"><p>\rst Get a reference to the RNG engine used by this class.
+Not necessary for this class since <code>engine</code> is public but we expose this to maintain a uniform interface with <a class="xref" href="normal-rng.html">NormalRNG</a>.
+reference to the underlying RNG engine \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">EngineType&amp;optimal_learning::UniformRandomGenerator::GetEngine() noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1ac43e16cd2b99023f5bbd3c4e1852ca83" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1ac43e16cd2b99023f5bbd3c4e1852ca83">last_seed()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">EngineType::result_type optimal_learning::UniformRandomGenerator::last_seed() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1afdead6f85ad8982ea16722918808208c" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1afdead6f85ad8982ea16722918808208c">SetExplicitSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Seed the random number generator with the input value. The main purpose of this function is for testingto allow seeding the RNG with a known value for repeatability.</p>
+<p>:seed</p>
+<p>new seed to set \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::UniformRandomGenerator::SetExplicitSeed(EngineType::result_type seed) noexcept</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1aa536b4e401574cc281ea7a4263e4aa2e" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1aa536b4e401574cc281ea7a4263e4aa2e">SetRandomizedSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Set a new seed for the random number generator. A &quot;random&quot; seed is selected based on the input seed value, the current time, and the thread_id.
+This function is meant to initialize unique <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> objects for each computation thread::
+std::vector<uniformrandomgenerator> uniform_generator_vector(num_threads); for (int i = 0; i &lt; num_threads; ++i) { uniform_generator_vector.SetRandomizedSeed(base_seed, i); }
+This function is meant to generate seeds so that:</uniformrandomgenerator></p>
+<ul>
+<li>this function can be called multiple times successively (e.g., in the above loop) with different thread_ids to initialize RNGs for multiple threads</li>
+<li>multiple runs of this code are unlikely to generate the same seed values</li>
+</ul>
+<p>Item 2. is important for minimizing the probability that we run EI computations (see <a href="xref:gpp__math_8hpp">gpp_math.hpp</a>) with the &quot;same&quot; randomness.</p>
+<p>:base_seed</p>
+<p>base value for the new seed :thread_id: id of the thread using this object \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::UniformRandomGenerator::SetRandomizedSeed(EngineType::result_type base_seed, int thread_id) noexcept</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1a5e7d5665c26b5ee7910b927f8d03f041" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1a5e7d5665c26b5ee7910b927f8d03f041">ResetToMostRecentSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Reseeds the generator with its most recently specified seed value. Useful for testinge.g., can conduct multiple runs with the same initial conditions \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::UniformRandomGenerator::ResetToMostRecentSeed() noexcept</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1a0a0ee1493e29f363e9c2c43534d2c947" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1a0a0ee1493e29f363e9c2c43534d2c947">PrintState()</h4>
+  <div class="markdown level1 summary"><p>\rst Prints the state of the generator to specified ostream. For testing.</p>
+<p>:out_stream[1]</p>
+<p>a <code>std::ostream</code> object ready for <code>operator&lt;&lt;`` use \output :out_stream[1]: </code>std::ostream<code>with the engine state &quot;written&quot; to its</code>operator&lt;&lt;` \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::UniformRandomGenerator::PrintState(std::ostream *out_stream) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1a06686614902cda897247fc4be7b2a0b0" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1a06686614902cda897247fc4be7b2a0b0">operator==()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool optimal_learning::UniformRandomGenerator::operator==(const UniformRandomGenerator&amp;other) const</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1UniformRandomGenerator_1a8151b0c11f50ac0d85b18a139d699667" data-uid="structoptimal__learning_1_1UniformRandomGenerator_1a8151b0c11f50ac0d85b18a139d699667">operator!=()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool optimal_learning::UniformRandomGenerator::operator!=(const UniformRandomGenerator&amp;other) const</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::MultistartOptimizer
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::MultistartOptimizer
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1MultistartOptimizer">
+
+
+
+  <h1 id="classoptimal__learning_1_1MultistartOptimizer" data-uid="classoptimal__learning_1_1MultistartOptimizer" class="text-break">Class optimal_learning::MultistartOptimizer
+</h1>
+  <div class="markdown level0 summary"><p>\rst This is a general, template class for multistart optimization. It is designed to be used with the various Optimizer classes in this file (e.g., <a class="xref" href="null-optimizer.html">NullOptimizer</a>, <a class="xref" href="gradient-descent-optimizer.html">GradientDescentOptimizer</a>, <a class="xref" href="newton-optimizer.html">NewtonOptimizer</a>). The multistart process is multithreaded using OpenMP so that we can start from multiple initial guesses across multiple threads simultaneously. See section 2c) and 3b, iii) in the header docs at the top of the file for more details.
+The use with <a class="xref" href="gradient-descent-optimizer.html">GradientDescentOptimizer</a>, <a class="xref" href="newton-optimizer.html">NewtonOptimizer</a>, etc. are standard practice in nonlinear optimization. In particular, without special properties like convexity, single-start optimizers can converge to local optima. In general, a nonlinear function can have many local optima, so the only way to improve* your chances of finding the global optimum is to start from many different locations. This will be the typical use case for <a class="xref" href="multistart-optimizer.html#classoptimal__learning_1_1MultistartOptimizer_1a809ec8208726bac5e8a794655eb2e876">MultistartOptimizer&lt;...&gt;::MultistartOptimize()</a>.</p>
+<ul>
+<li>Improve is intentional here. In the general case, you are not guaranteed (in finite time) to find the global optimum.</li>
+</ul>
+<p>Use with <a class="xref" href="null-optimizer.html">NullOptimizer</a> requires special mention here as it might seem silly. This case reduces to evaluating the objective function at every point of initial_guesses. Through function_values, you can get the objective value at each of point of initial_guesses too (e.g., for plotting). So use MultistartOptimize with NullOptimzer to perform a 'dumb' search (e.g., initial_guesses can be obtained from a grid, random sampling, etc.). <a class="xref" href="null-optimizer.html">NullOptimizer</a> allows 'dumb' search to use the same code as multistart optimization. 'Dumb' search is inaccurate but it never fails, so we often use it as a fall-back when more advanced (e.g., gradient descent) techniques fail.
+This class provides just one method (for now), <a class="xref" href="multistart-optimizer.html#classoptimal__learning_1_1MultistartOptimizer_1a809ec8208726bac5e8a794655eb2e876">MultistartOptimize()</a>; see below.
+.. Note:: comments copied to <a class="xref" href="multistart-optimizer.html">MultistartOptimizer</a> in python_version/optimization.py. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::MultistartOptimizer</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1MultistartOptimizer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1MultistartOptimizer_1ad8385ef4ae561dc3eb2e084af35e6212" data-uid="classoptimal__learning_1_1MultistartOptimizer_1ad8385ef4ae561dc3eb2e084af35e6212">MultistartOptimizer()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MultistartOptimizer&lt;Optimizer_&gt;::MultistartOptimizer()=default</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1MultistartOptimizer_1a809ec8208726bac5e8a794655eb2e876" data-uid="classoptimal__learning_1_1MultistartOptimizer_1a809ec8208726bac5e8a794655eb2e876">MultistartOptimize()</h4>
+  <div class="markdown level1 summary"><p>\rst Performs multistart optimization with the specified Optimizer (class template parameter) to optimize the specified ObjectiveFunctionEvaluator over the specified DomainType. Optimizer behavior is controlled by the specified ParameterStruct. See class docs and header docs of this file, section 2c and 3b, iii), for more information.
+The method allows you to specify what the current best is, so that if optimization cannot beat it, no improvement will be reported. It will otherwise report the overall best improvement (through io_container) as well as the result of every individual multistart run if desired (through function_values).
+.. Note:: comments copied to MultistartOptimizer.optimize() in python_version/optimization.py.
+Generally, you will not call this function directly. Instead, it is intended to be used in wrappers that set up state, thread_schedule, etc. for the specific optimization problem at hand. For examples with Expected Improvement (EI), see gpp_math:
+<a href="xref:namespaceoptimal__learning_1a50f40171d8c7e0497411b03f9342a7cb"><code>EvaluateEIAtPointList()</code></a> <a href="xref:namespaceoptimal__learning_1aff5d007560a4367af248b62bcd281074"><code>ComputeOptimalPointsToSampleViaMultistartGradientDescent()</code></a>
+or gpp_model_selection:
+<a href="xref:namespaceoptimal__learning_1a9b730a1859be11a40357bac636dda9bf"><code>EvaluateLogLikelihoodAtPointList()</code></a> <a href="xref:namespaceoptimal__learning_1af5d188733ad85d55c141422421917f09"><code>MultistartGradientDescentHyperparameterOptimization()</code></a> <code>MultistartNewtonHyperparameterOptimization()</code>
+problem_size refers to objective_state-&gt;GetProblemSize(), the number of dimensions in a &quot;point&quot; aka the number of variables being optimized. (This might be the spatial dimension for EI or the number of hyperparameters for log likelihood.)</p>
+<p>:optimizer</p>
+<p>object with the desired Optimize() functionality (e.g., do nothing for 'dumb' search, gradient descent, etc.) :objective_evaluator: reference to object that can compute the objective function, its gradient, and/or its hessian, depending on the needs of optimizer :optimizer_parameters: Optimizer::ParameterStruct object that describes the parameters for optimization (e.g., number of iterations, tolerances, scale factors, etc.) :domain: object specifying the domain to optimize over (see <a href="xref:gpp__domain_8hpp">gpp_domain.hpp</a>) :thread_schedule: struct instructing OpenMP on how to schedule threads; i.e., max_num_threads, schedule type, chunk_size :initial_guesses[problem_size][num_multistarts]: list of points at which to start optimization runs; all points must lie INSIDE the specified domain :num_multistarts: number of random points to use from initial guesses :objective_state_vector[thread_schedule.max_num_threads]: properly constructed/configured ObjectiveFunctionEvaluator::State objects, at least one per thread objective_state.GetCurrentPoint() will be used to obtain the initial guess :io_container[1]: object with best_objective_value_so_far and corresponding best_point properly initialized. See struct docs in <a href="xref:gpp__optimization_8hpp">gpp_optimization.hpp</a> for details. \output :objective_state_vector[thread_schedule.max_num_threads]: internal states of state objects may be modified :function_values[num_multistarts]: objective fcn value at the end of each optimization run, in the same order as initial_guesses. Can be used to check what each optimization run converged to. More commonly used only with <a class="xref" href="null-optimizer.html">NullOptimizer</a> to get a list of objective values at each point of initial_guesses. Never dereferenced if nullptr. :io_container[1]: object container new best_objective_value_so_far and corresponding best_point IF found_flag is true. Unchanged from input otherwise. See struct docs in <a href="xref:gpp__optimization_8hpp">gpp_optimization.hpp</a> for details. \raise if any of objective_state_vector-&gt;SetCurrentPoint(), optimizer.Optimize(), or objective_evaluator.ComputeObjectiveFunction() throws, the exception (or one of the exceptions in the event of multiple throws due to threading, usually the first temporally) will be saved and rethrown by this function. <code>io_container</code> will be in a valid state; <code>function_values</code> may not. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::MultistartOptimizer&lt;Optimizer_&gt;::MultistartOptimize(const Optimizer&amp;optimizer, const ObjectiveFunctionEvaluator&amp;objective_evaluator, const ParameterStruct&amp;optimizer_parameters, const DomainType&amp;domain, const ThreadSchedule&amp;thread_schedule, double const *restrict initial_guesses, int num_multistarts, typename ObjectiveFunctionEvaluator::StateType *objective_state_vector, double *restrict function_values, OptimizationIOContainer *restrict io_container)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MultistartOptimizer_1aea5884c0885f955dc290d2b0a73aeac5" data-uid="classoptimal__learning_1_1MultistartOptimizer_1aea5884c0885f955dc290d2b0a73aeac5">OL_DISALLOW_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MultistartOptimizer&lt;Optimizer_&gt;::OL_DISALLOW_COPY_AND_ASSIGN(MultistartOptimizer)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

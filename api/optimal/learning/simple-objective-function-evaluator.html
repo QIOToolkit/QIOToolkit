@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::SimpleObjectiveFunctionEvaluator
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::SimpleObjectiveFunctionEvaluator
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator">
+
+
+
+  <h1 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator" class="text-break">Class optimal_learning::SimpleObjectiveFunctionEvaluator
+</h1>
+  <div class="markdown level0 summary"><p>\rst Class to evaluate the function <code>f(x_1,...,x_{dim}) = -\sum_i (x_i - s_i)^2, i = 1..dim</code>. This is a simple quadratic form with maxima at <code>(s_1, ..., s_{dim})</code>. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::SimpleObjectiveFunctionEvaluator</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1ac02a3ee959a5e703671ede6aecc327a2" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1ac02a3ee959a5e703671ede6aecc327a2">SimpleObjectiveFunctionEvaluator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::SimpleObjectiveFunctionEvaluator::SimpleObjectiveFunctionEvaluator()=default</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a728358e79c347fef7b8dfc95459b4456" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a728358e79c347fef7b8dfc95459b4456">~SimpleObjectiveFunctionEvaluator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual optimal_learning::SimpleObjectiveFunctionEvaluator::~SimpleObjectiveFunctionEvaluator()=default</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1ae7ba5c789057ad5fd1a30330ffbaefbf" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1ae7ba5c789057ad5fd1a30330ffbaefbf">dim()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual int optimal_learning::SimpleObjectiveFunctionEvaluator::dim() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1abfebb38321e12587a44e243d0a1d1f30" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1abfebb38321e12587a44e243d0a1d1f30">GetOptimumValue()</h4>
+  <div class="markdown level1 summary"><p>\rst Helpful for testing so we know what the optimum is. This value should be the result of::
+GetOptimumPoint(point); state.SetCurrentPoint(point); optimum_value = ComputeObjectiveFunction(state);
+Then <code>optimum_value ==[ GetOptimumValue()</code>](xref:classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1abfebb38321e12587a44e243d0a1d1f30).
+the optimum value of the polynomial. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual double optimal_learning::SimpleObjectiveFunctionEvaluator::GetOptimumValue() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a18024769cbbeb52d1d7e75913e812cc6" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a18024769cbbeb52d1d7e75913e812cc6">GetOptimumPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Helpful for testing so we know where the optimum (value returned by GetOptimumValue) occurs.
+.. NOTE:: if the optimal point is not unique, this function may return one arbitrarily.
+\input :point[dim]: space to write the output OUTPUTS: :point[dim]: the point at which the polynomial obtains its optimum value \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::SimpleObjectiveFunctionEvaluator::GetOptimumPoint(double *restrict point) const noexcept OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a2efebf6d95c7b7243420e931e9b5ebf0" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a2efebf6d95c7b7243420e931e9b5ebf0">ComputeObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Compute the quadratic objective function: <code>f(x_1,...,x_{dim}) = -\sum_i (x_i - s_i)^2</code>.</p>
+<p>quadratic_dummy_state[1]</p>
+<p>ptr to a FULLY CONFIGURED StateType (e.g., <a class="xref" href="simple-objective-function-state.html">SimpleObjectiveFunctionState</a>) \output quadratic_dummy_state[1]: ptr to a FULLY CONFIGURED StateType; only temporary state may be mutated</p>
+<p>the value of the objective at <code>quadratic_dummy_state.GetCurrentPoint()</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual double optimal_learning::SimpleObjectiveFunctionEvaluator::ComputeObjectiveFunction(StateType *quadratic_dummy_state) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a321980fe48bfdde9b3f11e559c3c078b" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a321980fe48bfdde9b3f11e559c3c078b">ComputeGradObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Compute the gradient of the objective function: <code>f'(x_1,...,x_{dim})_i = -2 * (x_i - s_i)</code>.</p>
+<p>quadratic_dummy_state[1]</p>
+<p>ptr to a FULLY CONFIGURED StateType (e.g., <a class="xref" href="simple-objective-function-state.html">SimpleObjectiveFunctionState</a>) \output quadratic_dummy_state[1]: ptr to a FULLY CONFIGURED StateType; only temporary state may be mutated grad_polynomial[dim]: gradient of the objective \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::SimpleObjectiveFunctionEvaluator::ComputeGradObjectiveFunction(StateType *quadratic_dummy_state, double *restrict grad_polynomial) const OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a3b5566ee331ea85dbf90582943c5e80c" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a3b5566ee331ea85dbf90582943c5e80c">ComputeHessianObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Compute the gradient of the objective function: <code>f''(x_1,...,x_{dim})_{i,j} = -2 * \delta_{i,j}</code>.</p>
+<p>quadratic_dummy_state[1]</p>
+<p>ptr to a FULLY CONFIGURED StateType (e.g., <a class="xref" href="simple-objective-function-state.html">SimpleObjectiveFunctionState</a>) \output quadratic_dummy_state[1]: ptr to a FULLY CONFIGURED StateType; only temporary state may be mutated hessian_polynomial[dim][dim]: hessian of the objective \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::SimpleObjectiveFunctionEvaluator::ComputeHessianObjectiveFunction(StateType *quadratic_dummy_state, double *restrict hessian_polynomial) const OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a4379dae047f7459c4499aac512e8cecc" data-uid="classoptimal__learning_1_1SimpleObjectiveFunctionEvaluator_1a4379dae047f7459c4499aac512e8cecc">OL_DISALLOW_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::SimpleObjectiveFunctionEvaluator::OL_DISALLOW_COPY_AND_ASSIGN(SimpleObjectiveFunctionEvaluator)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

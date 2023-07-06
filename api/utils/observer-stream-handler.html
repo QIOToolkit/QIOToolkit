@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class utils::ObserverStreamHandler
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class utils::ObserverStreamHandler
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classutils_1_1ObserverStreamHandler">
+
+
+
+  <h1 id="classutils_1_1ObserverStreamHandler" data-uid="classutils_1_1ObserverStreamHandler" class="text-break">Class utils::ObserverStreamHandler
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="observer-stream-handler.html">ObserverStreamHandler</a>.</p>
+<p>This is a stream handler for skipping to load corresponding member, used for configure passes when only part of information is needed.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="base-stream-handler.html">utils::BaseStreamHandler</a></div>
+    <div class="level1"><span class="xref">utils::ObserverStreamHandler</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a48c6ca400a1757b1b9018f9f8c592d65">complete</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a567a383b58415ce1523db7ee9f09a6b8">fail_at_missing_inputs</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a5aa112901e4cbc590e22b2fd572fc69e">missing_inputs</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a82b95b36248cd6287f31cbc2458e7caa">failed</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a9d7d0bead923de140938b242c98a8a3d">reset</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a9eb914c45604e13ebf1b90df95247219">error_message</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1ad8fce01eb5740d0b394d03668fba5e54">error_code</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1ae9818cf45bc42bba859aa0ec2605f66a">BaseStreamHandler</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1afde6804bce98b485a0dda60fa5d33a80">fail</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classutils_1_1ObserverStreamHandler_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1a7550451dc483e57e0c4a394a76deb04e" data-uid="classutils_1_1ObserverStreamHandler_1a7550451dc483e57e0c4a394a76deb04e">ObserverStreamHandler()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::ObserverStreamHandler&lt;T&gt;::ObserverStreamHandler()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1ac748b906224131924b2367f2637ddedd" data-uid="classutils_1_1ObserverStreamHandler_1ac748b906224131924b2367f2637ddedd">Key()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::ObserverStreamHandler&lt;T&gt;::Key(const std::string&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1a216b70b043fdcd8b2acc0eb54c824606" data-uid="classutils_1_1ObserverStreamHandler_1a216b70b043fdcd8b2acc0eb54c824606">Value()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::ObserverStreamHandler&lt;T&gt;::Value(SignalType, T&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1aef7a3194b89281070922fff7c7b8ad79" data-uid="classutils_1_1ObserverStreamHandler_1aef7a3194b89281070922fff7c7b8ad79">StartObject()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::ObserverStreamHandler&lt;T&gt;::StartObject()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1a7e85cbb2373b385c14133b1f6d7aebe9" data-uid="classutils_1_1ObserverStreamHandler_1a7e85cbb2373b385c14133b1f6d7aebe9">EndObject()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::ObserverStreamHandler&lt;T&gt;::EndObject(size_t, T&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1af7327285714b3b610bec5e4308d7b2c4" data-uid="classutils_1_1ObserverStreamHandler_1af7327285714b3b610bec5e4308d7b2c4">StartArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::ObserverStreamHandler&lt;T&gt;::StartArray()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1af27bbd5ff2326d8f9a51d5ed4c655825" data-uid="classutils_1_1ObserverStreamHandler_1af27bbd5ff2326d8f9a51d5ed4c655825">EndArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::ObserverStreamHandler&lt;T&gt;::EndArray(size_t, T&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1a01dd02afe4e3d4923172fe841697a1a8" data-uid="classutils_1_1ObserverStreamHandler_1a01dd02afe4e3d4923172fe841697a1a8">reset()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::ObserverStreamHandler&lt;T&gt;::reset(T&amp;val)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1a74fb2c885b9f4b69b87555f87deef55a" data-uid="classutils_1_1ObserverStreamHandler_1a74fb2c885b9f4b69b87555f87deef55a">started()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::ObserverStreamHandler&lt;T&gt;::started() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1ObserverStreamHandler_1a211b11d846c5fc06d99d874779b6a04d" data-uid="classutils_1_1ObserverStreamHandler_1a211b11d846c5fc06d99d874779b6a04d">state_check()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::ObserverStreamHandler&lt;T&gt;::state_check()</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

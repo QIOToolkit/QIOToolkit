@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Model Development | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Model Development | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.dev.model">
+<h1 id="model-development">Model Development</h1>
+
+<p>A new model is created by inheriting from the <code>markov::Model</code> class.
+This base class defines the virtual pure methods which the new model
+must implement:</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get_identifier()</code></td>
+<td>string identifying the model -- this will be the <code>type='...'</code> value in the input.</td>
+</tr>
+<tr>
+<td><code>get_version()</code></td>
+<td>string identifying the version -- this will be the <code>version='...'</code> value in the input.</td>
+</tr>
+<tr>
+<td><code>configure(...)</code></td>
+<td>method telling qiotoolkit how to read model configuration from input.</td>
+</tr>
+<tr>
+<td><code>calculate_cost(state)</code></td>
+<td>Implements the (parametrized) cost function</td>
+</tr>
+<tr>
+<td><code>calculate_cost_difference(state, transition)</code></td>
+<td>Calculates how much the cost will change if transition is applied.</td>
+</tr>
+<tr>
+<td><code>get_random_state(rng)</code></td>
+<td>Creates a new random starting <code>state</code></td>
+</tr>
+<tr>
+<td><code>get_random_transition(state, rng)</code></td>
+<td>Proposes a random change to the <code>state</code></td>
+</tr>
+<tr>
+<td><code>apply_transition(transition, state)</code></td>
+<td>Modifies the <code>state</code> as dictated by the <code>transition</code></td>
+</tr>
+</tbody>
+</table>
+<p>These methods entail the essence of the model: They define the state space and
+how one can move within it, as well as the association of a cost with each
+sate. The dynamics of whether to accept or reject a transition are left to the
+user.</p>
+<h2 id="self-consistency">Self consistency</h2>
+<p>The implementation of <code>calculate_cost_difference()</code> and <code>calculate_cost()</code> must
+be consistent. That is,</p>
+<pre><code class="lang-math">\text{costdiff}(\text{before}, \text{transition}) \equiv \text{cost}(\text{transition}(\text{before})) - \text{cost}(\text{before})
+</code></pre>
+<p>You can use the <a href="../setup/cmake.html">SelfConsistency Build</a> to verify this holds.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>calculate_cost_difference()</code> <strong>could</strong> be based on a call to
+<code>calculate_cost()</code> with a modified state, but this is less efficient for
+models where individual changes affect only a small number of terms.</p>
+</div>
+<h2 id="state-and-transition">State and Transition</h2>
+<p>In some situations it is sufficient to use a base type to represent the transition
+(or even the state); in others you need to define your own class to hold this
+information. You may extend <code>markov::State</code> and <code>markov::Transition</code>, respectively,
+to get the right interfaces. Whichever route you opt for, you need to <strong>template</strong>
+the base class of your new model with this two pieces of information:</p>
+<pre><code class="lang-cpp">class MyModel : public ::markov::Model&lt;MyState, MyTransition&gt; {
+ public:
+  using State_T = MyState;
+  using Transition_T = MyTransition;
+  ...
+};
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>I find it convenient to typedef these two to <code>State_T</code> and <code>Transition_T</code> to
+homogenize the interfaces which need to be overloaded.</p>
+</div>
+<h2 id="graph-model">Graph Model</h2>
+<p>The special base class <code>::model::GraphModel</code> makes use of the
+<a href="../../theory/graph-cost.html">Graph-Cost</a> correspondency and provides
+the appropriate interfaces to access the graph structure. If your cost function
+has the appropriate shape, this can simplify writing the cost function logic
+substantially.</p>
+<h2 id="example">Example</h2>
+<p>The following is an example implementation of the above interfaces for a soft-spin
+Model. It can be found in the <code>cpp/examples/</code> directoy of the qiotoolkit codebase.</p>
+<pre><code class="lang-cpp" name="Soft-Spin model">// Copyright (c) Microsoft. All Rights Reserved.
+#pragma once
+
+#include &quot;utils/config.h&quot;
+#include &quot;markov/state.h&quot;
+#include &quot;markov/transition.h&quot;
+#include &quot;model/graph_model.h&quot;
+
+namespace examples
+{
+class SoftSpinState : public ::markov::State
+{
+ public:
+  std::vector&lt;double&gt; spin;
+  utils::Structure render() const override { return spin; }
+  utils::Structure get_status() const override { return spin; }
+  std::string get_class_name() const override { return &quot;SoftSpinState&quot;; }
+  static size_t memory_estimate(size_t N)
+  {
+    return sizeof(SoftSpinState) +
+           utils::vector_values_memory_estimate&lt;double&gt;(N);
+  }
+
+  static size_t state_only_memory_estimate(size_t N)
+  {
+    return memory_estimate(N);
+  }
+};
+
+class SoftSpinTransition : public ::markov::Transition
+{
+ public:
+  SoftSpinTransition() : spin_id(0), new_value(0) {}
+  int spin_id;
+  double new_value;
+  bool operator&lt;(const SoftSpinTransition&amp; trans) const
+  {
+    if (spin_id == trans.spin_id)
+    {
+      return new_value &lt; trans.new_value;
+    }
+    else
+    {
+      return spin_id &lt; trans.spin_id;
+    }
+  }
+};
+
+class SoftSpin : public ::model::GraphModel&lt;SoftSpinState, SoftSpinTransition&gt;
+{
+ public:
+  using State_T = SoftSpinState;
+  using Transition_T = SoftSpinTransition;
+  using Graph = ::model::GraphModel&lt;State_T, Transition_T&gt;;
+
+  std::string get_identifier() const override { return &quot;softspin&quot;; }
+  std::string get_version() const override { return &quot;0.1&quot;; }
+
+  void configure(const utils::Json&amp; json) override { Graph::configure(json); }
+
+  void configure(Configuration_T&amp; configuration)
+  {
+    Graph::configure(configuration);
+  }
+
+  double calculate_cost(const State_T&amp; state) const override
+  {
+    double cost = 0;
+    for (auto e : edges())
+    {
+      double term = e.cost();
+      for (auto spin_id : e.node_ids())
+      {
+        term *= state.spin[spin_id];
+      }
+      cost += term;
+    }
+    return cost;
+  }
+
+  double calculate_cost_difference(
+      const State_T&amp; state, const Transition_T&amp; transition) const override
+  {
+    double diff = 0;
+    for (auto edge_id : node(transition.spin_id).edge_ids())
+    {
+      const auto&amp; e = edge(edge_id);
+      double term_before = e.cost();
+      double term_after = e.cost();
+      for (auto spin_id : e.node_ids())
+      {
+        term_before *= state.spin[spin_id];
+        if (spin_id == transition.spin_id)
+        {
+          term_after *= transition.new_value;
+        }
+        else
+        {
+          term_after *= state.spin[spin_id];
+        }
+      }
+      diff += term_after - term_before;
+    }
+    return diff;
+  }
+
+  State_T get_random_state(utils::RandomGenerator&amp; rng) const override
+  {
+    State_T state;
+    state.spin.resize(nodes().size());
+    for (size_t i = 0; i &lt; nodes().size(); i++)
+    {
+      state.spin[i] = rng.uniform() * 2.0 - 1;
+    }
+    return state;
+  }
+
+  Transition_T get_random_transition(const State_T&amp;,
+                                     utils::RandomGenerator&amp; rng) const override
+  {
+    Transition_T transition;
+    transition.spin_id =
+        (size_t)floor(rng.uniform() * static_cast&lt;double&gt;(nodes().size()));
+    transition.new_value = rng.uniform() * 2.0 - 1;
+    return transition;
+  }
+
+  void apply_transition(const Transition_T&amp; transition,
+                        State_T&amp; state) const override
+  {
+    state.spin[transition.spin_id] = transition.new_value;
+  }
+
+  size_t state_memory_estimate() const override
+  {
+    return State_T::memory_estimate(nodes().size());
+  }
+
+  size_t state_only_memory_estimate() const override
+  {
+    return State_T::state_only_memory_estimate(nodes().size());
+  }
+};
+
+}  // namespace examples
+
+template &lt;&gt;
+struct std::hash&lt;examples::SoftSpinTransition&gt;
+{
+  std::size_t operator()(
+      const examples::SoftSpinTransition&amp; trans) const noexcept
+  {
+    return utils::get_combined_hash(trans.spin_id, trans.new_value);
+  }
+};
+</code></pre></article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

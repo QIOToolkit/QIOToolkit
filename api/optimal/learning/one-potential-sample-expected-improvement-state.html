@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct optimal_learning::OnePotentialSampleExpectedImprovementState
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct optimal_learning::OnePotentialSampleExpectedImprovementState
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState">
+
+
+
+  <h1 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState" class="text-break">Struct optimal_learning::OnePotentialSampleExpectedImprovementState
+</h1>
+  <div class="markdown level0 summary"><p>\rst State object for <a class="xref" href="one-potential-sample-expected-improvement-evaluator.html">OnePotentialSampleExpectedImprovementEvaluator</a>. This tracks the ONE <code>point_to_sample</code> being evaluated via expected improvement.
+This is just a special case of <a class="xref" href="expected-improvement-state.html">ExpectedImprovementState</a>; see those class docs for more details. See general comments on State structs in <a href="xref:gpp__common_8hpp"><code>gpp_common.hpp</code></a>'s header docs. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a360fafae0a3d2214d4bc98cf1a039247" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a360fafae0a3d2214d4bc98cf1a039247">OnePotentialSampleExpectedImprovementState()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs an <a class="xref" href="one-potential-sample-expected-improvement-state.html">OnePotentialSampleExpectedImprovementState</a> object for the purpose of computing EI (and its gradient) over the specified point to sample. This establishes properly sized/initialized temporaries for EI computation, including dependent state from the associated Gaussian Process (which arrives as part of the <code>ei_evaluator</code>).
+.. WARNING:: This object is invalidated if the associated ei_evaluator is mutated. <a class="xref" href="one-potential-sample-expected-improvement-state.html#structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a91e1d82f0b34a3d9af6e4c6c517bd32a">SetupState()</a> should be called to reset.
+.. WARNING:: Using this object to compute gradients when <code>configure_for_gradients</code> := false results in UNDEFINED BEHAVIOR.</p>
+<p>:ei_evaluator</p>
+<p>expected improvement evaluator object that specifies the parameters &amp; GP for EI evaluation :point_to_sample[dim]: point at which to evaluate EI and/or its gradient to check their value in future experiments (i.e., test point for GP predictions) :configure_for_gradients: true if this object will be used to compute gradients, false otherwise \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::OnePotentialSampleExpectedImprovementState::OnePotentialSampleExpectedImprovementState(const EvaluatorType&amp;ei_evaluator, double const *restrict point_to_sample_in, bool configure_for_gradients)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1ac2fe651570ac92c5a6fca6e1c4a89672" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1ac2fe651570ac92c5a6fca6e1c4a89672">OnePotentialSampleExpectedImprovementState()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructor wrapper to match the signature of the ctor for ExpectedImprovementState(). \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::OnePotentialSampleExpectedImprovementState::OnePotentialSampleExpectedImprovementState(const EvaluatorType&amp;ei_evaluator, double const *restrict points_to_sample, double const *restrict OL_UNUSED(points_being_sampled), int OL_UNUSED(num_to_sample_in), int OL_UNUSED(num_being_sampled_in), bool configure_for_gradients, NormalRNGInterface *OL_UNUSED(normal_rng_in))</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a534a06fe4564c74ada0b75f963cdcdcd" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a534a06fe4564c74ada0b75f963cdcdcd">OnePotentialSampleExpectedImprovementState()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::OnePotentialSampleExpectedImprovementState::OnePotentialSampleExpectedImprovementState(OnePotentialSampleExpectedImprovementState&amp;&amp;other)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a07022fea0a1a3f04472e5f0d724d9cd3" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a07022fea0a1a3f04472e5f0d724d9cd3">GetProblemSize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::OnePotentialSampleExpectedImprovementState::GetProblemSize() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1ac1702b47d038c542ad73ee92c5fab853" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1ac1702b47d038c542ad73ee92c5fab853">GetCurrentPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Get <code>point_to_sample</code>: the potential future sample whose EI (and/or gradients) is being evaluated
+\output :point_to_sample[dim]: potential sample whose EI is being evaluted \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::OnePotentialSampleExpectedImprovementState::GetCurrentPoint(double *restrict point_to_sample_out) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1ac53accecc0373afdb2465af482d72dac" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1ac53accecc0373afdb2465af482d72dac">SetCurrentPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Change the potential sample whose EI (and/or gradient) is being evaluated. Update the state's derived quantities to be consistent with the new point.</p>
+<p>:ei_evaluator</p>
+<p>expected improvement evaluator object that specifies the parameters &amp; GP for EI evaluation :point_to_sample[dim]: potential future sample whose EI (and/or gradients) is being evaluated \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::OnePotentialSampleExpectedImprovementState::SetCurrentPoint(const EvaluatorType&amp;ei_evaluator, double const *restrict point_to_sample_in) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a91e1d82f0b34a3d9af6e4c6c517bd32a" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a91e1d82f0b34a3d9af6e4c6c517bd32a">SetupState()</h4>
+  <div class="markdown level1 summary"><p>\rst Configures this state object with a new <code>point_to_sample</code>, the location of the potential sample whose EI is to be evaluated. Ensures all state variables &amp; temporaries are properly sized. Properly sets all dependent state variables (e.g., <a class="xref" href="gaussian-process.html">GaussianProcess</a>'s state) for EI evaluation.
+.. WARNING:: This object's state is INVALIDATED if the ei_evaluator (including the <a class="xref" href="gaussian-process.html">GaussianProcess</a> it depends on) used in SetupState is mutated! <a class="xref" href="one-potential-sample-expected-improvement-state.html#structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a91e1d82f0b34a3d9af6e4c6c517bd32a">SetupState()</a> should be called again in such a situation.</p>
+<p>:ei_evaluator</p>
+<p>expected improvement evaluator object that specifies the parameters &amp; GP for EI evaluation :point_to_sample[dim]: potential future sample whose EI (and/or gradients) is being evaluated \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::OnePotentialSampleExpectedImprovementState::SetupState(const EvaluatorType&amp;ei_evaluator, double const *restrict point_to_sample_in) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a96ba0a073d87443a1727e9f866516f23" data-uid="structoptimal__learning_1_1OnePotentialSampleExpectedImprovementState_1a96ba0a073d87443a1727e9f866516f23">OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::OnePotentialSampleExpectedImprovementState::OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN(OnePotentialSampleExpectedImprovementState)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

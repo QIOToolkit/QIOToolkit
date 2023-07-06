@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::KnowledgeGradientMCMCEvaluator
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::KnowledgeGradientMCMCEvaluator
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator">
+
+
+
+  <h1 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator" class="text-break">Class optimal_learning::KnowledgeGradientMCMCEvaluator
+</h1>
+  <div class="markdown level0 summary"><p>\rst A class to encapsulate the computation of knowledge gradient and its spatial gradient. This class handles the general KG computation case using monte carlo integration; it can support q,p-KG optimization. It is designed to work with any <a class="xref" href="gaussian-process.html">GaussianProcess</a>. Additionally, this class has no state and within the context of KG optimization, it is meant to be accessed by const reference only.
+The random numbers needed for KG computation will be passed as parameters instead of contained as members to make multithreading more straightforward. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::KnowledgeGradientMCMCEvaluator</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a78295e8708adbd947585b999eb5a7263" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a78295e8708adbd947585b999eb5a7263">KnowledgeGradientMCMCEvaluator()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="knowledge-gradient-evaluator.html">KnowledgeGradientEvaluator</a> object. All inputs are required; no default constructor nor copy/assignment are allowed.</p>
+<p>:gaussian_process</p>
+<p><a class="xref" href="gaussian-process.html">GaussianProcess</a> object (holds <code>points_sampled</code>, <code>values</code>, <code>noise_variance</code>, derived quantities) that describes the underlying GP :discrete_pts[dim][num_pts]: the set of points to approximate the KG factor :num_pts: number of points in discrete_pts :num_mc_iterations: number of monte carlo iterations :best_so_far: best (minimum) objective function value (in <code>points_sampled_value</code>) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::KnowledgeGradientMCMCEvaluator(const GaussianProcessMCMC&amp;gaussian_process_mcmc, const int num_fidelity, double const *discrete_pts_lst, int num_pts, int num_mc_iterations, const DomainType&amp;domain, const GradientDescentParameters&amp;optimizer_parameters, double const *best_so_far, std::vector&lt;typename KnowledgeGradientState&lt;DomainType&gt;::EvaluatorType&gt;*evaluator_vector)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1ac43f0cdab1417a36f6393febe7e1c5e3" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1ac43f0cdab1417a36f6393febe7e1c5e3">dim()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::dim() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1abc74a42ffff2577374f13ae0cbb2a367" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1abc74a42ffff2577374f13ae0cbb2a367">num_fidelity()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::num_fidelity() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1af7f9c1eedc8becd2c9acbaf2ae970186" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1af7f9c1eedc8becd2c9acbaf2ae970186">number_discrete_pts()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::number_discrete_pts() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1aeca1028353ecb5f742376ecd4d841abc" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1aeca1028353ecb5f742376ecd4d841abc">num_mcmc()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::num_mcmc() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1ab12edea1fbfc9ee5b87eac147f5dc699" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1ab12edea1fbfc9ee5b87eac147f5dc699">knowledge_gradient_evaluator_list()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::vector&lt;KnowledgeGradientEvaluator&lt;DomainType&gt;&gt;* optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::knowledge_gradient_evaluator_list() const noexcept OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a889633ab29101b1f1517e0c9af527181" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a889633ab29101b1f1517e0c9af527181">discrete_points_list()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::vector&lt;double&gt;optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::discrete_points_list(double const *discrete_pts_lst, int num_pts) const noexcept OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1af2715d9d7d1a032dfc94465df059d8e1" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1af2715d9d7d1a032dfc94465df059d8e1">best_so_far_list()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::vector&lt;double&gt;optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::best_so_far_list(double const *best_so_far) const noexcept OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a7702d0400b90f58ff07dbb2295626208" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a7702d0400b90f58ff07dbb2295626208">ComputeCost()</h4>
+  <div class="markdown level1 summary"><p>\rst compute the cost. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::ComputeCost(StateType *kg_state) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a5357e495cd85c14dbd29cb8a4f5a33ad" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a5357e495cd85c14dbd29cb8a4f5a33ad">ComputeGradCost()</h4>
+  <div class="markdown level1 summary"><p>\rst compute the gradient of the cost. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::ComputeGradCost(StateType *kg_state, double *restrict grad_cost) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a005456d18bf06dba3fb28c872fa0ff22" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a005456d18bf06dba3fb28c872fa0ff22">ComputeObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for <a class="xref" href="knowledge-gradient-mcmcevaluator.html#classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a0173f36a9a901d2255fcf064482e872a">ComputeKnowledgeGradient()</a>; see that function for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::ComputeObjectiveFunction(StateType *kg_state) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1ad3ae3e6805bd25eb99755123809988bd" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1ad3ae3e6805bd25eb99755123809988bd">ComputeGradObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for <a class="xref" href="knowledge-gradient-mcmcevaluator.html#classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1aae4935fdf9ba7ff64c7f088375d0a019">ComputeGradKnowledgeGradient()</a>; see that function for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::ComputeGradObjectiveFunction(StateType *kg_state, double *restrict grad_KG) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a0173f36a9a901d2255fcf064482e872a" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a0173f36a9a901d2255fcf064482e872a">ComputeKnowledgeGradient()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the knowledge gradient</p>
+<p>:kg_state[1]</p>
+<p>properly configured state object \output :kg_state[1]: state with temporary storage modified; <code>normal_rng</code> modified</p>
+<p>the knowledge gradient from sampling <code>points_to_sample</code> with <code>points_being_sampled</code> concurrent experiments \endrst</p>
+<p>\rst Compute Knowledge Gradient This version requires the discretization of A (the feasibe domain). The discretization usually is: some set + points previous sampled + points being sampled + points to sample \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::ComputeKnowledgeGradient(StateType *kg_state) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1aae4935fdf9ba7ff64c7f088375d0a019" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1aae4935fdf9ba7ff64c7f088375d0a019">ComputeGradKnowledgeGradient()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the (partial) derivatives of the knowledge gradient with respect to each point of <code>points_to_sample</code>. As with <a class="xref" href="knowledge-gradient-mcmcevaluator.html#classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a0173f36a9a901d2255fcf064482e872a">ComputeKnowledgeGradient()</a>, this computation accounts for the effect of <code>points_being_sampled</code> concurrent experiments.
+<code>points_to_sample</code> is the &quot;q&quot; and <code>points_being_sampled</code> is the &quot;p&quot; in q,p-KG.</p>
+<p>:kg_state[1]</p>
+<p>properly configured state object \output :kg_state[1]: state with temporary storage modified; <code>normal_rng</code> modified :grad_KG[dim][num_to_sample]: gradient of KG, <code>\pderiv{KG(Xq \cup Xp)}{Xq_{d,i}}</code> where <code>Xq</code> is <code>points_to_sample</code> and <code>Xp</code> is <code>points_being_sampled</code> (grad KG from sampling <code>points_to_sample</code> with <code>points_being_sampled</code> concurrent experiments wrt each dimension of the points in <code>points_to_sample</code>) \endrst</p>
+<p>\rst Computes gradient of KG (see <a class="xref" href="knowledge-gradient-evaluator.html#classoptimal__learning_1_1KnowledgeGradientEvaluator_1a176c681f8fcc1fa654753c4bac561b32">KnowledgeGradientEvaluator::ComputeGradKnowledgeGradient</a>) wrt points_to_sample (stored in <code>union_of_points[0:num_to_sample]</code>).
+Mechanism is similar to the computation of KG, where points' contributions to the gradient are thrown out of their corresponding <code>improvement &lt;= 0.0</code>.
+Thus <code>\nabla(\mu)</code> only contributes when the <code>winner</code> (point w/best improvement this iteration) is the current point. That is, the gradient of <code>\mu</code> at <code>x_i</code> wrt <code>x_j</code> is 0 unless <code>i == j</code> (and only this result is stored in <code>kg_state-&gt;grad_mu</code>). The interaction with <code>kg_state-&gt;grad_chol_decomp</code> is harder to know a priori (like with <code>grad_mu</code>) and has a more complex structure (rank 3 tensor), so the derivative wrt <code>x_j</code> is computed fully, and the relevant submatrix (indexed by the current <code>winner</code>) is accessed each iteration.
+.. Note:: comments here are copied to _compute_grad_knowledge_gradient_monte_carlo() in python_version/knowledge_gradient.py \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::ComputeGradKnowledgeGradient(StateType *kg_state, double *restrict grad_KG) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a5f014cb4439906774e3cc8602b029b44" data-uid="classoptimal__learning_1_1KnowledgeGradientMCMCEvaluator_1a5f014cb4439906774e3cc8602b029b44">OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::KnowledgeGradientMCMCEvaluator&lt;DomainType&gt;::OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN(KnowledgeGradientMCMCEvaluator)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

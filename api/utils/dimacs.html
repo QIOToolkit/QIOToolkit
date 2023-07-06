@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class utils::Dimacs
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class utils::Dimacs
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classutils_1_1Dimacs">
+
+
+
+  <h1 id="classutils_1_1Dimacs" data-uid="classutils_1_1Dimacs" class="text-break">Class utils::Dimacs
+</h1>
+  <div class="markdown level0 summary"><p>Handler for the DIMACS format.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">utils::Dimacs</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classutils_1_1Dimacs_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classutils_1_1Dimacs_1a63f46611b7d00afb5dc53fa9f8d79013" data-uid="classutils_1_1Dimacs_1a63f46611b7d00afb5dc53fa9f8d79013">Dimacs()</h4>
+  <div class="markdown level1 summary"><p>Constructor: Create an empty <a class="xref" href="dimacs.html">Dimacs</a> handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Dimacs::Dimacs()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classutils_1_1Dimacs_1ad05d7b736f5991639d1a6029655c4721" data-uid="classutils_1_1Dimacs_1ad05d7b736f5991639d1a6029655c4721">read()</h4>
+  <div class="markdown level1 summary"><p>Parse a string in dimacs format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::read(const std::string&amp;content)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1aec3840db32069a7547fa31477589e052" data-uid="classutils_1_1Dimacs_1aec3840db32069a7547fa31477589e052">read_file()</h4>
+  <div class="markdown level1 summary"><p>Read the contents from <code>filename</code> and parse them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::read_file(const std::string&amp;filename)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a4428ab3e1176072705739bc9e0cd5fb2" data-uid="classutils_1_1Dimacs_1a4428ab3e1176072705739bc9e0cd5fb2">get_type()</h4>
+  <div class="markdown level1 summary"><p>Get the type of the parsed problem ('cnf' or 'wcnf') (or empty string if nothing was parsed).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string utils::Dimacs::get_type() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1aab7b3cf996b92e9da40f1b13c65a9664" data-uid="classutils_1_1Dimacs_1aab7b3cf996b92e9da40f1b13c65a9664">get_nvar()</h4>
+  <div class="markdown level1 summary"><p>Get the number of variables in the problem.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t utils::Dimacs::get_nvar() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a763d8fe96d105d37a5420dd8b8d2f802" data-uid="classutils_1_1Dimacs_1a763d8fe96d105d37a5420dd8b8d2f802">get_ncl()</h4>
+  <div class="markdown level1 summary"><p>Get the number of clauses in the problem.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t utils::Dimacs::get_ncl() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a5221a3d776d6d8b99ed1cf4f3723ccba" data-uid="classutils_1_1Dimacs_1a5221a3d776d6d8b99ed1cf4f3723ccba">get_top()</h4>
+  <div class="markdown level1 summary"><p>Get the value specified as top (minimum weight for a clause to be 'hard') in the input (return 0 if not specified).</p>
+<p>[!NOTE]: Only type type='wcnf<code>allows</code>top as an optional 5th element in the problem description line (starting with a 'p).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double utils::Dimacs::get_top() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a6bf931089e7ef2bb33e697984e0f2d6e" data-uid="classutils_1_1Dimacs_1a6bf931089e7ef2bb33e697984e0f2d6e">get_variables()</h4>
+  <div class="markdown level1 summary"><p>Get the list of variables actually encountered in the description. These are all in their positive (non-negated) form, but they don't need to form a contiguous set of numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;int&gt;&amp;utils::Dimacs::get_variables() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1af9243de1658d1bdc3100634ed7eca9c3" data-uid="classutils_1_1Dimacs_1af9243de1658d1bdc3100634ed7eca9c3">get_clauses()</h4>
+  <div class="markdown level1 summary"><p>Get the list of clauses parsed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;Dimacs::Clause&gt;&amp;utils::Dimacs::get_clauses() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1aea2d80ef1472ed22955b734d0a269018" data-uid="classutils_1_1Dimacs_1aea2d80ef1472ed22955b734d0a269018">clear()</h4>
+  <div class="markdown level1 summary"><p>Return the <a class="xref" href="dimacs.html">Dimacs</a> parser to its initial state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::clear()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a2b60d101da0cdbd98e64c12571586ccb" data-uid="classutils_1_1Dimacs_1a2b60d101da0cdbd98e64c12571586ccb">parse()</h4>
+  <div class="markdown level1 summary"><p>Parse the string pointed to by <code>content_</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::parse()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a9c9cb2b051e48d85d4ddbcd37cf9962a" data-uid="classutils_1_1Dimacs_1a9c9cb2b051e48d85d4ddbcd37cf9962a">ignore_line()</h4>
+  <div class="markdown level1 summary"><p>Ignore a full line from the current position <code>p_</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::ignore_line()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a3162583c1a9760d5049b1efd8691cba1" data-uid="classutils_1_1Dimacs_1a3162583c1a9760d5049b1efd8691cba1">parse_problem()</h4>
+  <div class="markdown level1 summary"><p>Parse a problem description line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::parse_problem()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a705809d9e75f9bed3780880da06102ea" data-uid="classutils_1_1Dimacs_1a705809d9e75f9bed3780880da06102ea">parse_clause()</h4>
+  <div class="markdown level1 summary"><p>Parse a clause (terminated by 0)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::parse_clause()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a72133b17105fe93999cd4af2f949c14e" data-uid="classutils_1_1Dimacs_1a72133b17105fe93999cd4af2f949c14e">expect()</h4>
+  <div class="markdown level1 summary"><p>Check that the next characters are equivalent to <code>s</code> and advance the position <code>p_</code> past them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::expect(const std::string&amp;s)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a66c16fa673c512e4fee223a410fce420" data-uid="classutils_1_1Dimacs_1a66c16fa673c512e4fee223a410fce420">to_next_ws()</h4>
+  <div class="markdown level1 summary"><p>Count the number of characters to the next whitespace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t utils::Dimacs::to_next_ws()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a7abfb0ff32c8758866c2c17a95adfe30" data-uid="classutils_1_1Dimacs_1a7abfb0ff32c8758866c2c17a95adfe30">read_string()</h4>
+  <div class="markdown level1 summary"><p>Read the set of characters to the next whitespace and store them in target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::read_string(std::string *target)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a4793752d523b9bc330d533b3eeab96e4" data-uid="classutils_1_1Dimacs_1a4793752d523b9bc330d533b3eeab96e4">read_number()</h4>
+  <div class="markdown level1 summary"><p>Parse the characters up to the next whitespace as an integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::read_number(int *target)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1aafe2ffdf74a999596cf609d035a04e14" data-uid="classutils_1_1Dimacs_1aafe2ffdf74a999596cf609d035a04e14">read_number()</h4>
+  <div class="markdown level1 summary"><p>Parse the characters up to the next whitespace as a double.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::read_number(double *target)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1a47f4d2d270189119f008c8de3ee7e3ab" data-uid="classutils_1_1Dimacs_1a47f4d2d270189119f008c8de3ee7e3ab">read_positive_number()</h4>
+  <div class="markdown level1 summary"><p>Parse the characters up to the next whitespace as an integer and ensure that the number is greater than 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::read_positive_number(uint32_t *target)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1ab4f9e03aa0d1999f9e819d928ff0565b" data-uid="classutils_1_1Dimacs_1ab4f9e03aa0d1999f9e819d928ff0565b">eat_whitespace()</h4>
+  <div class="markdown level1 summary"><p>Ignore all whitespace from the current position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Dimacs::eat_whitespace()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1aacb05cd674e63cb9d1c70d277536de1b" data-uid="classutils_1_1Dimacs_1aacb05cd674e63cb9d1c70d277536de1b">on_line()</h4>
+  <div class="markdown level1 summary"><p>Return a string describing the current line being parsed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string utils::Dimacs::on_line() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Dimacs_1ad1cb7404ca1fa06e0c035211634db164" data-uid="classutils_1_1Dimacs_1ad1cb7404ca1fa06e0c035211634db164">at_position()</h4>
+  <div class="markdown level1 summary"><p>Return a string describing the current line and column (adding offset to the current column). [!NOTE] This does not fix the line if col+offset is on a different line; it is meant solely to get correct positioning after a number has been read successfully but does not meet conditions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string utils::Dimacs::at_position(int offset=0) const</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Configuration | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Configuration | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.dev.configuration">
+<h1 id="configuration">Configuration</h1>
+
+<p>qiotoolkit includes boiler plate to initialize C++ objects from json. For this,
+the class should be derived from <code>utils::Component</code> and override the</p>
+<pre><code class="lang-cpp">  virtual void configure(const utils::Json&amp; json) {...}
+</code></pre>
+<p>method inherited from the base class.</p>
+<h2 id="required-parameters">Required Parameters</h2>
+<p>A <code>Parameter</code> can be used to read a variable value from configuration.
+The chained call to <code>required()</code> signals that an exception should be
+thrown if the specified field name is not found:</p>
+<pre><code class="lang-cpp">#include &quot;utils/component.h&quot;
+
+class MyModel : public utils::Component {
+ public:
+
+  void configure(const utils::Json&amp; json) {
+    this-&gt;param(json, &quot;my_param&quot;, my_param_).required();
+  }
+
+ private:
+  int my_param_;
+};
+</code></pre>
+<p>This will read an integer from the JSON field <code>my_param</code> (see sample input
+below) and store its value in the class field <code>my_param_</code>. It throws a
+<code>ConfigurationException</code> if the field is not set or cannot be parsed as an
+integer:</p>
+<pre><code class="lang-json">{
+  &quot;my_param&quot;: 42
+}
+</code></pre>
+<h2 id="matchers">Matchers</h2>
+<p>Depending on the meaning of <code>my_param</code>, not all integer values might make
+sense as input. For this reason, you maybe specify additional requirements
+to be checked on a <code>ParameterBuilder</code> using <code>matches()</code>:</p>
+<pre><code class="lang-cpp">this-&gt;param(json, &quot;my_param&quot;, my_param_)
+    .matches(::matchers::GreaterThan(0))
+    .required();
+</code></pre>
+<p>This will throw a configuration exception if <code>my_param</code> is not specified,
+not an integer <em>OR</em> if its value is not greater than 0.</p>
+<h2 id="optional-parameters">Optional Parameters</h2>
+<p>Parameters are implicitly optional (if <code>required()</code> is not specifeid).
+In this case, you can decide how to handle the absence of the parameter
+in the input:</p>
+<pre><code class="lang-cpp">this-&gt;param(json, &quot;my_param&quot;, my_param_);
+</code></pre>
+<p>This does not throw a <code>ConfigurationException</code> if <code>my_param</code> is not set
+and does not change value of <code>my_param_</code> (unless <code>my_param_</code> is of <code>std::optional&lt;T&gt;</code> type,
+in which case it is reset).</p>
+<p>Specifying a default value:</p>
+<pre><code class="lang-cpp">this-&gt;param(json, &quot;my_param&quot;, my_param_)
+    .default_value(3);
+</code></pre>
+<p>assigns a specific default value (3) instead.</p>
+<p>For optional <code>Parameter</code>s, you can also combine a <code>matches()</code> and <code>default_value()</code>:</p>
+<pre><code class="lang-cpp">this-&gt;param(json, &quot;my_param&quot;, my_param_)
+    .matches(::matcher::GreaterThan(0))
+    .default_value(3);
+</code></pre>
+<p>which tells the program to read from the configuration if the value is set (and check
+that it is greater than 0), or assign 3 otherwise.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The default value is only checked against the matcher if it is chained before.</p>
+</div>
+<h2 id="vector-parameters">Vector Parameters</h2>
+<p>Configuration works for certain container data types in the same way as it does for
+primitive types. For instance, you can denote a <code>std::vector&lt;int&gt;</code> as an expected
+input parameter:</p>
+<pre><code class="lang-cpp">#include &quot;../utils/component.h&quot;
+
+class MyComponent : public utils::Component {
+ public:
+  void configure(const utils::Json&amp; json) {
+    this-&gt;param(json, &quot;numbers&quot;, numbers).required();
+  }
+
+ private:
+  std::vector&lt;int&gt; numbers_;
+};
+</code></pre>
+<p>Expects the input to have an array-type field <code>numbers</code>, the contents of which must
+all be integers. During <code>configure(...)</code>, these numbers are filled into the <code>std::vector</code>:</p>
+<pre><code class="lang-json">{
+  &quot;numbers&quot;: [1,2,3]
+}
+</code></pre>
+<h2 id="complex-parameters">Complex Parameters</h2>
+<p>Configuration works for any <code>utils::Component</code> (by invoking its <code>configure</code> method). This
+means that you can use components as parameter types:</p>
+<pre><code class="lang-cpp">class MyParamType : public utils::Component {
+ public:
+  void configure(const utils::Json&amp; json) override {
+    this-&gt;param(json, &quot;a&quot;, a_).required();
+    this-&gt;param(json, &quot;b&quot;, b_).required();
+  }
+
+ private:
+  int a_, b_;
+};
+
+class MyModel : public utils::Component {
+ public:
+  void configure(utils::Config&amp; config) override {
+    this-&gt;param(json, &quot;my_param&quot;, my_param_).required();
+  }
+ 
+ private:
+  MyParamType my_param_;
+}
+</code></pre>
+<p>The json input for <code>MyModel</code> is expected to have a field which
+contains the input for a <code>MyParamType</code>:</p>
+<pre><code class="lang-json">{
+  &quot;my_param&quot;: {
+    &quot;a&quot;: 13,
+    &quot;b&quot;: 42
+  }
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

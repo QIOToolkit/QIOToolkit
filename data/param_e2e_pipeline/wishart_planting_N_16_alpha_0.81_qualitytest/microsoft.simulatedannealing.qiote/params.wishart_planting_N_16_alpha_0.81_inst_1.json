@@ -1,9 +1,0 @@
-{
-    "params": {
-        "beta_start": 2.5704297758585234e-05,
-        "beta_stop": 1.4391156831212786,
-        "restarts": 32,
-        "sweeps": 512,
-        "seed": 35
-    }
-}

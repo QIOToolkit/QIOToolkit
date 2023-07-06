@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class graph::FacedGraph
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class graph::FacedGraph
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classgraph_1_1FacedGraph">
+
+
+
+  <h1 id="classgraph_1_1FacedGraph" data-uid="classgraph_1_1FacedGraph" class="text-break">Class graph::FacedGraph
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="graph.html">Graph</a> representation as a collection of nodes, edges, and faces.</p>
+<p>It assumes, beyond the assumptions for <a class="xref" href="graph.html">Graph</a>, that:</p>
+<ul>
+<li>faces are identified with a face ID <code>0...(F-1)</code>,</li>
+</ul>
+<p>where F is the number of faces.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="graph.html">graph::Graph</a></div>
+    <div class="level1"><span class="xref">graph::FacedGraph</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a1bde10351489c488bec4ed21b27cec57">validate</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a1f92f0335092cea16079fda5f1535cf0">get_sum_coefficient_degrees_total</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a25bc4df6843d8b75be08de58e6ff9abf">get_const_cost</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a2abce27e3ffa328def3bfde0881ef3f5">populate_node_edge_ids</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a3049a42bf00aa2c533a60e10f51a9902">render</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a3353b13b2a1ee4fa2aca698d29b6fff0">nodes_size</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a39381ceec5cd16962195cb452569106e">get_min_locality</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a3b06991ffa4da263460f665286923ba8">get_min_coupling_magnitude</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a47173b0bfbfe2765f7baf242b41268ec">get_scale_factor</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a4b2270640d1b8844597337a9946efa67">output_map</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a4cdda6d73fc42c54254042626897eb91">edges</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a4ff09222b95c819a158f7b5907870e99">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a58f267164115647356470baf9fd805ae">edge</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a6301cd68931f61577fba0c67c1166cc1">node</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a69866f7812f701b15b18ebbfe6072768">set_allow_dup_merge</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a69c5e0dd274bd7be13ba1f783ce63f18">init</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a6ae2ef58c350a83365bbafff5ef04116">get_locality</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a7310b71714997769e07ecf3c686dd7bc">get_avg_locality</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a848c81015ce7f1977dcf38741e555cc6">edges_size</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a8b88b9e519912a50e40d5af413bfb275">get_max_coupling_magnitude</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a90a4786265abebb77a8d12173bb5267e">map_output</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a93d49aaf22e2d28ddd817fda8f253310">init_memory_check</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a9c7e4c56791b325b90a0763ea1ff6819">is_empty</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1a9c834464a42a6ba9b074bc6a6a34bf06">get_node_name_to_id_map</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1aa0f6bc1f07360e13a7d25f95d65b8b53">Graph</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1aa4156ccf3f24dc720a3ae64b41248fda">is_rescaled</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1aad653532ad5ae0ffd536e1aa25a5ff2e">get_properties</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1ac0734f2e35108159fdce5b860c64c249">nodes</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1ae22995b1221c5a58c9b8a7780552443a">rescale</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1ae5d3a54a1c27bc1895666f05e544ad00">estimate_max_cost_diff</a>
+    </div>
+    <div>
+      <a class="xref" href="graph.html#classgraph_1_1Graph_1ae64230a4470eb0788ecbd1c0305e210a">get_accumulated_dependent_vars</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classgraph_1_1FacedGraph_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1a52844da996ee01227a17cd40d111dfc2" data-uid="classgraph_1_1FacedGraph_1a52844da996ee01227a17cd40d111dfc2">FacedGraph()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::FacedGraph::FacedGraph()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1ac69f9959832eb2889e866525e1d695d1" data-uid="classgraph_1_1FacedGraph_1ac69f9959832eb2889e866525e1d695d1">face()</h4>
+  <div class="markdown level1 summary"><p>Get a face by ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const Face&amp;graph::FacedGraph::face(int face_id) const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1a532a177d3a4642e274bbe161f01f90d5" data-uid="classgraph_1_1FacedGraph_1a532a177d3a4642e274bbe161f01f90d5">faces()</h4>
+  <div class="markdown level1 summary"><p>Access the vector of all faces.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;Face&gt;&amp;graph::FacedGraph::faces() const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1abd11f7554b7ef7654a18cf121ee58104" data-uid="classgraph_1_1FacedGraph_1abd11f7554b7ef7654a18cf121ee58104">sort()</h4>
+  <div class="markdown level1 summary"><p>Sort the ID lists of each node, edge, and face.</p>
+<p><a class="xref" href="graph.html#classgraph_1_1Graph_1a325dcfb9f899217358800094f0bf53a9">Graph::sort</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::FacedGraph::sort() override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1a92fce9b25d8983122bb53feb4853d219" data-uid="classgraph_1_1FacedGraph_1a92fce9b25d8983122bb53feb4853d219">validate()</h4>
+  <div class="markdown level1 summary"><p>Validate the <a class="xref" href="faced-graph.html">FacedGraph</a>. Ensure that node, edge, and face references are consistent.</p>
+<p><a class="xref" href="faced-graph.html#classgraph_1_1FacedGraph_1a31605f7eeaab34214305a42824c0d124">validate_face</a></p>
+<p><a class="xref" href="graph.html#classgraph_1_1Graph_1a1bde10351489c488bec4ed21b27cec57">Graph::validate</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool graph::FacedGraph::validate() const override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1ad76fc499bb2cc93924a5c9fb12ed800c" data-uid="classgraph_1_1FacedGraph_1ad76fc499bb2cc93924a5c9fb12ed800c">validate_node()</h4>
+  <div class="markdown level1 summary"><p>Validate a node, ensuring that:</p>
+<ul>
+<li>the node participants in at least one edge and face,
+<ul>
+<li>all edges listed have a valid edge ID, and</li>
+<li>the node is referenced in those edges.</li>
+</ul>
+</li>
+</ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool graph::FacedGraph::validate_node(int node_indx) const override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1ad4ab919c74fc2309fee245a8bd0f8934" data-uid="classgraph_1_1FacedGraph_1ad4ab919c74fc2309fee245a8bd0f8934">validate_edge()</h4>
+  <div class="markdown level1 summary"><p>Validate an edge, ensuring that:</p>
+<ul>
+<li>edges on certain face types contain a node,
+<ul>
+<li>all nodes listed have a valid edge ID, and</li>
+<li>the node is referenced in those edges.</li>
+</ul>
+</li>
+</ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool graph::FacedGraph::validate_edge(size_t edge_id) const override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1a31605f7eeaab34214305a42824c0d124" data-uid="classgraph_1_1FacedGraph_1a31605f7eeaab34214305a42824c0d124">validate_face()</h4>
+  <div class="markdown level1 summary"><p>Validate a face, ensuring that:</p>
+<ul>
+<li>SquaredLinearCombination faces contain an edge, only linear edges, and have like-terms combined;
+<ul>
+<li>all edges listed have a valid face ID; and</li>
+<li>the face is referenced in those edges.</li>
+</ul>
+</li>
+</ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool graph::FacedGraph::validate_face(int face_id) const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1ae91cfc244f066dccec46a807063c6407" data-uid="classgraph_1_1FacedGraph_1ae91cfc244f066dccec46a807063c6407">validate_counts()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool graph::FacedGraph::validate_counts(int node_id, size_t edge_id) const override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1a3327b96f5cf947a85cf88c5be63d7a25" data-uid="classgraph_1_1FacedGraph_1a3327b96f5cf947a85cf88c5be63d7a25">configure_memory_check()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::FacedGraph::configure_memory_check(const utils::Json&amp;json)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1ac6f95b7e36bf00a2be1276ea2688a715" data-uid="classgraph_1_1FacedGraph_1ac6f95b7e36bf00a2be1276ea2688a715">configure()</h4>
+  <div class="markdown level1 summary"><p>Configure graph from the input by configuring and organizing its component nodes, edges, and faces. Input is structured as a dictionary including a value for &quot;terms&quot; which is a list of dictionaries, where each such dictionary is either an edge (given with &quot;ids&quot; and &quot;c&quot; keys) or a face (given with &quot;type&quot;, &quot;c&quot;, and &quot;terms&quot; keys where &quot;terms&quot; has value of a list of edge dictionaries).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::FacedGraph::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1af375b3b1de40cff275f2934d396e407b" data-uid="classgraph_1_1FacedGraph_1af375b3b1de40cff275f2934d396e407b">configure()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::FacedGraph::configure(Configuration_T&amp;config)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1a610460a82d940bf0a9e612d3c41dac8a" data-uid="classgraph_1_1FacedGraph_1a610460a82d940bf0a9e612d3c41dac8a">populate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::FacedGraph::populate(std::vector&lt;Face&gt;&amp;temp_faces, std::vector&lt;std::vector&lt;Edge&gt;&gt;&amp;temp_edges)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1FacedGraph_1aa5ac5d50cc72bbae3f7f25f229c84a68" data-uid="classgraph_1_1FacedGraph_1aa5ac5d50cc72bbae3f7f25f229c84a68">populate_face()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::FacedGraph::populate_face(Face&amp;new_face, std::vector&lt;Edge&gt;&amp;face_edges)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

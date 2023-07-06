@@ -1,0 +1,844 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::GaussianProcess
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::GaussianProcess
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1GaussianProcess">
+
+
+
+  <h1 id="classoptimal__learning_1_1GaussianProcess" data-uid="classoptimal__learning_1_1GaussianProcess" class="text-break">Class optimal_learning::GaussianProcess
+</h1>
+  <div class="markdown level0 summary"><p>\rst Object that encapsulates Gaussian Process Priors (GPPs). A GPP is defined by a set of (sample point, function value, noise variance) triples along with a covariance function that relates the points. Each point has dimension dim. These are the training data; for example, each sample point might specify an experimental cohort and the corresponding function value is the objective measured for that experiment. There is one noise variance value per function value; this is the measurement error and is treated as N(0, noise_variance) Gaussian noise.
+GPPs estimate a real process \ms f(x) = GP(m(x), k(x,x'))\me (see file docs). This class deals with building an estimator to the actual process using measurements taken from the actual processthe (sample point, function val, noise) triple. Then predictions about unknown points can be made by sampling from the GPPin particular, finding the (predicted) mean and variance. These functions (and their gradients) are provided in ComputeMeanOfPoints, ComputeVarianceOfPoints, etc.
+Further mathematical details are given in the implementation comments, but we are essentially computing:
+| ComputeMeanOfPoints : <code>K(Xs, X) * [K(X,X) + \sigma_n^2 I]^{-1} * y</code> | ComputeVarianceOfPoints: <code>K(Xs, Xs) - K(Xs,X) * [K(X,X) + \sigma_n^2 I]^{-1} * K(X,Xs)</code>
+This (estimated) mean and variance characterize the predicted distributions of the actual \ms m(x), k(x,x')\me functions that underly our GP.
+.. Note:: the preceding comments are copied in Python: interfaces/gaussian_process_interface.py
+For testing and experimental purposes, this class provides a framework for sampling points from the GP (i.e., given a point to sample and predicted measurement noise) as well as adding additional points to an already-formed GP. Sampling points requires drawing from \ms N(0,1)\me so this class also holds PRNG state to do so via the <a class="xref" href="normal-rng.html">NormalRNG</a> object from gpp_random.
+.. NOTE:: Functions that manipulate the PRNG directly or indirectly (changing state, generating points) are NOT THREAD-SAFE. All thread-safe functions are marked const.
+These mean/variance methods require some external state: namely, the set of potential points to sample. Additionally, temporaries and derived quantities depending on these &quot;points to sample&quot; eliminate redundant computation. This external state is handled through <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> objects, which are constructed separately and filled through <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState()</a> which interacts with functions in this class. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::GaussianProcess</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1GaussianProcess_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a3a3b7799b405303aedd169c323cf1191" data-uid="classoptimal__learning_1_1GaussianProcess_1a3a3b7799b405303aedd169c323cf1191">GaussianProcess()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="gaussian-process.html">GaussianProcess</a> object. All inputs are required; no default constructor nor copy/assignment are allowed.
+.. Warning:: <code>points_sampled</code> is not allowed to contain duplicate points; doing so results in singular covariance matrices.</p>
+<p>:covariance</p>
+<p>the CovarianceFunction object encoding assumptions about the GP's behavior on our data :points_sampled[dim][num_sampled]: points that have already been sampled :points_sampled_value[num_sampled*(num_derivatives+1)]: values and derivatives of the already-sampled points, if only values are available, they should be used by setting points_sampled_value[i*(num_derivatives+1)] = value[i], when derivatives componens of points_sampled_value could be set to 0. :noise_variance[num_derivatives + 1]: the <code>\sigma_n^2</code> (noise variance) associated w/observation, points_sampled_value :dim: the spatial dimension of a point (i.e., number of independent params in experiment) :num_sampled: number of already-sampled points \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::GaussianProcess::GaussianProcess(const CovarianceInterface&amp;covariance_in, double const *restrict points_sampled_in, double const *restrict points_sampled_value_in, double const *restrict noise_variance_in, int const *restrict derivatives_in, int num_derivatives_in, int dim_in, int num_sampled_in) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a347b14458621dd3f16b7fa159cec8905" data-uid="classoptimal__learning_1_1GaussianProcess_1a347b14458621dd3f16b7fa159cec8905">GaussianProcess()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::GaussianProcess::GaussianProcess(const GaussianProcess&amp;source)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a27747082cb20e7b38a6c9c777a96aeab" data-uid="classoptimal__learning_1_1GaussianProcess_1a27747082cb20e7b38a6c9c777a96aeab">dim()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::GaussianProcess::dim() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a036e4847fcadc3925795d01f42efe914" data-uid="classoptimal__learning_1_1GaussianProcess_1a036e4847fcadc3925795d01f42efe914">num_sampled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::GaussianProcess::num_sampled() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1adf917de3d43990ac0103fe92c2d525da" data-uid="classoptimal__learning_1_1GaussianProcess_1adf917de3d43990ac0103fe92c2d525da">num_derivatives()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::GaussianProcess::num_derivatives() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a156210b8fb610a5a097287089c691ba8" data-uid="classoptimal__learning_1_1GaussianProcess_1a156210b8fb610a5a097287089c691ba8">points_sampled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;double&gt;&amp;optimal_learning::GaussianProcess::points_sampled() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a85a114af06e5ef937c4922d47ccb5db4" data-uid="classoptimal__learning_1_1GaussianProcess_1a85a114af06e5ef937c4922d47ccb5db4">points_sampled_value()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;double&gt;&amp;optimal_learning::GaussianProcess::points_sampled_value() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a792bf34690daaf4375d31d9781928937" data-uid="classoptimal__learning_1_1GaussianProcess_1a792bf34690daaf4375d31d9781928937">noise_variance()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;double&gt;&amp;optimal_learning::GaussianProcess::noise_variance() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1ad7d9cbb44b6a83fcf18979975cb722da" data-uid="classoptimal__learning_1_1GaussianProcess_1ad7d9cbb44b6a83fcf18979975cb722da">derivatives()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;int&gt;&amp;optimal_learning::GaussianProcess::derivatives() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1ab2d6ebc1066d859af7bc5f5aac82f765" data-uid="classoptimal__learning_1_1GaussianProcess_1ab2d6ebc1066d859af7bc5f5aac82f765">get_mean()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::GaussianProcess::get_mean() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1ab2e21e19f0c237803e5ec5bce1fe59e6" data-uid="classoptimal__learning_1_1GaussianProcess_1ab2e21e19f0c237803e5ec5bce1fe59e6">get_K_inv_y()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;double&gt;&amp;optimal_learning::GaussianProcess::get_K_inv_y() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1ac009c7a6be7123ef11811eedb1d2c720" data-uid="classoptimal__learning_1_1GaussianProcess_1ac009c7a6be7123ef11811eedb1d2c720">SetCovarianceHyperparameters()</h4>
+  <div class="markdown level1 summary"><p>\rst Change the hyperparameters of this GP's covariance function. Also forces recomputation of all derived quantities for GP to remain consistent.
+.. WARNING:: Using this function invalidates any <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> objects created with &quot;this&quot; object. For any such objects &quot;state&quot;, call state.SetupState(...) to restore them.</p>
+<p>:hyperparameters_new[covariance_ptr-&gt;GetNumberOfHyperparameters]</p>
+<p>new hyperparameter array \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::SetCovarianceHyperparameters(double const *restrict hyperparameters_new) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a8018d81eec8b9085170f440980ab0853" data-uid="classoptimal__learning_1_1GaussianProcess_1a8018d81eec8b9085170f440980ab0853">FillPointsToSampleState()</h4>
+  <div class="markdown level1 summary"><p>\rst Sets up the <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> object so that it can be used to compute GP mean, variance, and gradients thereof. ASSUMES all needed space is ALREADY ALLOCATED.
+This function should not be called directly; instead use <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState()</a>.</p>
+<p>:points_to_sample_state[1]</p>
+<p>pointer to a <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> object where all space has been properly allocated \output :points_to_sample_state[1]: pointer to a fully configured <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> object. overwrites input \endrst</p>
+<p>\rst Sets up precomputed quantities needed for mean, variance, and gradients thereof. These quantities are:
+<code>Ks := Ks_{k,i} = cov(X_k, Xs_i)</code> (used by mean, variance)
+Then if we need gradients:
+| <code>K^-1 * Ks := solution X of K_{k,l} * X_{l,i} = Ks{k,i}</code> (used by variance, grad variance) | <code>gradient of Ks := C_{d,k,i} = \pderiv{Ks_{k,i}}{Xs_{d,i}}</code> (used by grad mean, grad variance) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::FillPointsToSampleState(StateType *points_to_sample_state) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a84686440bdbe3de21059a4324b1a9f10" data-uid="classoptimal__learning_1_1GaussianProcess_1a84686440bdbe3de21059a4324b1a9f10">AddPointsToGP()</h4>
+  <div class="markdown level1 summary"><p>\rst Add the specified (point, fcn value, noise variance) historical data to this GP.
+Forces recomputation of all derived quantities for GP to remain consistent.</p>
+<p>:new_points[dim][num_new_points]</p>
+<p>coordinates of each new point to add :new_points_value[num_new_points]: function value at each new point :new_points_noise_variance[num_new_points]: \sigma_n^2 corresponding to the signal noise in measuring new_points_value :num_new_points: number of new points to add to the GP \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::AddPointsToGP(double const *restrict new_points, double const *restrict new_points_value, int num_new_points, bool mean_change=true)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a2478da56da0f516e5522c17587c6cd1d" data-uid="classoptimal__learning_1_1GaussianProcess_1a2478da56da0f516e5522c17587c6cd1d">AddSampledPointsToGP()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::AddSampledPointsToGP(double const *restrict new_points, double const *restrict new_points_value, int num_new_points)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a7251f6ce9bed7fa2a6773cd677969154" data-uid="classoptimal__learning_1_1GaussianProcess_1a7251f6ce9bed7fa2a6773cd677969154">NewSampledValue()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::NewSampledValue(double const *restrict new_points_value, int num_new_points, int sampling_point_index, bool mean_change)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a9ee3e243feb55dd35b8890fdc1127716" data-uid="classoptimal__learning_1_1GaussianProcess_1a9ee3e243feb55dd35b8890fdc1127716">SamplePointFromGP()</h4>
+  <div class="markdown level1 summary"><p>\rst Sample a function value from a Gaussian Process prior, provided a point at which to sample.
+Uses the formula <code>function_value = gpp_mean + sqrt(gpp_variance) * w1 + sqrt(noise_variance) * w2</code>, where <code>w1, w2</code> are draws from \ms N(0,1)\me.
+.. NOTE:: Set noise_variance to 0 if you want &quot;accurate&quot; draws from the GP. BUT if the drawn (point, value) pair is meant to be added back into the GP (e.g., for testing), then this point MUST be drawn with noise_variance equal to the noise associated with &quot;point&quot; as a member of &quot;points_sampled&quot;</p>
+<p>:point_to_sample[dim]</p>
+<p>coordinates of the point at which to generate a function value (from GP) :noise_variance_this_point: if this point is to be added into the GP, it needs to be generated with its associated noise var</p>
+<p>function value drawn from this GP \endrst</p>
+<p>\rst Samples function values from a GPP given a list of points.
+Samples by: <code>function_value = gpp_mean + gpp_variance * w</code>, where <code>w</code> is a single draw from N(0,1).
+We only draw one point at a time (i.e., <code>num_to_sample</code> fixed at 1). We want multiple draws from the same GPP; drawing many points per step would be akin to sampling multiple GPPs. Thus gpp_mean, gpp_variance, and w all have size 1.
+If the GPP does not receive any data, then on the first step, gpp_mean = 0 and gpp_variance is just the &quot;covariance&quot; of a single point. Then we iterate through the remaining points in points_sampled, generating gpp_mean, gpp_variance, and a sample function value. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::SamplePointFromGP(double const *restrict point_to_sample, double *results) noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a99d4652ce24373cbc74a97e0802028f5" data-uid="classoptimal__learning_1_1GaussianProcess_1a99d4652ce24373cbc74a97e0802028f5">SamplePointsFromGP()</h4>
+  <div class="markdown level1 summary"><p>\rst Sample only function values for a list of points \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::GaussianProcess::SamplePointsFromGP(double const *restrict points_to_sample, const int num_sample, double *results) noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a80354fcfc458d15dcb3ee278644ed142" data-uid="classoptimal__learning_1_1GaussianProcess_1a80354fcfc458d15dcb3ee278644ed142">SampleGlobalOptimaFromGP()</h4>
+  <div class="markdown level1 summary"><p>\rst Approximate the global optima of the GP. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::SampleGlobalOptimaFromGP(int const num_optima, int const inner_number, const TensorProductDomain&amp;domain, double *points_optima) noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a7873e09a46323767e62d0c2f5ba918ee" data-uid="classoptimal__learning_1_1GaussianProcess_1a7873e09a46323767e62d0c2f5ba918ee">ComputeMeanOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the mean of this GP at each of <code>Xs</code> (<code>points_to_sample</code>).
+.. Note:: <code>points_to_sample</code> should not contain duplicate points.
+.. Note:: comments are copied in Python: interfaces/gaussian_process_interface.py</p>
+<p>:points_to_sample_state</p>
+<p>a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) \output :mean_of_points[num_to_sample]: mean of GP, one per GP dimension \endrst</p>
+<p>\rst Calculates the mean (from the GPP) of a set of points:
+<code>mus = Ks^T * K^-1 * y</code>
+See Rasmussen and Willians page 19 alg 2.1 \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeMeanOfPoints(const StateType&amp;points_to_sample_state, double *restrict mean_of_points) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1aff6af6ba3660fffcc75c047dd5809a79" data-uid="classoptimal__learning_1_1GaussianProcess_1aff6af6ba3660fffcc75c047dd5809a79">ComputeMeanOfAdditionalPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst</p>
+<p>:discrete_pts[dim][num_pts]</p>
+<p>the set of points to approximate the KG factor :num_pts: number of points in discrete_pts \output :mean_of_points[num_pts]: mean of GP, one per GP dimension \endrst</p>
+<p>\rst Calculates the mean (from the GPP) of a set of points:
+<code>mus = Ks^T * K^-1 * y</code>
+See Rasmussen and Willians page 19 alg 2.1 \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeMeanOfAdditionalPoints(double const *discrete_pts, int num_pts, int const *gradients_discrete_pts, int num_gradients_discrete_pts, double *restrict mean_of_points) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a7848596618461dc6e219b9dbd7099e4c" data-uid="classoptimal__learning_1_1GaussianProcess_1a7848596618461dc6e219b9dbd7099e4c">ComputeGradMeanOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of the mean of this GP at each of <code>Xs</code> (<code>points_to_sample</code>) wrt <code>Xs</code>.
+.. Note:: <code>points_to_sample</code> should not contain duplicate points.
+Note that <code>grad_mu</code> is nominally sized: <code>grad_mu[dim][num_to_sample][num_to_sample]</code>. However, for <code>0 &lt;= i,j &lt; num_to_sample</code>, <code>i != j</code>, <code>grad_mu[d][i][j] = 0</code>. (See references or implementation for further details.) Thus, <code>grad_mu</code> is stored in a reduced form which only tracks the nonzero entries.
+.. Note:: comments are copied in Python: interfaces/gaussian_process_interface.py</p>
+<p>:points_to_sample_state</p>
+<p>a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) \output :grad_mu[dim][state.num_derivatives]: gradient of the mean of the GP. <code>grad_mu[d][i]</code> is actually the gradient of <code>\mu_i</code> with respect to <code>x_{d,i}</code>, the d-th dimension of the i-th entry of <code>points_to_sample</code>. \endrst</p>
+<p>\rst Gradient of the mean of a GP. Note that the output storage skips known zeros (see declaration docs for details). See Scott Clark's PhD thesis for more spelled out mathematical details, but this is a reasonably straightforward differentiation of:
+<code>mus = Ks^T * K^-1 * y</code>
+wrt <code>Xs</code> (so only Ks contributes derivative terms) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradMeanOfPoints(const StateType&amp;points_to_sample_state, double *restrict grad_mu) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a77cde8e97cfd9662655f3056c8425b64" data-uid="classoptimal__learning_1_1GaussianProcess_1a77cde8e97cfd9662655f3056c8425b64">ComputeGradMeanOfAdditionalPoints()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradMeanOfAdditionalPoints(double const *discrete_pts, int num_pts, int const *gradients_discrete_pts, int num_gradients_discrete_pts, double *restrict grad_mu) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1aa0e98f86d1e1338beaa40caa87cc547a" data-uid="classoptimal__learning_1_1GaussianProcess_1aa0e98f86d1e1338beaa40caa87cc547a">ComputeVarianceOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the variance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>).
+The variance matrix is symmetric (in fact, SPD) and is stored in the LOWER TRIANGLE.
+.. Note:: <code>points_to_sample</code> should not contain duplicate points.
+.. Note:: comments are copied in Python: interfaces/gaussian_process_interface.py</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :var_star[num_to_sample][num_to_sample]: variance of GP evaluated at <code>points_to_sample</code>, LOWER TRIANGLE \endrst</p>
+<p>\rst Mathematically, we are computing Vars (Var_star), the GP variance. Vars is defined at the top of this file (Equation 3) and in Rasmussen &amp; Williams, Equation 2.19:
+| <code>L * L^T = K</code> | <code>V = L^-1 * Ks</code> | <code>Vars = Kss - (V^T * V)</code>
+This quantity is:
+<code>Kss</code>: the covariance between test points based on the prior distribution
+minus
+<code>V^T * V</code>: the information observations give us about the objective function
+Notice that Vars is clearly symmetric. <code>Kss</code> is SPD. And <code>V^T * V = (V^T * V)^T</code> is symmetric (and is in fact SPD).
+<code>V^T * V = Ks^T * K^-1 * K_s</code> is SPD because:
+<code>X^T * A * X</code> is SPD when A is SPD AND <code>X</code> has full rank (<code>X</code> need not be square)
+<code>Ks</code> has full rank as long as <code>K</code> &amp; <code>Kss</code> are SPD; <code>K^-1</code> is SPD because <code>K</code> is SPD.
+It turns out that <code>Vars</code> is SPD.
+In Equation 1 (Rasmussen &amp; Williams 2.18), it is clear that the combined covariance matrix is SPD (as long as no duplicate points and the covariance function is valid). A matrix of the form::
+[ A B ] [ B^T C ]
+is SPD if and only if <code>A</code> is SPD AND <code>(C - B^T * A^-1 * B)</code> is SPD. Here, <code>A = K, B = Ks, C = Kss</code>. This (aka Schur Complement) can be shown readily::
+[ A B ] = [ I 0 ] * [ A 0 ] * [ I A^-1 * B ] [ B^T C ] [ (A^-1 * B)^T I ] * [ 0 (C - B^T * A^-1 * B)] [ 0 I ]
+This factorization is valid because <code>A</code> is SPD (and thus invertible). Then by the <code>X^T * A * X</code> rule for SPD-ness, we know the block-diagonal matrix in the center is SPD. Hence the SPD-ness of <code>V^T * V</code> follows readily.
+For more information, see: <a href="http://en.wikipedia.org/wiki/Schur_complement">http://en.wikipedia.org/wiki/Schur_complement</a>
+[num_to_sample * num_gradients_to_sample] [num_to_sample*(the number of gradients in the bracket below)] \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeVarianceOfPoints(StateType *points_to_sample_state, int const *restrict gradients_to_sample_part2, int num_gradients_to_sample_part2, double *restrict var_star) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a8ebb4300cc7539bf7bb01f8fe145010f" data-uid="classoptimal__learning_1_1GaussianProcess_1a8ebb4300cc7539bf7bb01f8fe145010f">ComputeCovarianceOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the covariance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>) and each point of discrete points.
+.. Note:: <code>points_to_sample</code> should not contain duplicate points.
+.. Note:: comments are copied in Python: interfaces/gaussian_process_interface.py</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :discrete_pts[dim][num_pts]: the set of points to approximate the KG factor :num_pts: number of points in discrete_pts \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :var_star[num_to_sample][num_pts]: covariance of GP evaluated at <code>points_to_sample</code> and <code>discrete_pts</code> \endrst</p>
+<p>\rst Mathematically, we are computing Covars (Covar_star), the GP covariance. Vars is defined at the top of this file (Equation 3) and in Rasmussen &amp; Williams, Equation 2.19:
+| <code>L * L^T = K</code> | <code>V = L^-1 * Ks</code> | <code>W = L^-1 * Kt</code> | <code>Vars = Kst - (V^T * W)</code>
+This quantity is:
+<code>Kst</code>: the covariance between two sets of test points based on the prior distribution
+minus
+<code>V^T * W</code>: the information observations give us about the objective function
+For more information, see: <a href="http://en.wikipedia.org/wiki/Schur_complement">http://en.wikipedia.org/wiki/Schur_complement</a></p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :discrete_pts[dim][num_pts]: the set of points to approximate the KG factor :num_pts: number of points in discrete_pts \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :var_star[num_to_sample][num_pts]: covariance of GP evaluated at <code>points_to_sample</code> and <code>discrete_pts</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeCovarianceOfPoints(StateType *points_to_sample_state, double const *restrict discrete_pts, int num_pts, int const *restrict gradients_discrete_pts, int num_gradients_discrete_pts, bool precomputed, double const *ktd, double *restrict var_star) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a3bbdda5241976f30c4286d99edf72443" data-uid="classoptimal__learning_1_1GaussianProcess_1a3bbdda5241976f30c4286d99edf72443">ComputeTrain()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the covariance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>) and each point of discrete points.
+.. Note:: <code>points_to_sample</code> should not contain duplicate points.
+.. Note:: comments are copied in Python: interfaces/gaussian_process_interface.py</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :discrete_pts[dim][num_pts]: the set of points to approximate the KG factor :num_pts: number of points in discrete_pts \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :var_star[num_to_sample][num_pts]: covariance of GP evaluated at <code>points_to_sample</code> and <code>discrete_pts</code> \endrst</p>
+<p>\rst Mathematically, we are computing Covars (Covar_star), the GP covariance. Vars is defined at the top of this file (Equation 3) and in Rasmussen &amp; Williams, Equation 2.19:
+| <code>L * L^T = K</code> | <code>V = L^-1 * Ks</code> | <code>W = L^-1 * Kt</code> | <code>Vars = Kst - (V^T * W)</code>
+This quantity is:
+<code>Kst</code>: the covariance between two sets of test points based on the prior distribution
+minus
+<code>V^T * W</code>: the information observations give us about the objective function
+For more information, see: <a href="http://en.wikipedia.org/wiki/Schur_complement">http://en.wikipedia.org/wiki/Schur_complement</a></p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :discrete_pts[dim][num_pts]: the set of points to approximate the KG factor :num_pts: number of points in discrete_pts \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :var_star[num_to_sample][num_pts]: covariance of GP evaluated at <code>points_to_sample</code> and <code>discrete_pts</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeTrain(double const *restrict discrete_pts, int num_pts, int const *restrict gradients_discrete_pts, int num_gradients_discrete_pts, double *restrict var_star) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a671152f1c7f38cfd3ba22cffc6a5d569" data-uid="classoptimal__learning_1_1GaussianProcess_1a671152f1c7f38cfd3ba22cffc6a5d569">ComputeGradVarianceOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Similar to <a class="xref" href="gaussian-process.html#classoptimal__learning_1_1GaussianProcess_1a79bceb2937c8e138523ed63732c77acd">ComputeGradCholeskyVarianceOfPoints()</a> except this does not include the gradient terms from the cholesky factorization. Description will not be duplicated here. \endrst
+\rst This is just a thin wrapper that calls ComputeGradVarianceOfPointsPerPoint() in a loop <code>num_derivatives</code> times.
+See ComputeGradVarianceOfPointsPerPoint()'s function comments and implementation for more mathematical details on the derivation, algorithm, optimizations, etc. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradVarianceOfPoints(StateType *points_to_sample_state, double *restrict grad_var) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a65b31e02e4d1712784cdbf61a561bc6c" data-uid="classoptimal__learning_1_1GaussianProcess_1a65b31e02e4d1712784cdbf61a561bc6c">ComputeGradCovarianceOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :discrete_pts[dim][num_pts]: the set of points to approximate the KG factor :num_pts: number of points in discrete_pts \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :grad_var[dim][num_to_sample][num_pts][state-&gt;num_derivatives]: gradient of the variance of the GP. <code>grad_var[d][i][j][k]</code> is actually the gradients of <code>var_{i,j}</code> with respect to <code>x_{d,k}</code>, the d-th dimension of the k-th entry of <code>points_to_sample</code> \endrst</p>
+<p>\rst This is just a thin wrapper that calls ComputeGradCovarianceOfPointsPerPoint() in a loop <code>num_derivatives</code> times.
+See ComputeGradVarianceOfPointsPerPoint()'s function comments and implementation for more mathematical details on the derivation, algorithm, optimizations, etc. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradCovarianceOfPoints(StateType *points_to_sample_state, double const *restrict discrete_pts, int num_pts, int const *restrict gradients_discrete_pts, int num_gradients_discrete_pts, bool precomputed, double const *ktd, double *restrict grad_var) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a79bceb2937c8e138523ed63732c77acd" data-uid="classoptimal__learning_1_1GaussianProcess_1a79bceb2937c8e138523ed63732c77acd">ComputeGradCholeskyVarianceOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of the cholesky factorization of the variance of this GP with respect to <code>points_to_sample</code>. This function accounts for the effect on the gradient resulting from cholesky-factoring the variance matrix. See Smith 1995 for algorithm details.
+<code>points_to_sample</code> is not allowed to contain duplicate points. Violating this results in a singular variance matrix.
+Note that <code>grad_chol</code> is nominally sized:
+<code>grad_chol[dim][num_to_sample][num_to_sample][num_to_sample]</code>.
+Let this be indexed <code>grad_chol[d][i][j][k]</code>, which is read the derivative of <code>var[i][j]</code> with respect to <code>x_{d,k}</code> (x = <code>points_to_sample</code>)
+.. Note:: comments are copied in Python: interfaces/gaussian_process_interface.py</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :chol_var[num_to_sample][num_to_sample]: the variance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>) e.g., from the cholesky factorization of <code>ComputeVarianceOfPoints</code> \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :grad_chol[dim][num_to_sample][num_to_sample][state-&gt;num_derivatives]: gradient of the cholesky-factored variance of the GP. <code>grad_chol[d][i][j][k]</code> is actually the gradients of <code>var_{i,j}</code> with respect to <code>x_{d,k}</code>, the d-th dimension of the k-th entry of <code>points_to_sample</code></p>
+<p>store in UPPER triangle \endrst
+\rst This is just a thin wrapper that calls ComputeGradCholeskyVarianceOfPointsPerPoint() in a loop <code>num_derivatives</code> times.
+See ComputeGradCholeskyVarianceOfPointsPerPoint()'s function comments and implementation for more mathematical details on the algorithm. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradCholeskyVarianceOfPoints(StateType *points_to_sample_state, double const *restrict chol_var, double *restrict grad_chol) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a13131aadcc4f095b4d686c32837ee78a" data-uid="classoptimal__learning_1_1GaussianProcess_1a13131aadcc4f095b4d686c32837ee78a">ComputeGradInverseCholeskyVarianceOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of the invers of the cholesky factorization of the variance of this GP with respect to <code>points_to_sample</code>.
+Note that <code>grad_chol</code> is nominally sized:
+<code>grad_chol[dim][num_to_sample][num_to_sample][num_to_sample]</code>.
+Let this be indexed <code>grad_chol[d][i][j][k]</code>, which is read the derivative of <code>var[i][j]</code> with respect to <code>x_{d,k}</code> (x = <code>points_to_sample</code>)
+.. Note:: comments are copied in Python: interfaces/gaussian_process_interface.py</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :chol_var[num_to_sample][num_to_sample]: the variance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>) e.g., from the cholesky factorization of <code>ComputeVarianceOfPoints</code> \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :grad_var[dim][num_to_sample][num_pts + num_to_sample][state-&gt;num_derivatives]: gradient of the invers of the cholesky-factored variance of the GP. <code>grad_chol[d][i][j][k]</code> is actually the gradients of <code>var_{i,j}</code> with respect to <code>x_{d,k}</code>, the d-th dimension of the k-th entry of <code>points_to_sample</code> \endrst</p>
+<p>\rst Compute the derivatives of the inverse of the cholesky factor wrt to the points to sample. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradInverseCholeskyVarianceOfPoints(StateType *points_to_sample_state, double const *restrict chol_var, double const *restrict var, double const *restrict cov, double const *restrict discrete_pts, int num_pts, bool precomputed, double const *ktd, double *restrict grad_chol) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1af03537b44c889f0307810b59da49cb63" data-uid="classoptimal__learning_1_1GaussianProcess_1af03537b44c889f0307810b59da49cb63">ComputeGradInverseCholeskyCovarianceOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of the invers of the cholesky factorization of the variance of this GP with respect to <code>points_to_sample</code>.
+Note that <code>grad_chol</code> is nominally sized:
+<code>grad_chol[dim][num_to_sample][num_to_sample][num_to_sample]</code>.
+Let this be indexed <code>grad_chol[d][i][j][k]</code>, which is read the derivative of <code>var[i][j]</code> with respect to <code>x_{d,k}</code> (x = <code>points_to_sample</code>)
+.. Note:: comments are copied in Python: interfaces/gaussian_process_interface.py</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :chol_var[num_to_sample][num_to_sample]: the variance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>) e.g., from the cholesky factorization of <code>ComputeVarianceOfPoints</code> \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :grad_var[dim][num_to_sample][num_pts][state-&gt;num_derivatives]: gradient of the invers of the cholesky-factored variance of the GP. <code>grad_chol[d][i][j][k]</code> is actually the gradients of <code>var_{i,j}</code> with respect to <code>x_{d,k}</code>, the d-th dimension of the k-th entry of <code>points_to_sample</code> \endrst</p>
+<p>\rst Compute the derivatives of the inverse of the cholesky factor wrt to the points to sample. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradInverseCholeskyCovarianceOfPoints(StateType *points_to_sample_state, double const *restrict chol_var, double const *restrict grad_chol, double const *restrict chol_inv_times_cov, double const *restrict discrete_pts, int num_pts, bool precomputed, double const *ktd, double *restrict grad_inverse_chol) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a7657ac7fb2ca010363719b47b7fcaf83" data-uid="classoptimal__learning_1_1GaussianProcess_1a7657ac7fb2ca010363719b47b7fcaf83">SetExplicitSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Seed the random number generator with the specified seed. See gpp_random, struct <a class="xref" href="normal-rng.html">NormalRNG</a> for details.</p>
+<p>:seed</p>
+<p>new seed to set \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::SetExplicitSeed(EngineType::result_type seed) noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1adbb94860699a99f28c550528ab52a64e" data-uid="classoptimal__learning_1_1GaussianProcess_1adbb94860699a99f28c550528ab52a64e">SetRandomizedSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Seed the random number generator using a combination of the specified seed, current time, and potentially other factors. See gpp_random, struct <a class="xref" href="normal-rng.html">NormalRNG</a> for details.</p>
+<p>:seed</p>
+<p>base value for new seed \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::SetRandomizedSeed(EngineType::result_type seed) noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a5d473d09a07c5902d5f2fe78d86c1f03" data-uid="classoptimal__learning_1_1GaussianProcess_1a5d473d09a07c5902d5f2fe78d86c1f03">ResetToMostRecentSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Seeds the generator with its last used seed value. Useful for testinge.g., can conduct multiple runs with the same initial conditions \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ResetToMostRecentSeed() noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a1ed1fd70ab6531514219e1545422125f" data-uid="classoptimal__learning_1_1GaussianProcess_1a1ed1fd70ab6531514219e1545422125f">Clone()</h4>
+  <div class="markdown level1 summary"><p>\rst Clones &quot;this&quot; <a class="xref" href="gaussian-process.html">GaussianProcess</a>.
+Pointer to a constructed object that is a copy of &quot;this&quot; \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GaussianProcess * optimal_learning::GaussianProcess::Clone() const OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1afed8cb9e4d8e2c99c9c7b5995b3ff4b2" data-uid="classoptimal__learning_1_1GaussianProcess_1afed8cb9e4d8e2c99c9c7b5995b3ff4b2">OL_DISALLOW_DEFAULT_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::GaussianProcess::OL_DISALLOW_DEFAULT_AND_ASSIGN(GaussianProcess)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1ae30fe08eb6c927b03890849d14484923" data-uid="classoptimal__learning_1_1GaussianProcess_1ae30fe08eb6c927b03890849d14484923">BuildCovarianceMatrixWithNoiseVariance()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::BuildCovarianceMatrixWithNoiseVariance() noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1ab65df98638776614eed909d8546b6c60" data-uid="classoptimal__learning_1_1GaussianProcess_1ab65df98638776614eed909d8546b6c60">BuildMixCovarianceMatrix()</h4>
+  <div class="markdown level1 summary"><p>\rst :cov_matrix[num_sampled][num_to_sample]: computed &quot;mix&quot; covariance matrix \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::BuildMixCovarianceMatrix(double const *restrict points_to_sample, int num_to_sample, int const *restrict derivatives_to_sample, int num_derivatives_to_sample, double *restrict cov_mat) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1ac3e566afc2922e1030bfbf8f9c382737" data-uid="classoptimal__learning_1_1GaussianProcess_1ac3e566afc2922e1030bfbf8f9c382737">ComputeGradVarianceOfPointsPerPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Similar to ComputeGradCholeskyVarianceOfPointsPerPoint() except this does not include the gradient terms from the cholesky factorization. Description will not be duplicated here. \endrst
+\rst CORE IDEA**
+Similar to <a class="xref" href="gaussian-process.html#classoptimal__learning_1_1GaussianProcess_1a79bceb2937c8e138523ed63732c77acd">ComputeGradCholeskyVarianceOfPoints()</a> below, except this function does not account for the cholesky decomposition. That is, it produces derivatives wrt <code>Xs_{d,p}</code> (<code>points_to_sample</code>) of:
+<code>Vars = Kss - (V^T * V) = Kss - Ks^T * K^-1 * Ks</code> (see ComputeVarianceOfPoints)
+.. NOTE:: normally <code>Xs_p</code> would be the <code>p</code>-th point of Xs (all dimensions); here <code>Xs_{d,p}</code> more explicitly refers to the <code>d</code>-th spatial dimension of the <code>p</code>-th point.
+This function only returns the derivative wrt a single choice of <code>p</code>, as specified by <code>diff_index</code>.
+Expanded index notation:
+<code>Vars_{i,j} = Kss_{i,j} - Ks^T_{i,l} * K^-1_{l,k} * Ks_{k,j}</code>
+Recall <code>Ks_{k,i} = cov(X_k, Xs_i) = cov(Xs_i, X_k)</code> where <code>Xs</code> is <code>points_to_sample</code> and <code>X</code> is <code>points_sampled</code>. (Note this is not equivalent to saying <code>Ks = Ks^T</code>, although this would be true if <code>|Xs| == |X|</code>.) As a result of this symmetry, <code>\pderiv{Ks_{k,i}}{Xs_{d,i}} = \pderiv{Ks_{i,k}}{Xs_{d,i}}</code> (that's <code>d(cov(Xs_i, X_k))/d(Xs_i)</code>)
+We are being more strict with index labels than is standard to clearly specify tensor dimensions. To be clear:</p>
+<ul>
+<li><code>i,j</code> range over <code>num_to_sample</code></li>
+<li><code>l,k</code> are the only non-free indices; they range over <code>num_sampled</code></li>
+<li><code>d,p</code> describe the SPECIFIC point being differentiated against in <code>Xs</code> (<code>points_to_sample</code>): <code>d</code> over dimension, <code>p</code>* over <code>num_to_sample</code></li>
+</ul>
+<p><em>NOTE: <code>p</code> is fixed! Unlike all other indices, <code>p</code> refers to a SPECIFIC point in the range <code>[0, ..., num_to_sample-1]</code>. Thus, <code>\pderiv{Ks_{k,i}}{Xs_{d,i}}</code> is a 3-tensor (<code>A_{d,k,i}</code>) (repeated <code>i</code> is not summation since they denote components of a derivative) while <code>\pderiv{Ks_{i,l}}{Xs_{d,p}}</code> is a 2-tensor (<code>A_{d,l}</code>) b/c only <code>\pderiv{Ks_{i=p,l}}{Xs_{d,p}}</code> is nonzero, and <code>{d,l}</code> are the only remaining free indices.
+Then differentiating against <code>Xs_{d,p}</code> (recall that this is a specific point b/c p is fixed):
+| <code>\pderiv{Vars_{i,j}}{Xs_{d,p}} = \pderiv{K_ss{i,j}}{Xs_{d,p}} -</code> | <code>(\pderiv{Ks_{i,l}}{Xs_{d,p}} * K^-1_{l,k} * Ks_{k,j} + K_s{i,l} * K^-1_{l,k} * \pderiv{Ks_{k,j}}{Xs_{d,p}})</code>
+Many of these terms are analytically known to be 0: <code>\pderiv{Ks_{i,l}}{Xs_{d,p}} = 0</code> when <code>p != i</code> (see NOTE above). A similar statement holds for the other gradient term.
+Observe that the second term in the parens, <code>Ks_{i,l} * K^-1_{l,k} * \pderiv{Ks_{k,j}}{Xs_{d,p}}</code>, can be reordered to &quot;look&quot; like the first term. We use three symmetries: <code>K^-1{l,k} = K^-1{k,l}</code>, <code>Ks_{i,l} = Ks_{l,i}</code>, and
+<code>\pderiv{Ks_{k,j}}{Xs_{d,p}} = \pderiv{Ks_{j,k}}{Xs_{d,p}}</code>
+Then we can write:
+<code>K_s{i,l} * K^-1_{l,k} * \pderiv{Ks_{k,j}}{Xs_{d,p}} = \pderiv{Ks_{j,k}}{Xs_{d,p}} * K^-1_{k,l} * K_s{l,i}</code>
+Now left and right terms have the same index ordering (i,j match; k,l are not free and thus immaterial)
+The final result, accounting for analytic zeros is given here for convenience::
+DVars_{d,i,j} \equiv \pderiv{Vars_{i,j}}{Xs_{d,p}} =`` { \pderiv{K_ss{i,j}}{Xs_{d,p}} - 2</em>\pderiv{Ks_{i,l}}{Xs_{d,p}} * K^-1_{l,k} * Ks_{k,j} : WHEN p == i == j { \pderiv{K_ss{i,j}}{Xs_{d,p}} - \pderiv{Ks_{i,l}}{Xs_{d,p}} * K^-1_{l,k} * Ks_{k,j} : WHEN p == i != j { \pderiv{K_ss{i,j}}{Xs_{d,p}} - \pderiv{Ks_{j,k}}{Xs_{d,p}} * K^-1_{k,l} * Ks_{l,i} : WHEN p == j != i { 0 : otherwise
+The first item has a factor of 2 b/c it gets a contribution from both parts of the sum since <code>p == i</code> and <code>p == j</code>. The ordering <code>DVars_{d,i,j}</code> is significant: this is the ordering (d changes the fastest) in storage.
+OPTIMIZATIONS**
+Implementing this formula naively results in a large amount of redundant computation, so we now describe the optimizations present in our implementation.
+The first thing to notice is that the result, <code>\pderiv{Vars_{i,j}}{Xs_{d,p}}</code>, has a lot of 0s. In particular, only the <code>p</code>-th block row and <code>p</code>-th block column have nonzero entries (blocks are size <code>dim</code>, indexed <code>d</code>). Currently, we will not be taking advantage of this sparsity because the consumer of DVars, <a class="xref" href="gaussian-process.html#classoptimal__learning_1_1GaussianProcess_1a79bceb2937c8e138523ed63732c77acd">ComputeGradCholeskyVarianceOfPoints()</a>, is not implemented with sparsity in mind.
+Similarly, the next thing to notice is that if we ignore the case <code>p == i == j</code>, then we see that the expressions for <code>p == i</code> and <code>p == j</code> are actually identical (e.g., take the <code>p == j</code> case and exchange <code>j = i</code> and <code>k = l</code>).
+So think of <code>DVars</code> as a block matrix; each block has dimension entries, and the blocks are indexed over <code>i</code> (rows), <code>j</code> (cols). Then we see that the code is block-symmetric: <code>DVars_{d,i,j} = Dvars_{d,j,i}</code>. So we can compute it by filling in the <code>p</code>-th block column and then copy that data into the <code>p</code>-th block row.
+Additionally, the derivative terms represent matrix-matrix products: <code>C_{l,j} = K^-1_{l,k} * Ks_{k,j}</code> (and <code>K^-1_{k,l} * Ks_{l,i}</code>, which is just a change of index labels) is a matrix product. We compute this using back-substitutions to avoid explicitly forming <code>K^-1</code>. <code>C_{l,j}</code> is <code>num_sampled</code> X <code>num_to_sample</code>.
+Then <code>D_{d,i=p,j} = \pderiv{Ks_{i=p,l}}{Xs_{d,p}} * C_{l,j}</code> is another matrix product (result size <code>dim * num_to_sample</code>) (<code>i = p</code> indicates that index <code>i</code> collapses out since this deriv term is zero if <code>p != i</code>). Note that we store <code>\pderiv{Ks_{i=p,l}}{Xs_{d,p}} = \pderiv{Ks_{l,i=p}}{Xs_{d,p}}</code> as <code>A_{d,l,i}</code> and grab the <code>i = p</code>-th block.
+Again, only the <code>p</code>-th point of <code>points_to_sample</code> is differentiated against; <code>p</code> specfied in <code>diff_index</code>. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradVarianceOfPointsPerPoint(StateType *points_to_sample_state, int diff_index, double *restrict grad_var) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a6849dafb7cca3d304698be5bd4c7a139" data-uid="classoptimal__learning_1_1GaussianProcess_1a6849dafb7cca3d304698be5bd4c7a139">ComputeGradCovarianceOfPointsPerPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :discrete_pts[dim][num_pts]: the set of points to approximate the KG factor :num_pts: number of points in discrete_pts :diff_index: index of <code>points_to_sample</code> in {0, .. <code>num_to_sample</code>-1} to be differentiated against \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :grad_chol[dim][num_to_sample][num_pts]: gradient of the cholesky-factored variance of the GP. <code>grad_chol[d][i][j]</code> is actually the gradients of <code>var_{i,j}</code> with respect to <code>x_{d,k}</code>, the d-th dimension of the k-th entry of <code>points_to_sample</code>, where k = <code>diff_index</code> \endrst</p>
+<p>\rst CORE IDEA**
+Similar to <a class="xref" href="gaussian-process.html#classoptimal__learning_1_1GaussianProcess_1a79bceb2937c8e138523ed63732c77acd">ComputeGradCholeskyVarianceOfPoints()</a> below, except this function does not account for the cholesky decomposition. That is, it produces derivatives wrt <code>Xs_{d,p}</code> (<code>points_to_sample</code>) of:
+<code>Vars = Kss - (V^T * V) = Kss - Ks^T * K^-1 * Ks</code> (see ComputeVarianceOfPoints)
+.. NOTE:: normally <code>Xs_p</code> would be the <code>p</code>-th point of Xs (all dimensions); here <code>Xs_{d,p}</code> more explicitly refers to the <code>d</code>-th spatial dimension of the <code>p</code>-th point.
+This function only returns the derivative wrt a single choice of <code>p</code>, as specified by <code>diff_index</code>.
+Expanded index notation:
+<code>Vars_{i,j} = Kss_{i,j} - Ks^T_{i,l} * K^-1_{l,k} * Ks_{k,j}</code>
+Recall <code>Ks_{k,i} = cov(X_k, Xs_i) = cov(Xs_i, Xs_k)</code> where <code>Xs</code> is <code>points_to_sample</code> and <code>X</code> is <code>points_sampled</code>. (Note this is not equivalent to saying <code>Ks = Ks^T</code>, although this would be true if <code>|Xs| == |X|</code>.) As a result of this symmetry, <code>\pderiv{Ks_{k,i}}{Xs_{d,i}} = \pderiv{Ks_{i,k}}{Xs_{d,i}}</code> (that's <code>d(cov(Xs_i, X_k))/d(Xs_i)</code>)
+We are being more strict with index labels than is standard to clearly specify tensor dimensions. To be clear:</p>
+<ul>
+<li><code>i,j</code> range over <code>num_to_sample</code></li>
+<li><code>l,k</code> are the only non-free indices; they range over <code>num_sampled</code></li>
+<li><code>d,p</code> describe the SPECIFIC point being differentiated against in <code>Xs</code> (<code>points_to_sample</code>): <code>d</code> over dimension, <code>p</code>* over <code>num_to_sample</code></li>
+</ul>
+<p><em>NOTE: <code>p</code> is fixed! Unlike all other indices, <code>p</code> refers to a SPECIFIC point in the range <code>[0, ..., num_to_sample-1]</code>. Thus, <code>\pderiv{Ks_{k,i}}{Xs_{d,i}}</code> is a 3-tensor (<code>A_{d,k,i}</code>) (repeated <code>i</code> is not summation since they denote components of a derivative) while <code>\pderiv{Ks_{i,l}}{Xs_{d,p}}</code> is a 2-tensor (<code>A_{d,l}</code>) b/c only <code>\pderiv{Ks_{i=p,l}}{Xs_{d,p}}</code> is nonzero, and <code>{d,l}</code> are the only remaining free indices.
+Then differentiating against <code>Xs_{d,p}</code> (recall that this is a specific point b/c p is fixed):
+| <code>\pderiv{Vars_{i,j}}{Xs_{d,p}} = \pderiv{K_ss{i,j}}{Xs_{d,p}} -</code> | <code>(\pderiv{Ks_{i,l}}{Xs_{d,p}} * K^-1_{l,k} * Ks_{k,j} + K_s{i,l} * K^-1_{l,k} * \pderiv{Ks_{k,j}}{Xs_{d,p}})</code>
+Many of these terms are analytically known to be 0: <code>\pderiv{Ks_{i,l}}{Xs_{d,p}} = 0</code> when <code>p != i</code> (see NOTE above). A similar statement holds for the other gradient term.
+Observe that the second term in the parens, <code>Ks_{i,l} * K^-1_{l,k} * \pderiv{Ks_{k,j}}{Xs_{d,p}}</code>, can be reordered to &quot;look&quot; like the first term. We use three symmetries: <code>K^-1{l,k} = K^-1{k,l}</code>, <code>Ks_{i,l} = Ks_{l,i}</code>, and
+<code>\pderiv{Ks_{k,j}}{Xs_{d,p}} = \pderiv{Ks_{j,k}}{Xs_{d,p}}</code>
+Then we can write:
+<code>K_s{i,l} * K^-1_{l,k} * \pderiv{Ks_{k,j}}{Xs_{d,p}} = \pderiv{Ks_{j,k}}{Xs_{d,p}} * K^-1_{k,l} * K_s{l,i}</code>
+Now left and right terms have the same index ordering (i,j match; k,l are not free and thus immaterial)
+The final result, accounting for analytic zeros is given here for convenience::
+DVars_{d,i,j} \equiv \pderiv{Vars_{i,j}}{Xs_{d,p}} =`` { \pderiv{K_ss{i,j}}{Xs_{d,p}} - 2</em>\pderiv{Ks_{i,l}}{Xs_{d,p}} * K^-1_{l,k} * Ks_{k,j} : WHEN p == i == j { \pderiv{K_ss{i,j}}{Xs_{d,p}} - \pderiv{Ks_{i,l}}{Xs_{d,p}} * K^-1_{l,k} * Ks_{k,j} : WHEN p == i != j { \pderiv{K_ss{i,j}}{Xs_{d,p}} - \pderiv{Ks_{j,k}}{Xs_{d,p}} * K^-1_{k,l} * K_s{l,i} : WHEN p == j != i { 0 : otherwise
+The first item has a factor of 2 b/c it gets a contribution from both parts of the sum since <code>p == i</code> and <code>p == j</code>. The ordering <code>DVars_{d,i,j}</code> is significant: this is the ordering (d changes the fastest) in storage.
+OPTIMIZATIONS**
+Implementing this formula naively results in a large amount of redundant computation, so we now describe the optimizations present in our implementation.
+The first thing to notice is that the result, <code>\pderiv{Vars_{i,j}}{Xs_{d,p}}</code>, has a lot of 0s. In particular, only the <code>p</code>-th block row and <code>p</code>-th block column have nonzero entries (blocks are size <code>dim</code>, indexed <code>d</code>). Currently, we will not be taking advantage of this sparsity because the consumer of DVars, <a class="xref" href="gaussian-process.html#classoptimal__learning_1_1GaussianProcess_1a79bceb2937c8e138523ed63732c77acd">ComputeGradCholeskyVarianceOfPoints()</a>, is not implemented with sparsity in mind.
+Similarly, the next thing to notice is that if we ignore the case <code>p == i == j</code>, then we see that the expressions for <code>p == i</code> and <code>p == j</code> are actually identical (e.g., take the <code>p == j</code> case and exchange <code>j = i</code> and <code>k = l</code>).
+So think of <code>DVars</code> as a block matrix; each block has dimension entries, and the blocks are indexed over <code>i</code> (rows), <code>j</code> (cols). Then we see that the code is block-symmetric: <code>DVars_{d,i,j} = Dvars_{d,j,i}</code>. So we can compute it by filling in the <code>p</code>-th block column and then copy that data into the <code>p</code>-th block row.
+Additionally, the derivative terms represent matrix-matrix products: <code>C_{l,j} = K^-1_{l,k} * Ks_{k,j}</code> (and <code>K^-1_{k,l} * Ks_{l,i}</code>, which is just a change of index labels) is a matrix product. We compute this using back-substitutions to avoid explicitly forming <code>K^-1</code>. <code>C_{l,j}</code> is <code>num_sampled</code> X <code>num_to_sample</code>.
+Then <code>D_{d,i=p,j} = \pderiv{Ks_{i=p,l}}{Xs_{d,p}} * C_{l,j}</code> is another matrix product (result size <code>dim * num_to_sample</code>) (<code>i = p</code> indicates that index <code>i</code> collapses out since this deriv term is zero if <code>p != i</code>). Note that we store <code>\pderiv{Ks_{i=p,l}}{Xs_{d,p}} = \pderiv{Ks_{l,i=p}}{Xs_{d,p}}</code> as <code>A_{d,l,i}</code> and grab the <code>i = p</code>-th block.
+Again, only the <code>p</code>-th point of <code>points_to_sample</code> is differentiated against; <code>p</code> specfied in <code>diff_index</code>. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradCovarianceOfPointsPerPoint(StateType *points_to_sample_state, int diff_index, double const *restrict discrete_pts, int num_pts, int const *restrict gradients_discrete_pts, int num_gradients_discrete_pts, bool precomputed, double const *kt, double *restrict grad_var) const noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a1ca23082986be3c7775d95578628584e" data-uid="classoptimal__learning_1_1GaussianProcess_1a1ca23082986be3c7775d95578628584e">ComputeGradCholeskyVarianceOfPointsPerPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of the cholesky factorization of the variance of this GP with respect to the <code>diff_index</code>-th point in <code>points_to_sample</code>.
+This internal method is meant to be used by <a class="xref" href="gaussian-process.html#classoptimal__learning_1_1GaussianProcess_1a79bceb2937c8e138523ed63732c77acd">ComputeGradCholeskyVarianceOfPoints()</a> to construct the gradient wrt all points of <code>points_to_sample</code>. See that function for more details.</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :diff_index: index of <code>points_to_sample</code> in {0, .. <code>num_to_sample</code>-1} to be differentiated against :chol_var[num_to_sample][num_to_sample]: the variance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>) e.g., from the cholesky factorization of <code>ComputeVarianceOfPoints</code> \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :grad_chol[dim][num_to_sample][num_to_sample]: gradient of the inverse of the cholesky-factored variance of the GP. <code>grad_chol[d][i][j]</code> is actually the gradients of <code>var_{i,j}</code> with respect to <code>x_{d,k}</code>, the d-th dimension of the k-th entry of <code>points_to_sample</code>, where k = <code>diff_index</code> \endrst</p>
+<p>\rst Differentiates the cholesky factorization of the GP variance.
+| <code>Vars = Kss - (V^T * V)</code> (see ComputeVarianceOfPoints) | <code>C * C^T = Vars</code>
+This function differentiates <code>C</code> wrt the <code>p</code>-th point of <code>points_to_sample</code>; <code>p</code> specfied in <code>diff_index</code>
+Just as users of a lower triangular matrix <code>L[i][j]</code> should not access the upper triangle (<code>j &gt; i</code>), users of the result of this function, <code>grad_chol[d][i][j]</code>, should not access the upper block triangle with <code>j &gt; i</code>.
+See Smith 1995 for full details of computing gradients of the cholesky factorization store in the UPPER triangle. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradCholeskyVarianceOfPointsPerPoint(StateType *points_to_sample_state, int diff_index, double const *restrict chol_var, double *restrict grad_chol) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1aa4741b5bdf794a949674e4c109db9de1" data-uid="classoptimal__learning_1_1GaussianProcess_1aa4741b5bdf794a949674e4c109db9de1">ComputeGradInverseCholeskyVarianceOfPointsPerPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of the invers of the cholesky factorization of the variance of this GP with respect to the <code>diff_index</code>-th point in <code>points_to_sample</code>.
+This internal method is meant to be used by <a class="xref" href="gaussian-process.html#classoptimal__learning_1_1GaussianProcess_1a13131aadcc4f095b4d686c32837ee78a">ComputeGradInverseCholeskyVarianceOfPoints()</a> to construct the gradient wrt all points of <code>points_to_sample</code>. See that function for more details.</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :diff_index: index of <code>points_to_sample</code> in {0, .. <code>num_to_sample</code>-1} to be differentiated against :chol_var[num_to_sample][num_to_sample]: the variance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>) e.g., from the cholesky factorization of <code>ComputeVarianceOfPoints</code> \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :grad_chol[dim][num_to_sample][num_to_sample]: gradient of the cholesky-factored variance of the GP. <code>grad_chol[d][i][j]</code> is actually the gradients of <code>var_{i,j}</code> with respect to <code>x_{d,k}</code>, the d-th dimension of the k-th entry of <code>points_to_sample</code>, where k = <code>diff_index</code> \endrst</p>
+<p>\rst Compute the derivatives of the inverse of the cholesky factor wrt to the points to sample. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradInverseCholeskyVarianceOfPointsPerPoint(StateType *points_to_sample_state, int diff_index, double const *restrict chol_var, double const *restrict var, double const *restrict cov, double const *restrict discrete_pts, int num_pts, bool precomputed, double const *kt, double *restrict grad_chol) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1ab5af109a010786ac1d793cc9a71c47e5" data-uid="classoptimal__learning_1_1GaussianProcess_1ab5af109a010786ac1d793cc9a71c47e5">ComputeGradInverseCholeskyCovarianceOfPointsPerPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of the invers of the cholesky factorization of the variance of this GP with respect to the <code>diff_index</code>-th point in <code>points_to_sample</code>.
+This internal method is meant to be used by <a class="xref" href="gaussian-process.html#classoptimal__learning_1_1GaussianProcess_1a13131aadcc4f095b4d686c32837ee78a">ComputeGradInverseCholeskyVarianceOfPoints()</a> to construct the gradient wrt all points of <code>points_to_sample</code>. See that function for more details.</p>
+<p>:points_to_sample_state[1]</p>
+<p>ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> (configure via <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">PointsToSampleState::SetupState</a>) :diff_index: index of <code>points_to_sample</code> in {0, .. <code>num_to_sample</code>-1} to be differentiated against :chol_var[num_to_sample][num_to_sample]: the variance (matrix) of this GP at each point of <code>Xs</code> (<code>points_to_sample</code>) e.g., from the cholesky factorization of <code>ComputeVarianceOfPoints</code> \output :points_to_sample_state[1]: ptr to a FULLY CONFIGURED <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a>; only temporary state may be mutated :grad_chol[dim][num_to_sample][num_to_sample]: gradient of the cholesky-factored variance of the GP. <code>grad_chol[d][i][j]</code> is actually the gradients of <code>var_{i,j}</code> with respect to <code>x_{d,k}</code>, the d-th dimension of the k-th entry of <code>points_to_sample</code>, where k = <code>diff_index</code> \endrst</p>
+<p>\rst Compute the derivatives of the inverse of the cholesky factor wrt to the points to sample. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::ComputeGradInverseCholeskyCovarianceOfPointsPerPoint(StateType *points_to_sample_state, int diff_index, double const *restrict chol_var, double const *restrict grad_chol_pt, double const *restrict chol_inv_times_cov, double const *restrict discrete_pts, int num_pts, bool precomputed, double const *kt, double *restrict grad_inverse_chol) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1aa70b31c7e30e929e5907fcb32666a738" data-uid="classoptimal__learning_1_1GaussianProcess_1aa70b31c7e30e929e5907fcb32666a738">RecomputeDerivedVariables()</h4>
+  <div class="markdown level1 summary"><p>\rst Recomputes (including resizing as needed) the derived quantities in this class. This function should be called any time state variables are changed. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::RecomputeDerivedVariables(bool mean_change=true)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1a2deaabf8c163d12e865a9c4e685afdbe" data-uid="classoptimal__learning_1_1GaussianProcess_1a2deaabf8c163d12e865a9c4e685afdbe">RecomputeCholeskyVariables()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::RecomputeCholeskyVariables()</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1GaussianProcess_1af03eda51b51ba8dd8d1a1a8aa4331845" data-uid="classoptimal__learning_1_1GaussianProcess_1af03eda51b51ba8dd8d1a1a8aa4331845">RecomputeMeanVariables()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::GaussianProcess::RecomputeMeanVariables(bool mean_change=true)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

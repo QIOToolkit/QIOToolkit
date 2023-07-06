@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class schedule::Schedule
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class schedule::Schedule
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classschedule_1_1Schedule">
+
+
+
+  <h1 id="classschedule_1_1Schedule" data-uid="classschedule_1_1Schedule" class="text-break">Class schedule::Schedule
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="schedule.html">Schedule</a>.</p>
+<p>A schedule maps an input interval to values for parametrization. This can be employed to, e.g.,</p>
+<ul>
+<li>specify a temperature set or schedule (tempering, annealing)</li>
+<li>define how a parameter should evolve over time (substochastic MC)</li>
+</ul>
+<p>The schedule can be specified in different forms:</p>
+<ul>
+<li><code>constant</code> value</li>
+<li><code>linear</code> or <code>geometric</code> interpolation for a range <code>initial</code>..<code>final</code></li>
+<li>By explicitly listing the temperatures as an array</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><a class="xref" href="geometric.html">Geometric</a> interpolation of the range <code>inital</code> to <code>final</code>:</li>
+</ul>
+<pre><code class="lang-.json">&quot;schedule&quot;: {
+  &quot;type&quot;: &quot;geometric&quot;,
+  &quot;initial&quot;: 1.0
+  &quot;final&quot;: 0.3,
+}
+</code></pre>
+<ul>
+<li>20 steps with equal spacing from <code>initial</code> to <code>final</code>:</li>
+</ul>
+<pre><code class="lang-.json">&quot;schedule&quot;: {
+  &quot;type&quot;: &quot;linear&quot;,
+  &quot;initial&quot;: 1.0,
+  &quot;final&quot;: 3.0
+  &quot;count&quot;: 20
+}
+</code></pre>
+<ul>
+<li>An explicit set of values:</li>
+</ul>
+<pre><code class="lang-.json">&quot;schedule&quot;: [0.1, 0.2, 0.3, 0.4]
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Without a prior call to configure, an object of this class is uninitialized and will throw an access to nullptr exception.</p>
+</div>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../utils/component.html">utils::Component</a></div>
+    <div class="level1"><span class="xref">schedule::Schedule</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classschedule_1_1Schedule_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classschedule_1_1Schedule_1a710a48c6612242c66d6f2f0f813f3f53" data-uid="classschedule_1_1Schedule_1a710a48c6612242c66d6f2f0f813f3f53">Schedule()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">schedule::Schedule::Schedule()</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1a7281a507f52f09327f4b1bdb9717604d" data-uid="classschedule_1_1Schedule_1a7281a507f52f09327f4b1bdb9717604d">Schedule()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">schedule::Schedule::Schedule(const Schedule&amp;copy)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classschedule_1_1Schedule_1a0e9924806cb4041c733aa7dc67b20ecb" data-uid="classschedule_1_1Schedule_1a0e9924806cb4041c733aa7dc67b20ecb">~Schedule()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual schedule::Schedule::~Schedule()</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1af27d6c01063e8836ee9440dd9d0ad6ac" data-uid="classschedule_1_1Schedule_1af27d6c01063e8836ee9440dd9d0ad6ac">operator=()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">Schedule&amp;schedule::Schedule::operator=(const Schedule&amp;)=delete</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1a7b6341bd37bb7ef519af2cee0d76de94" data-uid="classschedule_1_1Schedule_1a7b6341bd37bb7ef519af2cee0d76de94">get_value()</h4>
+  <div class="markdown level1 summary"><p>Assuming the simulation runs from [0 .. <code>max_steps</code>] (inclusive), returns the temperature to be used at <code>step</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double schedule::Schedule::get_value(double input) const</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1a645d8b065d38384b995346be3f74a8f2" data-uid="classschedule_1_1Schedule_1a645d8b065d38384b995346be3f74a8f2">get_discretized_values()</h4>
+  <div class="markdown level1 summary"><p>Return a set of values for equidistributed inputs over the schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::vector&lt;double&gt;schedule::Schedule::get_discretized_values(int count=-1) const</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1afacbb92debbab2e7f81d6c6694e51723" data-uid="classschedule_1_1Schedule_1afacbb92debbab2e7f81d6c6694e51723">get_start()</h4>
+  <div class="markdown level1 summary"><p>Get the starting input value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double schedule::Schedule::get_start() const</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1a07208dfc10108940a1fdad7ce3df95ac" data-uid="classschedule_1_1Schedule_1a07208dfc10108940a1fdad7ce3df95ac">get_stop()</h4>
+  <div class="markdown level1 summary"><p>Get the stopping input value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double schedule::Schedule::get_stop() const</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1aa4c8dd545ab84adbcee47c5e6defff9a" data-uid="classschedule_1_1Schedule_1aa4c8dd545ab84adbcee47c5e6defff9a">get_initial()</h4>
+  <div class="markdown level1 summary"><p>Get the initial value (at start)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double schedule::Schedule::get_initial() const</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1af969a4b2347849b697a1dddb9a429c3b" data-uid="classschedule_1_1Schedule_1af969a4b2347849b697a1dddb9a429c3b">get_final()</h4>
+  <div class="markdown level1 summary"><p>Get the final value (at stop)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double schedule::Schedule::get_final() const</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1aec2b997b4c87aa77a94f6c3ae402efb9" data-uid="classschedule_1_1Schedule_1aec2b997b4c87aa77a94f6c3ae402efb9">get_count()</h4>
+  <div class="markdown level1 summary"><p>Query how many equidistributed inputs this schedule would &quot;naturally&quot; have (for an explicit set of values, this is the length of the array, for a generator it is derived from the (rounded) input range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int schedule::Schedule::get_count() const</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1a5ed2c94e016fe0c26531d13c0ef3d035" data-uid="classschedule_1_1Schedule_1a5ed2c94e016fe0c26531d13c0ef3d035">set_stop()</h4>
+  <div class="markdown level1 summary"><p>Force a specific number of steps to be queried from the schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void schedule::Schedule::set_stop(int stop)</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1aa476973d152c3e43739477deb5b83993" data-uid="classschedule_1_1Schedule_1aa476973d152c3e43739477deb5b83993">configure()</h4>
+  <div class="markdown level1 summary"><p>Serialization will instantiate the correct <code>schedule_generator_</code> according to / the configuration it is passed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void schedule::Schedule::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1af994ed6bab70708e01bec36967a6cf70" data-uid="classschedule_1_1Schedule_1af994ed6bab70708e01bec36967a6cf70">make_linear()</h4>
+  <div class="markdown level1 summary"><p>Manually create an linear schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void schedule::Schedule::make_linear(double initial_value, double final_value)</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1ae30bdecbddc1860a7c032549ba889b39" data-uid="classschedule_1_1Schedule_1ae30bdecbddc1860a7c032549ba889b39">make_geometric()</h4>
+  <div class="markdown level1 summary"><p>Manually create an geometric schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void schedule::Schedule::make_geometric(double beta_start, double beta_stop)</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1afa23448bba643d84c69fb8395bc85cb0" data-uid="classschedule_1_1Schedule_1afa23448bba643d84c69fb8395bc85cb0">make_list()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void schedule::Schedule::make_list(const std::vector&lt;double&gt;&amp;values)</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1a9e797c8c8d8b2af9a0105b32ca329f50" data-uid="classschedule_1_1Schedule_1a9e797c8c8d8b2af9a0105b32ca329f50">make_constant()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void schedule::Schedule::make_constant(double value)</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Schedule_1aa31e6f6b8ce1a7b94402e10ada1c8bce" data-uid="classschedule_1_1Schedule_1aa31e6f6b8ce1a7b94402e10ada1c8bce">render()</h4>
+  <div class="markdown level1 summary"><p>render the object in structured form</p>
+<p>Return a structured representation of the object. This is intended for output purposes. For instance, the solution your solver finds should have a render method which allows it to be returned as part of the result.
+Example:</p>
+<pre><code>{c++}
+ MySolution : public Component {
+  public:
+   // Represent the internal bool vector as +-1 output.
+   utils::Structure render() const override {
+     utils::Structure rendered;
+     for (bool item : solution_) rendered.push_back(item ? 1 : -1);
+     return rendered;
+   }
+
+  private:
+   std::vector&lt;bool&gt; solution_;
+ }
+
+ MySolution solution;
+ std::cout &lt;&lt; solution.render().to_string() &lt;&lt; std::endl;
+</code></pre>
+<p><a class="xref" href="../utils/structure.html">utils::Structure</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure schedule::Schedule::render() const override</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

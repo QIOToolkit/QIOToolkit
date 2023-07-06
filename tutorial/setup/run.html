@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>First Simulation | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="First Simulation | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.tutorial.setup.run">
+<h1 id="first-simulation">First Simulation</h1>
+
+<p>The first simulation we are going to simulate a simple Ising model.
+For this we need 2 inputs:</p>
+<ul>
+<li>The input parameters for the solver we want to run.</li>
+<li>The description of the Ising cost function (&quot;input data&quot;).</li>
+</ul>
+<p>A set of examples for these can be found in the <code>cpp/examples/</code> directory:</p>
+<h2 id="input-params">Input Params</h2>
+<pre><code class="lang-json" name="Params">{
+  &quot;type&quot;: &quot;microsoft.simulated-annealing.qiotoolkit&quot;,
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;params&quot;: {
+    &quot;step_limit&quot;: 100,
+    &quot;seed&quot;: 42,
+    &quot;restarts&quot;: 4,
+    &quot;schedule&quot;: {
+      &quot;type&quot;: &quot;linear&quot;,
+      &quot;initial&quot;: 2.0,
+      &quot;final&quot;: 1.0,
+      &quot;count&quot;: 100
+    }
+  }
+}
+</code></pre><h2 id="input-data">Input Data</h2>
+<pre><code class="lang-json" name="Input Data">{
+  &quot;cost_function&quot;: {
+    &quot;type&quot;: &quot;ising&quot;,
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;terms&quot;: [
+      {&quot;c&quot;: 1, &quot;ids&quot;: [0, 1]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [1, 2]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [2, 3]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [3, 4]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [4, 5]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [5, 6]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [6, 7]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [7, 8]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [8, 9]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [9, 0]}
+    ]
+  }
+}
+</code></pre><h2 id="running-the-solver">Running the Solver</h2>
+<p>Additionally, the CLI command must specify the solver to use:</p>
+<pre><code class="lang-bash">$ cd path/to/qiotoolkit/cpp
+$ mkdir release_build
+$ cd release_build
+$ cmake .. -DCMAKE_BUILD_TYPE=Release
+$ make -j8
+$ ./app/qiotoolkit --user --log_level=WARN \
+      --solver microsoft.simulatedannealing.qiotoolkit \
+      --parameters ../data/params1.json \
+      --input ../data/ising1.json
+</code></pre>
+<h2 id="runtime-output">Runtime Output</h2>
+<pre><code>[INFO] app/runner.cc:41: Reading file: ../data/params1.json
+[INFO] app/qiotoolkit.cc:191: Running solver microsoft.simulatedannealing.qiotoolkit
+[DEBUG] solver/simulated_annealing.h:116: recorded cost:10.000000
+[DEBUG] solver/simulated_annealing.h:117: calculated_cost:10.000000
+[INFO] solver/stepping_solver.h:228: Stop due to step limit: 999, steps:999
+[DEBUG] solver/simulated_annealing.h:116: recorded cost:-10.000000
+[DEBUG] solver/simulated_annealing.h:117: calculated_cost:-10.000000
+[INFO] app/qiotoolkit.cc:201: Writing Response to stdout
+</code></pre>
+<h2 id="results">Results</h2>
+<pre><code class="lang-json" name="Results">{
+  &quot;benchmark&quot;: {
+    &quot;accumulated_dependent_vars&quot;: 0,
+    &quot;avg_locality&quot;: 1.000000,
+    &quot;cost_difference_evaluation_count&quot;: 0,
+    &quot;cost_function_evaluation_count&quot;: 99,
+    &quot;cpu_time_ms&quot;: 195.635000,
+    &quot;disk_io_read_bytes&quot;: 0,
+    &quot;disk_io_write_bytes&quot;: 2746,
+    &quot;end2end_cputime_ms&quot;: 241.409071,
+    &quot;end2end_time_ms&quot;: 39.701056,
+    &quot;extensions&quot;: [
+      {
+        &quot;name&quot;: &quot;counters&quot;,
+        &quot;value&quot;: {&quot;accepted_transitions&quot;: 0, &quot;difference_evaluations&quot;: 0, &quot;function_evaluations&quot;: 99}
+      },
+      {
+        &quot;name&quot;: &quot;solver&quot;,
+        &quot;value&quot;: {
+          &quot;cost_milestones&quot;: [
+            {&quot;cost&quot;: 10.000000, &quot;step&quot;: 1.000000}
+          ],
+          &quot;exit_reason&quot;: &quot;Stop due to step limit: 999, steps:999&quot;,
+          &quot;last_step&quot;: 999,
+          &quot;step_limit&quot;: 999
+        }
+      },
+      {
+        &quot;name&quot;: &quot;model&quot;,
+        &quot;value&quot;: {
+          &quot;graph&quot;: {
+            &quot;size&quot;: {
+              &quot;accumulated_dependent_vars&quot;: 0,
+              &quot;avg_locality&quot;: 1.000000,
+              &quot;edges&quot;: 3,
+              &quot;locality&quot;: 1,
+              &quot;max_coupling_magnitude&quot;: 4.000000,
+              &quot;min_coupling_magnitude&quot;: 2.000000,
+              &quot;min_locality&quot;: 1,
+              &quot;nodes&quot;: 3,
+              &quot;sum_coefficient_degrees_total&quot;: 3
+            }
+          }
+        }
+      },
+      {
+        &quot;name&quot;: &quot;build&quot;,
+        &quot;value&quot;: {
+          &quot;branch&quot;: &quot;&quot;,
+          &quot;build_type&quot;: &quot;Debug&quot;,
+          &quot;commit_hash&quot;: &quot;cc7d716&quot;,
+          &quot;compiler&quot;: &quot;g++ 9.4&quot;,
+          &quot;qiotoolkit_version&quot;: &quot;0.0.208&quot;
+        }
+      },
+      {
+        &quot;name&quot;: &quot;invocation&quot;,
+        &quot;value&quot;: {
+          &quot;datetime&quot;: &quot;2023-05-10 11:44:04&quot;,
+          &quot;directory&quot;: &quot;/QIOToolkitV1/cpp&quot;,
+          &quot;host&quot;: &quot;&quot;,
+          &quot;user&quot;: &quot;&quot;
+        }
+      }
+    ],
+    &quot;locality&quot;: 1,
+    &quot;max_coupling_magnitude&quot;: 4.000000,
+    &quot;max_mem_bytes&quot;: 10448896,
+    &quot;min_coupling_magnitude&quot;: 2.000000,
+    &quot;min_locality&quot;: 1,
+    &quot;num_terms&quot;: 3,
+    &quot;num_variables&quot;: 3,
+    &quot;postprocessing_time_ms&quot;: 6.697893,
+    &quot;preprocessing_time_ms&quot;: 13.180017,
+    &quot;solver_time_ms&quot;: 5.856991,
+    &quot;sum_coefficient_degrees_total&quot;: 3,
+    &quot;threads&quot;: 20
+  },
+  &quot;solutions&quot;: {
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;configuration&quot;: {&quot;0&quot;: -1, &quot;2&quot;: -1, &quot;3&quot;: -1},
+    &quot;cost&quot;: -10.000000,
+    &quot;parameters&quot;: {
+      &quot;beta_start&quot;: 0.990000,
+      &quot;beta_stop&quot;: 1.990000,
+      &quot;restarts&quot;: 99,
+      &quot;seed&quot;: 111,
+      &quot;sweeps&quot;: 999
+    },
+    &quot;solutions&quot;: [
+      {
+        &quot;configuration&quot;: {&quot;0&quot;: 1, &quot;2&quot;: 1, &quot;3&quot;: 1},
+        &quot;cost&quot;: 10.000000,
+        &quot;stage&quot;: &quot;init&quot;,
+        &quot;time_in_stage_ms&quot;: 13.180017
+      },
+      {
+        &quot;configuration&quot;: {&quot;0&quot;: -1, &quot;2&quot;: -1, &quot;3&quot;: -1},
+        &quot;cost&quot;: -10.000000,
+        &quot;stage&quot;: &quot;microsoft.simulatedannealing.qiotoolkit&quot;,
+        &quot;time_in_stage_ms&quot;: 5.856991
+      }
+    ]
+  }
+}
+</code></pre><h2 id="arguments">Arguments</h2>
+<ul>
+<li><code>--solver</code> or <code>-s</code> (required): The name of the qiotoolkit solver target.</li>
+<li><code>--parameters</code> or <code>-p</code> (required): The parameter file containing the input parameters for how the solver should be run.</li>
+<li><code>--input</code> or <code>-i</code> (required): The data file containing the input data that specifies the problem.</li>
+<li><code>--output</code> or <code>-o</code> (optional): The data file to which the result will be written. If this is not provided, the results will be written to stdout.</li>
+<li><code>--user</code> (optional): Render output in human-readable form.</li>
+<li><code>-n</code> (optional): No benchmarking output is displayed when this flag is set.</li>
+<li><code>-v</code> (optional): Shows the qiotoolkit build version info.</li>
+</ul>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

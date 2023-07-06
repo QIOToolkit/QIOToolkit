@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct optimal_learning::Plane
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct optimal_learning::Plane
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="structoptimal__learning_1_1Plane">
+
+
+
+  <h1 id="structoptimal__learning_1_1Plane" data-uid="structoptimal__learning_1_1Plane" class="text-break">Struct optimal_learning::Plane
+</h1>
+  <div class="markdown level0 summary"><p>\rst We specify a plane in dim-space using the Hesse (or Hessian) Normal Form:
+<a href="http://mathworld.wolfram.com/HessianNormalForm.html">http://mathworld.wolfram.com/HessianNormalForm.html</a>
+The equation of plane requires dim + 1 real numbers:
+\ms a_0 + \sum_{i=0}^{dim} n_i x_i = 0\me
+Hence we can describe any plane as a vector, \ms [n_0, n_2, ..., n_{dim-1}]\me, and a real number, \ms a_0\me.
+Let \ms n_{vec} = [n_0, ..., n_{dim-1}]\me be the (outward) unit normal vector. By convention, \ms |n_{vec}|<em>2 = 1\me. \ms a_0\me is the signed distance to the origin. This is the distance from the plane to the origin in the direction of \ms n</em>{vec}\me. Put another way, \ms a_0\me is positive if the origin is in the same half-space &quot;pointed to&quot; by \ms n_{vec}\me and negative otherwise.
+Note: \ms a_0\me is measured in units of \ms |n_{vec}|\me, so if it is not an unit vector, that is analogous to scaling \ms a_0\nme.
+As an example, let's consider 4 planes with dim = 2:
+\ms a_0\me = -1, and \ms n_{vec}\me = { 1.0, 0.0}: the plane x = 1 with rightward pointing normal. \ms a_0\me = -1, and \ms n_{vec}\me = {-1.0, 0.0}: the plane x = -1 with leftward pointing normal. \ms a_0\me = 1, and \ms n_{vec}\me = { 1.0, 0.0}: the plane x = -1 with rightward pointing normal. \ms a_0\me = 1, and \ms n_{vec}\me = {-1.0, 0.0}: the plane x = 1 with leftward pointing normal.
+Be careful with the signs.
+Another common way of specifying a plane is via a point \ms x_0\me and an unit normal, \ms n_{vec}\me. A point x is in the plane if and only if \ms (x-x_0) \cdot n_{vec} = 0\me. Since \ms x_0\me is constant, we can precompute and store \ms ms x_0 \cdot n_{vec} = -a_0\me, yielding: \ms x \cdot n_{vec} - x_0 \cdot n_{vec} = x \cdot n_{vec} + a_0\me, which is our original equation of a plane. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="structoptimal__learning_1_1Plane_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1Plane_1a9522f9e3a0ebe5c5b46f9b4354772a47" data-uid="structoptimal__learning_1_1Plane_1a9522f9e3a0ebe5c5b46f9b4354772a47">Plane()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::Plane::Plane()=delete</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1Plane_1a0c2f0a05764bc117806385c5fc932a87" data-uid="structoptimal__learning_1_1Plane_1a0c2f0a05764bc117806385c5fc932a87">Plane()</h4>
+  <div class="markdown level1 summary"><p>\rst Creates a zero-initialized plane object with enough space for dim-dimensions.
+.. NOTE:: This plane is invalid (<code>unit_normal</code> := zero is not a unit vector) and needs to have its members initialized. That said, no member functions will fail even without complete initialization.</p>
+<p>:dim</p>
+<p>the number of spatial dimensions \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::Plane::Plane(int dim_in)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1Plane_1aae0e65cc41b6b101b59c92a4237a84bb" data-uid="structoptimal__learning_1_1Plane_1aae0e65cc41b6b101b59c92a4237a84bb">Plane()</h4>
+  <div class="markdown level1 summary"><p>\rst Creates a plane in dim-dimensions with the specified unit normal (\ms n_i\me) and offset (\ms a_0\me):
+\ms a_0 + \sum_{i=0}^{dim} n_i * x_i = 0\me
+.. NOTE:: Failure to specify a unit normal will result in surprising behavior. \ms a_0\me is really in units of \ms|n_{vec}|\me, so if \ms|n_{vec}| = 3.5\me, then the actual distance to the origin is \ms 3.5 a_0\me.</p>
+<p>:dim</p>
+<p>the number of spatial dimensions :unit_normal[dim]: the unit normal vector. VectorNorm(unit_normal, dim) must be 1.0 :offset: a_0, the signed distance to the origin (see class docs) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::Plane::Plane(double const *restrict unit_normal_in, double offset_in, int dim_in) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1Plane_1a9360050fd0bab065e7d34c938af8e2a0" data-uid="structoptimal__learning_1_1Plane_1a9360050fd0bab065e7d34c938af8e2a0">Plane()</h4>
+  <div class="markdown level1 summary"><p>\rst Creates a plane in dim-dimensions that contains &quot;point,&quot; with the specified unit normal.</p>
+<p>:dim</p>
+<p>the number of spatial dimensions :unit_normal[dim]: the unit normal vector. VectorNorm(unit_normal, dim) must be 1.0 :point[dim]: a point contained in the plane \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::Plane::Plane(double const *restrict unit_normal_in, double const *restrict point, int dim_in) OL_NONNULL_POINTERS</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1Plane_1a25f8926eda0c5dde38cecfe73c798c64" data-uid="structoptimal__learning_1_1Plane_1a25f8926eda0c5dde38cecfe73c798c64">dim()</h4>
+  <div class="markdown level1 summary"><p>\rst the number of spatial dimensions (that this plane lives in) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::Plane::dim() const OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1Plane_1a020073e0e4ea6c131abb2967ed870ddc" data-uid="structoptimal__learning_1_1Plane_1a020073e0e4ea6c131abb2967ed870ddc">OrthogonalDistanceToPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the signed, shortest distance from this plane to point: positive means the point is in the half-space determined by the direction of <code>unit_normal</code>.
+.. Note:: if point is the origin, this yields precisely \ms a_0\me (<code>offset</code>).</p>
+<p>:point[dim]</p>
+<p>point to compute distance to</p>
+<p>signed, shortest distance from this plane to point, where positive means the point and normal are in the same half-space \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::Plane::OrthogonalDistanceToPoint(double const *restrict point) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1Plane_1a2f3b514077dd38ff809a64b86ac9da9a" data-uid="structoptimal__learning_1_1Plane_1a2f3b514077dd38ff809a64b86ac9da9a">OrthogonalProjectionOntoPlane()</h4>
+  <div class="markdown level1 summary"><p>\rst Projects a point (orthogonally) onto a plane; i.e., finds the point on the plane that is closest to the input point.</p>
+<p>:point[dim]</p>
+<p>point to project onto plane \output :point[dim]: point projected onto plane \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::Plane::OrthogonalProjectionOntoPlane(double *restrict point) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1Plane_1ad4281939e7ac7d694ac6f5affde5dc6b" data-uid="structoptimal__learning_1_1Plane_1ad4281939e7ac7d694ac6f5affde5dc6b">DistanceToPlaneAlongVector()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the signed distance from the specified <code>point</code> to this plane along the specified <code>vector</code>. This result is computed in units of \ms|vector|_2\me. That is, a distance of 3.14 means if we compute:
+<code>new_point = 3.14*vector + point</code>,
+then new_point will be on this plane.
+A negative distance means the plane is &quot;behind&quot; the ray.</p>
+<p>:point[dim]</p>
+<p>point to compute distance from :vector[dim]: vector to compute distance along</p>
+<p>Signed distance along the given vector; positive means the intersection is in the same direction as the vector. This result is in units of \ms|vector|_2\me; normalize vector if you want an actual distance. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::Plane::DistanceToPlaneAlongVector(double const *restrict point, double const *restrict vector) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

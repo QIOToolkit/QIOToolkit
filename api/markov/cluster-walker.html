@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class markov::ClusterWalker
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class markov::ClusterWalker
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classmarkov_1_1ClusterWalker">
+
+
+
+  <h1 id="classmarkov_1_1ClusterWalker" data-uid="classmarkov_1_1ClusterWalker" class="text-break">Class markov::ClusterWalker
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="cluster-walker.html"><code>ClusterWalker</code></a> is an abstract base class for quantum like space explorers</p>
+<p>A <a class="xref" href="cluster-walker.html">ClusterWalker</a> stores multiple state and costs and has pointers to a model and random number generator to make steps. It is specifically designed to allow copy assignment (assuming the <a href="xref:classmarkov_1_1Model_1a63cfa1947301b624a5afb3bb9640e3a3">Model::State_T</a> does), such that it can be duplicated in population markovs.
+The <a class="xref" href="walker.html">Walker</a> provides a base implementation of the step function, which</p>
+<ul>
+<li>proposes a random new states,</li>
+<li>computes the cost differences,</li>
+<li>uses virtual method to decide whether to create cluster binded</li>
+<li>variables from multiple states</li>
+<li>invokes a pure virtual method to decide whether to accept, and</li>
+<li>modifies the internal states using cluster if true is returned.</li>
+</ul>
+<p>From this we can implement a <a class="xref" href="quantum-walker.html"><code>QuantumWalker</code></a> by returning acceptance rate based on quantum transverse field.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../utils/component.html">utils::Component</a></div>
+    <div class="level1"><span class="xref">markov::ClusterWalker</span></div>
+      <div class="level2"><a class="xref" href="quantum-walker.html">markov::QuantumWalker</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a10f9a4832356cafa800fc583e17a1ad4">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classmarkov_1_1ClusterWalker_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a490286d281f52fe888872ee35ee0c8ef" data-uid="classmarkov_1_1ClusterWalker_1a490286d281f52fe888872ee35ee0c8ef">ClusterWalker()</h4>
+  <div class="markdown level1 summary"><p>The <code>rng</code> and <code>model</code> must be set before the object can be used. <code>cost</code> is only intialized after a call to <a class="xref" href="cluster-walker.html#classmarkov_1_1ClusterWalker_1a3419892aaa3889ae209a13b1834aceee"><code>init()</code></a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">markov::ClusterWalker&lt;Model&gt;::ClusterWalker()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a3419892aaa3889ae209a13b1834aceee" data-uid="classmarkov_1_1ClusterWalker_1a3419892aaa3889ae209a13b1834aceee">init()</h4>
+  <div class="markdown level1 summary"><p>Must be called after the <code>rng_</code> and <code>model_</code> have been set. It initializes the walker to a random state and precomputes its current cost.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This is typically the only direct call to <code>calculate_cost</code>; from here the current <code>cost_</code> is updated from the computed difference at each step.</p>
+</div>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void markov::ClusterWalker&lt;Model&gt;::init(size_t n_states=1)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a0581cf1f6ce6aa67b32066a86fb07f35" data-uid="classmarkov_1_1ClusterWalker_1a0581cf1f6ce6aa67b32066a86fb07f35">init_state()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::ClusterWalker&lt;Model&gt;::init_state(size_t state_index, ::utils::RandomGenerator&amp;rng)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1ae36207d957165f2d8e92e52b0f2a7dea" data-uid="classmarkov_1_1ClusterWalker_1ae36207d957165f2d8e92e52b0f2a7dea">accept()</h4>
+  <div class="markdown level1 summary"><p>Implementations of the walker interface must provide a method to decide which steps to accept/reject. Currently this is only based on <code>cost_difference</code>, but the state or transition could be added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual bool markov::ClusterWalker&lt;Model&gt;::accept(const typename Model::Cost_T&amp;cost_difference, ::utils::RandomGenerator&amp;rng)=0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a18685d219f309006ddbae360fd5011f2" data-uid="classmarkov_1_1ClusterWalker_1a18685d219f309006ddbae360fd5011f2">accept_cluster()</h4>
+  <div class="markdown level1 summary"><p>Implementations of the walker interface must provide a method to decide which cluster to accept/reject.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual bool markov::ClusterWalker&lt;Model&gt;::accept_cluster(::utils::RandomGenerator&amp;rng)=0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a90d2db0245b3c374e67848496475f83a" data-uid="classmarkov_1_1ClusterWalker_1a90d2db0245b3c374e67848496475f83a">get_transition()</h4>
+  <div class="markdown level1 summary"><p>For models with a 'size_t' transition type, do an ordered sweep.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;std::is_same&lt;TT, size_t&gt;::value, void&gt;::type markov::ClusterWalker&lt;Model&gt;::get_transition(size_t variable_index, typename Model::Transition_T&amp;transition, utils::RandomGenerator&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1ad2a154b33162f327d6ebba3699fc9459" data-uid="classmarkov_1_1ClusterWalker_1ad2a154b33162f327d6ebba3699fc9459">get_transition()</h4>
+  <div class="markdown level1 summary"><p>For any other transition type, do a random sweep.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;!std::is_same&lt;TT, size_t&gt;::value, void&gt;::type markov::ClusterWalker&lt;Model&gt;::get_transition(size_t, typename Model::Transition_T&amp;transition, utils::RandomGenerator&amp;rng)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1ab8b640f3316dce387dd8896372788056" data-uid="classmarkov_1_1ClusterWalker_1ab8b640f3316dce387dd8896372788056">set_model()</h4>
+  <div class="markdown level1 summary"><p>Provide a pointer to the (non-owned) model to use for cost calculations and proposing new steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::ClusterWalker&lt;Model&gt;::set_model(const Model *model)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a99ffb657f8adabb295893035ec88b8ff" data-uid="classmarkov_1_1ClusterWalker_1a99ffb657f8adabb295893035ec88b8ff">model()</h4>
+  <div class="markdown level1 summary"><p>Return a constant reference to the model being used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const Model&amp;markov::ClusterWalker&lt;Model&gt;::model()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1ac14da2aa6f0d394e124d7889acf1a1cf" data-uid="classmarkov_1_1ClusterWalker_1ac14da2aa6f0d394e124d7889acf1a1cf">get_evaluation_counter()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">solver::EvaluationCounter markov::ClusterWalker&lt;Model&gt;::get_evaluation_counter()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a2886bf1e749cac93b0db86c56f0990bb" data-uid="classmarkov_1_1ClusterWalker_1a2886bf1e749cac93b0db86c56f0990bb">add_difference_evaluations()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::ClusterWalker&lt;Model&gt;::add_difference_evaluations(size_t number_evals)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1adb4e91ace825f7e9f9eea6e744bfb5a7" data-uid="classmarkov_1_1ClusterWalker_1adb4e91ace825f7e9f9eea6e744bfb5a7">add_function_evaluations()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::ClusterWalker&lt;Model&gt;::add_function_evaluations(size_t number_evals)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a8f5cd3f3f83598b9fee85825bf2f7973" data-uid="classmarkov_1_1ClusterWalker_1a8f5cd3f3f83598b9fee85825bf2f7973">reset_evaluation_counter()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::ClusterWalker&lt;Model&gt;::reset_evaluation_counter()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1af654d138f10f8582e209ab3c40874180" data-uid="classmarkov_1_1ClusterWalker_1af654d138f10f8582e209ab3c40874180">get_lowest_cost()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">Model::Cost_T markov::ClusterWalker&lt;Model&gt;::get_lowest_cost() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a1acea4b13d9671f10a8669ce6f19311b" data-uid="classmarkov_1_1ClusterWalker_1a1acea4b13d9671f10a8669ce6f19311b">get_lowest_state()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const Model::State_T&amp;markov::ClusterWalker&lt;Model&gt;::get_lowest_state() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1abc570a2f3529b51f125b3cebe63dd78b" data-uid="classmarkov_1_1ClusterWalker_1abc570a2f3529b51f125b3cebe63dd78b">get_states()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;typename Model::State_T&gt;&amp;markov::ClusterWalker&lt;Model&gt;::get_states()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1aa34fc8945ccd22fbf8483a6477730b84" data-uid="classmarkov_1_1ClusterWalker_1aa34fc8945ccd22fbf8483a6477730b84">get_costs()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;typename Model::Cost_T&gt;&amp;markov::ClusterWalker&lt;Model&gt;::get_costs()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a31411ff737161d35d7f1889c9b3cc49f" data-uid="classmarkov_1_1ClusterWalker_1a31411ff737161d35d7f1889c9b3cc49f">size()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t markov::ClusterWalker&lt;Model&gt;::size()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a1c6a1498c32dd48d8a4e6d3720c73958" data-uid="classmarkov_1_1ClusterWalker_1a1c6a1498c32dd48d8a4e6d3720c73958">try_form_clusters()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::ClusterWalker&lt;Model&gt;::try_form_clusters(size_t state_index, const typename Model::Transition_T&amp;transition, utils::RandomGenerator&amp;rng)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a44c09a1f32fc07678411211f8ca51b64" data-uid="classmarkov_1_1ClusterWalker_1a44c09a1f32fc07678411211f8ca51b64">try_flip_clusters()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::ClusterWalker&lt;Model&gt;::try_flip_clusters(size_t state_index, utils::RandomGenerator&amp;rng)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a4e5ebc6fd5da15fea5fbd3d59653b6ec" data-uid="classmarkov_1_1ClusterWalker_1a4e5ebc6fd5da15fea5fbd3d59653b6ec">calculate_cost_diff()</h4>
+  <div class="markdown level1 summary"><p>For models derived from <a class="xref" href="../model/faced-graph-model.html">model::FacedGraphModel</a>, an extra parameter for a cost object is necessary to communicate cached calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;!std::is_base_of&lt;model::FacedGraphModel&lt;TS, TT&gt;, TM&gt;::value, void&gt;::type markov::ClusterWalker&lt;Model&gt;::calculate_cost_diff(size_t state_index, const typename Model::Transition_T&amp;transition)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a478d3969bb71d1b4ffe98546b7b20406" data-uid="classmarkov_1_1ClusterWalker_1a478d3969bb71d1b4ffe98546b7b20406">calculate_cost_diff()</h4>
+  <div class="markdown level1 summary"><p>For models derived from <a class="xref" href="../model/faced-graph-model.html">model::FacedGraphModel</a>, an extra parameter for a cost object is necessary to communicate cached calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;std::is_base_of&lt;model::FacedGraphModel&lt;TS, TT&gt;, TM&gt;::value, void&gt;::type markov::ClusterWalker&lt;Model&gt;::calculate_cost_diff(size_t state_index, const typename Model::Transition_T&amp;transition)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1aca1496ac8fc58cecfb46194555601acd" data-uid="classmarkov_1_1ClusterWalker_1aca1496ac8fc58cecfb46194555601acd">apply_transition()</h4>
+  <div class="markdown level1 summary"><p>For models derived from <a class="xref" href="../model/faced-graph-model.html">model::FacedGraphModel</a>, an extra parameter for a cost object is necessary to communicate cached calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;!std::is_base_of&lt;model::FacedGraphModel&lt;TS, TT&gt;, TM&gt;::value, void&gt;::type markov::ClusterWalker&lt;Model&gt;::apply_transition(size_t state_index, const typename Model::Transition_T&amp;transition)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a8e41bee3e6e83473c1d25c00b706ba4c" data-uid="classmarkov_1_1ClusterWalker_1a8e41bee3e6e83473c1d25c00b706ba4c">apply_transition()</h4>
+  <div class="markdown level1 summary"><p>For models derived from <a class="xref" href="../model/faced-graph-model.html">model::FacedGraphModel</a>, an extra parameter for a cost object is necessary to communicate cached calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;std::is_base_of&lt;model::FacedGraphModel&lt;TS, TT&gt;, TM&gt;::value, void&gt;::type markov::ClusterWalker&lt;Model&gt;::apply_transition(size_t state_index, const typename Model::Transition_T&amp;transition)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1a4c61cd291af6f5eceb39e171d84c3661" data-uid="classmarkov_1_1ClusterWalker_1a4c61cd291af6f5eceb39e171d84c3661">save_lowest()</h4>
+  <div class="markdown level1 summary"><p>Store the current lowest state as the lowest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::ClusterWalker&lt;Model&gt;::save_lowest()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1ac54612dfbaec72eb0d45110e04d32657" data-uid="classmarkov_1_1ClusterWalker_1ac54612dfbaec72eb0d45110e04d32657">memory_estimate()</h4>
+  <div class="markdown level1 summary"><p>Estimate memory consumtion using model parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static size_t markov::ClusterWalker&lt;Model&gt;::memory_estimate(const Model&amp;model, size_t n_states)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1ClusterWalker_1af26754eee9f352e65deb357915dfa2f1" data-uid="classmarkov_1_1ClusterWalker_1af26754eee9f352e65deb357915dfa2f1">compare()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static bool markov::ClusterWalker&lt;Model&gt;::compare(const ClusterWalker&lt;Model&gt;&amp;w1, const ClusterWalker&lt;Model&gt;&amp;w2)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class model::Poly
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class model::Poly
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classmodel_1_1Poly">
+
+
+
+  <h1 id="classmodel_1_1Poly" data-uid="classmodel_1_1Poly" class="text-break">Class model::Poly
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="poly.html">Poly</a> Model.</p>
+<p>Defines an <a class="xref" href="ising.html">Ising</a> model with polynomial cost function. The cost function can be defined via recursive nesting of terms of the form:
+term_i = c_i p_i (\sum_j term_j) ^ e_i</p>
+<ul>
+<li>or -</li>
+</ul>
+<p>term_i = c_i p_i \prod_j s_j
+where
+c_i is a numeric constant p_i is a parameter (which can be changed during the simulation) e_i is an integer exponent s_i is an <a class="xref" href="ising.html">Ising</a> spin</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The limitation to <a class="xref" href="ising.html">Ising</a> spins and products only in non-leaf of such spins is deliberate (this avoids needing to track the number of zeros in products).
+See <a class="xref" href="poly.html#classmodel_1_1Poly_1a68a78fe8f39a813f9ba10b7e17fd5fd2"><code>Poly::configure()</code></a> for the input format definition.</p>
+</div>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../markov/model.html">markov::Model</a></div>
+    <div class="level1"><span class="xref">model::Poly</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a07298e610e883fd0075e673c1e6e9284">get_benchmark_properties</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a16e50b29d0342d441f34157ac474f752">estimate_max_cost_diff</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a1a28d6e29a7420eb7a74938cee2a1a1b">has_initial_configuration</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a1f522498e93eb5322951e3166c844c36">Model</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a3862410b661159f0765fc2cd0af1bf4a">state_only_memory_estimate</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a5f1f00ca1ea6ebf0443b18a84632a0af">get_term_count</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a62498d95dd1497935e5168cc0a090742">get_sweep_size</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a63cb8268952947fab689a4e1ac0137e3">init</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a766931f2b233d3dea76f23f1eddc3033">get_initial_configuration_state</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a8147a330f19b6bd1531f205c80a3ac7d">render_state</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a82535aa5f99f2b432b7404fb1257aef5">calculate_cost</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a8479649ab7b9fd0f59cc9b9fb26f8355">apply_transition</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a87c67c7bab068289c6266fdc8ea494f3">estimate_min_cost_diff</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a89cf1485d832e24e519b6be3314bdabe">get_scale_factor</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a89cf9414ebb5ca464fd1157d794f14b5">is_empty</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a98452315c30ab906b8e426dfa4d3e1da">set_step_limit</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1aa756823be62324daeb2142e82e17555b">is_rescaled</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ab0af596700f48b0b93269b2b7ac56328">state_memory_estimate</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ab15fdb0eee72157fb9cac399b3fab9df">rescale</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ac309b74e14fc75626499bd127f665301">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ac985e4d455cad61ad96f4a7f99cbcc2f">calculate_cost_difference</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ae6e06919a7deb6a7b9c61ea9c73fccfa">get_random_transition</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ae7894461c5805d3483603562d1da72b6">get_const_cost</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1af4fe9cb0f1a39408c280af37973c20bd">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a1dc32c2f990cda6bcbb7d8b76e873fe5">match_version</a>
+    </div>
+    <div>
+      <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a4d2cd1f3366c99ca6569dde9d4b17d22">~BaseModel</a>
+    </div>
+    <div>
+      <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a5b611ada97256b6624946d95c87090e6">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a8b9ac336daccd4cd41df613767a7294f">BaseModel</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classmodel_1_1Poly_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classmodel_1_1Poly_1a117c5c95ccec9c710cd360e09309ab4c" data-uid="classmodel_1_1Poly_1a117c5c95ccec9c710cd360e09309ab4c">get_identifier()</h4>
+  <div class="markdown level1 summary"><p>Returns the identifier string of the model type (e.g., &quot;ising&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string model::Poly::get_identifier() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a17befd50c754983f4a9b60fafb88cc36" data-uid="classmodel_1_1Poly_1a17befd50c754983f4a9b60fafb88cc36">get_version()</h4>
+  <div class="markdown level1 summary"><p>Returns the version of the input format this implementation expects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string model::Poly::get_version() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a47f153412b313d0d209f394ab61a790b" data-uid="classmodel_1_1Poly_1a47f153412b313d0d209f394ab61a790b">get_const_cost()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::Poly::get_const_cost() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a11b0bf73f732f29eecd1c8b3d9dd68e2" data-uid="classmodel_1_1Poly_1a11b0bf73f732f29eecd1c8b3d9dd68e2">is_empty()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool model::Poly::is_empty() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1aa99a156fcbd650066e4b484e42b6523e" data-uid="classmodel_1_1Poly_1aa99a156fcbd650066e4b484e42b6523e">create_state()</h4>
+  <div class="markdown level1 summary"><p>Create a state with specific spin and parameter values.</p>
+<p>Parameters: <code>spins</code> array of initial spin values {-1, 1} <code>parameters</code> array of initial parameter values (defaults to all-1).
+Returns: An initialized state with intermediate term values populated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PolyState model::Poly::create_state(std::vector&lt;int&gt;spins, std::vector&lt;double&gt;parameters={}) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a6e722375afee1d593573543fe0c059c3" data-uid="classmodel_1_1Poly_1a6e722375afee1d593573543fe0c059c3">get_random_state()</h4>
+  <div class="markdown level1 summary"><p>Create a random state.</p>
+<p>This fill the state with random spin values {-1, +1} and all parameters set to 1.0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PolyState model::Poly::get_random_state(utils::RandomGenerator&amp;rng) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a04c2d4fb7d1d17595fc882d487983a4c" data-uid="classmodel_1_1Poly_1a04c2d4fb7d1d17595fc882d487983a4c">create_spin_flip()</h4>
+  <div class="markdown level1 summary"><p>Create a specific spin flip.</p>
+<p>This returns a transition which spins flip <code>spin_id</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PolyTransition model::Poly::create_spin_flip(size_t spin_id) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a720ce8cbe4626e29b406ec47002e2c1e" data-uid="classmodel_1_1Poly_1a720ce8cbe4626e29b406ec47002e2c1e">create_parameter_change()</h4>
+  <div class="markdown level1 summary"><p>Create a parameter change.</p>
+<p>This returns a transition which substitutes the model parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PolyTransition model::Poly::create_parameter_change(const std::vector&lt;double&gt;values) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a6e6eb17f5e5a08fff86b166db53ae4a1" data-uid="classmodel_1_1Poly_1a6e6eb17f5e5a08fff86b166db53ae4a1">get_random_transition()</h4>
+  <div class="markdown level1 summary"><p>Return a random spin flip.</p>
+<p>The default markov transition for <a class="xref" href="poly.html">Poly</a> is a random spin flip. <a class="xref" href="poly.html#classmodel_1_1Poly_1a720ce8cbe4626e29b406ec47002e2c1e"><code>create_parameter_change</code></a> to manually create a parameter transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PolyTransition model::Poly::get_random_transition(const PolyState&amp;state, utils::RandomGenerator&amp;rng) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a6b19ad401e2360871f4b8c8379993d44" data-uid="classmodel_1_1Poly_1a6b19ad401e2360871f4b8c8379993d44">calculate_cost()</h4>
+  <div class="markdown level1 summary"><p>Get the full cost function.</p>
+<p>We can entirely rely on the root term's intermediate value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::Poly::calculate_cost(const PolyState&amp;state) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a71067b636b134c81af5cfa588bbad0f4" data-uid="classmodel_1_1Poly_1a71067b636b134c81af5cfa588bbad0f4">calculate_cost_difference()</h4>
+  <div class="markdown level1 summary"><p>Calculate the cost difference for a transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::Poly::calculate_cost_difference(const PolyState&amp;state, const PolyTransition&amp;transition) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1aef41754311bbaa270a2086853b612372" data-uid="classmodel_1_1Poly_1aef41754311bbaa270a2086853b612372">apply_transition()</h4>
+  <div class="markdown level1 summary"><p>Apply a transition to a state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::Poly::apply_transition(const PolyTransition&amp;transition, PolyState&amp;state) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a03555624321656e6f9ee25ae840044ab" data-uid="classmodel_1_1Poly_1a03555624321656e6f9ee25ae840044ab">get_sweep_size()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t model::Poly::get_sweep_size() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a68a78fe8f39a813f9ba10b7e17fd5fd2" data-uid="classmodel_1_1Poly_1a68a78fe8f39a813f9ba10b7e17fd5fd2">configure()</h4>
+  <div class="markdown level1 summary"><p>Populates model internals from the input json.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::Poly::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a030fa989c8a141e1f84f4be20d8963dc" data-uid="classmodel_1_1Poly_1a030fa989c8a141e1f84f4be20d8963dc">configure()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::Poly::configure(Configuration_T&amp;configuration)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1af30d2167aae18c88735a66114a68e5cc" data-uid="classmodel_1_1Poly_1af30d2167aae18c88735a66114a68e5cc">print()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string model::Poly::print() const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a03791f6365b5040c766f2e251694987a" data-uid="classmodel_1_1Poly_1a03791f6365b5040c766f2e251694987a">get_parameters()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::vector&lt;std::string&gt;model::Poly::get_parameters() const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a84cb7521a707490085abd47d243863e7" data-uid="classmodel_1_1Poly_1a84cb7521a707490085abd47d243863e7">get_spin_overlap()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::Poly::get_spin_overlap(const PolyState&amp;s, const PolyState&amp;t) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a2006e223bd6f932d0216e9a87bf16261" data-uid="classmodel_1_1Poly_1a2006e223bd6f932d0216e9a87bf16261">get_term_overlap()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::Poly::get_term_overlap(const PolyState&amp;s, const PolyState&amp;t) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a084f55e1c2c060df1ea0b58e7df672fd" data-uid="classmodel_1_1Poly_1a084f55e1c2c060df1ea0b58e7df672fd">state_memory_estimate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t model::Poly::state_memory_estimate() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1ad10618d4f7a0f377f4bbf2d74359e177" data-uid="classmodel_1_1Poly_1ad10618d4f7a0f377f4bbf2d74359e177">state_only_memory_estimate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t model::Poly::state_only_memory_estimate() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a564c02a743d092523a4d62335c0dc4ff" data-uid="classmodel_1_1Poly_1a564c02a743d092523a4d62335c0dc4ff">configure_term()</h4>
+  <div class="markdown level1 summary"><p>Read a term from the input configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::Poly::configure_term(const utils::Json&amp;json, int parent=-1)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a9096cc9b4fa8161474b0feec6d4c0834" data-uid="classmodel_1_1Poly_1a9096cc9b4fa8161474b0feec6d4c0834">configure_term()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::Poly::configure_term(PolySpinsConfiguration&amp;input, int parent=-1)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1aab6590eac6a31220b38bc226a433951c" data-uid="classmodel_1_1Poly_1aab6590eac6a31220b38bc226a433951c">configure_term()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::Poly::configure_term(PolyTermConfiguration&amp;input, int parent=-1)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1ae3ae1582395f9cc0f8177d48f17099cc" data-uid="classmodel_1_1Poly_1ae3ae1582395f9cc0f8177d48f17099cc">configure_term()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::Poly::configure_term(std::vector&lt;PolyTermConfiguration&gt;&amp;, int parent=-1)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1a87f14fc16494569724222a45d310b0b0" data-uid="classmodel_1_1Poly_1a87f14fc16494569724222a45d310b0b0">initialize_terms()</h4>
+  <div class="markdown level1 summary"><p>Initialize a state.</p>
+<p>This takes a state with <code>spins</code> and <code>parameters</code> set and populates its intermediate evaluation results in <code>terms</code>. This is the only time we evaluate all of the terms. All subsequent calls to <code>calculate_cost(state)</code> and <code>calculate_cost_difference(state, transition)</code> rely on these <code>term</code>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::Poly::initialize_terms(PolyState&amp;state) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1af2334ecbe337d6f2eb2ec4c933895c42" data-uid="classmodel_1_1Poly_1af2334ecbe337d6f2eb2ec4c933895c42">calculate_term_differences()</h4>
+  <div class="markdown level1 summary"><p>Calculate difference for each term.</p>
+<p>This calculates all the nodes affected by a transition and bubbles those changes up to the root node of the poly tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::map&lt;size_t, double&gt;model::Poly::calculate_term_differences(const PolyState&amp;state, const PolyTransition&amp;transition) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1af677b300395b5f0910feafed3755b412" data-uid="classmodel_1_1Poly_1af677b300395b5f0910feafed3755b412">term_factor()</h4>
+  <div class="markdown level1 summary"><p>Return the factor preceding term <code>term_id</code></p>
+<p>This computes the product <code>constant * parameter</code> where the parameter is optional and taken from the set of parameters passed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::Poly::term_factor(const std::vector&lt;double&gt;parameters, size_t term_id) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1Poly_1ab3bcdd76d3bdd05bf8827561878b5363" data-uid="classmodel_1_1Poly_1ab3bcdd76d3bdd05bf8827561878b5363">term_to_string()</h4>
+  <div class="markdown level1 summary"><p>Render a term's string representation (recursively)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string model::Poly::term_to_string(size_t term_id) const</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

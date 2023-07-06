@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class model::BaseModel
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class model::BaseModel
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classmodel_1_1BaseModel">
+
+
+
+  <h1 id="classmodel_1_1BaseModel" data-uid="classmodel_1_1BaseModel" class="text-break">Class model::BaseModel
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="base-model.html">BaseModel</a> class (non-markov specific)</p>
+<p>Base class implementing methods needed for model selection. A pointer to this base class can be used by the owner of the model (through it needs to be dynamic-cast to a pointer to the specific model type when setting it on the solver).
+[!NOTE] This is different from the <a class="xref" href="../markov/model.html">markov::Model</a> class which has the interfaces to interact with markov-based optimizers.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../utils/component.html">utils::Component</a></div>
+    <div class="level1"><span class="xref">model::BaseModel</span></div>
+      <div class="level2"><a class="xref" href="../markov/model.html">markov::Model</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classmodel_1_1BaseModel_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classmodel_1_1BaseModel_1a8b9ac336daccd4cd41df613767a7294f" data-uid="classmodel_1_1BaseModel_1a8b9ac336daccd4cd41df613767a7294f">BaseModel()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">model::BaseModel::BaseModel()=default</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classmodel_1_1BaseModel_1a4d2cd1f3366c99ca6569dde9d4b17d22" data-uid="classmodel_1_1BaseModel_1a4d2cd1f3366c99ca6569dde9d4b17d22">~BaseModel()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual model::BaseModel::~BaseModel()=default</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1BaseModel_1abb387a066ae2ecd9a8499b3a9b8c061d" data-uid="classmodel_1_1BaseModel_1abb387a066ae2ecd9a8499b3a9b8c061d">get_identifier()</h4>
+  <div class="markdown level1 summary"><p>Returns the identifier string of the model type (e.g., &quot;ising&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual std::string model::BaseModel::get_identifier() const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1BaseModel_1a43c006be3c850c5f0adf222dd542d164" data-uid="classmodel_1_1BaseModel_1a43c006be3c850c5f0adf222dd542d164">get_version()</h4>
+  <div class="markdown level1 summary"><p>Returns the version of the input format this implementation expects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual std::string model::BaseModel::get_version() const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1BaseModel_1a720a273327584f2c9237c0f98467ea20" data-uid="classmodel_1_1BaseModel_1a720a273327584f2c9237c0f98467ea20">configure()</h4>
+  <div class="markdown level1 summary"><p>Populates model internals from the input json.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::BaseModel::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1BaseModel_1a6e04548af0b582f5b8d1056b05d93a55" data-uid="classmodel_1_1BaseModel_1a6e04548af0b582f5b8d1056b05d93a55">configure()</h4>
+  <div class="markdown level1 summary"><p>Populates model internals from the input configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::BaseModel::configure(BaseModelConfiguration&amp;configuration)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1BaseModel_1a5b611ada97256b6624946d95c87090e6" data-uid="classmodel_1_1BaseModel_1a5b611ada97256b6624946d95c87090e6">configure()</h4>
+  <div class="markdown level1 summary"><p>Populates the model from a related model The trelated model is considered useless after this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::BaseModel::configure(BaseModel *base)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1BaseModel_1a20a6cb42e6f45a6b5f5521db2be75b5d" data-uid="classmodel_1_1BaseModel_1a20a6cb42e6f45a6b5f5521db2be75b5d">init()</h4>
+  <div class="markdown level1 summary"><p>Initializes internal data structures (guaranteed to be called after <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a720a273327584f2c9237c0f98467ea20"><code>configure()</code></a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::BaseModel::init()</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1BaseModel_1a1dc32c2f990cda6bcbb7d8b76e873fe5" data-uid="classmodel_1_1BaseModel_1a1dc32c2f990cda6bcbb7d8b76e873fe5">match_version()</h4>
+  <div class="markdown level1 summary"><p>Checks the string argument against the expected version.</p>
+<p>This can be overloaded to accept other version than the one returned by <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a43c006be3c850c5f0adf222dd542d164"><code>get_version()</code></a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::BaseModel::match_version(const std::string&amp;version)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

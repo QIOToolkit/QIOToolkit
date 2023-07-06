@@ -1,8 +1,0 @@
-{
-    "params": {
-        "tabu_tenure": 20,
-        "restarts": 16,
-        "sweeps": 1024,
-        "seed": 34
-    }
-}

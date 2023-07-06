@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class markov::TabuWalker
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class markov::TabuWalker
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classmarkov_1_1TabuWalker">
+
+
+
+  <h1 id="classmarkov_1_1TabuWalker" data-uid="classmarkov_1_1TabuWalker" class="text-break">Class markov::TabuWalker
+</h1>
+  <div class="markdown level0 summary"><p>Tabu walker.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="walker.html">markov::Walker</a></div>
+    <div class="level1"><span class="xref">markov::TabuWalker</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a058b86f85b031e54167fd486b8381b04">get_lowest_state</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a05dd8efd29e273b04b591939c5132a61">check_lowest</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a0ff17d7efdb3e4b209c4e7892be34392">state</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a1c68e65a5c964c8f5f758376b4d0c256">reset_evaluation_counter</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a3b1f7d183fd906f30e0138c562aeafca">swap_state</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a5681d01133db81e96e86e74225a6eaf4">set_model</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a59ee1c02a5e62133e3947042a99f3304">model</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a5dc773fb446778c9286a492bf291d537">Walker</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a604fe74902e141ecc2281b5032562a8e">make_sweeps</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a6cdf55e002ad10f00c9303937c46635d">attempt_transition</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a7dd30e048093b861e1238d0c13a5d85a">get_evaluation_counter</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a800a8de90d3c17d302897f4e6a0e382d">set_rng</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a963e44d1db61f4119fc574f618e387b8">save_lowest</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a9850fabfccb4bb910eef2d0f28484dc3">rng</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1a9e374d50ab599074f4eba1a48cf39e1a">apply_transition</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1abbce254993d95d0aa15cad1b08a730ca">get_lowest_cost</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1abd678714720d79480c1cd118bcbaf298">make_step</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1ac7e3d53bba1e9875dbd71b3b373cd7a1">cost</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1ad09a0ad3a92b841f1a00bb66e75f83c8">init</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1ad7deb43905511a12c0c58d1299ec2b46">apply_scale_factor</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1ad924e1693308aa21ee740cefa3c20f7f">compare</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1addce5908820e46a3af693c8f54d9cb8a">attempt_transition</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1ae97069b1849f199ca67c485887827baf">apply_transition</a>
+    </div>
+    <div>
+      <a class="xref" href="walker.html#classmarkov_1_1Walker_1aed37dbaaae08bf0547db2562a4f723b2">verify_cost_difference</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a10f9a4832356cafa800fc583e17a1ad4">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classmarkov_1_1TabuWalker_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1a56737809ad5e8481ba12dfbbd8c5fd8c" data-uid="classmarkov_1_1TabuWalker_1a56737809ad5e8481ba12dfbbd8c5fd8c">TabuWalker()</h4>
+  <div class="markdown level1 summary"><p>Create a <a class="xref" href="tabu-walker.html">TabuWalker</a> instance with uninitialized model and state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">markov::TabuWalker&lt;Model&gt;::TabuWalker()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1a640cd892e463355b27d1dd0691f39556" data-uid="classmarkov_1_1TabuWalker_1a640cd892e463355b27d1dd0691f39556">init()</h4>
+  <div class="markdown level1 summary"><p>Must be called after the <code>rng_</code> and <code>model_</code> have been set. It initializes the walker to a random state and precomputes its current cost.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This is typically the only direct call to <code>calculate_cost</code>; from here the current <code>cost_</code> is updated from the computed difference at each step.</p>
+</div>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::TabuWalker&lt;Model&gt;::init() override</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1aacb858b6dbf2dcd9e4d9c964e56520bf" data-uid="classmarkov_1_1TabuWalker_1aacb858b6dbf2dcd9e4d9c964e56520bf">accept()</h4>
+  <div class="markdown level1 summary"><p>Decide whether to accept a given cost increase.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool markov::TabuWalker&lt;Model&gt;::accept(const typename Model::Cost_T&amp;cost_diff) override</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1a87ee585b7d31921a4d4f5ae40507bb0f" data-uid="classmarkov_1_1TabuWalker_1a87ee585b7d31921a4d4f5ae40507bb0f">make_sweep()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::TabuWalker&lt;Model&gt;::make_sweep()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1ae69f614fce85d656b4de981adf0570ac" data-uid="classmarkov_1_1TabuWalker_1ae69f614fce85d656b4de981adf0570ac">set_tenure()</h4>
+  <div class="markdown level1 summary"><p>Set tabu tenure parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::TabuWalker&lt;Model&gt;::set_tenure(unsigned int tabu_tenure)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1af0e70becfe6b30e712d9e9292a5d3c1b" data-uid="classmarkov_1_1TabuWalker_1af0e70becfe6b30e712d9e9292a5d3c1b">memory_estimate()</h4>
+  <div class="markdown level1 summary"><p>Estimate memory consumption using model parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static size_t markov::TabuWalker&lt;Model&gt;::memory_estimate(const Model&amp;model)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1a7f1e7b3f5cd82a7a0630308d206f1197" data-uid="classmarkov_1_1TabuWalker_1a7f1e7b3f5cd82a7a0630308d206f1197">clear_tabu_list()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;std::is_same&lt;TT, size_t&gt;::value, void&gt;::type markov::TabuWalker&lt;Model&gt;::clear_tabu_list(void)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1ac2e7f057b61879543b43688aab237697" data-uid="classmarkov_1_1TabuWalker_1ac2e7f057b61879543b43688aab237697">clear_tabu_list()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;!std::is_same&lt;TT, size_t&gt;::value, void&gt;::type markov::TabuWalker&lt;Model&gt;::clear_tabu_list(void)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1aebff7ebda5ff5a821cccb86e1babdd62" data-uid="classmarkov_1_1TabuWalker_1aebff7ebda5ff5a821cccb86e1babdd62">get_transition()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;std::is_same&lt;TT, size_t&gt;::value, TT&gt;::type markov::TabuWalker&lt;Model&gt;::get_transition(size_t i)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1a926dca3a3ab230e8d1fda98e1794eb1f" data-uid="classmarkov_1_1TabuWalker_1a926dca3a3ab230e8d1fda98e1794eb1f">get_transition()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;!std::is_same&lt;TT, size_t&gt;::value, TT&gt;::type markov::TabuWalker&lt;Model&gt;::get_transition(size_t)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1acda529cbc614cc549ac0f1805b62205c" data-uid="classmarkov_1_1TabuWalker_1acda529cbc614cc549ac0f1805b62205c">local_search_init()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::TabuWalker&lt;Model&gt;::local_search_init()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1TabuWalker_1a68f97506df2c2f3b9685044a1b4ba673" data-uid="classmarkov_1_1TabuWalker_1a68f97506df2c2f3b9685044a1b4ba673">local_search_sweep()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::TabuWalker&lt;Model&gt;::local_search_sweep()</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

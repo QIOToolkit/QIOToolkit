@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Design: Exceptions | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Design: Exceptions | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="design-exceptions">Design: Exceptions</h1>
+
+<p><strong>Background</strong>: Concise and actionable feedback in exceptions is crucial
+to allow customers to amend their input.</p>
+<p><strong>Goal</strong>: Provide guidelines on the content and wording of exceptions
+returned to customers.</p>
+<p><strong>Non-goals</strong>:</p>
+<ul>
+<li>Design and discussion of logging levels for development.</li>
+</ul>
+<h2 id="exceptions-vs-logging">Exceptions vs Logging</h2>
+<ul>
+<li>Exceptions are intended as an early-abort mechanism with feedback to
+customers (unless caught and handled)</li>
+<li>Logging is purely for development (we don't surface any log statements to
+customers).</li>
+</ul>
+<h2 id="how-to-throw">How to throw</h2>
+<p>We provide a <code>THROW</code> macro which takes care of concatenating multiple
+stream-printable contents into an error message:</p>
+<pre><code class="lang-c++">if (!my_condition(variable)) {
+  THROW(utils::ValueException, &quot;my_condition must hold for variable. Found variable=&quot;, variable, &quot;.&quot;);
+}
+</code></pre>
+<h2 id="which-is-equivalent-to-throwutilsvalueexceptionmsgstr-with-a-manually-crafted-msgwhich-exception">which is equivalent to <code>throw(utils::ValueException(msg.str()))</code> with a manually crafted <code>msg</code>.
+Which Exception</h2>
+<p>We recognize [four classes of exceptions]:</p>
+<ul>
+<li>Insufficient Resources (1-100)</li>
+<li>Invalid Input Data (101-200)</li>
+<li>Runtime Errors (201-300)</li>
+<li>File IO errors (301-400)</li>
+</ul>
+<p>The list of error codes can be expanded if necessary.</p>
+<h2 id="choice-of-modal-verb">Choice of Modal Verb</h2>
+<p>To clarify whether a condition is enforced or merely suggested, we follow the
+<a href="https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/s/should-vs-must">Microsoft Style Guide</a>:</p>
+<ul>
+<li>the word <em>&quot;must&quot;</em> indicates a <strong>required</strong> condition (the task <em>will
+abort early</em> if not followed and indicate this condition as the reason),</li>
+<li>the word <em>&quot;should&quot;</em> indicates a <strong>suggestion</strong> (the task <em>will still
+run</em>, but we expect results to be inferior).</li>
+</ul>
+<p>We currently don't have a mechanism to surface warnings to the user, so the
+second instance will <em>silently</em> accept inputs not following the suggestion.</p>
+<h2 id="positive-statement">Positive Statement</h2>
+<p>Exceptions should be formulated in the <em>positive</em> (i.e., describe the expected
+situation), followed by what was encountered (i.e., why the expectation is not
+met). Ideally with details on where to find the inconsistency.</p>
+<p><strong>Example</strong></p>
+<ul>
+<li><code>a</code> must be greater-equals 0. Found <code>a=-1</code> in the json input: <code>cost_function.params.a</code>.</li>
+<li><code>alpha</code> must be decreasing (i.e., the initial value of alpha must be larger than the final value).
+Found <code>alpha.initial = 0 &lt; 1 = alpha.final</code>.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This is in contrast to describing what is wrong (i.e., <em>&quot;Error: alpha.initial is smaller than alpha.final.&quot;</em>).</p>
+</div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct optimal_learning::MockGaussianProcessPriorData
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct optimal_learning::MockGaussianProcessPriorData
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="structoptimal__learning_1_1MockGaussianProcessPriorData">
+
+
+
+  <h1 id="structoptimal__learning_1_1MockGaussianProcessPriorData" data-uid="structoptimal__learning_1_1MockGaussianProcessPriorData" class="text-break">Struct optimal_learning::MockGaussianProcessPriorData
+</h1>
+  <div class="markdown level0 summary"><p>\rst Struct to generate data randomly from a <a class="xref" href="gaussian-process.html">GaussianProcess</a>. This object contains the generated <a class="xref" href="gaussian-process.html">GaussianProcess</a> as well as the inputs needed to generate it (e.g., hyperparameters, domain, etc).
+This struct is intended for convenience (so that test writers do not need to repeat these lines in every test that builds its input data from a GP). It has a fire-and-forget constructor that builds all fields randomly, but it also exposes all internal state/functions used by that ctor so that power users can customize their test scenarios further.
+Implementation: this object uses std::unique_ptr to hide complex object definitions in the corresponding cpp file \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="structoptimal__learning_1_1MockGaussianProcessPriorData_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1MockGaussianProcessPriorData_1ad7dc02399c03efbe8e78350af2e769b3" data-uid="structoptimal__learning_1_1MockGaussianProcessPriorData_1ad7dc02399c03efbe8e78350af2e769b3">MockGaussianProcessPriorData()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct an empty <a class="xref" href="mock-gaussian-process-prior-data.html">MockGaussianProcessPriorData</a>. Member int, double, and vectors are initialized appropriately. covariance_ptr is cloned from covariance. BUT domain_ptr and gaussian_process_ptr ARE NOT initialized. Use this class's member functions to properly initialize these more complex data.</p>
+<p>:covariance</p>
+<p>the <a class="xref" href="covariance-interface.html">CovarianceInterface</a> object encoding assumptions about the GP's behavior on our data :noise_variance: the <code>\sigma_n^2</code> (noise variance) associated w/observation, i-th entry will be associated with the i-th point generated by the GP :dim: the spatial dimension of a point (i.e., number of independent params in experiment) :num_sampled: number of already-sampled points (that we want the GP to hold) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MockGaussianProcessPriorData&lt;DomainType&gt;::MockGaussianProcessPriorData(const CovarianceInterface&amp;covariance, const std::vector&lt;int&gt;&amp;derivatives_in, int num_derivatives_in, int dim_in, int num_sampled_in)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1MockGaussianProcessPriorData_1a1d39d19e6d078cafce9c757803e01085" data-uid="structoptimal__learning_1_1MockGaussianProcessPriorData_1a1d39d19e6d078cafce9c757803e01085">MockGaussianProcessPriorData()</h4>
+  <div class="markdown level1 summary"><p>\rst Completely constructs a <a class="xref" href="mock-gaussian-process-prior-data.html">MockGaussianProcessPriorData</a>, initializing all fields. Builds a GP based on a randomly generated domain and hyperparameters.</p>
+<p>:covariance</p>
+<p>the <a class="xref" href="covariance-interface.html">CovarianceInterface</a> object encoding assumptions about the GP's behavior on our data :noise_variance: the <code>\sigma_n^2</code> (noise variance) associated w/observation, i-th entry will be associated with the i-th point generated by the GP :dim: the spatial dimension of a point (i.e., number of independent params in experiment) :num_sampled: number of already-sampled points (that we want the GP to hold) :uniform_double_domain_lower: <code>[min, max]</code> range from which to draw domain lower bounds :uniform_double_domain_upper: <code>[min, max]</code> range from which to draw domain upper bounds :uniform_double_hyperparameters: <code>[min, max]</code> range from which to draw hyperparameters :uniform_generator[1]: a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object providing the random engine for uniform random numbers \output :uniform_generator[1]: <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object will have its state changed due to random draws \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MockGaussianProcessPriorData&lt;DomainType&gt;::MockGaussianProcessPriorData(const CovarianceInterface&amp;covariance, const std::vector&lt;int&gt;&amp;derivatives_in, int num_derivatives_in, int dim_in, int num_sampled_in, const boost::uniform_real&lt;double&gt;&amp;uniform_double_domain_lower, const boost::uniform_real&lt;double&gt;&amp;uniform_double_domain_upper, const boost::uniform_real&lt;double&gt;&amp;uniform_double_hyperparameters, UniformRandomGenerator *uniform_generator)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1MockGaussianProcessPriorData_1a5c85b4f61053e3bb5a66566a3a07cac5" data-uid="structoptimal__learning_1_1MockGaussianProcessPriorData_1a5c85b4f61053e3bb5a66566a3a07cac5">~MockGaussianProcessPriorData()</h4>
+  <div class="markdown level1 summary"><p>\rst Prevent inline destructor: the dtor of std::unique_ptr<t> needs access to T's dtor (b/c unique_ptr's dtor basically calls delete on T*). But we want to forward-declare all of our T objects, so the dtor must be defined in the cpp file where those defintions are visible. \endrst</t></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MockGaussianProcessPriorData&lt;DomainType&gt;::~MockGaussianProcessPriorData()</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1MockGaussianProcessPriorData_1a7bef8667f1cafab1d3d336522a254a39" data-uid="structoptimal__learning_1_1MockGaussianProcessPriorData_1a7bef8667f1cafab1d3d336522a254a39">InitializeHyperparameters()</h4>
+  <div class="markdown level1 summary"><p>\rst Sets hyperparameters of covariance with random draws from the specified interval. Modifies: hyperparameters, covariance_ptr</p>
+<p>:uniform_double_hyperparameters</p>
+<p><code>[min, max]</code> range from which to draw hyperparameters :uniform_generator[1]: a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object providing the random engine for uniform random numbers \output :uniform_generator[1]: <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object will have its state changed due to random draws \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::MockGaussianProcessPriorData&lt;DomainType&gt;::InitializeHyperparameters(const boost::uniform_real&lt;double&gt;&amp;uniform_double_hyperparameters, UniformRandomGenerator *uniform_generator)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1MockGaussianProcessPriorData_1a13d28b3559285cc46fe6081f9b281e0f" data-uid="structoptimal__learning_1_1MockGaussianProcessPriorData_1a13d28b3559285cc46fe6081f9b281e0f">InitializeDomain()</h4>
+  <div class="markdown level1 summary"><p>\rst Sets the domain from which the GP's historical data will be generated. For each dimension, we draw <code>[min, max]</code> bounds (domain_bounds); then we construct a domain object. Modifies: domain_bounds, domain_ptr</p>
+<p>:uniform_double_domain_lower</p>
+<p><code>[min, max]</code> range from which to draw domain lower bounds :uniform_double_domain_upper: <code>[min, max]</code> range from which to draw domain upper bounds :uniform_generator[1]: a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object providing the random engine for uniform random numbers \output :uniform_generator[1]: <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object will have its state changed due to random draws \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::MockGaussianProcessPriorData&lt;DomainType&gt;::InitializeDomain(const boost::uniform_real&lt;double&gt;&amp;uniform_double_domain_lower, const boost::uniform_real&lt;double&gt;&amp;uniform_double_domain_upper, UniformRandomGenerator *uniform_generator)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1MockGaussianProcessPriorData_1a994b275757d1cde9be7fd083f09fefbc" data-uid="structoptimal__learning_1_1MockGaussianProcessPriorData_1a994b275757d1cde9be7fd083f09fefbc">InitializeGaussianProcess()</h4>
+  <div class="markdown level1 summary"><p>\rst Builds a <a class="xref" href="gaussian-process.html">GaussianProcess</a> with num_sampled points (drawn randomly from the domain) whose values are drawn randomly from the GP (sampled one at a time and added to the prior). Users MUST call <a class="xref" href="mock-gaussian-process-prior-data.html#structoptimal__learning_1_1MockGaussianProcessPriorData_1a7bef8667f1cafab1d3d336522a254a39">InitializeHyperparameters()</a> and <a class="xref" href="mock-gaussian-process-prior-data.html#structoptimal__learning_1_1MockGaussianProcessPriorData_1a13d28b3559285cc46fe6081f9b281e0f">InitializeDomain()</a> (or otherwise initialize hyperparameters and domain_ptr) before calling this function. Modifies: covariance_ptr, best_so_far, gaussian_procss_ptr</p>
+<p>:uniform_generator[1]</p>
+<p>a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object providing the random engine for uniform random numbers \output :uniform_generator[1]: <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object will have its state changed due to random draws \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::MockGaussianProcessPriorData&lt;DomainType&gt;::InitializeGaussianProcess(UniformRandomGenerator *uniform_generator)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

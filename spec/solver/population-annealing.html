@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Population Annealing | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Population Annealing | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.spec.solver.population-annealing">
+<h1 id="population-annealing">Population Annealing</h1>
+
+<p>Simulates a population of metropolis walkers with birth-death process
+resampling. The qiotoolkit implementation uses variable setpping in temperatures
+according to one of 4 available resampling strategies:</p>
+<ul>
+<li><code>linear_schedule</code>: Change the temperature according to a fixed schedule (non-adaptive).</li>
+<li><code>friction_tensor</code>: Estimate the next temperature step such that the friction
+tensor remains stable with a constant of <code>friction_tensor_constant</code></li>
+<li><code>energy_variance</code>: Adjust culling such that the energy variance remains
+stable, using <code>initial_culling_constant</code> for the first step.</li>
+<li><code>constant_culling</code>: Adjust stepping such that a constant portion
+<code>culling_fraction</code> of the population is replaced each resampling step.</li>
+</ul>
+<p>The initial number of replicas can be specified via <code>initial_population_size</code>.
+The solver will double the population size whenever</p>
+<ul>
+<li>There is no remaining cost variance (all replicas are in an equal-cost state)</li>
+<li>The ratio of families remaining in the population drops below <code>alpha</code>
+(indicating that one family dominates the population).</li>
+</ul>
+<p>Additionally, you may increase the number of sweeps between resamplings using
+the <code>sweeps_per_replica</code> parameter.</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-json">{
+  &quot;target&quot;: &quot;microsoft.population-annealing.cpu&quot;,
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;input_params&quot;: {
+    &quot;seed&quot;: 42,
+    &quot;population&quot;: 100
+  },
+  &quot;input_data_uri&quot;: &quot;...&quot;
+}
+</code></pre>
+<h2 id="parameters-specification">Parameters Specification</h2>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_tabid-1" role="tab" aria-controls="tabpanel_bHGHmlrG6S_tabid-1" data-tab="tabid-1" tabindex="0" aria-selected="true">List</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_tabid-2" role="tab" aria-controls="tabpanel_bHGHmlrG6S_tabid-2" data-tab="tabid-2" tabindex="-1">Schema</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S_tabid-1" role="tabpanel" data-tab="tabid-1">
+
+<table>
+<thead>
+<tr>
+<th>param</th>
+<th>type</th>
+<th>required/default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>seed</code></td>
+<td>integer</td>
+<td><em>time-based</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>integer <em>&gt;1</em></td>
+<td>number of threads</td>
+<td>population size.</td>
+</tr>
+<tr>
+<td><code>constant_population</code></td>
+<td>bool</td>
+<td>false</td>
+<td>whether to keep the population constant between restarts</td>
+</tr>
+<tr>
+<td><code>resampling_strategy</code></td>
+<td>string</td>
+<td><code>linear_schedule</code></td>
+<td>resample by <code>linear_schedule</code>, <code>friction_tensor</code>, <code>energy_variance</code> or <code>constant_culling</code>.</td>
+</tr>
+<tr>
+<td><code>beta</code></td>
+<td>Schedule</td>
+<td>linear <code>0..5</code></td>
+<td>The schedule by which to anneal the system.</td>
+</tr>
+<tr>
+<td><code>beta_start</code></td>
+<td>float <em>&gt;0</em></td>
+<td>0.0</td>
+<td>initial beta for the <code>linear_schedule</code>.</td>
+</tr>
+<tr>
+<td><code>beta_stop</code></td>
+<td>float <em>&gt;</em><code>beta_start</code></td>
+<td>5.0</td>
+<td>final beta for the <code>linear_schedule</code>.</td>
+</tr>
+<tr>
+<td><code>friction_tensor_constant</code></td>
+<td>float <em>&gt;0.0</em></td>
+<td>1.0</td>
+<td>friction tensor constant (<em>required</em> for <code>friction_tensor</code></td>
+</tr>
+<tr>
+<td><code>initial_culling_fraction</code></td>
+<td>float <em>[0,1]</em></td>
+<td>0.5</td>
+<td>initial culling rate (for <code>energy_variance</code>)</td>
+</tr>
+<tr>
+<td><code>culling_fraction</code></td>
+<td>float <em>[0,1]</em></td>
+<td>0.2</td>
+<td>constant culling rate (for <code>constant_culling</code>)</td>
+</tr>
+<tr>
+<td><code>alpha</code></td>
+<td>float <em>&gt;1.0</em></td>
+<td>2.0</td>
+<td>ratio to trigger a restart</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tabpanel_bHGHmlrG6S_tabid-2" role="tabpanel" data-tab="tabid-2" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-json" name="Schema">{
+  &quot;$id&quot;: &quot;solver/populationannealing.qiotoolkit.schema&quot;,
+  &quot;$schema&quot;: &quot;http://json-schema.org/draft-07/schema#&quot;,
+  &quot;title&quot;: &quot;qiotoolkit Population Annealing&quot;,
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;required&quot;: [&quot;target&quot;, &quot;input_params&quot;],
+  &quot;properties&quot;: {
+    &quot;target&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;const&quot;: &quot;microsoft.populationannealing.qiotoolkit&quot;
+    },
+    &quot;input_params&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [&quot;resampling_strategy&quot;],
+      &quot;properties&quot;: {
+        &quot;alpha&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;minimum&quot;: 1.0,
+          &quot;default&quot;: 2.0,
+          &quot;description&quot;: &quot;ratio to trigger a restart&quot;
+        },
+        &quot;population&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;minimum&quot;: 2,
+          &quot;description&quot;: &quot;desired population size (defaults to the number of threads)&quot;
+        },
+        &quot;constant_population&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;,
+          &quot;default&quot;: &quot;false&quot;,
+          &quot;description&quot;: &quot;whether to keep the population constant between restarts&quot;
+        },
+        &quot;beta&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;$ref&quot;: &quot;../schedule/schedule.schema&quot;,
+          &quot;description&quot;: &quot;How the temperature should be changed over time.&quot;
+        },
+        &quot;beta_start&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;description&quot;: &quot;float specifying the starting inverse temperature.&quot;
+          &quot;minimum&quot;: 0,
+        },
+        &quot;beta_stop&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;description&quot;: &quot;float specifying the stopping inverse temperature.&quot;
+          &quot;minimum&quot;: 0,
+        },
+        &quot;resampling_strategy&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [&quot;linear_schedule&quot;, &quot;friction_tensor&quot;, &quot;energy_variance&quot;, &quot;constant_culling&quot;],
+          &quot;default&quot;: 'linear_schedule',
+          &quot;description&quot;: &quot;resample by 'linear_schedule', 'friction_tensor', 'energy_variance' or 'constant_culling'.&quot;
+        },
+        &quot;friction_tensor_constant&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;minimum&quot;: 0.0,
+          &quot;default&quot;: 1.0,
+          &quot;description&quot;: &quot;friction tensor constant&quot;
+        },
+        &quot;initial_culling_fraction&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;minimum&quot;: 0.0,
+          &quot;maximum&quot;: 1.0,
+          &quot;default&quot;: 0.5,
+          &quot;description&quot;: &quot;initial culling rate&quot;
+        },
+        &quot;culling_fraction&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;minimum&quot;: 0.0,
+          &quot;maximum&quot;: 1.0,
+          &quot;default&quot;: 0.2,
+          &quot;description&quot;: &quot;constant culling rate&quot;
+        },
+        &quot;sweeps_per_replica&quot; {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;minimum&quot;: 1,
+          &quot;multipleOf&quot;: 1,
+          &quot;default&quot;: 1,
+          &quot;sweeps per replica between resampling.&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre></section>
+</div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

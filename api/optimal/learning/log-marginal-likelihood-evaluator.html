@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::LogMarginalLikelihoodEvaluator
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::LogMarginalLikelihoodEvaluator
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator">
+
+
+
+  <h1 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator" class="text-break">Class optimal_learning::LogMarginalLikelihoodEvaluator
+</h1>
+  <div class="markdown level0 summary"><p>\rst This serves as a quick summary of the Log Marginal Likelihood (LML). Please see the file comments here and in the corresponding .cpp file for further details.
+Class for computing the Log Marginal Likelihood. Given a particular covariance function (including hyperparameters) and training data ((point, function value, measurement noise) tuples), the log marginal likelihood is the log probability that the data were observed from a Gaussian Process would have generated the observed function values at the given measurement points. So log marginal likelihood tells us &quot;the probability of the observations given the assumptions of the model.&quot; Log marginal sits well with the Bayesian Inference camp. (Rasmussen &amp; Williams p118)
+This quantity primarily deals with the trade-off between model fit and model complexity. Handling this trade-off is automatic in the log marginal likelihood calculation. See Rasmussen &amp; Williams 5.2 and 5.4.1 for more details.
+We can use the log marginal likelihood to determine how good our model is. Additionally, we can maximize it by varying hyperparameters (or even changing covariance functions) to improve our model quality. Hence this class provides access to functions for computing log marginal likelihood and its hyperparameter gradients.
+.. Note:: These class comments are duplicated in Python: cpp_wrappers.log_likelihood.LogMarginalLikelihood \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::LogMarginalLikelihoodEvaluator</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a5c4b900ab3276f760b0ad16bab2019da" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a5c4b900ab3276f760b0ad16bab2019da">LogMarginalLikelihoodEvaluator()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="log-marginal-likelihood-evaluator.html">LogMarginalLikelihoodEvaluator</a> object. All inputs are required; no default constructor nor copy/assignment are allowed.</p>
+<p>:covariance</p>
+<p>the CovarianceFunction object encoding assumptions about the GP's behavior on our data :points_sampled[dim][num_sampled]: points that have already been sampled :points_sampled_value[num_derivatives+1][num_sampled]: values of the already-sampled points :noise_variance[num_sampled]: the <code>\sigma_n^2</code> (noise variance) associated w/observation, points_sampled_value :dim: the spatial dimension of a point (i.e., number of independent params in experiment) :num_sampled: number of already-sampled points \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::LogMarginalLikelihoodEvaluator::LogMarginalLikelihoodEvaluator(double const *restrict points_sampled_in, double const *restrict points_sampled_value_in, int const *derivatives_in, int num_derivatives_in, int dim_in, int num_sampled_in) OL_NONNULL_POINTERS</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a2fed468b8c6d61f22af3eeb9e409b3e7" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a2fed468b8c6d61f22af3eeb9e409b3e7">dim()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::LogMarginalLikelihoodEvaluator::dim() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1aac4aa53ea5e0008b278382cd97628d7c" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1aac4aa53ea5e0008b278382cd97628d7c">num_sampled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::LogMarginalLikelihoodEvaluator::num_sampled() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a490a5dccce6bda4e058779a6e5893672" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a490a5dccce6bda4e058779a6e5893672">num_derivatives()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::LogMarginalLikelihoodEvaluator::num_derivatives() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a0b026d7b79a620c81a5e512ff655daba" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a0b026d7b79a620c81a5e512ff655daba">ComputeObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for <a class="xref" href="log-marginal-likelihood-evaluator.html#classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a365e722dbbee0c400e7143ba880f2070">ComputeLogLikelihood()</a>; see that function for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::LogMarginalLikelihoodEvaluator::ComputeObjectiveFunction(StateType *log_likelihood_state) const noexcept OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a2f6995548ae57ff01fa8404a353679e6" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a2f6995548ae57ff01fa8404a353679e6">ComputeGradObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for <a class="xref" href="log-marginal-likelihood-evaluator.html#classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a832d7ce6999d7e8104e3eafb50a6a2a3">ComputeGradLogLikelihood()</a>; see that function for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::LogMarginalLikelihoodEvaluator::ComputeGradObjectiveFunction(StateType *log_likelihood_state, double *restrict grad_log_marginal) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1aa057d3b4faef00446d55d1f7da53b1bc" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1aa057d3b4faef00446d55d1f7da53b1bc">FillLogLikelihoodState()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for ComputeHessianLogLikelihood(); see that function for details. \endrst
+\rst Sets up the <a class="xref" href="log-marginal-likelihood-state.html">LogMarginalLikelihoodState</a> object so that it can be used to compute log marginal and its gradients. ASSUMES all needed space is ALREADY ALLOCATED.
+This function should not be called directly; instead use <a class="xref" href="log-marginal-likelihood-state.html#structoptimal__learning_1_1LogMarginalLikelihoodState_1a8fa6f8efc98620e9e1794f361f01c510">LogMarginalLikelihoodState::SetupState</a>.</p>
+<p>:log_likelihood_state[1]</p>
+<p>constructed state object with appropriate sized allocations \output :log_likelihood_state[1]: fully configured state object, ready for use by this class's member functions \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::LogMarginalLikelihoodEvaluator::FillLogLikelihoodState(StateType *log_likelihood_state) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a365e722dbbee0c400e7143ba880f2070" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a365e722dbbee0c400e7143ba880f2070">ComputeLogLikelihood()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the log marginal likelihood, <code>log(p(y | X, \theta))</code>. That is, the probability of observing the training values, <code>y</code>, given the training points, <code>X</code>, and hyperparameters (of the covariance function), <code>\theta</code>.
+This is a measure of how likely it is that the observed values came from our Gaussian Process Prior.</p>
+<p>:log_likelihood_state</p>
+<p>properly configured state oboject</p>
+<p>natural log of the marginal likelihood of the GP model \endrst</p>
+<p>\rst .. NOTE:: These comments have been copied into the matching method of LogMarginalLikelihood in python_version/log_likelihood.py.
+<code>log p(y | X, \theta) = -\frac{1}{2} * y^T * K^-1 * y - \frac{1}{2} * \log(det(K)) - \frac{n}{2} * \log(2*pi)</code>
+where n is <code>num_sampled</code>, <code>\theta</code> are the hyperparameters, and <code>\log</code> is the natural logarithm. In the following,
+<code>term1 = -\frac{1}{2} * y^T * K^-1 * y</code> <code>term2 = -\frac{1}{2} * \log(det(K))</code> <code>term3 = -\frac{n}{2} * \log(2*pi)</code>
+For an SPD matrix <code>K = L * L^T</code>,
+<code>det(K) = \Pi_i L_ii^2</code>
+We could compute this directly and then take a logarithm. But we also know:
+<code>\log(det(K)) = 2 * \sum_i \log(L_ii)</code>
+The latter method is (currently) preferred for computing <code>\log(det(K))</code> due to reduced chance for overflow and (possibly) better numerical conditioning. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::LogMarginalLikelihoodEvaluator::ComputeLogLikelihood(const StateType&amp;log_likelihood_state) const noexcept OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a832d7ce6999d7e8104e3eafb50a6a2a3" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a832d7ce6999d7e8104e3eafb50a6a2a3">ComputeGradLogLikelihood()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the (partial) derivatives of the log marginal likelihood with respect to each hyperparameter of our covariance function.
+Let <code>n_hyper = covariance_ptr-&gt;GetNumberOfHyperparameters();</code></p>
+<p>:log_likelihood_state[1]</p>
+<p>properly configured state oboject \output :log_likelihood_state[1]: state with temporary storage modified :grad_log_marginal[n_hyper]: gradient of log marginal likelihood wrt each hyperparameter of covariance \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::LogMarginalLikelihoodEvaluator::ComputeGradLogLikelihood(StateType *log_likelihood_state, double *restrict grad_log_marginal) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a1de2fec9e6ecae45df2a81694b1730d5" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a1de2fec9e6ecae45df2a81694b1730d5">OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs the Hessian matrix of the log marginal likelihood function. This matrix is symmetric. It is also negative definite near maxima of the log marginal.
+See HyperparameterHessianCovariance() docs in <a class="xref" href="covariance-interface.html">CovarianceInterface</a> (<a href="xref:gpp__covariance_8hpp">gpp_covariance.hpp</a>) for details on the structure of the Hessian matrix.</p>
+<p>:log_likelihood_state[1]</p>
+<p>properly configured state oboject \output :log_likelihood_state[1]: state with temporary storage modified :hessian_log_marginal[n_hyper][n_hyper]: <code>(i,j)</code>-th entry is <code>\mixpderiv{LML}{\theta_i}{\theta_j}</code>, where <code>LML = log(p(y | X, \theta))</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::LogMarginalLikelihoodEvaluator::OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN(LogMarginalLikelihoodEvaluator)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a6455ce275a337ee596cf1f2729e4d147" data-uid="classoptimal__learning_1_1LogMarginalLikelihoodEvaluator_1a6455ce275a337ee596cf1f2729e4d147">BuildHyperparameterGradCovarianceMatrix()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs the tensor of gradients (wrt hyperparameters) of the covariance function at all pairs of <code>points_sampled_</code>.
+The result is stored in <code>state-&gt;grad_hyperparameter_cov_matrix</code>. So we are computing <code>\pderiv{cov(X_i, X_j)}{\theta_k}</code>. These data are ordered as: <code>grad_hyperparameter_cov_matrix[i][j][k]</code> (i.e., <code>num_hyperparmeters</code> matrices of size <code>Square(num_sampled_)</code>).
+.. Note:: <code>grad_hyperparameter_cov_matrix[i][j][k] == grad_hyperparameter_cov_matrix[j][i][k]</code></p>
+<p>:log_likelihood_state[1]</p>
+<p>properly configured state object \output :log_likelihood_state[1]: state with grad_hyperparameter_cov_matrix filled \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::LogMarginalLikelihoodEvaluator::BuildHyperparameterGradCovarianceMatrix(StateType *log_likelihood_state) const noexcept</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

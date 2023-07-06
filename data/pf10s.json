@@ -1,7 +1,0 @@
-{
-    "params": {
-        "timeout": 10,
-		"seed":88,
-		"nonimprovement_limit": 16
-    }
-}

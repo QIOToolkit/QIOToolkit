@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class solver::Estimator
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class solver::Estimator
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classsolver_1_1Estimator">
+
+
+
+  <h1 id="classsolver_1_1Estimator" data-uid="classsolver_1_1Estimator" class="text-break">Class solver::Estimator
+</h1>
+  <div class="markdown level0 summary"><p>Energy scale estimator.</p>
+<p>This estimator attempts to estimate the relevant energy range of the model it analyzes by collecting a histogram of transition costs in the random and quenched regime.</p>
+<ul>
+<li>The random regime is sampled from random initial positions. It is used as a proxy for the high temperature regime.</li>
+<li>The quenched regime is sampled from quenched states obtained by peforming several metropolis sweeps at T=0.</li>
+</ul>
+<p>From these histograms we can tune the temperature for expected boltzmann acceptance rates in either regime. This is expressed in terms of the portion of energy increasing transitions that would be accepted (transitions which don't change the energy are always accepted and the potion of energy-lowering transitions in the random regime depends on the model).</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">solver::Estimator</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classsolver_1_1Estimator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classsolver_1_1Estimator_1a78c1729c879b4aea36d8c05eb2108d11" data-uid="classsolver_1_1Estimator_1a78c1729c879b4aea36d8c05eb2108d11">gather_statistics()</h4>
+  <div class="markdown level1 summary"><p>Measure the current cost and samples of the cost of a random transition for the walker at its current state. For models derived from <a class="xref" href="../model/faced-graph-model.html">model::FacedGraphModel</a>, an extra parameter for a cost object is necessary to communicate cached calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;std::is_base_of&lt;model::FacedGraphModel&lt;TS, TT&gt;, TM&gt;::value, void&gt;::type solver::Estimator&lt;Model&gt;::gather_statistics(const Model&amp;model, Walker&amp;walker, double *cost, std::vector&lt;double&gt;*deltas)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Estimator_1aa52bdef04c31bf698bc2c41f92c6904a" data-uid="classsolver_1_1Estimator_1aa52bdef04c31bf698bc2c41f92c6904a">gather_statistics()</h4>
+  <div class="markdown level1 summary"><p>Measure the current cost and samples of the cost of a random transition for the walker at its current state. For all other models, no extra cost parameter is needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::enable_if&lt;!std::is_base_of&lt;model::FacedGraphModel&lt;TS, TT&gt;, TM&gt;::value, void&gt;::type solver::Estimator&lt;Model&gt;::gather_statistics(const Model&amp;model, Walker&amp;walker, double *cost, std::vector&lt;double&gt;*deltas)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Estimator_1adc3dd20504b96ce30308af9f3b5356eb" data-uid="classsolver_1_1Estimator_1adc3dd20504b96ce30308af9f3b5356eb">quench()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void solver::Estimator&lt;Model&gt;::quench(Walker&amp;walker)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Estimator_1a81669b58e39c03cf2d10603969a7cbff" data-uid="classsolver_1_1Estimator_1a81669b58e39c03cf2d10603969a7cbff">estimate_accepted()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double solver::Estimator&lt;Model&gt;::estimate_accepted(const std::vector&lt;double&gt;&amp;deltas, double T)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Estimator_1af1737861cc68789e86b9ff4da7350e65" data-uid="classsolver_1_1Estimator_1af1737861cc68789e86b9ff4da7350e65">find_temperature()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double solver::Estimator&lt;Model&gt;::find_temperature(const std::vector&lt;double&gt;&amp;deltas, double target_acceptance)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Estimator_1a1e6650cd98e24b892620c74c37ca6ec8" data-uid="classsolver_1_1Estimator_1a1e6650cd98e24b892620c74c37ca6ec8">analyze()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure solver::Estimator&lt;Model&gt;::analyze(const Model&amp;model, utils::RandomGenerator&amp;rng)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

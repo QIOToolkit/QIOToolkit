@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::NormalRNG
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::NormalRNG
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1NormalRNG">
+
+
+
+  <h1 id="classoptimal__learning_1_1NormalRNG" data-uid="classoptimal__learning_1_1NormalRNG" class="text-break">Class optimal_learning::NormalRNG
+</h1>
+  <div class="markdown level0 summary"><p>\rst Functor for computing normally distributed (N(0, 1)) random numbers. Uses/maintains an uniform RNG (currently <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a>) and transforms the output to be distributed ~ N(0, 1).
+.. Note:: seed values take type <code>EngineType::result_type</code>. Do not pass in a wider integer type!
+.. WARNING:: this class is NOT THREAD-SAFE. You must construct one object per thread (and ensure that the seeds are different for practical computations). \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="normal-rnginterface.html">optimal_learning::NormalRNGInterface</a></div>
+    <div class="level1"><span class="xref">optimal_learning::NormalRNG</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="normal-rnginterface.html#classoptimal__learning_1_1NormalRNGInterface_1ae41e02133da7a6facca1de556e1593f2">~NormalRNGInterface</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1NormalRNG_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1a0a4b159165162fb057e759dd6edb97bd" data-uid="classoptimal__learning_1_1NormalRNG_1a0a4b159165162fb057e759dd6edb97bd">NormalRNG()</h4>
+  <div class="markdown level1 summary"><p>\rst Default-constructs a <a class="xref" href="normal-rng.html">NormalRNG</a>, seeding with kDefaultSeed. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::NormalRNG::NormalRNG() noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1ac431f0bb54cc53782d1ed6d0a66c664f" data-uid="classoptimal__learning_1_1NormalRNG_1ac431f0bb54cc53782d1ed6d0a66c664f">NormalRNG()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct a <a class="xref" href="normal-rng.html">NormalRNG</a>, seeding with the specified seed. See <a class="xref" href="normal-rng.html#classoptimal__learning_1_1NormalRNG_1a1ff1dcd7ca635bd82e7ea03b861cefde">NormalRNG::SetExplicitSeed</a> for details.</p>
+<p>:seed</p>
+<p>new seed to set \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::NormalRNG::NormalRNG(EngineType::result_type seed) noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1a00e6cd455c665adf3b6da8c946fdd785" data-uid="classoptimal__learning_1_1NormalRNG_1a00e6cd455c665adf3b6da8c946fdd785">NormalRNG()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct a <a class="xref" href="normal-rng.html">NormalRNG</a>, seeding with an automatically selected seed based on time, thread_id, etc. See <a class="xref" href="normal-rng.html#classoptimal__learning_1_1NormalRNG_1a15a3ebb908cadf75b210a4716484cfa6">NormalRNG::SetRandomizedSeed</a> for details.</p>
+<p>:base_seed</p>
+<p>base value for the new seed :thread_id: id of the thread using this object \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::NormalRNG::NormalRNG(EngineType::result_type seed, int thread_id) noexcept</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1a554ff066c63004596ac4e1e0f4a1d21f" data-uid="classoptimal__learning_1_1NormalRNG_1a554ff066c63004596ac4e1e0f4a1d21f">GetEngine()</h4>
+  <div class="markdown level1 summary"><p>\rst Get a reference to the RNG engine used by this class.
+reference to the underlying RNG engine \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">EngineType&amp;optimal_learning::NormalRNG::GetEngine() noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1a55984d7af5e71623c9ee629a6d4098d9" data-uid="classoptimal__learning_1_1NormalRNG_1a55984d7af5e71623c9ee629a6d4098d9">operator()()</h4>
+  <div class="markdown level1 summary"><p>\rst Generate a random number from standard normal distribution.
+a random number from a standard (<code>N(0, 1)</code>) normal distribution \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::NormalRNG::operator()()</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1acfa48fa62894c92f12137ea6b2135bac" data-uid="classoptimal__learning_1_1NormalRNG_1acfa48fa62894c92f12137ea6b2135bac">last_seed()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">EngineType::result_type optimal_learning::NormalRNG::last_seed() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1adaac7e7211f6ffd5ba48c6245b5a7eab" data-uid="classoptimal__learning_1_1NormalRNG_1adaac7e7211f6ffd5ba48c6245b5a7eab">ResetGenerator()</h4>
+  <div class="markdown level1 summary"><p>\rst Clears state of <code>normal_distribution_</code> so that future uses do not depend on any previous actions. This is important: the underlying normal distribution likely generates numbers \emph{two} at a time. So re-seeding the engine WITHOUT resetting can lead to surprising behavior. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::NormalRNG::ResetGenerator() noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1a1ff1dcd7ca635bd82e7ea03b861cefde" data-uid="classoptimal__learning_1_1NormalRNG_1a1ff1dcd7ca635bd82e7ea03b861cefde">SetExplicitSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Seed the random number generator with the input value. See <a class="xref" href="uniform-random-generator.html#structoptimal__learning_1_1UniformRandomGenerator_1afdead6f85ad8982ea16722918808208c">UniformRandomGenerator::SetExplicitSeed()</a> for more information.</p>
+<p>:seed</p>
+<p>new seed to set \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::NormalRNG::SetExplicitSeed(EngineType::result_type seed) noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1a15a3ebb908cadf75b210a4716484cfa6" data-uid="classoptimal__learning_1_1NormalRNG_1a15a3ebb908cadf75b210a4716484cfa6">SetRandomizedSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Set a new seed for the random number generator. A &quot;random&quot; seed is selected based on the input seed value, the current time, and the thread_id. See <a class="xref" href="uniform-random-generator.html#structoptimal__learning_1_1UniformRandomGenerator_1afdead6f85ad8982ea16722918808208c">UniformRandomGenerator::SetExplicitSeed()</a> for more information.</p>
+<p>:seed</p>
+<p>base value for the new seed :thread_id: id of the thread using this object \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::NormalRNG::SetRandomizedSeed(EngineType::result_type seed, int thread_id) noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1a5cb7846fd6aa6cbaaa088595fc425dcc" data-uid="classoptimal__learning_1_1NormalRNG_1a5cb7846fd6aa6cbaaa088595fc425dcc">ResetToMostRecentSeed()</h4>
+  <div class="markdown level1 summary"><p>\rst Reseeds the generator with its most recently specified seed value. Useful for testinge.g., can conduct multiple runs with the same initial conditions \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::NormalRNG::ResetToMostRecentSeed() noexcept</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1NormalRNG_1ac8f586de69574335ccd58bb647032db4" data-uid="classoptimal__learning_1_1NormalRNG_1ac8f586de69574335ccd58bb647032db4">PrintState()</h4>
+  <div class="markdown level1 summary"><p>\rst Prints the state of the generator to specified ostream. For testing.</p>
+<p>:out_stream[1]</p>
+<p>a std::ostream object ready for operator&lt;&lt; use \output :out_stream[1]: std::ostream with engine state &lt;&lt;'d to it \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::NormalRNG::PrintState(std::ostream *out_stream) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

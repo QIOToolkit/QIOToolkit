@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class strategy::BayesianOpt
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class strategy::BayesianOpt
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classstrategy_1_1BayesianOpt">
+
+
+
+  <h1 id="classstrategy_1_1BayesianOpt" data-uid="classstrategy_1_1BayesianOpt" class="text-break">Class strategy::BayesianOpt
+</h1>
+  <div class="markdown level0 summary"><p>Bayesian Global Optimization stategy searching implementation. The <a class="xref" href="bayesian-opt.html">BayesianOpt</a> is a wrapper class for GPP library <a href="https://github.com/wujian16/Cornell-MOE">https://github.com/wujian16/Cornell-MOE</a> The paper &quot;A Tutorial on Bayesian
+Optimization&quot; is a good introduction of bayesian optimization.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="base-opt.html">strategy::BaseOpt</a></div>
+    <div class="level1"><span class="xref">strategy::BayesianOpt</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="base-opt.html#classstrategy_1_1BaseOpt_1a5a7a30a1a4ae6833365fcb19aea94eb7">BaseOpt</a>
+    </div>
+    <div>
+      <a class="xref" href="base-opt.html#classstrategy_1_1BaseOpt_1a6233307bfd9a686b18352820d89ad6ef">operator=</a>
+    </div>
+    <div>
+      <a class="xref" href="base-opt.html#classstrategy_1_1BaseOpt_1a7b8c02ba553a91b537b7d997a96daa48">BaseOpt</a>
+    </div>
+    <div>
+      <a class="xref" href="base-opt.html#classstrategy_1_1BaseOpt_1aa9daeb2181fb604b634031b2d82dce1d">get_perf_metrics</a>
+    </div>
+    <div>
+      <a class="xref" href="base-opt.html#classstrategy_1_1BaseOpt_1ac14512bf36ab06a812876c4d4ac5b984">log_parameters</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a10f9a4832356cafa800fc583e17a1ad4">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classstrategy_1_1BayesianOpt_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1aade692a087c5b38cd18778526a837544" data-uid="classstrategy_1_1BayesianOpt_1aade692a087c5b38cd18778526a837544">BayesianOpt()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">strategy::BayesianOpt::BayesianOpt()</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1a5c020e8524ac5c31008a837a8fb60f08" data-uid="classstrategy_1_1BayesianOpt_1a5c020e8524ac5c31008a837a8fb60f08">BayesianOpt()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">strategy::BayesianOpt::BayesianOpt(const BayesianOpt&amp;)=delete</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1a79a0a10692da20e9ca2fcdb868a1bd29" data-uid="classstrategy_1_1BayesianOpt_1a79a0a10692da20e9ca2fcdb868a1bd29">operator=()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">BayesianOpt&amp;strategy::BayesianOpt::operator=(const BayesianOpt&amp;)=delete</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1acb121c116c8c87c733159ef91f34e3c9" data-uid="classstrategy_1_1BayesianOpt_1acb121c116c8c87c733159ef91f34e3c9">configure()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void strategy::BayesianOpt::configure(const utils::Json&amp;params, int thread_count)</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1addcd7d02f03a22edc40c6b62ed8a444d" data-uid="classstrategy_1_1BayesianOpt_1addcd7d02f03a22edc40c6b62ed8a444d">init()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void strategy::BayesianOpt::init(size_t dimensions, uint32_t seed, size_t reserved_samples=128)</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1a8276a5c213ac4c942f6dc3ece255c9ac" data-uid="classstrategy_1_1BayesianOpt_1a8276a5c213ac4c942f6dc3ece255c9ac">init()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void strategy::BayesianOpt::init(size_t dimensions, uint32_t seed, const GDParameters&amp;model_parameters, const GDParameters&amp;search_parameters, size_t reserved_samples=128)</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1a4e68d7ee1991aedfe79cacb699a4b8da" data-uid="classstrategy_1_1BayesianOpt_1a4e68d7ee1991aedfe79cacb699a4b8da">recommend_parameter_values()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool strategy::BayesianOpt::recommend_parameter_values(std::vector&lt;double&gt;&amp;parameters_new) override</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1a9f6c38b4cb2d305bcf5b78717ade0844" data-uid="classstrategy_1_1BayesianOpt_1a9f6c38b4cb2d305bcf5b78717ade0844">add_new_sample()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void strategy::BayesianOpt::add_new_sample(std::vector&lt;double&gt;&amp;parameters, double objective) override</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1aa2f7d12b65689b6baffa4cf6d1744cd4" data-uid="classstrategy_1_1BayesianOpt_1aa2f7d12b65689b6baffa4cf6d1744cd4">set_ranges()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void strategy::BayesianOpt::set_ranges(const std::vector&lt;std::pair&lt;double, double&gt;&gt;&amp;ranges)</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1a8bf5b7071ccf86febac721afc8f66925" data-uid="classstrategy_1_1BayesianOpt_1a8bf5b7071ccf86febac721afc8f66925">num_of_saved_samples()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t strategy::BayesianOpt::num_of_saved_samples() const</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1af687b51c3af85b5bcbf0514628c35f5e" data-uid="classstrategy_1_1BayesianOpt_1af687b51c3af85b5bcbf0514628c35f5e">get_sample()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double strategy::BayesianOpt::get_sample(int indx, std::vector&lt;double&gt;&amp;sample_point) const</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1ae5b2dbbd4ff9dccc1d0d68fd5021bef4" data-uid="classstrategy_1_1BayesianOpt_1ae5b2dbbd4ff9dccc1d0d68fd5021bef4">get_reserved_samples()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">uint32_t strategy::BayesianOpt::get_reserved_samples()</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1a25791ac0921823ef299c6ff9a583a4e7" data-uid="classstrategy_1_1BayesianOpt_1a25791ac0921823ef299c6ff9a583a4e7">copyout_winner()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void strategy::BayesianOpt::copyout_winner(std::vector&lt;double&gt;&amp;parameters) const</code></pre>
+  </div>
+
+
+  <h4 id="classstrategy_1_1BayesianOpt_1aa3849e966c034554a35214b9c9423d2a" data-uid="classstrategy_1_1BayesianOpt_1aa3849e966c034554a35214b9c9423d2a">log_hyper_parameters()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void strategy::BayesianOpt::log_hyper_parameters() const</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

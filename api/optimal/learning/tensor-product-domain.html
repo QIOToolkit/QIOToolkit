@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::TensorProductDomain
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::TensorProductDomain
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1TensorProductDomain">
+
+
+
+  <h1 id="classoptimal__learning_1_1TensorProductDomain" data-uid="classoptimal__learning_1_1TensorProductDomain" class="text-break">Class optimal_learning::TensorProductDomain
+</h1>
+  <div class="markdown level0 summary"><p>\rst Domain type for a tensor product domain.
+A d-dimensional tensor product domain is <code>D = [x_0_{min}, x_0_{max}] X [x_1_{min}, x_1_{max}] X ... X [x_d_{min}, x_d_{max}]</code> \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::TensorProductDomain</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1TensorProductDomain_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1a184fca10f7f4317ea27344c926519a8d" data-uid="classoptimal__learning_1_1TensorProductDomain_1a184fca10f7f4317ea27344c926519a8d">TensorProductDomain()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::TensorProductDomain::TensorProductDomain()=delete</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1ae9b0997723d89bed042d9338bbeeb6bc" data-uid="classoptimal__learning_1_1TensorProductDomain_1ae9b0997723d89bed042d9338bbeeb6bc">TensorProductDomain()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="tensor-product-domain.html">TensorProductDomain</a>.</p>
+<p>:domain[dim]</p>
+<p>array of <a class="xref" href="closed-interval.html">ClosedInterval</a> specifying the boundaries of a dim-dimensional tensor-product domain. :dim_in: number of spatial dimensions \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::TensorProductDomain::TensorProductDomain(ClosedInterval const *restrict domain, int dim_in)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1aeb91f69de83514c7c4df8a93a4e29fe3" data-uid="classoptimal__learning_1_1TensorProductDomain_1aeb91f69de83514c7c4df8a93a4e29fe3">dim()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::TensorProductDomain::dim() const OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1ae9fb5627bd5fd6421cc9596d1f46467f" data-uid="classoptimal__learning_1_1TensorProductDomain_1ae9fb5627bd5fd6421cc9596d1f46467f">SetDomain()</h4>
+  <div class="markdown level1 summary"><p>\rst Explicitly set the domain boundaries. Assumes specified domain is non-empty.</p>
+<p>:domain[dim]</p>
+<p>array of <a class="xref" href="closed-interval.html">ClosedInterval</a> specifying the boundaries of a dim-dimensional tensor-product domain. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::TensorProductDomain::SetDomain(ClosedInterval const *restrict domain) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1af5735ab89504aacd15344d8bde5f129d" data-uid="classoptimal__learning_1_1TensorProductDomain_1af5735ab89504aacd15344d8bde5f129d">GetMaxNumberOfBoundaryPlanes()</h4>
+  <div class="markdown level1 summary"><p>\rst Maximum number of planes that define the boundary of this domain. Used for testing.
+This result is exact.
+max number of planes defining the boundary of this domain \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::TensorProductDomain::GetMaxNumberOfBoundaryPlanes() const OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1a3293a05c7ccf894be2bb32c6c8379133" data-uid="classoptimal__learning_1_1TensorProductDomain_1a3293a05c7ccf894be2bb32c6c8379133">GetBoundaryPlanes()</h4>
+  <div class="markdown level1 summary"><p>\rst Fills an input array with all bounding planes of this domain. See struct <a class="xref" href="plane.html">Plane</a> in <a href="xref:gpp__geometry_8hpp">gpp_geometry.hpp</a> for how to specify a plane. Used for testing.
+Let max_num_bound = <a class="xref" href="tensor-product-domain.html#classoptimal__learning_1_1TensorProductDomain_1af5735ab89504aacd15344d8bde5f129d">GetMaxNumberOfBoundaryPlanes()</a></p>
+<p>:planes[max_num_bound]</p>
+<p>properly allocated space: max_num_bound <a class="xref" href="plane.html">Plane</a> objects in dim spatial dimensions \output :planes[max_num_bound]: array of planes of this domain \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::TensorProductDomain::GetBoundaryPlanes(Plane *restrict planes) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1a136f4b59d5fe705e7862ebc1c50c2b14" data-uid="classoptimal__learning_1_1TensorProductDomain_1a136f4b59d5fe705e7862ebc1c50c2b14">CheckPointInside()</h4>
+  <div class="markdown level1 summary"><p>\rst Check if a point is inside the domain/on its boundary or outside.</p>
+<p>:point[dim]</p>
+<p>point to check</p>
+<p>true if point is inside the domain or on its boundary, false otherwise \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool optimal_learning::TensorProductDomain::CheckPointInside(double const *restrict point) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1a6d15ffaaeb66856713b688519daf12a4" data-uid="classoptimal__learning_1_1TensorProductDomain_1a6d15ffaaeb66856713b688519daf12a4">GeneratePointInDomain()</h4>
+  <div class="markdown level1 summary"><p>\rst Generates &quot;point&quot; such that CheckPointInside(point) returns true.</p>
+<p>:uniform_generator[1]</p>
+<p>a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object providing the random engine for uniform random numbers :random_point[dim]: properly sized array \output :uniform_generator[1]: <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object will have its state changed due to random draws :random_point[dim]: point with coordinates inside the domain (left in invalid state if fcn returns false)</p>
+<p>true if point generation succeeded \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool optimal_learning::TensorProductDomain::GeneratePointInDomain(UniformRandomGenerator *uniform_generator, double *restrict random_point) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1a81ac402428fd923b14f38f0a6193831e" data-uid="classoptimal__learning_1_1TensorProductDomain_1a81ac402428fd923b14f38f0a6193831e">GenerateUniformPointsInDomain()</h4>
+  <div class="markdown level1 summary"><p>\rst Generates num_points points in the domain (i.e., such that CheckPointInside(point) returns true). The points will be uniformly distributed.</p>
+<p>:num_points</p>
+<p>number of random points to generate :uniform_generator[1]: a <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object providing the random engine for uniform random numbers :random_points[dim][num_points]: properly sized array \output :uniform_generator[1]: <a class="xref" href="uniform-random-generator.html">UniformRandomGenerator</a> object will have its state changed due to random draws :random_points[dim][num_points]: point with coordinates inside the domain</p>
+<p>number of points generated (always num_points; ok to not use this result) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::TensorProductDomain::GenerateUniformPointsInDomain(int num_points, UniformRandomGenerator *uniform_generator, double *restrict random_points) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1TensorProductDomain_1a1c9140e57d6307685ebb71c86bce5ae0" data-uid="classoptimal__learning_1_1TensorProductDomain_1a1c9140e57d6307685ebb71c86bce5ae0">LimitUpdate()</h4>
+  <div class="markdown level1 summary"><p>\rst Changes update_vector so that:
+<code>point_new = point + update_vector</code>
+has coordinates such that <code>CheckPointInside(point_new)</code> returns true.
+<code>update_vector</code> is UNMODIFIED if point_new is already inside the domain.
+.. Note:: we modify update_vector (instead of returning <code>point_new</code>) so that further update limiting/testing may be performed.</p>
+<p>:max_relative_change</p>
+<p>max change allowed per update (as a relative fraction of current distance to boundary) :current_point[dim]: starting point :update_vector[dim]: proposed update \output :update_vector[dim]: modified update so that the final point remains inside the domain \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::TensorProductDomain::LimitUpdate(double max_relative_change, double const *restrict current_point, double *restrict update_vector) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

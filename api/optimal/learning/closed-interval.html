@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct optimal_learning::ClosedInterval
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct optimal_learning::ClosedInterval
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="structoptimal__learning_1_1ClosedInterval">
+
+
+
+  <h1 id="structoptimal__learning_1_1ClosedInterval" data-uid="structoptimal__learning_1_1ClosedInterval" class="text-break">Struct optimal_learning::ClosedInterval
+</h1>
+  <div class="markdown level0 summary"><p>\rst Container to represent the mathematical notion of a closed interval, commonly written \ms [a,b]\me. The closed interval \ms [a,b]\me is the set of all numbers \ms x \in \mathbb{R}\me such that \ms a \leq x \leq b\me. Note that &quot;closed&quot; here indicates the interval includes both endpoints. An interval with \ms a &gt; b\me is considered empty.
+This struct is &quot;trivial&quot; and &quot;standard layout&quot; and thus &quot;POD&quot; (in the C++11 sense).
+<a href="http://en.cppreference.com/w/cpp/types/is_pod">http://en.cppreference.com/w/cpp/types/is_pod</a> <a href="http://stackoverflow.com/questions/4178175/what-are-aggregates-and-pods-and-how-why-are-they-special/7189821#7189821">http://stackoverflow.com/questions/4178175/what-are-aggregates-and-pods-and-how-why-are-they-special/7189821#7189821</a>
+This struct is not an aggregate; list (aka brace) initialization and a 2-argument constructor are both available::
+<a class="xref" href="closed-interval.html">ClosedInterval</a> tmp(1.0, 2.0); // this ctor makes it non-aggregate <a class="xref" href="closed-interval.html">ClosedInterval</a> tmp{1.0, 2.0}; // and brace-style (aka initializer list) inits also work \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="structoptimal__learning_1_1ClosedInterval_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1ClosedInterval_1a3380d2e30aaeb649ceaca4c5c77071e6" data-uid="structoptimal__learning_1_1ClosedInterval_1a3380d2e30aaeb649ceaca4c5c77071e6">ClosedInterval()</h4>
+  <div class="markdown level1 summary"><p>\rst Explicitly defaulted default constructor. Defining a custom ctor (below) disables the default ctor, so we explicitly default it. This is needed to maintain POD-ness. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ClosedInterval::ClosedInterval()=default</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1ClosedInterval_1a09e945f4dcc8def69ebf58455e779cba" data-uid="structoptimal__learning_1_1ClosedInterval_1a09e945f4dcc8def69ebf58455e779cba">ClosedInterval()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="closed-interval.html">ClosedInterval</a> object with specified <code>min</code>, <code>max</code>.
+The presence of this ctor makes this object a non-aggregate, so brace-initialization follow list initialization rules (not aggregate initialization):
+<a href="http://en.cppreference.com/w/cpp/language/list_initialization">http://en.cppreference.com/w/cpp/language/list_initialization</a></p>
+<p>:min_in</p>
+<p>left bound of the interval :max_in: right bound of the interval \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ClosedInterval::ClosedInterval(double min_in, double max_in)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1ClosedInterval_1ae81057ce96042e18a218523b14d9a742" data-uid="structoptimal__learning_1_1ClosedInterval_1ae81057ce96042e18a218523b14d9a742">IsInside()</h4>
+  <div class="markdown level1 summary"><p>\rst Check if a value is inside this <a class="xref" href="closed-interval.html">ClosedInterval</a>.</p>
+<p>:value</p>
+<p>the value to check</p>
+<p>true if <code>min</code> \ms\leq\me <code>value</code> \ms\leq\me <code>max</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool optimal_learning::ClosedInterval::IsInside(double value) const OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1ClosedInterval_1ab7a6893d70f7f81a9206a4283b1b3fb8" data-uid="structoptimal__learning_1_1ClosedInterval_1ab7a6893d70f7f81a9206a4283b1b3fb8">Length()</h4>
+  <div class="markdown level1 summary"><p>\rst Compute the length of this <a class="xref" href="closed-interval.html">ClosedInterval</a>; result can be negative (i.e., an empty interval).
+length of the interval \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::ClosedInterval::Length() const OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1ClosedInterval_1a690e3b92e62cd36e3bd3ecf8034033bb" data-uid="structoptimal__learning_1_1ClosedInterval_1a690e3b92e62cd36e3bd3ecf8034033bb">IsEmpty()</h4>
+  <div class="markdown level1 summary"><p>\rst Checks whether the interval is \ms\emptyset\me (i.e., <code>max</code> &lt; <code>min</code>).
+Equivalent to <a class="xref" href="closed-interval.html#structoptimal__learning_1_1ClosedInterval_1ab7a6893d70f7f81a9206a4283b1b3fb8">Length()</a> \ms\geq\me 0.0.
+true if the interval is non-empty: <code>max</code> \ms\geq\me <code>min</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool optimal_learning::ClosedInterval::IsEmpty() const OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

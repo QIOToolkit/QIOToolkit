@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Simulated Annealing | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Simulated Annealing | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.spec.solver.simulated-annealing">
+<h1 id="simulated-annealing">Simulated Annealing</h1>
+
+<p>Performs metropolis dynamics on the model while gratually lowering (&quot;annealing&quot;)
+the simulation temperature. As a result, the system settles in a low-cost state
+while still being allowed to escape local minima as the simulation progresses.</p>
+<ul>
+<li><p>qiotoolkit's simulated annealing implementation allows the specification of an
+annealing schedule either as an explicit array of values or as a
+schedule-generator.</p>
+</li>
+<li><p>This (explicit or schedule-generated) list of numbers can be interpreted as
+inverse temperatures by specifying <code>use_inverse_temperature</code> = <code>true</code>.</p>
+</li>
+<li><p>Multiple restarts can be performed using the <code>restarts</code> parameter. These
+restarts are mutually independent.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you use the Azure QIO-comptaible parameters <code>beta_start</code> and <code>beta_stop</code>,
+the solver will attempt to infer the number of annealing steps from <code>step_limit</code>
+or its Azure QIO-alias <code>sweeps</code>.</p>
+</div>
+<h2 id="example">Example</h2>
+<pre><code class="lang-json">{
+  &quot;target&quot;: &quot;microsoft.simulated-annealing.qiotoolkit&quot;,
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;input_params&quot;: {
+    &quot;seed&quot;: 42,
+    &quot;schedule&quot;: {
+      &quot;type&quot;: &quot;geometric&quot;,
+      &quot;initial_value&quot;: 3.0,
+      &quot;final_value&quot;: 0.2,
+      &quot;count&quot;: 128
+    }
+    &quot;restarts&quot;: 8
+  },
+  &quot;input_data_uri&quot;: &quot;...&quot;
+}
+</code></pre>
+<p>This will perform 8 restarts of cooling the system from T=3.0 to T=0.2 in 128 steps
+spaced geometrically.</p>
+<h2 id="parameters-specification">Parameters Specification</h2>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_tabid-1" role="tab" aria-controls="tabpanel_bHGHmlrG6S_tabid-1" data-tab="tabid-1" tabindex="0" aria-selected="true">List</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_tabid-2" role="tab" aria-controls="tabpanel_bHGHmlrG6S_tabid-2" data-tab="tabid-2" tabindex="-1">Schema</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S_tabid-1" role="tabpanel" data-tab="tabid-1">
+
+<table>
+<thead>
+<tr>
+<th>param</th>
+<th>type</th>
+<th>required/default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>seed</code></td>
+<td>integer</td>
+<td>default: <em>time-based</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>schedule</code></td>
+<td><a href="">Schedule</a> required</td>
+<td>How the temperature should be changed over time.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>use_inverse_temperature</code></td>
+<td>boolean</td>
+<td>default: false</td>
+<td>Whether to interpret <code>schedule</code> as inverse temperature.</td>
+</tr>
+<tr>
+<td><code>beta_start</code></td>
+<td>float <em>&gt;0</em></td>
+<td>(QIO compatibility)</td>
+<td>Float specifying the starting inverse temperature.</td>
+</tr>
+<tr>
+<td><code>beta_stop</code></td>
+<td>float <em>&gt;beta_start</em></td>
+<td>(QIO compatibility)</td>
+<td>Float specifying the stopping inverse temperature.</td>
+</tr>
+<tr>
+<td><code>restarts</code></td>
+<td>integer &gt; 0</td>
+<td>default: 1</td>
+<td>How many restarts to perform.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tabpanel_bHGHmlrG6S_tabid-2" role="tabpanel" data-tab="tabid-2" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-json" name="Schema">{
+  &quot;$id&quot;: &quot;solver/simulatedannealing.qiotoolkit.schema&quot;,
+  &quot;$schema&quot;: &quot;http://json-schema.org/draft-07/schema#&quot;,
+  &quot;title&quot;: &quot;Simulated Annealing on CPU&quot;,
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;required&quot;: [&quot;target&quot;, &quot;input_params&quot;],
+  &quot;properties&quot;: {
+    &quot;target&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;const&quot;: &quot;microsoft.simulatedannealing.qiotoolkit&quot;
+    },
+    &quot;input_params&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;oneOf&quot;: [
+        {&quot;requried&quot;: [&quot;schedule&quot;]},
+        {&quot;required&quot;: [&quot;beta_start&quot;, &quot;beta_stop&quot;]},
+      ],
+      &quot;properties&quot;: {
+        &quot;schedule&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;$ref&quot;: &quot;../schedule/schedule.schema&quot;,
+          &quot;description&quot;: &quot;How the temperature should be changed over time.&quot;
+        },
+        &quot;use_inverse_temperature&quot;: {
+          &quot;type&quot;: &quot;bool&quot;,
+          &quot;description&quot;: &quot;Whether to interpret `schedule` as inverse temperature&quot;,
+          &quot;default&quot;: false
+        },
+        &quot;beta_start&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;description&quot;: &quot;float specifying the starting inverse temperature.&quot;
+          &quot;minimum&quot;: 0,
+        },
+        &quot;beta_stop&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;description&quot;: &quot;float specifying the stopping inverse temperature.&quot;
+          &quot;minimum&quot;: 0,
+        },
+        &quot;restarts&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;description&quot;: &quot;how many restarts to perform&quot;,
+          &quot;minimum&quot;: 1,
+          &quot;multipleOf&quot;: 1,
+          &quot;default&quot;: 1
+        }
+      },
+    }
+  }
+}
+</code></pre></section>
+</div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

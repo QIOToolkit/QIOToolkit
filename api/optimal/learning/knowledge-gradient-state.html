@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct optimal_learning::KnowledgeGradientState
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct optimal_learning::KnowledgeGradientState
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="structoptimal__learning_1_1KnowledgeGradientState">
+
+
+
+  <h1 id="structoptimal__learning_1_1KnowledgeGradientState" data-uid="structoptimal__learning_1_1KnowledgeGradientState" class="text-break">Struct optimal_learning::KnowledgeGradientState
+</h1>
+  <div class="markdown level0 summary"><p>\rst State object for <a class="xref" href="knowledge-gradient-evaluator.html">KnowledgeGradientEvaluator</a>. This tracks the points being sampled in concurrent experiments (<code>points_being_sampled</code>) ALONG with the points currently being evaluated via knowledge gradient for future experiments (called <code>points_to_sample</code>); these are the p and q of q,p-KG, respectively. <code>points_to_sample</code> joined with <code>points_being_sampled</code> is stored in <code>union_of_points</code> in that order.
+This struct also tracks the state of the <a class="xref" href="gaussian-process.html">GaussianProcess</a> that underlies the knowledge gradient computation: the GP state is built to handle the initial <code>union_of_points</code>, and subsequent updates to <code>points_to_sample</code> in this object also update the GP state.
+This struct also holds a pointer to a random number generator needed for Monte Carlo integrated KG computations.
+.. WARNING:: Users MUST guarantee that multiple state objects DO NOT point to the same RNG (in a multithreaded env).
+See general comments on State structs in <a href="xref:gpp__common_8hpp"><code>gpp_common.hpp</code></a>'s header docs. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="structoptimal__learning_1_1KnowledgeGradientState_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1ae37be051b2f4a46d758eedd32604518c" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1ae37be051b2f4a46d758eedd32604518c">KnowledgeGradientState()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs an <a class="xref" href="knowledge-gradient-state.html">KnowledgeGradientState</a> object with a specified source of randomness for the purpose of computing KG (and its gradient) over the specified set of points to sample. This establishes properly sized/initialized temporaries for KG computation, including dependent state from the associated Gaussian Process (which arrives as part of the kg_evaluator).
+.. WARNING:: This object is invalidated if the associated kg_evaluator is mutated. <a class="xref" href="knowledge-gradient-state.html#structoptimal__learning_1_1KnowledgeGradientState_1a7b073a9a7bd56d5fcd46a5fc51cf9a94">SetupState()</a> should be called to reset.
+.. WARNING:: Using this object to compute gradients when <code>configure_for_gradients</code> := false results in UNDEFINED BEHAVIOR.</p>
+<p>:kg_evaluator</p>
+<p>knowledge gradient evaluator object that specifies the parameters &amp; GP for KG evaluation :points_to_sample[dim][num_to_sample]: points at which to evaluate KG and/or its gradient to check their value in future experiments (i.e., test points for GP predictions) :points_being_sampled[dim][num_being_sampled]: points being sampled in concurrent experiments :num_to_sample: number of potential future samples; gradients are evaluated wrt these points (i.e., the &quot;q&quot; in q,p-KG) :num_being_sampled: number of points being sampled in concurrent experiments (i.e., the &quot;p&quot; in q,p-KG) :configure_for_gradients: true if this object will be used to compute gradients, false otherwise :normal_rng[1]: pointer to a properly initialized* <a class="xref" href="normal-rng.html">NormalRNG</a> object</p>
+<p>.. NOTE::</p>
+<ul>
+<li>The <a class="xref" href="normal-rng.html">NormalRNG</a> object must already be seeded. If multithreaded computation is used for KG, then every state object must have a different <a class="xref" href="normal-rng.html">NormalRNG</a> (different seeds, not just different objects). \endrst</li>
+</ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::KnowledgeGradientState(const EvaluatorType&amp;kg_evaluator, double const *restrict points_to_sample, double const *restrict points_being_sampled, int num_to_sample_in, int num_being_sampled_in, int, int const *restrict gradients_in, int num_gradients_in, bool configure_for_gradients, NormalRNGInterface *normal_rng_in)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1abde88c3c30e7c3ced83b7274b7e611a5" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1abde88c3c30e7c3ced83b7274b7e611a5">KnowledgeGradientState()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::KnowledgeGradientState(KnowledgeGradientState&amp;&amp;other)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1a6b6ec310becceaae65763da695192f68" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1a6b6ec310becceaae65763da695192f68">SubsetData()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::vector&lt;double&gt;optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::SubsetData(double const *restrict union_of_points_in, int num_union_in, int num_fidelity) noexcept OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1a5c15bf5ff336885d8957ade059ba0d7c" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1a5c15bf5ff336885d8957ade059ba0d7c">GetProblemSize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::GetProblemSize() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1a5dddd0df142d16268f74ed3e1e2298eb" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1a5dddd0df142d16268f74ed3e1e2298eb">GetCurrentPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Get the <code>points_to_sample</code>: potential future samples whose KG (and/or gradients) are being evaluated
+\output :points_to_sample[dim][num_to_sample]: potential future samples whose KG (and/or gradients) are being evaluated \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::GetCurrentPoint(double *restrict points_to_sample) const noexcept OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1a0eb0b74ae3d40ed19f5f543ca343c1ce" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1a0eb0b74ae3d40ed19f5f543ca343c1ce">SetCurrentPoint()</h4>
+  <div class="markdown level1 summary"><p>\rst Change the potential samples whose KG (and/or gradient) are being evaluated. Update the state's derived quantities to be consistent with the new points.</p>
+<p>:kg_evaluator</p>
+<p>expected improvement evaluator object that specifies the parameters &amp; GP for KG evaluation :points_to_sample[dim][num_to_sample]: potential future samples whose KG (and/or gradients) are being evaluated \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::SetCurrentPoint(const EvaluatorType&amp;kg_evaluator, double const *restrict points_to_sample) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1a7b073a9a7bd56d5fcd46a5fc51cf9a94" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1a7b073a9a7bd56d5fcd46a5fc51cf9a94">SetupState()</h4>
+  <div class="markdown level1 summary"><p>\rst Configures this state object with new <code>points_to_sample</code>, the location of the potential samples whose KG is to be evaluated. Ensures all state variables &amp; temporaries are properly sized. Properly sets all dependent state variables (e.g., <a class="xref" href="gaussian-process.html">GaussianProcess</a>'s state) for KG evaluation.
+.. WARNING:: This object's state is INVALIDATED if the <code>kg_evaluator</code> (including the <a class="xref" href="gaussian-process.html">GaussianProcess</a> it depends on) used in SetupState is mutated! <a class="xref" href="knowledge-gradient-state.html#structoptimal__learning_1_1KnowledgeGradientState_1a7b073a9a7bd56d5fcd46a5fc51cf9a94">SetupState()</a> should be called again in such a situation.</p>
+<p>:kg_evaluator</p>
+<p>knowledge gradient evaluator object that specifies the parameters &amp; GP for KG evaluation :points_to_sample[dim][num_to_sample]: potential future samples whose KG (and/or gradients) are being evaluated \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::SetupState(const EvaluatorType&amp;kg_evaluator, double const *restrict points_to_sample)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1a38101fef3fc7e91fc63695525a36c39a" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1a38101fef3fc7e91fc63695525a36c39a">PreCompute()</h4>
+  <div class="markdown level1 summary"><p>\rst Pre-compute to_sample_mean_, and cholesky_to_sample_var \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::PreCompute(const EvaluatorType&amp;kg_evaluator, double const *restrict)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1a671169c634769eb69f279c0afbd50ee1" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1a671169c634769eb69f279c0afbd50ee1">OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN(KnowledgeGradientState)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1KnowledgeGradientState_1ae041680529821230e10772b1301b77d2" data-uid="structoptimal__learning_1_1KnowledgeGradientState_1ae041680529821230e10772b1301b77d2">BuildUnionOfPoints()</h4>
+  <div class="markdown level1 summary"><p>\rst Create a vector with the union of points_to_sample and points_being_sampled (the latter is appended to the former).
+Note the l-value return. Assigning the return to a std::vector<double> or passing it as an argument to the ctor will result in copy-elision or move semantics; no copying/performance loss.</double></p>
+<p>:points_to_sample[dim][num_to_sample]: points at which to evaluate KG and/or its gradient to check their value in future experiments (i.e., test points for GP predictions) :points_being_sampled[dim][num_being_sampled]: points being sampled in concurrent experiments :num_to_sample: number of potential future samples; gradients are evaluated wrt these points (i.e., the &quot;q&quot; in q,p-KG) :num_being_sampled: number of points being sampled in concurrent experiments (i.e., the &quot;p&quot; in q,p-KG) :dim: the number of spatial dimensions of each point array</p>
+<p>std::vector<double> with the union of the input arrays: points_being_sampled is appended to points_to_sample \endrst</double></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static std::vector&lt;double&gt;optimal_learning::KnowledgeGradientState&lt;DomainType&gt;::BuildUnionOfPoints(double const *restrict points_to_sample, double const *restrict points_being_sampled, int num_to_sample, int num_being_sampled, int dim) noexcept OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

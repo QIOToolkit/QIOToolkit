@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class graph::Edge
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class graph::Edge
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classgraph_1_1Edge">
+
+
+
+  <h1 id="classgraph_1_1Edge" data-uid="classgraph_1_1Edge" class="text-break">Class graph::Edge
+</h1>
+  <div class="markdown level0 summary"><p>Base representation of an edge.</p>
+<p>An edge consists of a list of ids of nodes that are part of it. For a regular graph, this list of nodes would always have lenght 2; in the case of a hypergraph it will typically be 2+. There is currently no support for directed graphs.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A node does not know its own id as this information can change when the graph is mutated.</p>
+</div>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../utils/component.html">utils::Component</a></div>
+    <div class="level1"><span class="xref">graph::Edge</span></div>
+      <div class="level2"><a class="xref" href="cost-edge.html">graph::CostEdge</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classgraph_1_1Edge_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classgraph_1_1Edge_1a482dccabb254fd4b457e9d5fb0983dc8" data-uid="classgraph_1_1Edge_1a482dccabb254fd4b457e9d5fb0983dc8">Edge()</h4>
+  <div class="markdown level1 summary"><p>Default constructor for an empty edge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::Edge::Edge()</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1a4710ce6257fab9129ea2d7a82012fc98" data-uid="classgraph_1_1Edge_1a4710ce6257fab9129ea2d7a82012fc98">Edge()</h4>
+  <div class="markdown level1 summary"><p>Constructor with node list initialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::Edge::Edge(const std::vector&lt;int&gt;&amp;node_ids)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classgraph_1_1Edge_1af7f97273a1849506adc35527b58ca184" data-uid="classgraph_1_1Edge_1af7f97273a1849506adc35527b58ca184">node_ids()</h4>
+  <div class="markdown level1 summary"><p>Accessor for the list of node ids.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;int&gt;&amp;graph::Edge::node_ids() const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1a3ef03a8e34d7dd48d6c4dbdfa63b7d80" data-uid="classgraph_1_1Edge_1a3ef03a8e34d7dd48d6c4dbdfa63b7d80">clear_node_ids()</h4>
+  <div class="markdown level1 summary"><p>Remove all <code>node_id</code>s from this edge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Edge::clear_node_ids()</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1ad7f5693950b1cae58fdb073a3f6e7730" data-uid="classgraph_1_1Edge_1ad7f5693950b1cae58fdb073a3f6e7730">sort_node_ids()</h4>
+  <div class="markdown level1 summary"><p>Order the <code>node_id</code>s ascendingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Edge::sort_node_ids()</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1aaebbd5c9a9e3b948bd5b9c9e2da3dbce" data-uid="classgraph_1_1Edge_1aaebbd5c9a9e3b948bd5b9c9e2da3dbce">add_node_id()</h4>
+  <div class="markdown level1 summary"><p>Append a node at the end of the <code>node_id</code> list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Edge::add_node_id(int node_id)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1a79a022d07645f2f640703b273712dd18" data-uid="classgraph_1_1Edge_1a79a022d07645f2f640703b273712dd18">remove_node_id()</h4>
+  <div class="markdown level1 summary"><p>Find and remove a node from the list.</p>
+<p>This will remove exactly one instance if one is found, zero otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Edge::remove_node_id(int node_id)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1aaec23a0c78432559290a57ed8ad908f1" data-uid="classgraph_1_1Edge_1aaec23a0c78432559290a57ed8ad908f1">configure()</h4>
+  <div class="markdown level1 summary"><p>Serialize the edge's node_ids under [&quot;ids&quot;].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Edge::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1aab3b018831d28c103821cf9bbad694cf" data-uid="classgraph_1_1Edge_1aab3b018831d28c103821cf9bbad694cf">render()</h4>
+  <div class="markdown level1 summary"><p>render the object in structured form</p>
+<p>Return a structured representation of the object. This is intended for output purposes. For instance, the solution your solver finds should have a render method which allows it to be returned as part of the result.
+Example:</p>
+<pre><code>{c++}
+ MySolution : public Component {
+  public:
+   // Represent the internal bool vector as +-1 output.
+   utils::Structure render() const override {
+     utils::Structure rendered;
+     for (bool item : solution_) rendered.push_back(item ? 1 : -1);
+     return rendered;
+   }
+
+  private:
+   std::vector&lt;bool&gt; solution_;
+ }
+
+ MySolution solution;
+ std::cout &lt;&lt; solution.render().to_string() &lt;&lt; std::endl;
+</code></pre>
+<p><a class="xref" href="../utils/structure.html">utils::Structure</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure graph::Edge::render() const override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1adff8594cfbf02b6b23bad2ff36b2f4d4" data-uid="classgraph_1_1Edge_1adff8594cfbf02b6b23bad2ff36b2f4d4">get_status()</h4>
+  <div class="markdown level1 summary"><p>get_status shows a simplified state representation</p>
+<p>Like <code>render</code>, this produces a structured representation of the object's state. However, it is intended to be simpler in nature with the purpose of rendering the object during stream-output and logging. By default, it will fall back to the full <code>render</code>, but overloading this allows distinguising how the object looks during LOG vs full output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure graph::Edge::get_status() const override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1a8d40e27f110bf458fd4d57f60deb8a93" data-uid="classgraph_1_1Edge_1a8d40e27f110bf458fd4d57f60deb8a93">rescale()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void graph::Edge::rescale(double scale_factor)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1a1ba921a653cce94682830972e567cbac" data-uid="classgraph_1_1Edge_1a1ba921a653cce94682830972e567cbac">nodes_count()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t graph::Edge::nodes_count() const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1aa782b84f4faeea2f8eae13b458a658dc" data-uid="classgraph_1_1Edge_1aa782b84f4faeea2f8eae13b458a658dc">num_nodes()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t graph::Edge::num_nodes(const utils::Json&amp;json)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Edge_1a55ab3e77f83486c3c78ec0ab0c887d54" data-uid="classgraph_1_1Edge_1a55ab3e77f83486c3c78ec0ab0c887d54">memory_estimate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static size_t graph::Edge::memory_estimate(size_t num_nodes)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

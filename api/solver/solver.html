@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class solver::Solver
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class solver::Solver
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classsolver_1_1Solver">
+
+
+
+  <h1 id="classsolver_1_1Solver" data-uid="classsolver_1_1Solver" class="text-break">Class solver::Solver
+</h1>
+  <div class="markdown level0 summary"><p>Interface for a <a class="xref" href="solver.html">Solver</a>.</p>
+<p>A solver is initialized, run and then asked to print a result.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../observe/observer.html">observe::Observer</a></div>
+    <div class="level1"><span class="xref">solver::Solver</span></div>
+      <div class="level2"><a class="xref" href="model-solver.html">solver::ModelSolver</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../observe/observer.html#classobserve_1_1Observer_1a1b4d9cfb588541f8fc91f0d4bac43dd6">clear_observable_label</a>
+    </div>
+    <div>
+      <a class="xref" href="../observe/observer.html#classobserve_1_1Observer_1a251e5dd9ea6c52f3e1bdee808eb8e885">restart</a>
+    </div>
+    <div>
+      <a class="xref" href="../observe/observer.html#classobserve_1_1Observer_1a369264388679a159fa252ecbd380f6d7">is_watching</a>
+    </div>
+    <div>
+      <a class="xref" href="../observe/observer.html#classobserve_1_1Observer_1a4723afadbc57912d1b752af84c4594d7">scoped_observable_label</a>
+    </div>
+    <div>
+      <a class="xref" href="../observe/observer.html#classobserve_1_1Observer_1a64d844bc34f9bcd85bae422eef622e5a">observe</a>
+    </div>
+    <div>
+      <a class="xref" href="../observe/observer.html#classobserve_1_1Observer_1ac4c46e9e4ce3712511d78c8a576bb277">Observer</a>
+    </div>
+    <div>
+      <a class="xref" href="../observe/observer.html#classobserve_1_1Observer_1ac63d862c05309911da45f7b751031bd9">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../observe/observer.html#classobserve_1_1Observer_1af20ae4b17f52bd5c3cb7915125db3bd6">set_observable_label</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component-with-output.html#classutils_1_1ComponentWithOutput_1aaa47507d80257a8d56850dfd40b3e396">set_output_parameter</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component-with-output.html#classutils_1_1ComponentWithOutput_1ab373e1af6150ece4f183aef68c70a2b3">set_output_parameter</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component-with-output.html#classutils_1_1ComponentWithOutput_1ab37db0dc51ae993704fb25f4d6727605">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component-with-output.html#classutils_1_1ComponentWithOutput_1ab94d432e87d2b5d669cdd8d28b0ac433">get_output_parameters</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classsolver_1_1Solver_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classsolver_1_1Solver_1afe69b71f20e8968da62bb651b08556d8" data-uid="classsolver_1_1Solver_1afe69b71f20e8968da62bb651b08556d8">Solver()</h4>
+  <div class="markdown level1 summary"><p>Intanstiate an uninitialized <a class="xref" href="solver.html">Solver</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">solver::Solver::Solver()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classsolver_1_1Solver_1ad54c1c4a804a5dc13c288ca2308e794f" data-uid="classsolver_1_1Solver_1ad54c1c4a804a5dc13c288ca2308e794f">~Solver()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual solver::Solver::~Solver()</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a7c296d9b2c4e20d7bd99a22be13071c5" data-uid="classsolver_1_1Solver_1a7c296d9b2c4e20d7bd99a22be13071c5">get_identifier()</h4>
+  <div class="markdown level1 summary"><p>Get the identifier of this solver. This identifier is denoted as the <code>target</code> in the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual std::string solver::Solver::get_identifier() const =0</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1af6d432c6fd7b1a682b5aa9a939064ae7" data-uid="classsolver_1_1Solver_1af6d432c6fd7b1a682b5aa9a939064ae7">init()</h4>
+  <div class="markdown level1 summary"><p>Initialize the solver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void solver::Solver::init()=0</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a2b99a9a3767b86c8f1057b861c2d380c" data-uid="classsolver_1_1Solver_1a2b99a9a3767b86c8f1057b861c2d380c">run()</h4>
+  <div class="markdown level1 summary"><p>Run the solver.</p>
+<p><a class="xref" href="stepping-solver.html">SteppingSolver</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void solver::Solver::run()=0</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a715c5405c3abf8a5d9defc639852eec4" data-uid="classsolver_1_1Solver_1a715c5405c3abf8a5d9defc639852eec4">get_solutions()</h4>
+  <div class="markdown level1 summary"><p>Get the structured result description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual utils::Structure solver::Solver::get_solutions() const =0</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a04694e5460d82c2d78c0b2e786aa5b2a" data-uid="classsolver_1_1Solver_1a04694e5460d82c2d78c0b2e786aa5b2a">get_model_properties()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual utils::Structure solver::Solver::get_model_properties() const</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a555a79aef6d2d7a45252fa8b079beeb8" data-uid="classsolver_1_1Solver_1a555a79aef6d2d7a45252fa8b079beeb8">get_solver_properties()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual utils::Structure solver::Solver::get_solver_properties() const</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a51e7709e321278a994d5a9f60f6c5ffe" data-uid="classsolver_1_1Solver_1a51e7709e321278a994d5a9f60f6c5ffe">get_model_sweep_size()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual size_t solver::Solver::get_model_sweep_size() const =0</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1ad8381f042bd888b1041b572648e8c4f8" data-uid="classsolver_1_1Solver_1ad8381f042bd888b1041b572648e8c4f8">get_benchmark()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure solver::Solver::get_benchmark() const</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a169b642cb71ac185c7cd2fc88bfe631a" data-uid="classsolver_1_1Solver_1a169b642cb71ac185c7cd2fc88bfe631a">get_result()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure solver::Solver::get_result() const</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a643173fd422b4f8c3eb74330029a1e94" data-uid="classsolver_1_1Solver_1a643173fd422b4f8c3eb74330029a1e94">configure()</h4>
+  <div class="markdown level1 summary"><p>Check the identifier and version against the configuraiton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void solver::Solver::configure(const utils::Json&amp;json)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1ae27b812939b70c8584ae8aa4955306d8" data-uid="classsolver_1_1Solver_1ae27b812939b70c8584ae8aa4955306d8">get_thread_count()</h4>
+  <div class="markdown level1 summary"><p>Return the number of threads which should be used in parallel sections of the solver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int solver::Solver::get_thread_count() const</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a6ac73e52a975091aae90d84c82bf57f5" data-uid="classsolver_1_1Solver_1a6ac73e52a975091aae90d84c82bf57f5">finalize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void solver::Solver::finalize()</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a4883959e77a56c434267446ca6c71396" data-uid="classsolver_1_1Solver_1a4883959e77a56c434267446ca6c71396">copy_limits()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void solver::Solver::copy_limits(Solver *other) const</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1a0ce9c6eb9d76997976645561af6a7611" data-uid="classsolver_1_1Solver_1a0ce9c6eb9d76997976645561af6a7611">set_time_limit()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void solver::Solver::set_time_limit(double value)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1Solver_1adcb1120bc65eaf9516c234b4f5a4b6b4" data-uid="classsolver_1_1Solver_1adcb1120bc65eaf9516c234b4f5a4b6b4">get_max_threads()</h4>
+  <div class="markdown level1 summary"><p>Return the maximum number of threads this solver can use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int solver::Solver::get_max_threads() const</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

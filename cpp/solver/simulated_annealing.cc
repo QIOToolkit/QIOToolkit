@@ -1,1 +1,0 @@
-// cc file to prevent skipping of creation of simulated_annealing.lib in Windows build

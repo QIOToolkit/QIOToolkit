@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class solver::SolverRegistry
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class solver::SolverRegistry
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classsolver_1_1SolverRegistry">
+
+
+
+  <h1 id="classsolver_1_1SolverRegistry" data-uid="classsolver_1_1SolverRegistry" class="text-break">Class solver::SolverRegistry
+</h1>
+  <div class="markdown level0 summary"><p>Registry of available solvers.</p>
+<p>The solver registry allows the instantiation of each registered solver for a given model.
+Usage:</p>
+<ul>
+<li>Registering a new model:</li>
+</ul>
+<pre><code class="lang-c++">class MySolver : public [solver::Solver](xref:classsolver_1_1Solver) { public: // Must have a constructor without arguments MySolver() = default;
+// This is the identifier the solver is register with. std::string get_identifier() const override { return &quot;my_solver&quot;; } ... } [REGISTER_SOLVER(MySolver)](xref:solver__registry_8h_1a7f2e334b3ffcbd91a8d8c1275ff11ec5); ```
+  * Make sure the solver is included in `all_solver.h` and handled in the `create_solver&lt;Model_T&gt;` method.
+  * Instantiating a solver for a specific model:
+```c++ auto* my_solver = [solver::SolverRegistry::create_for_model&lt;MyModel&gt;](xref:classsolver_1_1SolverRegistry_1a7a4df54052a7e300382bec91d072d409)(&quot;my_solver&quot;); ```
+</code></pre>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">solver::SolverRegistry</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classsolver_1_1SolverRegistry_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classsolver_1_1SolverRegistry_1a643a32ddfab72a9de747e587547cc759" data-uid="classsolver_1_1SolverRegistry_1a643a32ddfab72a9de747e587547cc759">SolverRegistry()</h4>
+  <div class="markdown level1 summary"><p>This is a singleton class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">solver::SolverRegistry::SolverRegistry()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classsolver_1_1SolverRegistry_1ac13f0f7102ba700c0e0d2a102ab47c7f" data-uid="classsolver_1_1SolverRegistry_1ac13f0f7102ba700c0e0d2a102ab47c7f">has()</h4>
+  <div class="markdown level1 summary"><p>Check whether a solver with that identifier is registered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static bool solver::SolverRegistry::has(const std::string&amp;identifier)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1SolverRegistry_1acdf22c096768609c55cd9ce226605a2c" data-uid="classsolver_1_1SolverRegistry_1acdf22c096768609c55cd9ce226605a2c">get()</h4>
+  <div class="markdown level1 summary"><p>Find and return the solver registration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static const SolverRegistration* solver::SolverRegistry::get(const std::string&amp;identifier)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1SolverRegistry_1a7a4df54052a7e300382bec91d072d409" data-uid="classsolver_1_1SolverRegistry_1a7a4df54052a7e300382bec91d072d409">create_for_model()</h4>
+  <div class="markdown level1 summary"><p>Find the solver registration and create an instance for Model_T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static Solver* solver::SolverRegistry::create_for_model(const std::string&amp;identifier)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1SolverRegistry_1a951af41952d9daa8f2a4a77e67fb77f3" data-uid="classsolver_1_1SolverRegistry_1a951af41952d9daa8f2a4a77e67fb77f3">add()</h4>
+  <div class="markdown level1 summary"><p>Add an entry to the solver registry.</p>
+<p>This is used by the <a class="xref" href="solver-registrar.html">SolverRegistrar</a> in the REGISTER_SOLVER macro, you should not need to invoke it directly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static void solver::SolverRegistry::add(const std::string&amp;identifier, std::unique_ptr&lt;SolverRegistration&gt;&amp;&amp;registration)</code></pre>
+  </div>
+
+
+  <h4 id="classsolver_1_1SolverRegistry_1a09c4539ebdeb22bb80fcc1455da69284" data-uid="classsolver_1_1SolverRegistry_1a09c4539ebdeb22bb80fcc1455da69284">instance()</h4>
+  <div class="markdown level1 summary"><p>Access the singleton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static SolverRegistry&amp;solver::SolverRegistry::instance()</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

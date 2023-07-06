@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Anatomy of a Request | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Anatomy of a Request | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.tutorial.usage.request">
+<h1 id="anatomy-of-a-request">Anatomy of a Request</h1>
+
+<p>The default qiotoolkit input format is JSON, although it would be possible to handle
+other formats with different input handlers.</p>
+<p>A minimal request for qiotoolkit has the following shape:</p>
+<pre><code class="lang-json">{
+  &quot;target&quot;: &quot;SOLVER_IDENTIFIER&quot;,
+  &quot;input_params&quot;: {
+     ...
+  }
+}
+</code></pre>
+<pre><code class="lang-json">  &quot;cost_function&quot;: {
+    &quot;type&quot;: &quot;MODEL_IDENTIFIER&quot;,
+    &quot;version&quot;: &quot;MODEL_VERSION&quot;,
+    ...
+  }
+}
+</code></pre>
+<p>Where the <code>SOLVER_IDENTIFIER</code> must exactly match the
+value returned by <code>AbstractSolver::get_identifier()</code>.</p>
+<p>Likewise, <code>MODEL_IDENTIFIER</code> and <code>MODEL_VERSION</code> must match those
+return by <code>markov::Model::get_identifier()</code> and <code>markov::Model::get_version()</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>These identifiers and version numbers not only tell qiotoolkit what to simulate
+but ensure there is no mismatch in versioning (i.e., you're trying to run old
+input with a substantially modified newer version of the code or vice-versa.</p>
+</div>
+<h2 id="input-parameters">Input Parameters</h2>
+<p>Additional configuration for the solver should be denoted in the <code>input_params</code>
+section of the request. While some parameters are shared between all solvers
+(e.g., <code>time_limit</code>), others are specific to the solver. For instance, the
+Parallel Tempering solver can be configured with:</p>
+<pre><code class="lang-json">  ...
+  &quot;input_params&quot;: {
+    &quot;max_steps&quot;: 10,
+    &quot;seed&quot;: 42,
+    &quot;temperature_set&quot;: {
+      &quot;type&quot;: &quot;geometric&quot;,
+      &quot;low&quot;: 0.5,
+      &quot;high&quot;: 3,
+      &quot;steps&quot;: 32
+    }
+  },
+  ...
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For the exact set of parameters understood by a solver, refer to the <a href="../spec/request/solver/index.md">solver
+specifications</a>.</p>
+</div>
+<h2 id="input-data">Input Data</h2>
+<p>The model is configured from additional parameters in the <code>input_data</code> section.
+These input parameters determine which cost function will be optimized. For
+instance, the <code>Ising</code> model expects a <code>term</code> entry describing the terms of the
+polynomial in the Ising cost function:</p>
+<pre><code class="lang-json">  ...
+  &quot;input_data&quot;: {
+    &quot;type&quot;: &quot;ising&quot;,
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;terms&quot;: [
+      {&quot;c&quot;: -1, &quot;ids&quot;: [0,1]},
+      {&quot;c&quot;: 2, &quot;ids&quot;: [0,2]},
+      {&quot;c&quot;: 1, &quot;ids&quot;: [1,2]},
+      ...
+    ]
+  },
+  ...
+</code></pre>
+<p>Which, in this case, describes a cost function of the form</p>
+<pre><code class="lang-math">  \mathcal{H} = -s_0s_1 + 2s_0s_2 + s_1s_2 + \cdots
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For the exact set of parameters required by each model, refer to the <a href="../spec/request/model/index.md">model
+specifications</a>.</p>
+</div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

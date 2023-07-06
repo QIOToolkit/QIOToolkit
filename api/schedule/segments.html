@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class schedule::Segments
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class schedule::Segments
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classschedule_1_1Segments">
+
+
+
+  <h1 id="classschedule_1_1Segments" data-uid="classschedule_1_1Segments" class="text-break">Class schedule::Segments
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="segments.html">Segments</a> <a class="xref" href="schedule.html">Schedule</a>.</p>
+<p>Concatenate multiple schedules to a single schedule.
+Configuration:</p>
+<ul>
+<li>Basic definition:</li>
+</ul>
+<pre><code class="lang-.json">&quot;schedule&quot;: {
+  &quot;type&quot;: &quot;segments&quot;,
+  &quot;segments&quot;: [
+    {
+      &quot;type&quot;: &quot;constant&quot;,
+      &quot;value&quot;: 3,
+      &quot;count&quot;: 100,
+    },
+    {
+      &quot;type&quot;: &quot;linear&quot;,
+      &quot;initial&quot;: 3,
+      &quot;final&quot;: 0.3,
+      &quot;count&quot;: 1000
+    },
+    {
+      &quot;type&quot;: &quot;constant&quot;,
+      &quot;value&quot;: 0.3,
+      &quot;count&quot;: 500
+    }
+  ]
+}
+</code></pre>
+<ul>
+<li>From an array:</li>
+</ul>
+<pre><code class="lang-.json">&quot;schedule&quot;: {
+  &quot;type&quot;: &quot;segments&quot;,
+  &quot;segments&quot;: [1,2,3]
+}
+</code></pre>
+<ul>
+<li>From an array, shorthand</li>
+</ul>
+<pre><code class="lang-.json">&quot;schedule&quot;: [1,2,3]
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Unless otherwise specified, each segment is assumed to have a width of 1, with the start point coinciding with the stop of the previous segment. You can modify this default behavior by specifying the (absolute) <code>stop</code> point of the segment or by adjusting the width via <code>count</code>.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p><a class="xref" href="segments.html">Segments</a> specified as an array of scalar values are presumed to be points of zero input range width spaced by 1. As a result, the total width of the array is mapped to 0..(size-1) and discretization with default count yields back the array. Input values between these points are interpolated linearly.</p>
+</div>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="schedule-generator.html">schedule::ScheduleGenerator</a></div>
+    <div class="level1"><span class="xref">schedule::Segments</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1a27a085ee3d443d6444f92b7407c455cc">get_count</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1a3565c8192a212ec2da32b25cba658e64">ScheduleGenerator</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1a5945b59cc0fb6f3f04d2fec33933249b">get_stop</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1a7ed9f27d87af2b4287e7c5a9883cd51e">~ScheduleGenerator</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1a7f0ab916d4ad1c4036d0afceddba659c">get_initial_value</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1a853b0d2217b1428bc898480036281acb">get_start</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1a9592262196d28fa4af5b4a34dc2f292c">set_stop</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1aac63bd03e3df90d3768db89386639294">has_count</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1ac52bd1d335751bcc89c5b4011abf9ec4">get_final_value</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1ad463a59d96f219cdf60895e3f5b407df">has_stop</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1addb4f9e049ee995bc0c18e891c287758">has_start</a>
+    </div>
+    <div>
+      <a class="xref" href="schedule-generator.html#classschedule_1_1ScheduleGenerator_1af5b7469687a28a4c9565b4ed561dd1bc">is_repeated</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classschedule_1_1Segments_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classschedule_1_1Segments_1ac50bf1e0d7ee65203a3ed6dd1169fed0" data-uid="classschedule_1_1Segments_1ac50bf1e0d7ee65203a3ed6dd1169fed0">Segments()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">schedule::Segments::Segments()=default</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Segments_1aea1d499c2d0dc9c76f319d5aeb5a5208" data-uid="classschedule_1_1Segments_1aea1d499c2d0dc9c76f319d5aeb5a5208">Segments()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">schedule::Segments::Segments(const std::vector&lt;double&gt;&amp;values)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classschedule_1_1Segments_1af314363da45466e36558b09f35e5711e" data-uid="classschedule_1_1Segments_1af314363da45466e36558b09f35e5711e">get_progress_value()</h4>
+  <div class="markdown level1 summary"><p>Get the value at a relative position in the input interval.</p>
+<p>Arguments: <code>progress</code>  relative input position \in [0..1]
+Returns: the value of the segment covering <code>progress</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double schedule::Segments::get_progress_value(double progress) const override</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Segments_1a115813e00cdb07e603881a5ce8fdb131" data-uid="classschedule_1_1Segments_1a115813e00cdb07e603881a5ce8fdb131">configure()</h4>
+  <div class="markdown level1 summary"><p>Configure the <a class="xref" href="segments.html">Segments</a> generator from input.</p>
+<p>This expects the <code>segments</code> to be concatenated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void schedule::Segments::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Segments_1a486bf1abc5fab55cf04a38e0c74abcfd" data-uid="classschedule_1_1Segments_1a486bf1abc5fab55cf04a38e0c74abcfd">adjust()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void schedule::Segments::adjust()</code></pre>
+  </div>
+
+
+  <h4 id="classschedule_1_1Segments_1a6689c457364039e4654b2fee66f94d9d" data-uid="classschedule_1_1Segments_1a6689c457364039e4654b2fee66f94d9d">render()</h4>
+  <div class="markdown level1 summary"><p>Return the config value for schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure schedule::Segments::render() const override</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

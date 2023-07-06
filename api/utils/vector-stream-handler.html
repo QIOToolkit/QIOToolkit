@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class utils::VectorStreamHandler
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class utils::VectorStreamHandler
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classutils_1_1VectorStreamHandler">
+
+
+
+  <h1 id="classutils_1_1VectorStreamHandler" data-uid="classutils_1_1VectorStreamHandler" class="text-break">Class utils::VectorStreamHandler
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="vector-stream-handler.html">VectorStreamHandler</a>.</p>
+<p>Implementations of stream handlers for vector of values of simple, non class type like bool, int...</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="base-stream-handler.html">utils::BaseStreamHandler</a></div>
+    <div class="level1"><span class="xref">utils::VectorStreamHandler</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a144f15338fe127d0beb2545468e3f74a">StartObject</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a48c6ca400a1757b1b9018f9f8c592d65">complete</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a4e838f5e8ee02f0ef77a22e6edaf2dc9">started</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a567a383b58415ce1523db7ee9f09a6b8">fail_at_missing_inputs</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a58189b3340ef0e8604c8f6ae627cac98">Key</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a5aa112901e4cbc590e22b2fd572fc69e">missing_inputs</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a82b95b36248cd6287f31cbc2458e7caa">failed</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a9d7d0bead923de140938b242c98a8a3d">reset</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1a9eb914c45604e13ebf1b90df95247219">error_message</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1aa598cc207550448ee1ed68709c099565">EndObject</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1ad8fce01eb5740d0b394d03668fba5e54">error_code</a>
+    </div>
+    <div>
+      <a class="xref" href="base-stream-handler.html#classutils_1_1BaseStreamHandler_1ae9818cf45bc42bba859aa0ec2605f66a">BaseStreamHandler</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classutils_1_1VectorStreamHandler_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classutils_1_1VectorStreamHandler_1a752eccdd908d3d9775d694f013c611aa" data-uid="classutils_1_1VectorStreamHandler_1a752eccdd908d3d9775d694f013c611aa">Value()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::VectorStreamHandler&lt;T&gt;::Value(SignalType signal_value, Type_T&amp;vec)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1VectorStreamHandler_1a1566b8225c3a2e13c36df3d4a782b89e" data-uid="classutils_1_1VectorStreamHandler_1a1566b8225c3a2e13c36df3d4a782b89e">StartArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::VectorStreamHandler&lt;T&gt;::StartArray()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1VectorStreamHandler_1a302bead5f4fc7f3e5c4f97a9bf439123" data-uid="classutils_1_1VectorStreamHandler_1a302bead5f4fc7f3e5c4f97a9bf439123">EndArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::VectorStreamHandler&lt;T&gt;::EndArray(size_t elementCount, Type_T&amp;vec)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1VectorStreamHandler_1ace5fda9c7c7eca3f3dfb264e5965dcce" data-uid="classutils_1_1VectorStreamHandler_1ace5fda9c7c7eca3f3dfb264e5965dcce">complete()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::VectorStreamHandler&lt;T&gt;::complete() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1VectorStreamHandler_1a3b65f37b4690241c302e5c51919660e1" data-uid="classutils_1_1VectorStreamHandler_1a3b65f37b4690241c302e5c51919660e1">started()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::VectorStreamHandler&lt;T&gt;::started() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1VectorStreamHandler_1aab9b7f8d78857d5d2ab307db825267a7" data-uid="classutils_1_1VectorStreamHandler_1aab9b7f8d78857d5d2ab307db825267a7">reset()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::VectorStreamHandler&lt;T&gt;::reset(Type_T&amp;vec)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1VectorStreamHandler_1a370a5b4e234e86b13000b16cb01be31b" data-uid="classutils_1_1VectorStreamHandler_1a370a5b4e234e86b13000b16cb01be31b">fail()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool utils::VectorStreamHandler&lt;T&gt;::fail(const std::string&amp;meassage=&quot;parsing error&quot;, Error error_code=Error::ParsingError)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

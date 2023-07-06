@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::MaternNu2p5
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::MaternNu2p5
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1MaternNu2p5">
+
+
+
+  <h1 id="classoptimal__learning_1_1MaternNu2p5" data-uid="classoptimal__learning_1_1MaternNu2p5" class="text-break">Class optimal_learning::MaternNu2p5
+</h1>
+  <div class="markdown level0 summary"><p>\rst Implements a case of the Matern class of covariance functions with \nu = 5/2 (smoothness parameter). See docs for <code>MaternNu1p5</code> for more details on the Matern class of covariance fucntions.
+<code>cov_{\nu=5/2}(r) = (1 + \sqrt{5}\frac{r}[l} + \frac{5}{3}\frac{r^2}{l^2})\exp(-\sqrt{5}\frac{r}{l})</code>
+We also implement the augmented kernel function with the gradient obervations.
+See <a class="xref" href="covariance-interface.html">CovarianceInterface</a> for descriptions of the virtual functions. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="covariance-interface.html">optimal_learning::CovarianceInterface</a></div>
+    <div class="level1"><span class="xref">optimal_learning::MaternNu2p5</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="covariance-interface.html#classoptimal__learning_1_1CovarianceInterface_1afffe1d71f93098602621f59892bf0871">~CovarianceInterface</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1MaternNu2p5_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1ac25c089a76e16ca74eba1ee08ec8013f" data-uid="classoptimal__learning_1_1MaternNu2p5_1ac25c089a76e16ca74eba1ee08ec8013f">MaternNu2p5()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="matern-nu2p5.html">MaternNu2p5</a> object with constant length-scale across all dimensions.</p>
+<p>:dim</p>
+<p>the number of spatial dimensions :alpha: the hyperparameter <code>\alpha</code> (e.g., signal variance, <code>\sigma_f^2</code>) :length: the constant length scale to use for all hyperparameter length scales \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MaternNu2p5::MaternNu2p5(int dim, double alpha, double length)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1a522203814be0a711f8bd3f625e346b13" data-uid="classoptimal__learning_1_1MaternNu2p5_1a522203814be0a711f8bd3f625e346b13">MaternNu2p5()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="matern-nu2p5.html">MaternNu2p5</a> object with the specified hyperparameters.</p>
+<p>:dim</p>
+<p>the number of spatial dimensions :alpha: the hyperparameter <code>\alpha</code>, (e.g., signal variance, <code>\sigma_f^2</code>) :lengths[dim]: the hyperparameter length scales, one per spatial dimension \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MaternNu2p5::MaternNu2p5(int dim, double alpha, double const *restrict lengths) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1a680819b258018afded31d2b4e5b6e2f6" data-uid="classoptimal__learning_1_1MaternNu2p5_1a680819b258018afded31d2b4e5b6e2f6">MaternNu2p5()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="matern-nu2p5.html">MaternNu2p5</a> object with the specified hyperparameters.</p>
+<p>:dim</p>
+<p>the number of spatial dimensions :alpha: the hyperparameter <code>\alpha</code>, (e.g., signal variance, <code>\sigma_f^2</code>) :lengths: the hyperparameter length scales, one per spatial dimension \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MaternNu2p5::MaternNu2p5(int dim, double alpha, std::vector&lt;double&gt;lengths)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1a8078b11b01941739eea72fc25547f69e" data-uid="classoptimal__learning_1_1MaternNu2p5_1a8078b11b01941739eea72fc25547f69e">MaternNu2p5()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MaternNu2p5::MaternNu2p5(const MaternNu2p5&amp;source)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1ab212e48e9c12575daf76f0d0072a5ab8" data-uid="classoptimal__learning_1_1MaternNu2p5_1ab212e48e9c12575daf76f0d0072a5ab8">Covariance()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the covariance function of the function values and their gradients of two points, cov(<code>point_one</code>, <code>point_two</code>). Points must be arrays with length dim.
+The covariance function is guaranteed to be symmetric by definition: <code>Covariance(x, y) = Covariance(y, x)</code>. This function is also positive definite by definition.</p>
+<p>:point_one[dim]</p>
+<p>first spatial coordinate :derivatives_one[dim]: which derivatives of point_one are available :num_derivatives_one: int, the number of derivatives of point one :point_two[dim]: second spatial coordinate :derivatives_two[dim]: which derivatives of point_two are available :num_derivatives_two: int, the number of derivatives of point two</p>
+<p>cov[1+num_derivatives_one][1+num_derivatives_two]: value of covariance between the function values and their gradients of the input points \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::MaternNu2p5::Covariance(double const *restrict point_one, int const *restrict derivatives_one, int length_one, double const *restrict point_two, int const *restrict derivatives_two, int length_two, double *restrict cov) const noexcept override OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1a8b892268d876a693fd634988f567992c" data-uid="classoptimal__learning_1_1MaternNu2p5_1a8b892268d876a693fd634988f567992c">GradCovariance()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of this.Covariance(point_one, point_two) with respect to the FIRST argument, point_one.
+This distinction is important for maintaining the desired symmetry. <code>Cov(x, y) = Cov(y, x)</code>. Additionally, <code>\pderiv{Cov(x, y)}{x} = \pderiv{Cov(y, x)}{x}</code>. However, in general, <code>\pderiv{Cov(x, y)}{x} != \pderiv{Cov(y, x)}{y}</code> (NOT equal! These may differ by a negative sign)
+Hence to avoid separate implementations for differentiating against first vs second argument, this function only handles differentiation against the first argument. If you need <code>\pderiv{Cov(y, x)}{x}</code>, just swap points x and y.</p>
+<p>:point_one[dim]</p>
+<p>first spatial coordinate :derivatives_one[dim]: which derivatives of point_one are available :num_derivatives_one: int, the number of derivatives of point one :point_two[dim]: second spatial coordinate :derivatives_two[dim]: which derivatives of point_two are available :num_derivatives_two: int, the number of derivatives of point two \output grad_cov[dim][1+num_derivatives_one][1+num_derivatives_two]: (i, j, k)-th entry is <code>\pderiv{cov(x_1, x_2)(j, k))}{x1_i}</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::MaternNu2p5::GradCovariance(double const *restrict point_one, int const *restrict derivatives_one, int length_one, double const *restrict point_two, int const *restrict derivatives_two, int length_two, double *restrict grad_cov) const noexcept override OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1ac2fdc9fc6f5b74e8d43552709bd3eb98" data-uid="classoptimal__learning_1_1MaternNu2p5_1ac2fdc9fc6f5b74e8d43552709bd3eb98">GetNumberOfHyperparameters()</h4>
+  <div class="markdown level1 summary"><p>\rst Returns the number of hyperparameters. This base class only allows for a maximum of dim + 1 hyperparameters but subclasses may implement additional ones.
+The number of hyperparameters. Return 0 to disable hyperparameter-related gradients, optimizations. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual int optimal_learning::MaternNu2p5::GetNumberOfHyperparameters() const noexcept override OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1a751096ccdd2c2514b73d8829e79cdd40" data-uid="classoptimal__learning_1_1MaternNu2p5_1a751096ccdd2c2514b73d8829e79cdd40">HyperparameterGradCovariance()</h4>
+  <div class="markdown level1 summary"><p>\rst Similar to <a class="xref" href="matern-nu2p5.html#classoptimal__learning_1_1MaternNu2p5_1a8b892268d876a693fd634988f567992c">GradCovariance()</a>, except gradients are computed w.r.t. the hyperparameters.
+Unlike <a class="xref" href="matern-nu2p5.html#classoptimal__learning_1_1MaternNu2p5_1a8b892268d876a693fd634988f567992c">GradCovariance()</a>, the order of point_one and point_two is irrelevant here (since we are not differentiating against either of them). Thus the matrix of grad covariances (wrt hyperparameters) is symmetric.</p>
+<p>:point_one[dim]</p>
+<p>first spatial coordinate :derivatives_one[dim]: which derivatives of point_one are available :num_derivatives_one: int, the number of derivatives of point one :point_two[dim]: second spatial coordinate :derivatives_two[dim]: which derivatives of point_two are available :num_derivatives_two: int, the number of derivatives of point two \output :grad_hyperparameter_cov[this.GetNumberOfHyperparameters()][1+num_derivatives_one][1+num_derivatives_two]: (i, j, k)-th entry is <code>\pderiv{cov(x_1, x_2)(j, k)}{\theta_i}</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::MaternNu2p5::HyperparameterGradCovariance(double const *restrict point_one, int const *restrict derivatives_one, int length_one, double const *restrict point_two, int const *restrict derivatives_two, int length_two, double *restrict grad_hyperparameter_cov) const noexcept override OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1aee64f5cec0d6ac160eda4ffd77e2373d" data-uid="classoptimal__learning_1_1MaternNu2p5_1aee64f5cec0d6ac160eda4ffd77e2373d">SetHyperparameters()</h4>
+  <div class="markdown level1 summary"><p>\rst Sets the hyperparameters. Hyperparameter ordering is defined implicitly by GetHyperparameters: <code>[alpha=\sigma_f^2, length_0, ..., length_{n-1}]</code></p>
+<p>:hyperparameters[this.GetNumberOfHyperparameters()]</p>
+<p>hyperparameters to set \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::MaternNu2p5::SetHyperparameters(double const *restrict hyperparameters) noexcept override OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1a8e33d505db2e63e22d652a7fddfeaace" data-uid="classoptimal__learning_1_1MaternNu2p5_1a8e33d505db2e63e22d652a7fddfeaace">GetHyperparameters()</h4>
+  <div class="markdown level1 summary"><p>\rst Gets the hyperparameters. Ordering is <code>[alpha=\sigma_f^2, length_0, ..., length_{n-1}]</code>
+\output :hyperparameters[this.GetNumberOfHyperparameters()]: values of current hyperparameters \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::MaternNu2p5::GetHyperparameters(double *restrict hyperparameters) const noexcept override OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1a8abbe64c8ad1b41c56bb4b9d3328e935" data-uid="classoptimal__learning_1_1MaternNu2p5_1a8abbe64c8ad1b41c56bb4b9d3328e935">Clone()</h4>
+  <div class="markdown level1 summary"><p>\rst For implementing the virtual (copy) constructor idiom.
+:Pointer to a constructed object that is a subclass of <a class="xref" href="covariance-interface.html">CovarianceInterface</a> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">CovarianceInterface * optimal_learning::MaternNu2p5::Clone() const override</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1aa45dc7691228df598eeb3fca02d44c0c" data-uid="classoptimal__learning_1_1MaternNu2p5_1aa45dc7691228df598eeb3fca02d44c0c">Initialize()</h4>
+  <div class="markdown level1 summary"><p>\rst Validate and initialize class data members. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::MaternNu2p5::Initialize()</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1MaternNu2p5_1a7f2eea5bd7bfdf4e62d0a41828f1bbb8" data-uid="classoptimal__learning_1_1MaternNu2p5_1a7f2eea5bd7bfdf4e62d0a41828f1bbb8">OL_DISALLOW_DEFAULT_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::MaternNu2p5::OL_DISALLOW_DEFAULT_AND_ASSIGN(MaternNu2p5)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

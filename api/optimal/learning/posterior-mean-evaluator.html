@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::PosteriorMeanEvaluator
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::PosteriorMeanEvaluator
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator">
+
+
+
+  <h1 id="classoptimal__learning_1_1PosteriorMeanEvaluator" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator" class="text-break">Class optimal_learning::PosteriorMeanEvaluator
+</h1>
+  <div class="markdown level0 summary"><p>\rst This is a specialization of the <a class="xref" href="expected-improvement-evaluator.html">ExpectedImprovementEvaluator</a> class for when the number of potential samples is 1; i.e., <code>num_to_sample == 1</code> and the number of concurrent samples is 0; i.e. <code>num_being_sampled == 0</code>. In other words, this class only supports the computation of 1,0-EI. In this case, we have analytic formulas for computing EI and its gradient. Thus this class does not perform any explicit numerical integration, nor do its EI functions require access to a random number generator. This class's methods have some parameters that are unused or redundant. This is so that the interface matches that of the more general <a class="xref" href="expected-improvement-evaluator.html">ExpectedImprovementEvaluator</a>. For other details, see <a class="xref" href="expected-improvement-evaluator.html">ExpectedImprovementEvaluator</a> for more complete description of what EI is and the outputs of EI and grad EI computations. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::PosteriorMeanEvaluator</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1PosteriorMeanEvaluator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1PosteriorMeanEvaluator_1a0a6dcc31bd47edb616e39517f0b2a7f0" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator_1a0a6dcc31bd47edb616e39517f0b2a7f0">PosteriorMeanEvaluator()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="one-potential-sample-expected-improvement-evaluator.html">OnePotentialSampleExpectedImprovementEvaluator</a> object. All inputs are required; no default constructor nor copy/assignment are allowed.</p>
+<p>:gaussian_process</p>
+<p><a class="xref" href="gaussian-process.html">GaussianProcess</a> object (holds <code>points_sampled</code>, <code>values</code>, <code>noise_variance</code>, derived quantities) that describes the underlying GP :best_so_far: best (minimum) objective function value (in <code>points_sampled_value</code>) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::PosteriorMeanEvaluator::PosteriorMeanEvaluator(const GaussianProcess&amp;gaussian_process_in)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1PosteriorMeanEvaluator_1a107a7d38f5a689ac34114da14ad785e2" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator_1a107a7d38f5a689ac34114da14ad785e2">dim()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::PosteriorMeanEvaluator::dim() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PosteriorMeanEvaluator_1a22f7a49a23e0774344a3c17cd4f762ab" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator_1a22f7a49a23e0774344a3c17cd4f762ab">gaussian_process()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const GaussianProcess* optimal_learning::PosteriorMeanEvaluator::gaussian_process() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PosteriorMeanEvaluator_1a1cf97424f9b35084e841a598e8676b6f" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator_1a1cf97424f9b35084e841a598e8676b6f">ComputeObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for ComputeExpectedImprovement(); see that function for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::PosteriorMeanEvaluator::ComputeObjectiveFunction(StateType *ps_state) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PosteriorMeanEvaluator_1a2c9a0ffaaa99bff3c8865bad22af441e" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator_1a2c9a0ffaaa99bff3c8865bad22af441e">ComputeGradObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for ComputeGradExpectedImprovement(); see that function for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::PosteriorMeanEvaluator::ComputeGradObjectiveFunction(StateType *ps_state, double *restrict grad_PS) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PosteriorMeanEvaluator_1ab997a041529f0f7983966095ed1adaa9" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator_1ab997a041529f0f7983966095ed1adaa9">ComputePosteriorMean()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the expected improvement <code>EI(Xs) = E_n[[f^*_n(X) - min(f(Xs_1),...,f(Xs_m))]^+]</code> Uses analytic formulas to evaluate the expected improvement.</p>
+<p>:ei_state[1]</p>
+<p>properly configured state object \output :ei_state[1]: state with temporary storage modified</p>
+<p>the expected improvement from sampling <code>point_to_sample</code> \endrst</p>
+<p>\rst Uses analytic formulas to compute EI when <code>num_to_sample = 1</code> and <code>num_being_sampled = 0</code> (occurs only in 1,0-EI). In this case, the single-parameter (posterior) GP is just a Gaussian. So the integral in EI (previously eval'd with MC) can be computed 'exactly' using high-accuracy routines for the pdf &amp; cdf of a Gaussian random variable. See Ginsbourger, Le Riche, and Carraro. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::PosteriorMeanEvaluator::ComputePosteriorMean(StateType *ps_state) const</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PosteriorMeanEvaluator_1a52131c5fbf02e30455440fb29911da86" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator_1a52131c5fbf02e30455440fb29911da86">ComputeGradPosteriorMean()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the (partial) derivatives of the expected improvement with respect to the point to sample. Uses analytic formulas to evaluate the spatial gradient of the expected improvement.</p>
+<p>:ei_state[1]</p>
+<p>properly configured state object \output :ei_state[1]: state with temporary storage modified :grad_EI[dim]: gradient of EI, <code>\pderiv{EI(x)}{x_d}</code>, where <code>x</code> is <code>points_to_sample</code> \endrst</p>
+<p>\rst Differentiates <a class="xref" href="one-potential-sample-expected-improvement-evaluator.html#classoptimal__learning_1_1OnePotentialSampleExpectedImprovementEvaluator_1a6a36884f6371ac0506d526b1a0799f77">OnePotentialSampleExpectedImprovementEvaluator::ComputeExpectedImprovement</a> wrt <code>points_to_sample</code> (which is just ONE point; i.e., 1,0-EI). Again, this uses analytic formulas in terms of the pdf &amp; cdf of a Gaussian since the integral in EI (and grad EI) can be evaluated exactly for this low dimensional case. See Ginsbourger, Le Riche, and Carraro. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::PosteriorMeanEvaluator::ComputeGradPosteriorMean(StateType *ps_state, double *restrict grad_PS) const</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PosteriorMeanEvaluator_1a8a8397ec824dcc75d900e7b2d1280c95" data-uid="classoptimal__learning_1_1PosteriorMeanEvaluator_1a8a8397ec824dcc75d900e7b2d1280c95">OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::PosteriorMeanEvaluator::OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN(PosteriorMeanEvaluator)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct optimal_learning::ThreadSchedule
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct optimal_learning::ThreadSchedule
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="structoptimal__learning_1_1ThreadSchedule">
+
+
+
+  <h1 id="structoptimal__learning_1_1ThreadSchedule" data-uid="structoptimal__learning_1_1ThreadSchedule" class="text-break">Struct optimal_learning::ThreadSchedule
+</h1>
+  <div class="markdown level0 summary"><p>\rst Overview**
+When we ask openmp to parallelize a for loop, we can give it additional information on how to distribute the work. In particular, the overall work (N iterations) needs to be divided up amongst the threads. We have two major ways to affect how openmp structures the loop: <code>schedule</code> and <code>chunk_size</code>.
+<code>chunk_size</code> changes meaning depending on <code>schedule</code>. Here we list out the options for <code>schedule</code> as <code>name (ENV_NAME, enum_name)</code> where <code>ENV_NAME</code> is the corresponding value of <code>OMP_SCHEDULE</code> (not used by <a href="xref:namespaceoptimal__learning"><code>optimal_learning</code></a>) and <code>enum_name</code> is the corresponding type from <code>opm_sched_t</code> in <code>omp.h</code>. Below, &quot;work&quot; refers to loop iterations (<code>N</code> total).
+Schedule Types**
+a. static (&quot;static&quot;, omp_sched_static):
+Work is divided into <code>N/chunk_size</code> contiguous chunks (of <code>chunk_size</code> iterations) and distributed amongst the threads statically in a round-robin fashion. Use when you are confident all chunks will take the same amount of time.
+Low control overhead but high waste if one iteration is very slow (since the other threads will sit idle).
+Default <code>chunk_size</code>: <code>N / number_of_threads</code>.
+This schedule type is repeatable: repeated runs/calls (with the same work) will produce the same mapping of loop iterations to threads every time.
+b. dynamic (&quot;dynamic&quot;, omp_sched_dynamic):
+Work is divided into <code>N/chunk_size</code> contiguous chunks (of <code>chunk_size</code> iterations) and distributed to threads as they complete their work, first-come first-serve. If there is a chunk that is very slow, the other threads can finish all remaining work instead of sitting idle.
+High control overhead, use when you have no idea how long each chunk will take.
+Default <code>chunk_size</code>: 1.
+This schedule type does not produce repeatable mappings of iterations to threads.
+c. guided (&quot;guided&quot;, omp_sched_guided):
+Work is divided into progressively smaller chunks; <code>chunk_size</code> sets the minimum value. As with dynamic, chunks are assigned on a first-come, first-serve basis. Less overhead than dynamic (b/c <code>chunk_size</code> scale down).
+Useful when iteration times are similar but not identical. Less overhead than dynamic while guaranteeing the waste case of static doesn't arise.
+Default <code>chunk_size</code>: approximately <code>N / number_of_threads</code>.
+This schedule type does not produce repeatable mappings of iterations to threads.
+d. auto (&quot;auto&quot;, omp_sched_auto):
+The compiler decides how to map iterations to threads; this mapping is not required to be one of the previous choices.
+chunk_size has no meaning when the schedule is auto. See: <a href="https://gcc.gnu.org/onlinedocs/libgomp/omp_005fset_005fschedule.html">https://gcc.gnu.org/onlinedocs/libgomp/omp_005fset_005fschedule.html</a>
+This schedule type is not guaranteed to be repeatable.
+Further documentation: <a href="http://openmp.org/mp-documents/OpenMP3.1-CCard.pdf">http://openmp.org/mp-documents/OpenMP3.1-CCard.pdf</a> <a href="https://software.intel.com/en-us/articles/openmp-loop-scheduling">https://software.intel.com/en-us/articles/openmp-loop-scheduling</a> <a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/index.jsp?topic=%2Fcom.ibm.xlcpp8a.doc%2Fcompiler%2Fref%2Fruompfor.htm">http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/index.jsp?topic=%2Fcom.ibm.xlcpp8a.doc%2Fcompiler%2Fref%2Fruompfor.htm</a> \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="structoptimal__learning_1_1ThreadSchedule_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1ThreadSchedule_1a0aeea0ad795d932aba926f12c2989bfa" data-uid="structoptimal__learning_1_1ThreadSchedule_1a0aeea0ad795d932aba926f12c2989bfa">ThreadSchedule()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct a <a class="xref" href="thread-schedule.html">ThreadSchedule</a> using the specified number of threads, schedule type, and chunk_size.</p>
+<p>:max_num_threads</p>
+<p>maximum number of threads for use by OpenMP (generally should be &lt;= # cores) :schedule: static, dynamic, guided, or auto. See class comments for more details. :chunk_size: how to distribute work to threads; the precise meaning depends on schedule. Zero or negative chunk_size ask OpenMP to use its default behavior. See class comments for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ThreadSchedule::ThreadSchedule(int max_num_threads_in, omp_sched_t schedule_in, int chunk_size_in)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1ThreadSchedule_1a6450cef33167dc7b7f77258fb8e445fb" data-uid="structoptimal__learning_1_1ThreadSchedule_1a6450cef33167dc7b7f77258fb8e445fb">ThreadSchedule()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct a <a class="xref" href="thread-schedule.html">ThreadSchedule</a> using the specified number of threads and schedule type with default chunk_size.</p>
+<p>:max_num_threads</p>
+<p>maximum number of threads for use by OpenMP (generally should be &lt;= # cores) :schedule: static, dynamic, guided, or auto. See class comments for more details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ThreadSchedule::ThreadSchedule(int max_num_threads_in, omp_sched_t schedule_in)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1ThreadSchedule_1a90912f84eec44446fe820ebc0fa22f59" data-uid="structoptimal__learning_1_1ThreadSchedule_1a90912f84eec44446fe820ebc0fa22f59">ThreadSchedule()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct a <a class="xref" href="thread-schedule.html">ThreadSchedule</a> using the specified number of threads with default schedule type and chunk_size.</p>
+<p>:max_num_threads</p>
+<p>maximum number of threads for use by OpenMP (generally should be &lt;= # cores) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ThreadSchedule::ThreadSchedule(int max_num_threads_in)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1ThreadSchedule_1a32553952f2150771798519eff45e4f14" data-uid="structoptimal__learning_1_1ThreadSchedule_1a32553952f2150771798519eff45e4f14">ThreadSchedule()</h4>
+  <div class="markdown level1 summary"><p>\rst Construct a <a class="xref" href="thread-schedule.html">ThreadSchedule</a> using the default number of threads, schedule type, and chunk_size. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ThreadSchedule::ThreadSchedule()</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Ising model | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Ising model | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.spec.model.ising">
+<h1 id="ising-spin-glass">Ising Spin Glass</h1>
+
+<p>The Ising spin glass Hamiltonian has the form:</p>
+<pre><code class="lang-math">\mathcal{H} = \sum_{ij} c_{ij} s_i s_j\,,
+</code></pre>
+<p>where the sum is over interacting pairs <span class="math">\(`ij`\)</span> and the spins take the values
+<span class="math">\(`s_i\in\{\pm1\}`\)</span>. The <span class="math">\(`c_{ij}`\)</span>'s are interaction constants which are
+specified as part of the problem description.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>This definition differs from the canonical version used in statistical
+mechanics by a global minus sign! As a result, positive interaction
+constants <span class="math">\(`c_{ij}\gt0`\)</span> give rise to <strong>anti-ferromagnetic</strong> interaction.</p>
+</div>
+<h2 id="graph-interpretation">Graph Interpretation</h2>
+<p>We consider each of the spins <span class="math">\(`s_i`\)</span> to reside on the node <span class="math">\(`i`\)</span> of a
+<a href="../../theory/graph-cost.html">weighted graph</a> and the interactions
+<span class="math">\(`c_{ij}`\)</span> to represent edge weights between the respective nodes <span class="math">\(`i`\)</span> and
+<span class="math">\(`j`\)</span>. For instance, the Hamiltonian</p>
+<pre><code class="lang-math">\mathcal{H}(\vec s) = - (s_0s_1 + s_1s_2 + s_2s_3 - 2s_3s_0)
+</code></pre>
+<p>would correspond to the graph</p>
+<p>\begin{tikzpicture}
+\draw[line width=1pt] (0,3) -- (3,3) -- (3,0) -- (0,0);
+\draw[line width=3pt,color=red] (0,0) -- (0,3);
+\draw[fill=white] (0,3) circle(0.5);
+\draw[fill=white] (3,3) circle(0.5);
+\draw[fill=white] (3,0) circle(0.5);
+\draw[fill=white] (0,0) circle(0.5);
+\node at (0,3) {<span class="math">\(0\)</span>};
+\node at (3,3) {<span class="math">\(1\)</span>};
+\node at (3,0) {<span class="math">\(2\)</span>};
+\node at (0,0) {<span class="math">\(3\)</span>};
+\node[color=red] at (0.5,1.5) {<span class="math">\(-2\)</span>};
+\node at (1.5,2.5) {<span class="math">\(+1\)</span>};
+\node at (2.5,1.5) {<span class="math">\(+1\)</span>};
+\node at (1.5,0.5) {<span class="math">\(+1\)</span>};
+\end{tikzpicture}</p>
+<h2 id="hypergraph-generalization">Hypergraph Generalization</h2>
+<p>The above interpretation holds for Hamiltonians with terms consisting of
+exactly two spins. For optimization problems, we are interested in a more
+general Hamiltonian of the form</p>
+<pre><code class="lang-math">\mathcal{H} = -\sum_e c_e \prod_{i\in e} s_i
+</code></pre>
+<p>where the sum is over all edges <span class="math">\(`e`\)</span> in the list of <code>terms</code> and the product
+is over the <code>ids</code> <span class="math">\(`i`\)</span> participating in this term. In this case, any number
+of spins can interact in a given term -- akin to a &quot;hyper edge&quot; in the graph.</p>
+<h2 id="example-input-data">Example Input Data</h2>
+<p>A configuration for the general Ising spin glass Hamiltonian must</p>
+<ul>
+<li>carry the <code>label &quot;ising&quot;</code> and corresponding <code>version &quot;1.0&quot;</code></li>
+<li>specify a non-empty array of <code>terms</code> in the Hamiltonian (or, equally, the
+hyper edges of the graph):
+<ul>
+<li>each edge must have a cost <code>c</code> (denoted <span class="math">\(`c_e`\)</span> in the Hamiltonian).</li>
+<li>each edge must have an array <code>ids</code> of the nodes participating in the
+interaction.</li>
+<li>the <code>ids</code> in each term must be unique (no repetition within a given term)</li>
+<li>the <code>ids</code> mentioned in all terms must form a consecutive set <code>[0..N-1]</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-json">{
+  &quot;type&quot;: &quot;ising&quot;,
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;terms&quot;: [
+    {&quot;c&quot;: 1.0, &quot;ids&quot;: [0, 1]},
+    {&quot;c&quot;: 1.0, &quot;ids&quot;: [1, 2]},
+    {&quot;c&quot;: 1.0, &quot;ids&quot;: [2, 3]},
+    {&quot;c&quot;: -2.0, &quot;ids&quot;: [3, 0]}
+  ]
+}
+</code></pre>
+<p><em>NOTES</em>:</p>
+<ul>
+<li>The list of <code>ids</code> can be empty, which is interpreted as a constant term in
+the Hamiltonian.</li>
+<li>If there is only a single number in <code>ids</code>, this corresponds to a local
+field.</li>
+<li>Repetitions are not allowed since any odd number is equivalent to a single
+occurence (and any even number can be dropped).</li>
+<li>The number of spins <span class="math">\(`N`\)</span> is inferred from the highest number found in
+<code>ids</code> of any term (which is presumed to represent <span class="math">\(`N-1`\)</span>).</li>
+</ul>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

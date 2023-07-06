@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::ExpectedImprovementEvaluator
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::ExpectedImprovementEvaluator
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator">
+
+
+
+  <h1 id="classoptimal__learning_1_1ExpectedImprovementEvaluator" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator" class="text-break">Class optimal_learning::ExpectedImprovementEvaluator
+</h1>
+  <div class="markdown level0 summary"><p>\rst A class to encapsulate the computation of expected improvement and its spatial gradient. This class handles the general EI computation case using monte carlo integration; it can support q,p-EI optimization. It is designed to work with any <a class="xref" href="gaussian-process.html">GaussianProcess</a>. Additionally, this class has no state and within the context of EI optimization, it is meant to be accessed by const reference only.
+The random numbers needed for EI computation will be passed as parameters instead of contained as members to make multithreading more straightforward. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::ExpectedImprovementEvaluator</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1afd269f7e4683ebf55214812a30297a32" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1afd269f7e4683ebf55214812a30297a32">ExpectedImprovementEvaluator()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="expected-improvement-evaluator.html">ExpectedImprovementEvaluator</a> object. All inputs are required; no default constructor nor copy/assignment are allowed.</p>
+<p>:gaussian_process</p>
+<p><a class="xref" href="gaussian-process.html">GaussianProcess</a> object (holds <code>points_sampled</code>, <code>values</code>, <code>noise_variance</code>, derived quantities) that describes the underlying GP :num_mc_iterations: number of monte carlo iterations :best_so_far: best (minimum) objective function value (in <code>points_sampled_value</code>) \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ExpectedImprovementEvaluator::ExpectedImprovementEvaluator(const GaussianProcess&amp;gaussian_process_in, int num_mc_iterations, double best_so_far)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a679c23722810d35734dc9c3b0eec6a47" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a679c23722810d35734dc9c3b0eec6a47">ExpectedImprovementEvaluator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ExpectedImprovementEvaluator::ExpectedImprovementEvaluator(ExpectedImprovementEvaluator&amp;&amp;other)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1af3e1fe673239fdbf08658647e6fc8b96" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1af3e1fe673239fdbf08658647e6fc8b96">dim()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::ExpectedImprovementEvaluator::dim() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1af2bbbf11a3167582fb08930b46f3cd37" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1af2bbbf11a3167582fb08930b46f3cd37">num_mc_iterations()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">int optimal_learning::ExpectedImprovementEvaluator::num_mc_iterations() noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a755182007b9f3be9beae697579eae9a4" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a755182007b9f3be9beae697579eae9a4">best_so_far()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::ExpectedImprovementEvaluator::best_so_far() noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a5d841afce79c2bf63cf55640e2338c8d" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a5d841afce79c2bf63cf55640e2338c8d">gaussian_process()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const GaussianProcess* optimal_learning::ExpectedImprovementEvaluator::gaussian_process() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a9d90bf2033121dc5deda0294a042a089" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a9d90bf2033121dc5deda0294a042a089">ComputeObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for <a class="xref" href="expected-improvement-evaluator.html#classoptimal__learning_1_1ExpectedImprovementEvaluator_1a1036d12576b0779c475ac3a993cdfa83">ComputeExpectedImprovement()</a>; see that function for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::ExpectedImprovementEvaluator::ComputeObjectiveFunction(StateType *ei_state) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1aac254f730e701661b274f991fa6529cc" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1aac254f730e701661b274f991fa6529cc">ComputeGradObjectiveFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Wrapper for <a class="xref" href="expected-improvement-evaluator.html#classoptimal__learning_1_1ExpectedImprovementEvaluator_1a67437cb2da0b5d7262c9fd4eaa61edca">ComputeGradExpectedImprovement()</a>; see that function for details. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::ExpectedImprovementEvaluator::ComputeGradObjectiveFunction(StateType *ei_state, double *restrict grad_EI) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a1036d12576b0779c475ac3a993cdfa83" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a1036d12576b0779c475ac3a993cdfa83">ComputeExpectedImprovement()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the expected improvement <code>EI(Xs) = E_n[[f^*_n(X) - min(f(Xs_1),...,f(Xs_m))]^+]</code>, where <code>Xs</code> are potential points to sample (union of <code>points_to_sample</code> and <code>points_being_sampled</code>) and <code>X</code> are already sampled points. The <code>^+</code> indicates that the expression in the expectation evaluates to 0 if it is negative. <code>f^*(X)</code> is the MINIMUM over all known function evaluations (<code>points_sampled_value</code>), whereas <code>f(Xs)</code> are GP-predicted function evaluations.
+<code>points_to_sample</code> is the &quot;q&quot; and <code>points_being_sampled</code> is the &quot;p&quot; in q,p-EI.
+In words, we are computing the expected improvement (over the current <code>best_so_far</code>, best known objective function value) that would result from sampling (aka running new experiments) at <code>points_to_sample</code> with <code>points_being_sampled</code> concurrent/ongoing experiments.
+In general, the EI expression is complex and difficult to evaluate; hence we use Monte-Carlo simulation to approximate it. When faster (e.g., analytic) techniques are available, we will prefer them.
+The idea of the MC approach is to repeatedly sample at the union of <code>points_to_sample</code> and <code>points_being_sampled</code>. This is analogous to gaussian_process_interface.sample_point_from_gp, but we sample <code>num_union</code> points at once:
+<code>y = \mu + Lw</code>
+where <code>\mu</code> is the GP-mean, <code>L</code> is the <code>chol_factor(GP-variance)</code> and <code>w</code> is a vector of <code>num_union</code> draws from N(0, 1). Then:
+<code>improvement_per_step = max(max(best_so_far - y), 0.0)</code>
+Observe that the inner <code>max</code> means only the smallest component of <code>y</code> contributes in each iteration. We compute the improvement over many random draws and average.
+.. Note:: These comments were copied into ExpectedImprovementInterface.compute_expected_improvement() in interfaces/expected_improvement_interface.py.</p>
+<p>:ei_state[1]</p>
+<p>properly configured state object \output :ei_state[1]: state with temporary storage modified; <code>normal_rng</code> modified</p>
+<p>the expected improvement from sampling <code>points_to_sample</code> with <code>points_being_sampled</code> concurrent experiments \endrst</p>
+<p>\rst Let <code>Ls * Ls^T = Vars</code> and <code>w</code> = vector of IID normal(0,1) variables Then:
+<code>y = mus + Ls * w</code> (Equation 4, from file docs)
+simulates drawing from our GP with mean mus and variance Vars.
+Then as given in the file docs, we compute the improvement: Then the improvement for this single sample is::
+I = { best_known - min(y) if (best_known - min(y) &gt; 0) (Equation 5 from file docs) { 0 else
+This is implemented as <code>max_{y} (best_known - y)</code>. Notice that improvement takes the value 0 if it would be negative.
+Since we cannot compute <code>min(y)</code> directly, we do so via monte-carlo (MC) integration. That is, we draw from the GP repeatedly, computing improvement during each iteration, and averaging the result.
+See Scott's PhD thesis, sec 6.2.
+.. Note:: comments here are copied to _compute_expected_improvement_monte_carlo() in python_version/expected_improvement.py \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double optimal_learning::ExpectedImprovementEvaluator::ComputeExpectedImprovement(StateType *ei_state) const OL_NONNULL_POINTERS OL_WARN_UNUSED_RESULT</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a67437cb2da0b5d7262c9fd4eaa61edca" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1a67437cb2da0b5d7262c9fd4eaa61edca">ComputeGradExpectedImprovement()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the (partial) derivatives of the expected improvement with respect to each point of <code>points_to_sample</code>. As with <a class="xref" href="expected-improvement-evaluator.html#classoptimal__learning_1_1ExpectedImprovementEvaluator_1a1036d12576b0779c475ac3a993cdfa83">ComputeExpectedImprovement()</a>, this computation accounts for the effect of <code>points_being_sampled</code> concurrent experiments.
+<code>points_to_sample</code> is the &quot;q&quot; and <code>points_being_sampled</code> is the &quot;p&quot; in q,p-EI..
+In general, the expressions for gradients of EI are complex and difficult to evaluate; hence we use Monte-Carlo simulation to approximate it. When faster (e.g., analytic) techniques are available, we will prefer them.
+The MC computation of grad EI is similar to the computation of EI (decsribed in compute_expected_improvement). We differentiate <code>y = \mu + Lw</code> wrt <code>points_to_sample</code>; only terms from the gradient of <code>\mu</code> and <code>L</code> contribute. In EI, we computed:
+<code>improvement_per_step = max(max(best_so_far - y), 0.0)</code>
+and noted that only the smallest component of <code>y</code> may contribute (if it is &gt; 0.0). Call this index <code>winner</code>. Thus in computing grad EI, we only add gradient terms that are attributable to the <code>winner</code>-th component of <code>y</code>.
+.. Note:: These comments were copied into ExpectedImprovementInterface.compute_expected_improvement() in interfaces/expected_improvement_interface.py.</p>
+<p>:ei_state[1]</p>
+<p>properly configured state object \output :ei_state[1]: state with temporary storage modified; <code>normal_rng</code> modified :grad_EI[dim][num_to_sample]: gradient of EI, <code>\pderiv{EI(Xq \cup Xp)}{Xq_{d,i}}</code> where <code>Xq</code> is <code>points_to_sample</code> and <code>Xp</code> is <code>points_being_sampled</code> (grad EI from sampling <code>points_to_sample</code> with <code>points_being_sampled</code> concurrent experiments wrt each dimension of the points in <code>points_to_sample</code>) \endrst</p>
+<p>\rst Computes gradient of EI (see <a class="xref" href="expected-improvement-evaluator.html#classoptimal__learning_1_1ExpectedImprovementEvaluator_1a67437cb2da0b5d7262c9fd4eaa61edca">ExpectedImprovementEvaluator::ComputeGradExpectedImprovement</a>) wrt points_to_sample (stored in <code>union_of_points[0:num_to_sample]</code>).
+Mechanism is similar to the computation of EI, where points' contributions to the gradient are thrown out of their corresponding <code>improvement &lt;= 0.0</code>.
+Thus <code>\nabla(\mu)</code> only contributes when the <code>winner</code> (point w/best improvement this iteration) is the current point. That is, the gradient of <code>\mu</code> at <code>x_i</code> wrt <code>x_j</code> is 0 unless <code>i == j</code> (and only this result is stored in <code>ei_state-&gt;grad_mu</code>). The interaction with <code>ei_state-&gt;grad_chol_decomp</code> is harder to know a priori (like with <code>grad_mu</code>) and has a more complex structure (rank 3 tensor), so the derivative wrt <code>x_j</code> is computed fully, and the relevant submatrix (indexed by the current <code>winner</code>) is accessed each iteration.
+.. Note:: comments here are copied to _compute_grad_expected_improvement_monte_carlo() in python_version/expected_improvement.py \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::ExpectedImprovementEvaluator::ComputeGradExpectedImprovement(StateType *ei_state, double *restrict grad_EI) const OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1ExpectedImprovementEvaluator_1adcb50267f78ed0d340cc1554cc86d300" data-uid="classoptimal__learning_1_1ExpectedImprovementEvaluator_1adcb50267f78ed0d340cc1554cc86d300">OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::ExpectedImprovementEvaluator::OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN(ExpectedImprovementEvaluator)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::PingableMatrixInputVectorOutputInterface
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::PingableMatrixInputVectorOutputInterface
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface">
+
+
+
+  <h1 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface" class="text-break">Class optimal_learning::PingableMatrixInputVectorOutputInterface
+</h1>
+  <div class="markdown level0 summary"><p>\rst Class to enable numerical and analytic differentiation of functions of the form:
+<code>f_{k} = f(X_{d,i})</code>
+with derivatives taken wrt each member of <code>X_{d,i}</code>,
+<code>gradf_{k,d,i} = \frac{\partial f_k}{\partial X_{d,i}}</code>
+In the nomenclature used in the class:
+<code>d</code> indexes over num_rows (set in <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1aae2e0fa3e2ab70de89abac30458f8b52">GetInputSizes()</a>) <code>i</code> indexes over num_cols (set in <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1aae2e0fa3e2ab70de89abac30458f8b52">GetInputSizes()</a>) <code>k</code> indexes over <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a618a890a7f5e9059b88499963277bc96">GetOutputSize()</a>
+Typically <code>d</code> is the spatial_dimension of the problem. So if <code>i</code> ranges over <code>1 .. num_points</code>, then <code>X_{d,i}</code> is a matrix of num_points points each with dimension spatial_dim. And <code>k</code> refers to num_outputs.
+<code>X_{d,i}</code> can of course be any arbitrary matrix; <code>d, i</code> need not refer to spatial dimension and num_points. But that is currently the most common use case.
+This class enables easy pinging of a multitude of <code>f, X</code> combinations. Since it abstracts away indexing, it does not limit how implementations store/compute <code>f()</code> and its gradient.
+Generally, usage goes as follows:
+Use <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1aae2e0fa3e2ab70de89abac30458f8b52">GetInputSizes()</a>, <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a618a890a7f5e9059b88499963277bc96">GetOutputSize()</a>, and possibly <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1afe065587368c70b5de0da86792f72f3c">GetGradientsSize()</a> to inspect the dimensions of the problem <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a238a21daa3611c30580534a90bf75534">EvaluateAndStoreAnalyticGradient()</a>: compute and internally store the gradient evaluated at a given input* GetAnalyticGradient: returns the value of the analytic gradient for a given output (<code>k</code>), wrt a given point <code>(d,i)</code> EvaluateFunction: returns all outputs of the function for a given input</p>
+<ul>
+<li>It is not necessary to fully evaluate the gradient here. Instead, the input point can be stored and evaluation can happen on-the-fly in <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a3d99731d1cb8b1d0d1d4bb85338dabba">GetAnalyticGradient()</a> if desired.</li>
+</ul>
+<p>So to ping a derivative, you can:
+<code>f_p = EvaluateFunction(X + h)</code>, <code>f_m = EvaluateFunction(X - h)</code>
+Compare:
+<code>(f_p - f_m)/(2h)</code>
+to
+<code>GetAnalyticGradient</code>
+See <a href="xref:namespaceoptimal__learning_1a027ab5d71d7f3c9c892f012e84dd396f"><code>PingDerivative()</code></a> docs for more details. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::PingableMatrixInputVectorOutputInterface</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a663c67662a7a6a971aaf0123efa865e2" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a663c67662a7a6a971aaf0123efa865e2">PingableMatrixInputVectorOutputInterface()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::PingableMatrixInputVectorOutputInterface::PingableMatrixInputVectorOutputInterface()=default</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1aae2e0fa3e2ab70de89abac30458f8b52" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1aae2e0fa3e2ab70de89abac30458f8b52">GetInputSizes()</h4>
+  <div class="markdown level1 summary"><p>\rst Number of rows and columns of the input, <code>X_{d,i}</code>, to <code>f()</code>.
+For example, the input might be a <code>N_d X N_i</code> matrix, <code>points_to_sample</code>, where <code>N_d</code> = spatial dimension (rows) and <code>N_i</code> = number of points (columns).
+\output :num_rows[1]: the number of rows of the input matrix <code>X</code> :num_cols[1]: the number of columns of the input matrix <code>X</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::PingableMatrixInputVectorOutputInterface::GetInputSizes(int *num_rows, int *num_cols) const noexcept OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a618a890a7f5e9059b88499963277bc96" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a618a890a7f5e9059b88499963277bc96">GetOutputSize()</h4>
+  <div class="markdown level1 summary"><p>\rst Number of outputs of the function <code>f_k = f(X_{d,i})</code>; i.e., <code>length(f_k)</code>
+The number of entries in <code>f_k</code> aka number of outputs of <code>f()</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual int optimal_learning::PingableMatrixInputVectorOutputInterface::GetOutputSize() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1afe065587368c70b5de0da86792f72f3c" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1afe065587368c70b5de0da86792f72f3c">GetGradientsSize()</h4>
+  <div class="markdown level1 summary"><p>\rst Number of entries in the gradient of the output wrt each entry of the input.
+This should generally not be used unless you require direct access to the analytic gradient.
+MUST be <code>num_rows*num_cols*GetOutputSize()</code> invalid memory read/writes may occur \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual int optimal_learning::PingableMatrixInputVectorOutputInterface::GetGradientsSize() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a238a21daa3611c30580534a90bf75534" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a238a21daa3611c30580534a90bf75534">EvaluateAndStoreAnalyticGradient()</h4>
+  <div class="markdown level1 summary"><p>\rst Setup so that GetAnalyticGradient(row, column, output) will be able to return <code>gradf[row][column][output]</code> evaluated at <code>X</code>, &quot;input_matrix.&quot;
+Typically this will entail computing and storing the analytic gradient. But the only thing that needs to be saved is the contents of input_matrix for later access.
+MUST BE CALLED before using GetAnalyticGradient!</p>
+<p>:input_matrix[num_rows][num_cols]</p>
+<p>the input, <code>X_{d,i}</code> \output :gradients[num_rows][num_cols][num_outputs]: filled with the gradient evaluated at input_matrix. Ignored if nullptr. IMPLEMENTATION NOT REQUIRED. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::PingableMatrixInputVectorOutputInterface::EvaluateAndStoreAnalyticGradient(double const *restrict input_matrix, double *restrict gradients) noexcept OL_NONNULL_POINTERS_LIST(2)=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a3d99731d1cb8b1d0d1d4bb85338dabba" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a3d99731d1cb8b1d0d1d4bb85338dabba">GetAnalyticGradient()</h4>
+  <div class="markdown level1 summary"><p>\rst The gradients are indexed by: <code>dA[input_row][input_column][output_index]</code>, where row, column index the input matrix and output_index indexes the output.
+Returns the gradient computed/stored by <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a238a21daa3611c30580534a90bf75534">EvaluateAndStoreAnalyticGradient()</a>.</p>
+<p>:row_index</p>
+<p>row_index (<code>d</code>) of the input to be differentiated with respect to :column_index: column_index (<code>i</code>) of the input to be differentiated with respect to :output_index: (flat) index into the output</p>
+<p>The <code>[row_index][column_index][output_index]'th</code> entry of the analytic gradient evaluated at input_matrix (where input matrix was specified in <a class="xref" href="pingable-matrix-input-vector-output-interface.html#classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a238a21daa3611c30580534a90bf75534">EvaluateAndStoreAnalyticGradient()</a>). \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual double optimal_learning::PingableMatrixInputVectorOutputInterface::GetAnalyticGradient(int row_index, int column_index, int output_index) const OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1af5990c6775d5cfca73692a544f146e3a" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1af5990c6775d5cfca73692a544f146e3a">EvaluateFunction()</h4>
+  <div class="markdown level1 summary"><p>\rst Evalutes <code>f_k = f(X_{d,i})</code>. <code>X_{d,i}</code> is the &quot;input_matrix&quot; and <code>f_k</code> is in &quot;function_values.&quot;</p>
+<p>:input_matrix[num_rows][num_cols]</p>
+<p>the matrix of inputs \output :function_values[num_outputs]: vector of outputs of <code>f()</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::PingableMatrixInputVectorOutputInterface::EvaluateFunction(double const *restrict input_matrix, double *restrict function_values) const noexcept OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a9e1d28ce8619c73a680989bc2756ed40" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1a9e1d28ce8619c73a680989bc2756ed40">OL_DISALLOW_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::PingableMatrixInputVectorOutputInterface::OL_DISALLOW_COPY_AND_ASSIGN(PingableMatrixInputVectorOutputInterface)</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1adeae44f38006ae39e4f4afbc9544b909" data-uid="classoptimal__learning_1_1PingableMatrixInputVectorOutputInterface_1adeae44f38006ae39e4f4afbc9544b909">~PingableMatrixInputVectorOutputInterface()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual optimal_learning::PingableMatrixInputVectorOutputInterface::~PingableMatrixInputVectorOutputInterface()=default</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct optimal_learning::PointsToSampleState
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct optimal_learning::PointsToSampleState
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="structoptimal__learning_1_1PointsToSampleState">
+
+
+
+  <h1 id="structoptimal__learning_1_1PointsToSampleState" data-uid="structoptimal__learning_1_1PointsToSampleState" class="text-break">Struct optimal_learning::PointsToSampleState
+</h1>
+  <div class="markdown level0 summary"><p>\rst This object holds the state needed for a <a class="xref" href="gaussian-process.html">GaussianProcess</a> object characterize the distribution of function values arising from sampling the GP at a list of <code>points_to_sample</code>. This object is required by the <a class="xref" href="gaussian-process.html">GaussianProcess</a> to access functionality for computing the mean, variance, and spatial gradients thereof.
+The &quot;independent variables&quot; for this object are <code>points_to_sample</code>. These points are both the &quot;p&quot; and the &quot;q&quot; in q,p-EI; i.e., they are the parameters of both ongoing experiments and new predictions. Recall that in q,p-EI, the q points are called <code>points_to_sample</code> and the p points are called <code>points_being_sampled.</code> Here, we need to make predictions about both point sets with the GP, so we simply call the union of point sets <code>points_to_sample.</code>
+In GP computations, there is really no distinction between the &quot;q&quot; and &quot;p&quot; points from EI, <code>points_to_sample</code> and <code>points_being_sampled</code>, respectively. However, in EI optimization, we only need gradients of GP quantities wrt <code>points_to_sample</code>, so users should build <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1aeb1d85b71e2c2a4d65239a06c1a62d5b">PointsToSampleState()</a> with <code>num_derivatives = num_to_sample</code>.
+Once constructed, this object provides the <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">SetupState()</a> function to update it for computations at different sets of potential points to sample.
+See general comments on State structs in <a href="xref:gpp__common_8hpp"><code>gpp_common.hpp</code></a>'s header docs. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="structoptimal__learning_1_1PointsToSampleState_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1PointsToSampleState_1aeb1d85b71e2c2a4d65239a06c1a62d5b" data-uid="structoptimal__learning_1_1PointsToSampleState_1aeb1d85b71e2c2a4d65239a06c1a62d5b">PointsToSampleState()</h4>
+  <div class="markdown level1 summary"><p>\rst Constructs a <a class="xref" href="points-to-sample-state.html">PointsToSampleState</a> object with new <code>points_to_sample</code>. Ensures all state variables &amp; temporaries are properly sized. Properly sets all state variables so that <a class="xref" href="gaussian-process.html">GaussianProcess</a>'s mean, variance (and gradients thereof) functions can be called.
+.. WARNING:: This object's state is INVALIDATED if the gaussian_process used in construction is mutated! <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">SetupState()</a> should be called again in such a situation.
+.. WARNING:: Using this object to compute gradients when <code>num_derivatives</code> := 0 results in UNDEFINED BEHAVIOR.</p>
+<p>:gaussian_process</p>
+<p><a class="xref" href="gaussian-process.html">GaussianProcess</a> object (holds <code>points_sampled</code>, <code>values</code>, <code>noise_variance</code>, derived quantities) that describes the underlying GP :points_to_sample[dim][num_to_sample]: points at which to compute GP-derived quantities (mean, variance, etc.) :num_to_sample: number of points being sampled concurrently :num_derivatives: configure this object to compute <code>num_derivatives</code> derivative terms wrt points_to_sample[:][0:num_derivatives]; 0 means no gradient computation will be performed. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::PointsToSampleState::PointsToSampleState(const GaussianProcess&amp;gaussian_process, double const *restrict points_to_sample_in, int num_to_sample_in, int const *restrict gradients_in, int num_gradients_in, int num_derivatives_in, bool precomputed_in=true, bool precomputed_grad_K_inv_times_K_star_in=false)</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1PointsToSampleState_1afb93928060b17e711239699d1be75365" data-uid="structoptimal__learning_1_1PointsToSampleState_1afb93928060b17e711239699d1be75365">PointsToSampleState()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::PointsToSampleState::PointsToSampleState(PointsToSampleState&amp;&amp;other)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c" data-uid="structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">SetupState()</h4>
+  <div class="markdown level1 summary"><p>\rst Configures this object with new <code>points_to_sample</code>. Ensures all state variables &amp; temporaries are properly sized. Properly sets all state variables so that <a class="xref" href="gaussian-process.html">GaussianProcess</a>'s mean, variance (and gradients thereof) functions can be called.
+.. WARNING:: This object's state is INVALIDATED if the gaussian_process used in SetupState is mutated! <a class="xref" href="points-to-sample-state.html#structoptimal__learning_1_1PointsToSampleState_1a24f6d1f1a541399797e7e84d1bc8ce5c">SetupState()</a> should be called again in such a situation.
+.. WARNING:: Using this object to compute gradients when <code>num_derivatives</code> := 0 results in UNDEFINED BEHAVIOR.</p>
+<p>:gaussian_process</p>
+<p><a class="xref" href="gaussian-process.html">GaussianProcess</a> object (holds <code>points_sampled</code>, <code>values</code>, <code>noise_variance</code>, derived quantities) that describes the underlying GP :points_to_sample[dim][num_to_sample]: points at which to compute GP-derived quantities (mean, variance, etc.) :num_to_sample: number of points being sampled concurrently :num_derivatives: configure this object to compute <code>num_derivatives</code> derivative terms wrt points_to_sample[:][0:num_derivatives]; 0 means no gradient computation will be performed. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void optimal_learning::PointsToSampleState::SetupState(const GaussianProcess&amp;gaussian_process, double const *restrict points_to_sample_in, int num_to_sample_in, int num_gradients_in, int num_derivatives_in, bool precomputed_in=true, bool precomputed_grad_K_inv_times_K_star_in=false) OL_NONNULL_POINTERS</code></pre>
+  </div>
+
+
+  <h4 id="structoptimal__learning_1_1PointsToSampleState_1a7cd1191e1c9ca27124d4268269e44ab8" data-uid="structoptimal__learning_1_1PointsToSampleState_1a7cd1191e1c9ca27124d4268269e44ab8">OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN()</h4>
+  <div class="markdown level1 summary"><p>the gradient of covariance(x_1, x_2) wrt x_1</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">optimal_learning::PointsToSampleState::OL_DISALLOW_DEFAULT_AND_COPY_AND_ASSIGN(PointsToSampleState)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

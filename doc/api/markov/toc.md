@@ -1,8 +1,0 @@
-# [Model](model.yml)
-## [SimpleModel](simple-model.yml)
-# [State](state.yml)
-# [Transition](transition.yml)
-## [SimpleTransition](simple-transition.yml)
-# [Walker](walker.yml)
-## [Metropolis](metropolis.yml)
-## [RandomWalker](random-walker.yml)

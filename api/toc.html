@@ -1,0 +1,505 @@
+﻿
+<div id="sidetoggle">
+  <div>
+    <div class="sidefilter">
+      <form class="toc-filter">
+        <span class="glyphicon glyphicon-filter filter-icon"></span>
+        <span class="glyphicon glyphicon-remove clear-icon" id="toc_filter_clear"></span>
+        <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+      </form>
+    </div>
+    <div class="sidetoc">
+      <div class="toc" id="toc">
+
+          <ul class="nav level1">
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>Utils</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <a href="utils/component.html" name="" title="Component">Component</a>
+                          </li>
+                          <li>
+                              <a href="utils/config.yml" name="" title="Config">Config</a>
+                          </li>
+                          <li>
+                              <a href="utils/json.yml" name="" title="Json">Json</a>
+                          </li>
+                          <li>
+                              <a href="utils/structure.html" name="" title="Structure">Structure</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="utils/logger.html" name="" title="Logger">Logger</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="utils/logger/context.html" name="" title="Logger::Context">Logger::Context</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="utils/signal.html" name="" title="Signal">Signal</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a>random</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="utils/random-generator.html" name="" title="RandomGenerator">RandomGenerator</a>
+                                    </li>
+                                    <li>
+                                        <a href="utils/random-selector.html" name="" title="RandomSelector">RandomSelector</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a>exceptions</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="utils/runtime-exception.html" name="" title="RuntimeException">RuntimeException</a>
+                                    </li>
+                                    <li>
+                                        <a href="utils/configuration-exception.html" name="" title="ConfigurationException">ConfigurationException</a>
+                                    </li>
+                              </ul>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>Matcher</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <a href="matcher/any.html" name="" title="Any">Any</a>
+                          </li>
+                          <li>
+                              <a href="matcher/equal-to.html" name="" title="EqualTo">EqualTo</a>
+                          </li>
+                          <li>
+                              <a href="matcher/less-than.html" name="" title="LessThan">LessThan</a>
+                          </li>
+                          <li>
+                              <a href="matcher/less-equal.html" name="" title="LessEqual">LessEqual</a>
+                          </li>
+                          <li>
+                              <a href="matcher/greater-than.html" name="" title="GreaterThan">GreaterThan</a>
+                          </li>
+                          <li>
+                              <a href="matcher/greater-equal.html" name="" title="GreaterEqual">GreaterEqual</a>
+                          </li>
+                          <li>
+                              <a href="matcher/not.html" name="" title="Not">Not</a>
+                          </li>
+                          <li>
+                              <a href="matcher/all-of.html" name="" title="AllOf">AllOf</a>
+                          </li>
+                          <li>
+                              <a href="matcher/any-of.html" name="" title="AnyOf">AnyOf</a>
+                          </li>
+                          <li>
+                              <a href="matcher/none-of.html" name="" title="Noneof">Noneof</a>
+                          </li>
+                          <li>
+                              <a href="matcher/each.html" name="" title="Each">Each</a>
+                          </li>
+                          <li>
+                              <a href="matcher/is-empty.html" name="" title="IsEmpty">IsEmpty</a>
+                          </li>
+                          <li>
+                              <a href="matcher/size-is.html" name="" title="SizeIs">SizeIs</a>
+                          </li>
+                          <li>
+                              <a href="matcher/is-sorted.html" name="" title="IsSorted">IsSorted</a>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>Graph</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <a href="graph/graph.html" name="" title="Graph">Graph</a>
+                          </li>
+                          <li>
+                              <a href="graph/node.html" name="" title="Node">Node</a>
+                          </li>
+                          <li>
+                              <a href="graph/named-node.yml" name="" title="NamedNode">NamedNode</a>
+                          </li>
+                          <li>
+                              <a href="graph/edge.html" name="" title="Edge">Edge</a>
+                          </li>
+                          <li>
+                              <a href="graph/cost-edge.html" name="" title="CostEdge">CostEdge</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="graph/property.html" name="" title="Properties">Properties</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="graph/size.html" name="" title="Size">Size</a>
+                                    </li>
+                                    <li>
+                                        <a href="graph/locality.html" name="" title="Locality">Locality</a>
+                                    </li>
+                                    <li>
+                                        <a href="graph/degree.html" name="" title="Degree">Degree</a>
+                                    </li>
+                                    <li>
+                                        <a href="graph/couplings.html" name="" title="Couplings">Couplings</a>
+                                    </li>
+                                    <li>
+                                        <a href="graph/clustering.html" name="" title="Clustering">Clustering</a>
+                                    </li>
+                              </ul>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>Model</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <a href="model/graph-model.html" name="" title="GraphModel">GraphModel</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a>Ising</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="model/abstract-ising.html" name="" title="AbstractIsing">AbstractIsing</a>
+                                    </li>
+                                    <li>
+                                        <span class="expand-stub"></span>
+                                        <a href="model/ising.html" name="" title="Ising">Ising</a>
+
+                                        <ul class="nav level4">
+                                              <li>
+                                                  <a href="model/ising-state.html" name="" title="IsingState">IsingState</a>
+                                              </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="expand-stub"></span>
+                                        <a href="model/ising-term-cached.html" name="" title="IsingTermCached">IsingTermCached</a>
+
+                                        <ul class="nav level4">
+                                              <li>
+                                                  <a href="model/ising-term-cached-state.html" name="" title="IsingTermCachedState">IsingTermCachedState</a>
+                                              </li>
+                                        </ul>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="model/pubo.html" name="" title="Pubo">Pubo</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="model/blume-capel.html" name="" title="BlumeCapel">BlumeCapel</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="model/blume-capel-state.html" name="" title="BlumeCapelState">BlumeCapelState</a>
+                                    </li>
+                                    <li>
+                                        <a href="model/blume-capel-transition.html" name="" title="BlumeCapelTransition">BlumeCapelTransition</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="model/potts.html" name="" title="Potts">Potts</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="model/potts-state.html" name="" title="PottsState">PottsState</a>
+                                    </li>
+                                    <li>
+                                        <a href="model/potts-transition.html" name="" title="PottsTransition">PottsTransition</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="model/clock.html" name="" title="Clock">Clock</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="model/clock-state.html" name="" title="ClockState">ClockState</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="model/tsp.html" name="" title="Tsp">Tsp</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="model/tsp-transition.html" name="" title="TspTransition">TspTransition</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="model/poly.html" name="" title="Poly">Poly</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="model/poly-lexer.yml" name="" title="PolyLexer">PolyLexer</a>
+                                    </li>
+                                    <li>
+                                        <a href="model/polynomial.yml" name="" title="Polynomial">Polynomial</a>
+                                    </li>
+                                    <li>
+                                        <a href="model/poly-parser.yml" name="" title="PolyParser">PolyParser</a>
+                                    </li>
+                                    <li>
+                                        <a href="model/poly-state.html" name="" title="PolyState">PolyState</a>
+                                    </li>
+                                    <li>
+                                        <a href="model/poly-transition.html" name="" title="PolyTransition">PolyTransition</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a>utils</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="model/partition.html" name="" title="Partition">Partition</a>
+                                    </li>
+                                    <li>
+                                        <a href="model/permutation.html" name="" title="Permutation">Permutation</a>
+                                    </li>
+                              </ul>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>Markov</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="markov/model.html" name="" title="Model">Model</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="markov/simple-model.html" name="" title="SimpleModel">SimpleModel</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="markov/state.html" name="" title="State">State</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="markov/transition.html" name="" title="Transition">Transition</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="markov/simple-transition.html" name="" title="SimpleTransition">SimpleTransition</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="markov/walker.html" name="" title="Walker">Walker</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="markov/metropolis.html" name="" title="Metropolis">Metropolis</a>
+                                    </li>
+                                    <li>
+                                        <a href="markov/random-walker.html" name="" title="RandomWalker">RandomWalker</a>
+                                    </li>
+                              </ul>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>Solver</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="solver/abstract-solver.yml" name="" title="AbstractSolver">AbstractSolver</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="solver/stepping-solver.html" name="" title="SteppingSolver">SteppingSolver</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="solver/simulated-annealing.html" name="" title="SimulatedAnnealing">SimulatedAnnealing</a>
+                          </li>
+                          <li>
+                              <a href="solver/parallel-tempering.html" name="" title="ParallelTempering">ParallelTempering</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="solver/population-annealing.html" name="" title="PopulationAnnealing">PopulationAnnealing</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="solver/population-annealing/culling-estimator.html" name="" title="CullingEstimator">CullingEstimator</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="solver/substochastic-monte-carlo.html" name="" title="SubstochasticMonteCarlo">SubstochasticMonteCarlo</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="solver/murex.html" name="" title="Murex">Murex</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="solver/murex/node.html" name="" title="Node">Node</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a>utils</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="solver/evaluation-counter.html" name="" title="EvaluationCounter">EvaluationCounter</a>
+                                    </li>
+                                    <li>
+                                        <span class="expand-stub"></span>
+                                        <a href="solver/population.html" name="" title="Population">Population</a>
+
+                                        <ul class="nav level4">
+                                              <li>
+                                                  <a href="solver/population/citizen.html" name="" title="Population::Citizen">Population::Citizen</a>
+                                              </li>
+                                              <li>
+                                                  <a href="solver/population/iterator.yml" name="" title="Population::Iterator">Population::Iterator</a>
+                                              </li>
+                                        </ul>
+                                    </li>
+                              </ul>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>Schedule</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="schedule/schedule.html" name="" title="Schedule">Schedule</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="schedule/schedule-generator.html" name="" title="ScheduleGenerator">ScheduleGenerator</a>
+                                    </li>
+                                    <li>
+                                        <a href="schedule/ranged-generator.html" name="" title="RangedGenerator">RangedGenerator</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="schedule/constant.html" name="" title="Constant">Constant</a>
+                          </li>
+                          <li>
+                              <a href="schedule/geometric.html" name="" title="Geometric">Geometric</a>
+                          </li>
+                          <li>
+                              <a href="schedule/linear.html" name="" title="Linear">Linear</a>
+                          </li>
+                          <li>
+                              <a href="schedule/segments.html" name="" title="Segments">Segments</a>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>Observe</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="observe/observer.html" name="" title="Observer">Observer</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="observe/observer/group.html" name="" title="Observer::Group">Observer::Group</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/observer/scoped-label.html" name="" title="Observer::ScopedLabel">Observer::ScopedLabel</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="observe/observable.html" name="" title="Observable">Observable</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="observe/constant.html" name="" title="Constant">Constant</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/min-max.html" name="" title="MinMax">MinMax</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/average.html" name="" title="Average">Average</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/average2.html" name="" title="Average2">Average2</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/average-and-count.html" name="" title="AverageAndCount">AverageAndCount</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/bin-width-distribution.html" name="" title="BinWidthDistribution">BinWidthDistribution</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/ranged-distribution.html" name="" title="RangedDistribution">RangedDistribution</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/milestone.html" name="" title="Milestone">Milestone</a>
+                                    </li>
+                                    <li>
+                                        <span class="expand-stub"></span>
+                                        <a href="observe/windowed.html" name="" title="Windowed">Windowed</a>
+
+                                        <ul class="nav level4">
+                                              <li>
+                                                  <a href="observe/windowed/value-and-weight.html" name="" title="Windowed::ValueAndWeight">Windowed::ValueAndWeight</a>
+                                              </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="observe/batched.html" name="" title="Batched">Batched</a>
+                                    </li>
+                                    <li>
+                                        <a href="observe/log-batched.html" name="" title="LogBatched">LogBatched</a>
+                                    </li>
+                              </ul>
+                          </li>
+                    </ul>
+                </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>

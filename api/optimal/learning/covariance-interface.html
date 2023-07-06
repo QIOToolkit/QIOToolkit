@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class optimal_learning::CovarianceInterface
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class optimal_learning::CovarianceInterface
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classoptimal__learning_1_1CovarianceInterface">
+
+
+
+  <h1 id="classoptimal__learning_1_1CovarianceInterface" data-uid="classoptimal__learning_1_1CovarianceInterface" class="text-break">Class optimal_learning::CovarianceInterface
+</h1>
+  <div class="markdown level0 summary"><p>\rst Abstract class to enable evaluation of covariance functionssupports the evaluation of the covariance between two points, as well as the gradient with respect to those coordinates and gradient/hessian with respect to the hyperparameters of the covariance function.
+Covariance operaters, <code>cov(x_1, x_2)</code> are SPD. Due to the symmetry, there is no need to differentiate wrt x_1 and x_2; hence the gradient operation should only take gradients wrt dim variables, where <code>dim = |x_1|</code>
+Hyperparameters (denoted <code>\theta_j</code>) are stored as class member data by subclasses.
+This class has only pure virtual functions, making it abstract. Users cannot instantiate this class directly. \endrst</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">optimal_learning::CovarianceInterface</span></div>
+      <div class="level1"><a class="xref" href="matern-nu2p5.html">optimal_learning::MaternNu2p5</a></div>
+      <div class="level1"><a class="xref" href="square-exponential.html">optimal_learning::SquareExponential</a></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classoptimal__learning_1_1CovarianceInterface_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classoptimal__learning_1_1CovarianceInterface_1afffe1d71f93098602621f59892bf0871" data-uid="classoptimal__learning_1_1CovarianceInterface_1afffe1d71f93098602621f59892bf0871">~CovarianceInterface()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual optimal_learning::CovarianceInterface::~CovarianceInterface()=default</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1CovarianceInterface_1a4660b0f5e1154876c1a9d2a7ae6df751" data-uid="classoptimal__learning_1_1CovarianceInterface_1a4660b0f5e1154876c1a9d2a7ae6df751">Covariance()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the covariance function of the function values and their gradients of two points, cov(<code>point_one</code>, <code>point_two</code>). Points must be arrays with length dim.
+The covariance function is guaranteed to be symmetric by definition: <code>Covariance(x, y) = Covariance(y, x)</code>. This function is also positive definite by definition.</p>
+<p>:point_one[dim]</p>
+<p>first spatial coordinate :derivatives_one[dim]: which derivatives of point_one are available :num_derivatives_one: int, the number of derivatives of point one :point_two[dim]: second spatial coordinate :derivatives_two[dim]: which derivatives of point_two are available :num_derivatives_two: int, the number of derivatives of point two</p>
+<p>cov[1+num_derivatives_one][1+num_derivatives_two]: value of covariance between the function values and their gradients of the input points \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::CovarianceInterface::Covariance(double const *restrict point_one, int const *restrict derivatives_one, int num_derivatives_one, double const *restrict point_two, int const *restrict derivatives_two, int num_derivatives_two, double *restrict cov) const noexcept=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1CovarianceInterface_1a9fdd927a9eb51d3c7953051057da0ddc" data-uid="classoptimal__learning_1_1CovarianceInterface_1a9fdd927a9eb51d3c7953051057da0ddc">GradCovariance()</h4>
+  <div class="markdown level1 summary"><p>\rst Computes the gradient of this.Covariance(point_one, point_two) with respect to the FIRST argument, point_one.
+This distinction is important for maintaining the desired symmetry. <code>Cov(x, y) = Cov(y, x)</code>. Additionally, <code>\pderiv{Cov(x, y)}{x} = \pderiv{Cov(y, x)}{x}</code>. However, in general, <code>\pderiv{Cov(x, y)}{x} != \pderiv{Cov(y, x)}{y}</code> (NOT equal! These may differ by a negative sign)
+Hence to avoid separate implementations for differentiating against first vs second argument, this function only handles differentiation against the first argument. If you need <code>\pderiv{Cov(y, x)}{x}</code>, just swap points x and y.</p>
+<p>:point_one[dim]</p>
+<p>first spatial coordinate :derivatives_one[dim]: which derivatives of point_one are available :num_derivatives_one: int, the number of derivatives of point one :point_two[dim]: second spatial coordinate :derivatives_two[dim]: which derivatives of point_two are available :num_derivatives_two: int, the number of derivatives of point two \output grad_cov[dim][1+num_derivatives_one][1+num_derivatives_two]: (i, j, k)-th entry is <code>\pderiv{cov(x_1, x_2)(j, k))}{x1_i}</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::CovarianceInterface::GradCovariance(double const *restrict point_one, int const *restrict derivatives_one, int num_derivatives_one, double const *restrict point_two, int const *restrict derivatives_two, int num_derivatives_two, double *restrict grad_cov) const noexcept OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1CovarianceInterface_1a8db344481fe34a2e7671bbfaba822ebd" data-uid="classoptimal__learning_1_1CovarianceInterface_1a8db344481fe34a2e7671bbfaba822ebd">GetNumberOfHyperparameters()</h4>
+  <div class="markdown level1 summary"><p>\rst Returns the number of hyperparameters. This base class only allows for a maximum of dim + 1 hyperparameters but subclasses may implement additional ones.
+The number of hyperparameters. Return 0 to disable hyperparameter-related gradients, optimizations. \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual int optimal_learning::CovarianceInterface::GetNumberOfHyperparameters() const noexcept OL_PURE_FUNCTION OL_WARN_UNUSED_RESULT=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1CovarianceInterface_1a436e6acf90eedec717ce8ec5bdcaa89a" data-uid="classoptimal__learning_1_1CovarianceInterface_1a436e6acf90eedec717ce8ec5bdcaa89a">HyperparameterGradCovariance()</h4>
+  <div class="markdown level1 summary"><p>\rst Similar to <a class="xref" href="covariance-interface.html#classoptimal__learning_1_1CovarianceInterface_1a9fdd927a9eb51d3c7953051057da0ddc">GradCovariance()</a>, except gradients are computed w.r.t. the hyperparameters.
+Unlike <a class="xref" href="covariance-interface.html#classoptimal__learning_1_1CovarianceInterface_1a9fdd927a9eb51d3c7953051057da0ddc">GradCovariance()</a>, the order of point_one and point_two is irrelevant here (since we are not differentiating against either of them). Thus the matrix of grad covariances (wrt hyperparameters) is symmetric.</p>
+<p>:point_one[dim]</p>
+<p>first spatial coordinate :derivatives_one[dim]: which derivatives of point_one are available :num_derivatives_one: int, the number of derivatives of point one :point_two[dim]: second spatial coordinate :derivatives_two[dim]: which derivatives of point_two are available :num_derivatives_two: int, the number of derivatives of point two \output :grad_hyperparameter_cov[this.GetNumberOfHyperparameters()][1+num_derivatives_one][1+num_derivatives_two]: (i, j, k)-th entry is <code>\pderiv{cov(x_1, x_2)(j, k)}{\theta_i}</code> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::CovarianceInterface::HyperparameterGradCovariance(double const *restrict point_one, int const *restrict derivatives_one, int num_derivatives_one, double const *restrict point_two, int const *restrict derivatives_two, int num_derivatives_two, double *restrict grad_hyperparameter_cov) const noexcept OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1CovarianceInterface_1add39074bc02c06a071cc04a1b34c784e" data-uid="classoptimal__learning_1_1CovarianceInterface_1add39074bc02c06a071cc04a1b34c784e">SetHyperparameters()</h4>
+  <div class="markdown level1 summary"><p>\rst Sets the hyperparameters. Hyperparameter ordering is defined implicitly by GetHyperparameters: <code>[alpha=\sigma_f^2, length_0, ..., length_{n-1}]</code></p>
+<p>:hyperparameters[this.GetNumberOfHyperparameters()]</p>
+<p>hyperparameters to set \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::CovarianceInterface::SetHyperparameters(double const *restrict hyperparameters) noexcept OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1CovarianceInterface_1ae909b5ed6835ee0307da75f4ca8c9f9d" data-uid="classoptimal__learning_1_1CovarianceInterface_1ae909b5ed6835ee0307da75f4ca8c9f9d">GetHyperparameters()</h4>
+  <div class="markdown level1 summary"><p>\rst Gets the hyperparameters. Ordering is <code>[alpha=\sigma_f^2, length_0, ..., length_{n-1}]</code>
+\output :hyperparameters[this.GetNumberOfHyperparameters()]: values of current hyperparameters \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void optimal_learning::CovarianceInterface::GetHyperparameters(double *restrict hyperparameters) const noexcept OL_NONNULL_POINTERS=0</code></pre>
+  </div>
+
+
+  <h4 id="classoptimal__learning_1_1CovarianceInterface_1ab0cf755dda4fb6489b158d927345ea51" data-uid="classoptimal__learning_1_1CovarianceInterface_1ab0cf755dda4fb6489b158d927345ea51">Clone()</h4>
+  <div class="markdown level1 summary"><p>\rst For implementing the virtual (copy) constructor idiom.
+:Pointer to a constructed object that is a subclass of <a class="xref" href="covariance-interface.html">CovarianceInterface</a> \endrst</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual CovarianceInterface* optimal_learning::CovarianceInterface::Clone() const OL_WARN_UNUSED_RESULT=0</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

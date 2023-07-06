@@ -1,0 +1,600 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class model::PuboAdaptive
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class model::PuboAdaptive
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classmodel_1_1PuboAdaptive">
+
+
+
+  <h1 id="classmodel_1_1PuboAdaptive" data-uid="classmodel_1_1PuboAdaptive" class="text-break">Class model::PuboAdaptive
+</h1>
+  <div class="markdown level0 summary"><p>Adaptive <a class="xref" href="pubo.html">Pubo</a> Model.</p>
+<p>This pubo implementation aims for adaptability to per-state memory constraints while using a cache-friendly graph representation.</p>
+<ol>
+<li>The numeric type used for indexing can be templated. This type needs to be chosen such that #variables &lt; std::numeric_limits<t>::max() - 2. (the last two values of the range are used as sentinels in the graph representation).</t></li>
+<li>If the graph has high-locality terms, there should (ideally) be some unused range between #variables and that upper limit; this range is used to index into the cache. The number of terms for which caching can be used is limited by the width of that empty range.</li>
+<li>The graph representation uses a contigous chunk of memory initialized with an adjacency list for each node. For each term, the first 8 bytes contain the coefficient, followed by a sentinel terminated list of variable_ids (or cache_ids) participating in the term. The sentinel type (NEXT_TERM or NEXT_VAR) denotes when the last term of a variable is reached.</li>
+<li>During configuration of the graph representaion, the maximum number of bytes for each state can be specified. If this number exceeds the required bytes to store the boolean variables, the extra bytes are used to preferentially cache the number of zeros in high-locality terms (using either 32-bit or 8-bit counters). This has the effect of both reducing the graph size and time to compute a term.</li>
+</ol>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../markov/linear-sweep-model.html">markov::LinearSweepModel</a></div>
+    <div class="level1"><span class="xref">model::PuboAdaptive</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../markov/linear-sweep-model.html#classmarkov_1_1LinearSweepModel_1aa57c8961e18d0efd6722be1299d17e06">make_linear_sweep</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a07298e610e883fd0075e673c1e6e9284">get_benchmark_properties</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a16e50b29d0342d441f34157ac474f752">estimate_max_cost_diff</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a1a28d6e29a7420eb7a74938cee2a1a1b">has_initial_configuration</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a1f522498e93eb5322951e3166c844c36">Model</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a3862410b661159f0765fc2cd0af1bf4a">state_only_memory_estimate</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a5f1f00ca1ea6ebf0443b18a84632a0af">get_term_count</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a62498d95dd1497935e5168cc0a090742">get_sweep_size</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a63cb8268952947fab689a4e1ac0137e3">init</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a766931f2b233d3dea76f23f1eddc3033">get_initial_configuration_state</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a8147a330f19b6bd1531f205c80a3ac7d">render_state</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a82535aa5f99f2b432b7404fb1257aef5">calculate_cost</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a8479649ab7b9fd0f59cc9b9fb26f8355">apply_transition</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a87c67c7bab068289c6266fdc8ea494f3">estimate_min_cost_diff</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a89cf1485d832e24e519b6be3314bdabe">get_scale_factor</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a89cf9414ebb5ca464fd1157d794f14b5">is_empty</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1a98452315c30ab906b8e426dfa4d3e1da">set_step_limit</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1aa756823be62324daeb2142e82e17555b">is_rescaled</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ab0af596700f48b0b93269b2b7ac56328">state_memory_estimate</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ab15fdb0eee72157fb9cac399b3fab9df">rescale</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ac309b74e14fc75626499bd127f665301">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ac985e4d455cad61ad96f4a7f99cbcc2f">calculate_cost_difference</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ae6e06919a7deb6a7b9c61ea9c73fccfa">get_random_transition</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1ae7894461c5805d3483603562d1da72b6">get_const_cost</a>
+    </div>
+    <div>
+      <a class="xref" href="../markov/model.html#classmarkov_1_1Model_1af4fe9cb0f1a39408c280af37973c20bd">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a4d2cd1f3366c99ca6569dde9d4b17d22">~BaseModel</a>
+    </div>
+    <div>
+      <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a5b611ada97256b6624946d95c87090e6">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="base-model.html#classmodel_1_1BaseModel_1a8b9ac336daccd4cd41df613767a7294f">BaseModel</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e">render</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classmodel_1_1PuboAdaptive_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a3ebd053b0e6b170b4dc91693b7220ac6" data-uid="classmodel_1_1PuboAdaptive_1a3ebd053b0e6b170b4dc91693b7220ac6">PuboAdaptive()</h4>
+  <div class="markdown level1 summary"><p>Create an unconfigured <a class="xref" href="pubo-adaptive.html">PuboAdaptive</a> model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">model::PuboAdaptive&lt;Index&gt;::PuboAdaptive()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1aec57d3817e5f21b402cf928ccad2c1f1" data-uid="classmodel_1_1PuboAdaptive_1aec57d3817e5f21b402cf928ccad2c1f1">get_identifier()</h4>
+  <div class="markdown level1 summary"><p>Return the identifier of this model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string model::PuboAdaptive&lt;Index&gt;::get_identifier() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a7a632360b2d9be3e182dbc9dd4d780af" data-uid="classmodel_1_1PuboAdaptive_1a7a632360b2d9be3e182dbc9dd4d780af">get_version()</h4>
+  <div class="markdown level1 summary"><p>Return the version of this model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string model::PuboAdaptive&lt;Index&gt;::get_version() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a3a5c2e74f50621fd2bd950c283d5635e" data-uid="classmodel_1_1PuboAdaptive_1a3a5c2e74f50621fd2bd950c283d5635e">match_version()</h4>
+  <div class="markdown level1 summary"><p>Accept both version 1.0 and 1.1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::match_version(const std::string&amp;version) override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a26f234ad473bef9d44821272a93387e0" data-uid="classmodel_1_1PuboAdaptive_1a26f234ad473bef9d44821272a93387e0">configure()</h4>
+  <div class="markdown level1 summary"><p>Configure the model from input.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a13ff62a7564a7e1d3dc096e15541dc3d" data-uid="classmodel_1_1PuboAdaptive_1a13ff62a7564a7e1d3dc096e15541dc3d">configure()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::configure(Configuration_T&amp;config)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a31cfbb77165846ce94ef1ae515e3c56b" data-uid="classmodel_1_1PuboAdaptive_1a31cfbb77165846ce94ef1ae515e3c56b">get_const_cost()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::PuboAdaptive&lt;Index&gt;::get_const_cost() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a76e32d328d54e6c423c4708db9546012" data-uid="classmodel_1_1PuboAdaptive_1a76e32d328d54e6c423c4708db9546012">is_empty()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool model::PuboAdaptive&lt;Index&gt;::is_empty() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a58ef17fe079de0d9bacc64db22a12e8a" data-uid="classmodel_1_1PuboAdaptive_1a58ef17fe079de0d9bacc64db22a12e8a">configure()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::configure(model::Terms&amp;&amp;terms, size_t max_state_size_in_bytes)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a423d07dfb4410cea8e2454c6590484cd" data-uid="classmodel_1_1PuboAdaptive_1a423d07dfb4410cea8e2454c6590484cd">get_random_state()</h4>
+  <div class="markdown level1 summary"><p>Create a random initial state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">State_T model::PuboAdaptive&lt;Index&gt;::get_random_state(utils::RandomGenerator&amp;rng) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a5109eb9209490b8904afbb7ac917c59a" data-uid="classmodel_1_1PuboAdaptive_1a5109eb9209490b8904afbb7ac917c59a">state_memory_estimate()</h4>
+  <div class="markdown level1 summary"><p>Get memory estimation for state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t model::PuboAdaptive&lt;Index&gt;::state_memory_estimate() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a174152d28d07d0620fcebab8ee37eb1a" data-uid="classmodel_1_1PuboAdaptive_1a174152d28d07d0620fcebab8ee37eb1a">state_only_memory_estimate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t model::PuboAdaptive&lt;Index&gt;::state_only_memory_estimate() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a72966e123ea07ed157df4531d6daa5c6" data-uid="classmodel_1_1PuboAdaptive_1a72966e123ea07ed157df4531d6daa5c6">get_random_transition()</h4>
+  <div class="markdown level1 summary"><p>Create a random transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">Transition_T model::PuboAdaptive&lt;Index&gt;::get_random_transition(const State_T&amp;, utils::RandomGenerator&amp;rng) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1af60a4d94490b41bbfd340ae2c72877a1" data-uid="classmodel_1_1PuboAdaptive_1af60a4d94490b41bbfd340ae2c72877a1">apply_transition()</h4>
+  <div class="markdown level1 summary"><p>Applying a random transition is done by advancing the graph pointer to the offset corresponding to the variable being flipped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::apply_transition(const Transition_T&amp;transition, State_T&amp;state) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1af678a3b09c3a65463d19ff49e95d38f8" data-uid="classmodel_1_1PuboAdaptive_1af678a3b09c3a65463d19ff49e95d38f8">calculate_cost()</h4>
+  <div class="markdown level1 summary"><p>Evaluate the whole cost function.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The adjacency list representation is inefficient for this purpose, but we don't expect to evaluate this frequently.</p>
+</div>
+<ol>
+<li>For non-cached terms, double counting is avoided by ensuring neighbor ids are larger than the variable we are processing</li>
+<li>For cached terms we use a std::vector<bool> to keep track which ones have been counted.</bool></li>
+</ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::PuboAdaptive&lt;Index&gt;::calculate_cost(const State_T&amp;state) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a03ebb5123eb1cdf51a50247f356cec28" data-uid="classmodel_1_1PuboAdaptive_1a03ebb5123eb1cdf51a50247f356cec28">calculate_cost_difference()</h4>
+  <div class="markdown level1 summary"><p>The cost difference of an arbitrary transition is evaluated by setting up the state pointers and advancing the graph pointer to the offset corresponding to the variable being flipped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::PuboAdaptive&lt;Index&gt;::calculate_cost_difference(const State_T&amp;state, const Transition_T&amp;transition) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a9607be1dabf961c63ce6593c9e825736" data-uid="classmodel_1_1PuboAdaptive_1a9607be1dabf961c63ce6593c9e825736">make_linear_sweep()</h4>
+  <div class="markdown level1 summary"><p>For a linear sweep, we can avoid the overhead of repeatedly setting up state pointers and jumping to specific offsets in the graph; it can simply be processed in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::make_linear_sweep(double&amp;cost, State_T&amp;state, std::function&lt;bool(double)&gt;accept, std::function&lt;void(void)&gt;check_lowest) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1ad702b1e337a4318c8e6a767ce04ee117" data-uid="classmodel_1_1PuboAdaptive_1ad702b1e337a4318c8e6a767ce04ee117">render_state()</h4>
+  <div class="markdown level1 summary"><p>Render the state as a structure mapping (original) names to pubo values. NOTE: the mapping is true=zero, false=1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure model::PuboAdaptive&lt;Index&gt;::render_state(const State_T&amp;state) const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a536b4097d509415bcbcc1af81cd7b08c" data-uid="classmodel_1_1PuboAdaptive_1a536b4097d509415bcbcc1af81cd7b08c">get_sweep_size()</h4>
+  <div class="markdown level1 summary"><p>One sweep consists of attempting to update each variable once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t model::PuboAdaptive&lt;Index&gt;::get_sweep_size() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a5287495206a33bdff7917dea6eece637" data-uid="classmodel_1_1PuboAdaptive_1a5287495206a33bdff7917dea6eece637">flip_spin()</h4>
+  <div class="markdown level1 summary"><p>Flip a spin by applying xor with a shifted bit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::flip_spin(uint64_t *spins, Index index) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a6e191714641d59dc4a12e37d0ac01c08" data-uid="classmodel_1_1PuboAdaptive_1a6e191714641d59dc4a12e37d0ac01c08">get_spin_value()</h4>
+  <div class="markdown level1 summary"><p>Extract a bit by masking with a shifted bit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool model::PuboAdaptive&lt;Index&gt;::get_spin_value(const uint64_t *spins, Index index) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a24d2b7bbcd78b1280b6cc4758ef33caa" data-uid="classmodel_1_1PuboAdaptive_1a24d2b7bbcd78b1280b6cc4758ef33caa">get_cache()</h4>
+  <div class="markdown level1 summary"><p>Select the appropriate (type and index) of the cache for a given cache_id. NOTE: the cache_id=index-var_count_ is in [0..cache_count_).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">uint32_t model::PuboAdaptive&lt;Index&gt;::get_cache(size_t cache_id, const uint32_t *cache32, const uint8_t *cache8) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1af8ae4697e134c2740358221f12930f7c" data-uid="classmodel_1_1PuboAdaptive_1af8ae4697e134c2740358221f12930f7c">update_cache()</h4>
+  <div class="markdown level1 summary"><p>Add the cache_change to the appropriate (type and index) of the cache.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::update_cache(size_t cache_id, uint32_t *cache32, uint8_t *cache8, uint8_t cache_change) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1aefdb525347a8d3b246cb0bf736d6eb55" data-uid="classmodel_1_1PuboAdaptive_1aefdb525347a8d3b246cb0bf736d6eb55">configure_state_size()</h4>
+  <div class="markdown level1 summary"><p>Calculate how many terms we want to and can afford to cache. After a call to this method, state_size_ and the cache counters/offsets have been initialized to the correct values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::configure_state_size(const model::Terms&amp;terms, size_t max_state_size_in_bytes)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a12ed4363db0412b7825a403552c4b195" data-uid="classmodel_1_1PuboAdaptive_1a12ed4363db0412b7825a403552c4b195">configure_graph()</h4>
+  <div class="markdown level1 summary"><p>Allocate and fill the adjacency list graph representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::configure_graph(const model::Terms&amp;terms)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a7ee443119a62445d9ab461ca93533808" data-uid="classmodel_1_1PuboAdaptive_1a7ee443119a62445d9ab461ca93533808">calculate_term_difference()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">double model::PuboAdaptive&lt;Index&gt;::calculate_term_difference(uint8_t *&amp;p, bool spin_value, const uint64_t *spins, const uint32_t *cache32, const uint8_t *cache8) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a2a1e72093c2a05ee81fa1a56142fc2d6" data-uid="classmodel_1_1PuboAdaptive_1a2a1e72093c2a05ee81fa1a56142fc2d6">update_caches()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void model::PuboAdaptive&lt;Index&gt;::update_caches(uint8_t *&amp;p, bool spin, uint32_t *cache32, uint8_t *cache8) const</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a92058e7436c122a3ed918d1d248f4096" data-uid="classmodel_1_1PuboAdaptive_1a92058e7436c122a3ed918d1d248f4096">take_index()</h4>
+  <div class="markdown level1 summary"><p>Interpret the next sizeof(Index) bytes as an Index and advance the pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static Index model::PuboAdaptive&lt;Index&gt;::take_index(uint8_t *&amp;p)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1acd2b7b67963622ce3f469015df4ef48a" data-uid="classmodel_1_1PuboAdaptive_1acd2b7b67963622ce3f469015df4ef48a">take_double()</h4>
+  <div class="markdown level1 summary"><p>Interpret the next 8 bytes as a double and advance the pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static double model::PuboAdaptive&lt;Index&gt;::take_double(uint8_t *&amp;p)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a2b0df5a08f996a479da9c1be2f7eb0f0" data-uid="classmodel_1_1PuboAdaptive_1a2b0df5a08f996a479da9c1be2f7eb0f0">put_double()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static void model::PuboAdaptive&lt;Index&gt;::put_double(uint8_t *&amp;p, double d)</code></pre>
+  </div>
+
+
+  <h4 id="classmodel_1_1PuboAdaptive_1a17864278d79e33e8f7bea2f830efe77b" data-uid="classmodel_1_1PuboAdaptive_1a17864278d79e33e8f7bea2f830efe77b">put_index()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static void model::PuboAdaptive&lt;Index&gt;::put_index(uint8_t *&amp;p, Index index)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

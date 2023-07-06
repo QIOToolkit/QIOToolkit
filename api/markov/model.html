@@ -1,0 +1,545 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class markov::Model
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class markov::Model
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classmarkov_1_1Model">
+
+
+
+  <h1 id="classmarkov_1_1Model" data-uid="classmarkov_1_1Model" class="text-break">Class markov::Model
+</h1>
+  <div class="markdown level0 summary"><p>Interface for Markov models.</p>
+<p>Implementations of the Markov model interface must provide</p>
+<ol>
+<li>A <code>calculate_cost</code> (to calculate the cost of an entire state as well as the <code>calculate_cost_difference</code> incurred by a specific transition).</li>
+<li>The means to generate the Monte Carlo chain (<code>random_state</code>, <code>random_transition</code> and <code>apply_transition</code>).
+The interface is templated for both the underlying Markov state and transition, such that users can decide how to represent each. The base classes <a class="xref" href="state.html">markov::State</a> and <a class="xref" href="transition.html">markov::Transition</a> are provided as guidelines for designing these model-specifc types, but they are not enforced to be used. (That is, you may use <a class="xref" href="model.html#classmarkov_1_1Model_1a1f522498e93eb5322951e3166c844c36">Model&lt;std::string, int&gt;</a> if a string is sufficient to represent your state and an int defines a transition.
+<a class="xref" href="state.html">State</a></li>
+</ol>
+<p><a class="xref" href="transition.html">Transition</a></p>
+<p>For initial testing, you may also opt to use the simplified classes <a class="xref" href="simple-transition.html"><code>markov::SimpleTransition</code></a> and <a class="xref" href="simple-model.html"><code>markov::SimpleModel</code></a>.
+<a class="xref" href="simple-model.html">SimpleModel</a></p>
+<p><a class="xref" href="simple-transition.html">SimpleTransition</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../model/base-model.html">model::BaseModel</a></div>
+    <div class="level1"><span class="xref">markov::Model</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../model/base-model.html#classmodel_1_1BaseModel_1a1dc32c2f990cda6bcbb7d8b76e873fe5">match_version</a>
+    </div>
+    <div>
+      <a class="xref" href="../model/base-model.html#classmodel_1_1BaseModel_1a43c006be3c850c5f0adf222dd542d164">get_version</a>
+    </div>
+    <div>
+      <a class="xref" href="../model/base-model.html#classmodel_1_1BaseModel_1a4d2cd1f3366c99ca6569dde9d4b17d22">~BaseModel</a>
+    </div>
+    <div>
+      <a class="xref" href="../model/base-model.html#classmodel_1_1BaseModel_1a5b611ada97256b6624946d95c87090e6">configure</a>
+    </div>
+    <div>
+      <a class="xref" href="../model/base-model.html#classmodel_1_1BaseModel_1a8b9ac336daccd4cd41df613767a7294f">BaseModel</a>
+    </div>
+    <div>
+      <a class="xref" href="../model/base-model.html#classmodel_1_1BaseModel_1abb387a066ae2ecd9a8499b3a9b8c061d">get_identifier</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classmarkov_1_1Model_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classmarkov_1_1Model_1a1f522498e93eb5322951e3166c844c36" data-uid="classmarkov_1_1Model_1a1f522498e93eb5322951e3166c844c36">Model()</h4>
+  <div class="markdown level1 summary"><p>Create an uninitialized model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">markov::Model&lt;State, Transition, Cost&gt;::Model()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classmarkov_1_1Model_1a98452315c30ab906b8e426dfa4d3e1da" data-uid="classmarkov_1_1Model_1a98452315c30ab906b8e426dfa4d3e1da">set_step_limit()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::Model&lt;State, Transition, Cost&gt;::set_step_limit(uint64_t limit)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a349d5f635107f0d814c45d77f125311a" data-uid="classmarkov_1_1Model_1a349d5f635107f0d814c45d77f125311a">configure()</h4>
+  <div class="markdown level1 summary"><p>configure the object from input</p>
+<p>Initialize the object's state from the input <code>utils::Config</code>. This is done by declaring which required and optional parameters are associated with the fields of this object. During initialization, they are checked for their presence, type and any matchers.
+Example:</p>
+<pre><code class="lang-cpp">MyClass : public Component {
+ public:
+  void configure(const utils::Json&amp; json) override {
+    this-&gt;param(json, &quot;number&quot;, my_number)
+        .description(&quot;some description&quot;)
+        .matches(GreaterEquals(0))
+        .required();
+    this-&gt;param(json, &quot;name&quot;, my_name)
+        .description(&quot;some description&quot;)
+        .matches(SizeIs(GreaterThan(0)))
+        .default_value(&quot;no_name&quot;);
+  }
+
+ private:
+  int my_number;
+  std::string my_name;
+}
+
+MyClass my_object;
+my_object.configure(utils::json_from_string(R&quot;(
+  {
+    &quot;number&quot;: 42,
+    &quot;name&quot;: &quot;hello&quot;
+  }
+)&quot;));
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, nothing is configured from input. You need to overload this method if you want to use this functionality. Don't forget to call the configure method of the parent class if it also needs to be configured (this is not the case for <a class="xref" href="../utils/component.html"><code>utils::Component</code></a> itself).
+HINT: Parameters are not limited to scalars and strings; Any component can be a parameter; in which case it is initialized using its own configure method.
+<a href="xref:namespaceutils_1a9ee2992f089a04f76508e676783d5931">utils::Json</a></p>
+</div>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::Model&lt;State, Transition, Cost&gt;::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1af4fe9cb0f1a39408c280af37973c20bd" data-uid="classmarkov_1_1Model_1af4fe9cb0f1a39408c280af37973c20bd">configure()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::Model&lt;State, Transition, Cost&gt;::configure(model::BaseModelConfiguration&amp;configuration)</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a63cb8268952947fab689a4e1ac0137e3" data-uid="classmarkov_1_1Model_1a63cb8268952947fab689a4e1ac0137e3">init()</h4>
+  <div class="markdown level1 summary"><p>Initializes internal data structures (guaranteed to be called after <a class="xref" href="model.html#classmarkov_1_1Model_1a349d5f635107f0d814c45d77f125311a"><code>configure()</code></a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void markov::Model&lt;State, Transition, Cost&gt;::init() override</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a82535aa5f99f2b432b7404fb1257aef5" data-uid="classmarkov_1_1Model_1a82535aa5f99f2b432b7404fb1257aef5">calculate_cost()</h4>
+  <div class="markdown level1 summary"><p>Definition of the cost function.</p>
+<p>Evaluate the entire cost function for the state being passed. For instance, in the case of a model from statistical mechanics, this would be the Hamiltonian.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual Cost_T markov::Model&lt;State, Transition, Cost&gt;::calculate_cost(const State_T&amp;state) const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1ac985e4d455cad61ad96f4a7f99cbcc2f" data-uid="classmarkov_1_1Model_1ac985e4d455cad61ad96f4a7f99cbcc2f">calculate_cost_difference()</h4>
+  <div class="markdown level1 summary"><p>Partial evaluation of the cost function.</p>
+<p>This method should calculate the difference in cost if we move from <code>state</code> (=before) to the one resulting from applying <code>transition</code> to <code>state</code> (=after):</p>
+<pre><code class="lang-math"> \Delta_{C} = C_{\mathrm{after}} - C_{\mathrm{before}} 
+</code></pre>
+<p>In code:
+<a class="xref" href="state.html">State</a> state = get_random_state(rng); <a class="xref" href="transition.html">Transition</a> transition = get_random_transition(rng); double cost_before = calculate_cost(state); double cost_diff = calculate_cost_difference(state, transition); apply_transition(transition, state); // modify state double cost_after = calculate_cost(state); // before + diff should correspond to <code>after</code> (up to double precision) assert(cost_before + cost_diff == cost_after);</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual Cost_T markov::Model&lt;State, Transition, Cost&gt;::calculate_cost_difference(const State_T&amp;state, const Transition_T&amp;transition) const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1afad8810181df30e7a2db2c76be249527" data-uid="classmarkov_1_1Model_1afad8810181df30e7a2db2c76be249527">get_random_state()</h4>
+  <div class="markdown level1 summary"><p>Return a valid random state for the model.</p>
+<p>The various algorithms don't know how to initialize a valid state; this allows them to start with a random one. NOTE: The <code>rng</code> being passed should be used for randomness (as opposed to creating one for the model), as multiple threads can potentially use the same underlying model (albeit with separate rngs).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual State_T markov::Model&lt;State, Transition, Cost&gt;::get_random_state(utils::RandomGenerator&amp;rng) const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a1a28d6e29a7420eb7a74938cee2a1a1b" data-uid="classmarkov_1_1Model_1a1a28d6e29a7420eb7a74938cee2a1a1b">has_initial_configuration()</h4>
+  <div class="markdown level1 summary"><p>Check if model has initial configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual bool markov::Model&lt;State, Transition, Cost&gt;::has_initial_configuration() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a766931f2b233d3dea76f23f1eddc3033" data-uid="classmarkov_1_1Model_1a766931f2b233d3dea76f23f1eddc3033">get_initial_configuration_state()</h4>
+  <div class="markdown level1 summary"><p>Return a state from initial configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual State_T markov::Model&lt;State, Transition, Cost&gt;::get_initial_configuration_state() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1ae6e06919a7deb6a7b9c61ea9c73fccfa" data-uid="classmarkov_1_1Model_1ae6e06919a7deb6a7b9c61ea9c73fccfa">get_random_transition()</h4>
+  <div class="markdown level1 summary"><p>Return a random transition starting at state.</p>
+<p>The various algorithms don't know how to move throuhg markov space; this allows them to pick a random direction given a starting point.</p>
+<ol>
+<li>By definition, the next markov state should only depend on the current one, so only the last one is passed to this function.</li>
+<li>&quot;random&quot; does not necessitate equi-distributed here (you may choose a different distribution if your model dictates it). However, the the typical choise is to pick randomly from all possible moves at state with equal probability.</li>
+</ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual Transition_T markov::Model&lt;State, Transition, Cost&gt;::get_random_transition(const State_T&amp;state, utils::RandomGenerator&amp;rng) const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a8479649ab7b9fd0f59cc9b9fb26f8355" data-uid="classmarkov_1_1Model_1a8479649ab7b9fd0f59cc9b9fb26f8355">apply_transition()</h4>
+  <div class="markdown level1 summary"><p>Apply a transition to a state.</p>
+<p>This changes the configuration represented by <code>*state</code>. Depending on the optimization algorithm, transition can either be applied conditionally or alaways (e.g., population dynamics). Separating the functionality into the three interfaces <code>random_transition</code>, <code>calculate_cost_difference</code>, <code>apply_transition</code> leaves control over the strategy with the optimization method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void markov::Model&lt;State, Transition, Cost&gt;::apply_transition(const Transition&amp;transition, State&amp;state) const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a8147a330f19b6bd1531f205c80a3ac7d" data-uid="classmarkov_1_1Model_1a8147a330f19b6bd1531f205c80a3ac7d">render_state()</h4>
+  <div class="markdown level1 summary"><p>Render a state of this model.</p>
+<p>Default implementation of how a state of this model is rendered (by' invoking the state's proper rendering mechanic). Overloading this method allows a model implementation to customize how a state is printed. This is relevant if the rendering needs to depend on model parameters in addition to the state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual utils::Structure markov::Model&lt;State, Transition, Cost&gt;::render_state(const State_T&amp;state) const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a62498d95dd1497935e5168cc0a090742" data-uid="classmarkov_1_1Model_1a62498d95dd1497935e5168cc0a090742">get_sweep_size()</h4>
+  <div class="markdown level1 summary"><p>Return the number of (attempted) transition to consider <code>one sweep</code>.</p>
+<p>This number is expected to scale roughly with the number of variables in the model such that, on average, each variable is selected once per sweep (if selected randomly).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual size_t markov::Model&lt;State, Transition, Cost&gt;::get_sweep_size() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a5f1f00ca1ea6ebf0443b18a84632a0af" data-uid="classmarkov_1_1Model_1a5f1f00ca1ea6ebf0443b18a84632a0af">get_term_count()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual size_t markov::Model&lt;State, Transition, Cost&gt;::get_term_count() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a07298e610e883fd0075e673c1e6e9284" data-uid="classmarkov_1_1Model_1a07298e610e883fd0075e673c1e6e9284">get_benchmark_properties()</h4>
+  <div class="markdown level1 summary"><p>Collect statistics about the model being simulated.</p>
+<p>The output of this method will appear in the <code>Response.benchmark.input_data</code> field. By default, we do not collect any model statistics  implementations of this interface must override this method to fill the output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual utils::Structure markov::Model&lt;State, Transition, Cost&gt;::get_benchmark_properties() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1ac309b74e14fc75626499bd127f665301" data-uid="classmarkov_1_1Model_1ac309b74e14fc75626499bd127f665301">render()</h4>
+  <div class="markdown level1 summary"><p>render the object in structured form</p>
+<p>Return a structured representation of the object. This is intended for output purposes. For instance, the solution your solver finds should have a render method which allows it to be returned as part of the result.
+Example:</p>
+<pre><code>{c++}
+ MySolution : public Component {
+  public:
+   // Represent the internal bool vector as +-1 output.
+   utils::Structure render() const override {
+     utils::Structure rendered;
+     for (bool item : solution_) rendered.push_back(item ? 1 : -1);
+     return rendered;
+   }
+
+  private:
+   std::vector&lt;bool&gt; solution_;
+ }
+
+ MySolution solution;
+ std::cout &lt;&lt; solution.render().to_string() &lt;&lt; std::endl;
+</code></pre>
+<p><a class="xref" href="../utils/structure.html">utils::Structure</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure markov::Model&lt;State, Transition, Cost&gt;::render() const override</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1aa756823be62324daeb2142e82e17555b" data-uid="classmarkov_1_1Model_1aa756823be62324daeb2142e82e17555b">is_rescaled()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual bool markov::Model&lt;State, Transition, Cost&gt;::is_rescaled() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1ab15fdb0eee72157fb9cac399b3fab9df" data-uid="classmarkov_1_1Model_1ab15fdb0eee72157fb9cac399b3fab9df">rescale()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual void markov::Model&lt;State, Transition, Cost&gt;::rescale()</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a89cf1485d832e24e519b6be3314bdabe" data-uid="classmarkov_1_1Model_1a89cf1485d832e24e519b6be3314bdabe">get_scale_factor()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual Cost_T markov::Model&lt;State, Transition, Cost&gt;::get_scale_factor() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1ae7894461c5805d3483603562d1da72b6" data-uid="classmarkov_1_1Model_1ae7894461c5805d3483603562d1da72b6">get_const_cost()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual Cost_T markov::Model&lt;State, Transition, Cost&gt;::get_const_cost() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a89cf9414ebb5ca464fd1157d794f14b5" data-uid="classmarkov_1_1Model_1a89cf9414ebb5ca464fd1157d794f14b5">is_empty()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual bool markov::Model&lt;State, Transition, Cost&gt;::is_empty() const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1ab0af596700f48b0b93269b2b7ac56328" data-uid="classmarkov_1_1Model_1ab0af596700f48b0b93269b2b7ac56328">state_memory_estimate()</h4>
+  <div class="markdown level1 summary"><p>Estimate memory consumption of model state and lowest state in bytes, using paramters known by model. Numerous states will be created by solvers. Estimation of memory consumption is needed to avoid memory overflow. States may have complex nature, so knowledge of model parameters should be used for accurate estimation. For prototype models return 0 could be used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual size_t markov::Model&lt;State, Transition, Cost&gt;::state_memory_estimate() const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a3862410b661159f0765fc2cd0af1bf4a" data-uid="classmarkov_1_1Model_1a3862410b661159f0765fc2cd0af1bf4a">state_only_memory_estimate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual size_t markov::Model&lt;State, Transition, Cost&gt;::state_only_memory_estimate() const =0</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a16e50b29d0342d441f34157ac474f752" data-uid="classmarkov_1_1Model_1a16e50b29d0342d441f34157ac474f752">estimate_max_cost_diff()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual double markov::Model&lt;State, Transition, Cost&gt;::estimate_max_cost_diff() const</code></pre>
+  </div>
+
+
+  <h4 id="classmarkov_1_1Model_1a87c67c7bab068289c6266fdc8ea494f3" data-uid="classmarkov_1_1Model_1a87c67c7bab068289c6266fdc8ea494f3">estimate_min_cost_diff()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual double markov::Model&lt;State, Transition, Cost&gt;::estimate_min_cost_diff() const</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

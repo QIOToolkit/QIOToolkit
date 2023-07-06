@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class utils::Component
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class utils::Component
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classutils_1_1Component">
+
+
+
+  <h1 id="classutils_1_1Component" data-uid="classutils_1_1Component" class="text-break">Class utils::Component
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="component.html">Component</a> base class.</p>
+<p>The component base class provides quality-of-life functionality for any class derived from it:</p>
+<ul>
+<li>It can be initialized from json via its <a class="xref" href="component.html#classutils_1_1Component_1a10f9a4832356cafa800fc583e17a1ad4"><code>configure()</code></a> method</li>
+<li>It is rendered in &quot;structured&quot; form via <a class="xref" href="component.html#classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e"><code>render()</code></a> when assigned to an <a class="xref" href="structure.html"><code>utils::Structure</code></a>.</li>
+<li>Its class name is accessible via <a class="xref" href="component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9"><code>get_class_name()</code></a></li>
+<li>When passed to an ostream (or <code>LOG</code>), it is represented as '&lt;ClassName: status&gt;' where the status is given by <a class="xref" href="component.html#classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347"><code>get_status()</code></a></li>
+</ul>
+<p>While <a class="xref" href="component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9"><code>get_class_name()</code></a> works out-of-the-box, the appropriate functionality must be implemented by overloading the others accordingly.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">utils::Component</span></div>
+      <div class="level1"><a class="xref" href="../graph/compact-graph.html">graph::CompactGraph</a></div>
+      <div class="level1"><a class="xref" href="../graph/edge.html">graph::Edge</a></div>
+      <div class="level1"><a class="xref" href="../graph/face.html">graph::Face</a></div>
+      <div class="level1"><a class="xref" href="../graph/graph.html">graph::Graph</a></div>
+      <div class="level1"><a class="xref" href="../graph/node.html">graph::Node</a></div>
+      <div class="level1"><a class="xref" href="../markov/cluster-walker.html">markov::ClusterWalker</a></div>
+      <div class="level1"><a class="xref" href="../markov/state.html">markov::State</a></div>
+      <div class="level1"><a class="xref" href="../markov/transition.html">markov::Transition</a></div>
+      <div class="level1"><a class="xref" href="../markov/walker.html">markov::Walker</a></div>
+      <div class="level1"><a class="xref" href="../model/base-model.html">model::BaseModel</a></div>
+      <div class="level1"><a class="xref" href="../model/terms.html">model::Terms</a></div>
+      <div class="level1"><a class="xref" href="../model/terms/term.html">model::Terms::Term</a></div>
+      <div class="level1"><a class="xref" href="../model/terms/variable.html">model::Terms::Variable</a></div>
+      <div class="level1"><a class="xref" href="../observe/observable.html">observe::Observable</a></div>
+      <div class="level1"><a class="xref" href="../observe/windowed/value-and-weight.html">observe::Windowed::ValueAndWeight</a></div>
+      <div class="level1"><a class="xref" href="../schedule/schedule.html">schedule::Schedule</a></div>
+      <div class="level1"><a class="xref" href="../schedule/schedule-generator.html">schedule::ScheduleGenerator</a></div>
+      <div class="level1"><a class="xref" href="../solver/evaluation-counter.html">solver::EvaluationCounter</a></div>
+      <div class="level1"><a class="xref" href="../solver/population.html">solver::Population</a></div>
+      <div class="level1"><a class="xref" href="../strategy/base-opt.html">strategy::BaseOpt</a></div>
+      <div class="level1"><a class="xref" href="../strategy/gdparameters.html">strategy::GDParameters</a></div>
+      <div class="level1"><a class="xref" href="component-with-output.html">utils::ComponentWithOutput</a></div>
+      <div class="level1"><a class="xref" href="dimacs/clause.html">utils::Dimacs::Clause</a></div>
+      <div class="level1"><a class="xref" href="range.html">utils::Range</a></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classutils_1_1Component_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e" data-uid="classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Component::Component()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0" data-uid="classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">virtual utils::Component::~Component()</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Component_1a10f9a4832356cafa800fc583e17a1ad4" data-uid="classutils_1_1Component_1a10f9a4832356cafa800fc583e17a1ad4">configure()</h4>
+  <div class="markdown level1 summary"><p>configure the object from input</p>
+<p>Initialize the object's state from the input <code>utils::Config</code>. This is done by declaring which required and optional parameters are associated with the fields of this object. During initialization, they are checked for their presence, type and any matchers.
+Example:</p>
+<pre><code class="lang-cpp">MyClass : public Component {
+ public:
+  void configure(const utils::Json&amp; json) override {
+    this-&gt;param(json, &quot;number&quot;, my_number)
+        .description(&quot;some description&quot;)
+        .matches(GreaterEquals(0))
+        .required();
+    this-&gt;param(json, &quot;name&quot;, my_name)
+        .description(&quot;some description&quot;)
+        .matches(SizeIs(GreaterThan(0)))
+        .default_value(&quot;no_name&quot;);
+  }
+
+ private:
+  int my_number;
+  std::string my_name;
+}
+
+MyClass my_object;
+my_object.configure(utils::json_from_string(R&quot;(
+  {
+    &quot;number&quot;: 42,
+    &quot;name&quot;: &quot;hello&quot;
+  }
+)&quot;));
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, nothing is configured from input. You need to overload this method if you want to use this functionality. Don't forget to call the configure method of the parent class if it also needs to be configured (this is not the case for <a class="xref" href="component.html"><code>utils::Component</code></a> itself).
+HINT: Parameters are not limited to scalars and strings; Any component can be a parameter; in which case it is initialized using its own configure method.
+<a href="xref:namespaceutils_1a9ee2992f089a04f76508e676783d5931">utils::Json</a></p>
+</div>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void utils::Component::configure(const utils::Json&amp;json)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1" data-uid="classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param()</h4>
+  <div class="markdown level1 summary"><p>Assign a parameter from a json field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">ParameterBuilder&lt;utils::Component, T&gt;utils::Component::param(const utils::Json&amp;json, const std::string&amp;name, T&amp;parameter)</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e" data-uid="classutils_1_1Component_1a484e66978910fd8ad4f5e8123e276c8e">render()</h4>
+  <div class="markdown level1 summary"><p>render the object in structured form</p>
+<p>Return a structured representation of the object. This is intended for output purposes. For instance, the solution your solver finds should have a render method which allows it to be returned as part of the result.
+Example:</p>
+<pre><code>{c++}
+ MySolution : public Component {
+  public:
+   // Represent the internal bool vector as +-1 output.
+   utils::Structure render() const override {
+     utils::Structure rendered;
+     for (bool item : solution_) rendered.push_back(item ? 1 : -1);
+     return rendered;
+   }
+
+  private:
+   std::vector&lt;bool&gt; solution_;
+ }
+
+ MySolution solution;
+ std::cout &lt;&lt; solution.render().to_string() &lt;&lt; std::endl;
+</code></pre>
+<p><a class="xref" href="structure.html">utils::Structure</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure utils::Component::render() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347" data-uid="classutils_1_1Component_1aeae1ec0db8ea4a4e836816838d46b347">get_status()</h4>
+  <div class="markdown level1 summary"><p>get_status shows a simplified state representation</p>
+<p>Like <code>render</code>, this produces a structured representation of the object's state. However, it is intended to be simpler in nature with the purpose of rendering the object during stream-output and logging. By default, it will fall back to the full <code>render</code>, but overloading this allows distinguising how the object looks during LOG vs full output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure utils::Component::get_status() const</code></pre>
+  </div>
+
+
+  <h4 id="classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9" data-uid="classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name()</h4>
+  <div class="markdown level1 summary"><p>get_class_name shows an identifier of the (derived) class name</p>
+<p>Its primary use is for type identification during stream output and logging, where a component is rendered as <code>&lt;ClassName: status&gt;</code>.
+Example:</p>
+<pre><code>{c++}
+ MyClass : public Component {}
+
+ // This will render as '&lt;MyClass&gt;'
+ MyClass my_object;
+ std::cout &lt;&lt; my_object &lt;&lt; std::endl;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You do not need to overload this method unless you want to change the output of the default implementation.</p>
+</div>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">std::string utils::Component::get_class_name() const</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

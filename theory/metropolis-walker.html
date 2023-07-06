@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Metropolis Walker | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Metropolis Walker | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.theory.metropolis-walker">
+<h1 id="metropolis-walker">Metropolis Walker</h1>
+
+<p>The Boltzmann weight describes the likelyhood of finding a physical system
+in a state <span class="math">\(`s`\)</span> at a given temperature <span class="math">\(`T`\)</span>:</p>
+<pre><code class="lang-math">  p(s) \propto e^{-E(s)/k_B T}
+</code></pre>
+<p>where <span class="math">\(`E(s)`\)</span> is the energy of the system in state <span class="math">\(`s`\)</span> (in the context of
+optimization, this is often referred to as the &quot;cost function&quot;). The actual
+value of <span class="math">\(`p(s)`\)</span> could be obtained via normalization:</p>
+<pre><code class="lang-math">  p(s) = \frac{e^{-E(s)/k_BT}}{Z},\quad Z = \sum_{s'} e^{-E(s')/k_B T}
+</code></pre>
+<p>where the normalizing denominator <span class="math">\(`Z`\)</span> is called the &quot;partition function&quot; and
+the sum is over all possible states of the system. For configuration spaces
+of interesting optimization problems, <span class="math">\(`Z`\)</span> is typically intractable (that is,
+the number of possible configurations is too large to compute it).</p>
+<p><em>NOTE</em>: The lower the temperature <span class="math">\(`T`\)</span>, the highter the weight-discrepancy
+between &quot;low energy&quot; and &quot;high energy&quot; states. In the limit <span class="math">\(`T \to 0`\)</span>, the
+weight of all but the lowest energy state vanishes and we find the system in
+this &quot;ground state&quot; with probability <span class="math">\(`1`\)</span>.</p>
+<h2 id="randomized-sampling">Randomized Sampling</h2>
+<p>The metropolis algorithm describes a markov chain approach for
+randomized sampling of a system's states with their sampling probability
+converging to the Boltzmann weight. To extend the markov chain, a random next
+state is proposed and accepted with probability</p>
+<pre><code class="lang-math">  p(s\to s') =
+  \begin{cases}
+    e^{-(E(s')-E(s))/k_BT},&amp; \text{if } E(s') &gt; E(s)\\
+    1,              &amp; \text{otherwise.}
+  \end{cases}
+</code></pre>
+<p>That is, we always accept a move to a lower-energy state, but only allow
+increases depending on the energy difference <span class="math">\(`\Delta_E`\)</span> and temperature
+<span class="math">\(`T`\)</span>. This sampling approach can be proven to
+converge to the Boltzmann distribution in the
+long-term limit.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Metropolis sampling is implemented as a specialization of the
+<a href="../api/markov/walker.html"><code>Walker</code></a> base class:</p>
+<pre><code>:::cpp linenums=False
+template &lt;class Model&gt;
+class Metropolis : public Walker&lt;Model&gt; {
+ public:
+  /// Decide whether to accept a given cost increase.
+  bool accept(double cost_diff) override {
+    return cost_diff &lt;= 0 ||
+           Walker&lt;Model&gt;::random_number_generator_-&gt;uniform() &lt;
+           exp(-cost_diff * beta_);
+  }
+
+  /// Set the sampling temperature (also updates beta_).
+  void set_temperature(double temperature);
+};
+</code></pre>
+<p>where the selection of a random next state and conditional application
+of the proposed transition is implemented in the <a href="../api/markov/walker.html"><code>Walker</code></a>
+base class.</p>
+<p><em>NOTE</em>: For optimization problems it is customary to set the Boltzmann
+constant to <span class="math">\(`k_B\equiv 1`\)</span> and work with the inverse temperature
+<span class="math">\(`\beta=1/T`\)</span>.</p>
+<h2 id="usage">Usage</h2>
+<p>The <code>Metropolis</code> class is used by solvers which rely on Boltzmann
+sampling, such as <a href="../api/solver/parallel-tempering.html"><code>ParallelTempering</code></a>,
+<a href="../api/solver/simulated-annealing.html"><code>SimulatedAnnealing</code></a> and
+<a href="../api/solver/population-annealing.html"><code>PopulationAnnealing</code></a>.</p>
+<p><strong>Instantiation</strong>: The class of the <a href="../api/model/index.html">model</a> to be sampled is specified
+as a template argument to the <code>Metropolis</code> class. This defines both the model
+used for cost function evaluation and the type of state (<code>Model::State_T</code>) in
+the markov chain.</p>
+<p><strong>Preparation</strong>: <code>Metropolis</code> instance initialization requires the following
+steps prior to calls to the <code>make_step()</code> method (inherited from <code>Walker</code>):</p>
+<ul>
+<li><code>set_model(&amp;your_model)</code> must be called with a pointer to an instance of
+the model to use (not owned).</li>
+<li><code>set_random_number_generator(&amp;your_rng)</code> must be called with a pointer to
+the random number generator to use (now owned).</li>
+<li><code>set_temperature(double)</code> must be called with the desired sampling
+temperature (the default value is <span class="math">\(`T=1`\)</span>).</li>
+<li><code>init()</code> must be invoked after the model and rng have been assigned
+(and before <code>make_step()</code> is called).</li>
+</ul>
+<p>Both <code>your_model</code> and <code>your_rng</code> are &quot;not owned&quot;, meaning they must be
+instantiated by the caller and must outlive the last call to <code>make_step()</code></p>
+<p><em>NOTE</em>: This delegation of ownership for the <code>Model</code> and
+<code>RandomNumberGenerator</code> allows the caller to manage the number of instances
+for each (e.g., avoid multiple models; rng's as needed for multi-threading).</p>
+<p><strong>Introspection</strong>: As a <a href="../api/markov/walker.html"><code>Walker</code></a>, each metropolis instance keeps track of the
+last state in the markov chain and caches its current energy. In particular,
+the calls to <code>state()</code> and <code>cost()</code> are <span class="math">\(`O(1)`\)</span>.</p>
+<h2 id="example">Example</h2>
+<pre><code>#!cpp
+#include &quot;random/generator.h&quot;
+#include &quot;markov/metropolis.h
+#include &quot;solver/test/test_model.h&quot;
+
+int main() {
+  // Prepare objects not owned by metropolis.
+  TestModel model;
+  common::RandomNumberGenerator rng;
+  rng.seed(42);
+
+  // Initialize the metropolis instance.
+  Metropolis&lt;TestModel&gt; metropolis;
+  metropolis.set_model(&amp;model);
+  metropolis.set_rng(&amp;rng)
+  metropolis.set_temperature(0.1);
+  metropolis.init();
+
+  // Attempt 50 metropolis steps
+  for (int i = 0; i &lt; 50; i++) {
+    metropolis.make_step();
+    std::cout &lt;&lt; metropolis.state() &lt;&lt; &quot; &quot; &lt;&lt; metropolis.cost() &lt;&lt; std::endl;
+  }
+
+  return 0;
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

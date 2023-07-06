@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class graph::Face
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class graph::Face
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classgraph_1_1Face">
+
+
+
+  <h1 id="classgraph_1_1Face" data-uid="classgraph_1_1Face" class="text-break">Class graph::Face
+</h1>
+  <div class="markdown level0 summary"><p>Base representation of a face.</p>
+<p>A face consists of a (face) type, a weight cost, and a list of component edge IDs</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="../utils/component.html">utils::Component</a></div>
+    <div class="level1"><span class="xref">graph::Face</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1a67f7229e49ecc957127b904d2c05faf0">~Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1abc05fa4fae9c9abe1f75c4067a091f0e">Component</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af1daab803f61f97172643a3572afe3a1">param</a>
+    </div>
+    <div>
+      <a class="xref" href="../utils/component.html#classutils_1_1Component_1af536c38ae6be0c1dfc5f7a62c32001d9">get_class_name</a>
+    </div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classgraph_1_1Face_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classgraph_1_1Face_1ae1a7c208132ad39ac463c2a8c0b79473" data-uid="classgraph_1_1Face_1ae1a7c208132ad39ac463c2a8c0b79473">Face()</h4>
+  <div class="markdown level1 summary"><p>Default constructor for an empty face.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::Face&lt;Cost&gt;::Face()</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a81b0da7c4b2796c5506ded42e94229a3" data-uid="classgraph_1_1Face_1a81b0da7c4b2796c5506ded42e94229a3">Face()</h4>
+  <div class="markdown level1 summary"><p>Constructor with type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::Face&lt;Cost&gt;::Face(const FaceType type)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a3a319c5ca03633434fe93102267a63a6" data-uid="classgraph_1_1Face_1a3a319c5ca03633434fe93102267a63a6">Face()</h4>
+  <div class="markdown level1 summary"><p>Constructor with cost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::Face&lt;Cost&gt;::Face(const Cost c)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a6caf762c203522ff3e202e33f2fca325" data-uid="classgraph_1_1Face_1a6caf762c203522ff3e202e33f2fca325">Face()</h4>
+  <div class="markdown level1 summary"><p>Constructor with type and cost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::Face&lt;Cost&gt;::Face(const FaceType type, const Cost c)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a4f5914729c073f6535f379fcb57f3832" data-uid="classgraph_1_1Face_1a4f5914729c073f6535f379fcb57f3832">Face()</h4>
+  <div class="markdown level1 summary"><p>Constructor with edge ID list initialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::Face&lt;Cost&gt;::Face(const std::vector&lt;int&gt;&amp;edge_ids)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a590dc97e8ae6a9633fc3dc932b4f148f" data-uid="classgraph_1_1Face_1a590dc97e8ae6a9633fc3dc932b4f148f">Face()</h4>
+  <div class="markdown level1 summary"><p>Constructor with type, cost, and edge ID list initialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">graph::Face&lt;Cost&gt;::Face(const FaceType type, const Cost c, const std::vector&lt;int&gt;&amp;edge_ids)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classgraph_1_1Face_1adab160ed497240b76629c08ec3ebe164" data-uid="classgraph_1_1Face_1adab160ed497240b76629c08ec3ebe164">edge_ids()</h4>
+  <div class="markdown level1 summary"><p>Accessor for the list of edge IDs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const std::vector&lt;int&gt;&amp;graph::Face&lt;Cost&gt;::edge_ids() const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1aaf64b96b024949eefb0334422fa616bd" data-uid="classgraph_1_1Face_1aaf64b96b024949eefb0334422fa616bd">type()</h4>
+  <div class="markdown level1 summary"><p>Accessor for face type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const FaceType&amp;graph::Face&lt;Cost&gt;::type() const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1ac2aa5514259b47b1189edc6894b4ccf3" data-uid="classgraph_1_1Face_1ac2aa5514259b47b1189edc6894b4ccf3">cost()</h4>
+  <div class="markdown level1 summary"><p>Accessor for the cost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">Cost graph::Face&lt;Cost&gt;::cost() const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a49bd11579acf0ca697f1fe79faffd2df" data-uid="classgraph_1_1Face_1a49bd11579acf0ca697f1fe79faffd2df">set_cost()</h4>
+  <div class="markdown level1 summary"><p>Setter for the cost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Face&lt;Cost&gt;::set_cost(Cost cost)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1adb66b41f2f4c9e5f9c79e9e63f117a30" data-uid="classgraph_1_1Face_1adb66b41f2f4c9e5f9c79e9e63f117a30">sort_edge_ids()</h4>
+  <div class="markdown level1 summary"><p>Order the list of edge IDs ascendingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Face&lt;Cost&gt;::sort_edge_ids()</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1aa61aa44d1058ecd91d828766ce63ba3f" data-uid="classgraph_1_1Face_1aa61aa44d1058ecd91d828766ce63ba3f">add_edge_id()</h4>
+  <div class="markdown level1 summary"><p>Append an edge ID to the end of the edge ID list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Face&lt;Cost&gt;::add_edge_id(int edge_id)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1afdbd5b14124b5b68ee2dfbba686e3f8e" data-uid="classgraph_1_1Face_1afdbd5b14124b5b68ee2dfbba686e3f8e">remove_edge_id()</h4>
+  <div class="markdown level1 summary"><p>Find and remove an edge ID from the edge ID list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Face&lt;Cost&gt;::remove_edge_id(int edge_id)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a36ba980efa44b99e599d59808dff8a0b" data-uid="classgraph_1_1Face_1a36ba980efa44b99e599d59808dff8a0b">configure()</h4>
+  <div class="markdown level1 summary"><p>Serialize the face.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Face&lt;Cost&gt;::configure(const utils::Json&amp;json) override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1afc6ee3724346aa5f4911ee65216b65d9" data-uid="classgraph_1_1Face_1afc6ee3724346aa5f4911ee65216b65d9">render()</h4>
+  <div class="markdown level1 summary"><p>render the object in structured form</p>
+<p>Return a structured representation of the object. This is intended for output purposes. For instance, the solution your solver finds should have a render method which allows it to be returned as part of the result.
+Example:</p>
+<pre><code>{c++}
+ MySolution : public Component {
+  public:
+   // Represent the internal bool vector as +-1 output.
+   utils::Structure render() const override {
+     utils::Structure rendered;
+     for (bool item : solution_) rendered.push_back(item ? 1 : -1);
+     return rendered;
+   }
+
+  private:
+   std::vector&lt;bool&gt; solution_;
+ }
+
+ MySolution solution;
+ std::cout &lt;&lt; solution.render().to_string() &lt;&lt; std::endl;
+</code></pre>
+<p><a class="xref" href="../utils/structure.html">utils::Structure</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure graph::Face&lt;Cost&gt;::render() const override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a79aa0abc656cf9f8441e4e8908e56fab" data-uid="classgraph_1_1Face_1a79aa0abc656cf9f8441e4e8908e56fab">get_status()</h4>
+  <div class="markdown level1 summary"><p>get_status shows a simplified state representation</p>
+<p>Like <code>render</code>, this produces a structured representation of the object's state. However, it is intended to be simpler in nature with the purpose of rendering the object during stream-output and logging. By default, it will fall back to the full <code>render</code>, but overloading this allows distinguising how the object looks during LOG vs full output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">utils::Structure graph::Face&lt;Cost&gt;::get_status() const override</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1ad6d28cb1b26f1adca7b58b04a8646cf4" data-uid="classgraph_1_1Face_1ad6d28cb1b26f1adca7b58b04a8646cf4">rescale()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void graph::Face&lt;Cost&gt;::rescale(double scale_factor)</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a1192819ae3ea9b13afbf8b180f5b1831" data-uid="classgraph_1_1Face_1a1192819ae3ea9b13afbf8b180f5b1831">edges_count()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t graph::Face&lt;Cost&gt;::edges_count() const</code></pre>
+  </div>
+
+
+  <h4 id="classgraph_1_1Face_1a2c657941270d477ba8cf2d92a0704253" data-uid="classgraph_1_1Face_1a2c657941270d477ba8cf2d92a0704253">memory_estimate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static size_t graph::Face&lt;Cost&gt;::memory_estimate(size_t num_edges)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span>
+              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,5 +1,0 @@
-api/**/*.yml
-doxygen/
-_site/
-templates/default
-templates/cpp/partials/footer.tmpl.partial
