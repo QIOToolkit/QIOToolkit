@@ -1,8 +1,8 @@
 ---
 title: Anatomy of a Request
 description: This tutorial outlines the anatomy of a request
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.usage.request
+topic: article
+uid: qiotoolkit.tutorial.usage.request
 ---
 
 Anatomy of a Request

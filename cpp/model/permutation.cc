@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "model/permutation.h"
 
 namespace model

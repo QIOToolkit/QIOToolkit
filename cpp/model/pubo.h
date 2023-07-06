@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <limits>
@@ -124,6 +124,8 @@ class AbstractPubo : public GraphModel<State_T, size_t, Cost_T>
     return State_T::state_only_memory_estimate(nodes().size());
   }
 
+  // Details about the algorithm used can be found at
+  // https://microsoft.sharepoint.com/:b:/r/teams/QuArC6/Shared%20Documents/Optimization/beta.pdf?csf=1&web=1&e=XA3qN9
   double estimate_min_cost_diff() const override
   {
     auto nodes = this->graph_.nodes();
@@ -566,6 +568,8 @@ class PuboCompact
     return State_T::state_only_memory_estimate(this->graph_.nodes_size());
   }
 
+  // Details about the algorithm used can be found at
+  // https://microsoft.sharepoint.com/:b:/r/teams/QuArC6/Shared%20Documents/Optimization/beta.pdf?csf=1&web=1&e=XA3qN9
   double estimate_min_cost_diff() const override
   {
     graph::CompactGraphVisitor reader;

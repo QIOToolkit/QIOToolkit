@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <memory>
@@ -142,8 +142,8 @@ class Runner
 
   bool inline target_support_memory_saving() const
   {
-    return target_ != "microsoft.substochasticmontecarlo-parameterfree.cpu" &&
-           target_ != "microsoft.substochasticmontecarlo.cpu";
+    return target_ != "substochasticmontecarlo-parameterfree.cpu" &&
+           target_ != "substochasticmontecarlo.cpu";
   }
 
   bool inline model_support_memory_saving() const

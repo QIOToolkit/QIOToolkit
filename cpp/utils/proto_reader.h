@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <fstream>
@@ -13,11 +13,11 @@
 
 namespace utils
 {
-std::unordered_map<AzureQuantum::Problem_ProblemType, std::string> model_type =
-    {{AzureQuantum::Problem_ProblemType_PUBO, "pubo"},
-     {AzureQuantum::Problem_ProblemType_ISING, "ising"},
-     {AzureQuantum::Problem_ProblemType_MAXSAT, "maxsat"},
-     {AzureQuantum::Problem_ProblemType_SOFTSPIN, "softspin"}};
+std::unordered_map<QuantumUtil::Problem_ProblemType, std::string> model_type =
+    {{QuantumUtil::Problem_ProblemType_PUBO, "pubo"},
+     {QuantumUtil::Problem_ProblemType_ISING, "ising"},
+     {QuantumUtil::Problem_ProblemType_MAXSAT, "maxsat"},
+     {QuantumUtil::Problem_ProblemType_SOFTSPIN, "softspin"}};
 
 class ProtoReader
 {
@@ -30,7 +30,7 @@ class ProtoReader
   {
     unsigned file_count = 0;
     unsigned term_count = 0;
-    AzureQuantum::Problem problem;
+    QuantumUtil::Problem problem;
     std::fstream file_handler;
 
     // extract foldername from the path
@@ -65,9 +65,9 @@ class ProtoReader
       problem.ParseFromIstream(&file_handler);
       if (problem.has_cost_function())
       {
-        const AzureQuantum::Problem_CostFunction& cost_function =
+        const QuantumUtil::Problem_CostFunction& cost_function =
             problem.cost_function();
-        const google::protobuf::RepeatedPtrField<AzureQuantum::Problem_Term>&
+        const google::protobuf::RepeatedPtrField<QuantumUtil::Problem_Term>&
             terms = cost_function.terms();
         if (file_count == 0)  // Read the first file with the version, type and
                               // start of terms array
@@ -75,7 +75,7 @@ class ProtoReader
           handler_proxy.StartObject();  // Start the cost function
           handler_proxy.Key("cost_function");
 
-          AzureQuantum::Problem_ProblemType type = cost_function.type();
+          QuantumUtil::Problem_ProblemType type = cost_function.type();
           if (model_type.find(type) == model_type.end())
           {
             THROW(
@@ -85,7 +85,7 @@ class ProtoReader
           }
 
           std::string version = cost_function.version();
-          if (type == AzureQuantum::Problem_ProblemType_SOFTSPIN)
+          if (type == QuantumUtil::Problem_ProblemType_SOFTSPIN)
           {
             if (version != "0.1" && !version.empty())
             {
@@ -100,8 +100,8 @@ class ProtoReader
                   "Expected version to be 1.0 or 1.1. Provided: ", version);
           }
 
-          if (type == AzureQuantum::Problem_ProblemType_ISING ||
-              type == AzureQuantum::Problem_ProblemType_PUBO)
+          if (type == QuantumUtil::Problem_ProblemType_ISING ||
+              type == QuantumUtil::Problem_ProblemType_PUBO)
           {
             if (cost_function.terms_size() == 0)
             {
@@ -149,16 +149,16 @@ class ProtoReader
   // Parsing a vector of Terms. Akin to a Graph
   template <typename StreamHandler>
   bool Parse(const google::protobuf::RepeatedPtrField<
-                 AzureQuantum::Problem_Term>& terms,
+                 QuantumUtil::Problem_Term>& terms,
              utils::PROTOHandlerProxy<StreamHandler>& handler_proxy,
              unsigned& num_terms)
   {
-    uint64_t term_size = terms.size();
+    unsigned term_size = terms.size();
     bool parse_res = false;
 
     for (unsigned i = 0; i < term_size; i++)
     {
-      AzureQuantum::Problem_Term term = terms.Get(i);
+      QuantumUtil::Problem_Term term = terms.Get(i);
       parse_res &= Parse(term, handler_proxy);
     }
     num_terms += term_size;
@@ -167,7 +167,7 @@ class ProtoReader
 
   // Parsing a single term. Akin to an Edge
   template <typename StreamHandler>
-  bool Parse(const AzureQuantum::Problem_Term& term,
+  bool Parse(const QuantumUtil::Problem_Term& term,
              utils::PROTOHandlerProxy<StreamHandler>& handler_proxy)
   {
     uint32_t id_size = term.ids_size();

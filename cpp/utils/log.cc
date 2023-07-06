@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "utils/log.h"
 
 #include "utils/operating_system.h"

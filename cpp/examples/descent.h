@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include "utils/random_generator.h"
@@ -16,7 +16,7 @@ class Descent : public ::solver::SteppingSolver<Model_T>
 
   std::string get_identifier() const override
   {
-    return "microsoft.descent.qiotoolkit";
+    return "descent.qiotoolkit";
   }
 
   void configure(const utils::Json& json) override

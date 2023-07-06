@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <vector>
@@ -32,7 +32,7 @@ class QuantumMonteCarlo : public SteppingSolver<Model_T>
   /// Identifier of this solver (`target` in the request)
   std::string get_identifier() const override
   {
-    return "microsoft.quantummontecarlo.qiotoolkit";
+    return "quantummontecarlo.qiotoolkit";
   }
 
   std::string init_memory_check_error_message() const override

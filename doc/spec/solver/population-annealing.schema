@@ -7,7 +7,7 @@
   "properties": {
     "target": {
       "type": "string",
-      "const": "microsoft.populationannealing.qiotoolkit"
+      "const": "populationannealing.qiotoolkit"
     },
     "input_params": {
       "type": "object",

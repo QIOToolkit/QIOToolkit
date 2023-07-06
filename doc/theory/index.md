@@ -1,8 +1,8 @@
 ---
 title: Theory
 description: This document gives an overview of theory topics.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.theory
+topic: article
+uid: qiotoolkit.theory
 ---
 
 Theory

@@ -1,8 +1,8 @@
 ---
 title: Solvers
 description: This lists available solver specifications
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.solver
+topic: article
+uid: qiotoolkit.spec.solver
 ---
 
 Built-in Solvers

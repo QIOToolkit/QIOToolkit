@@ -1,8 +1,8 @@
 ---
 title: Model Development
 description: This explains how to implement a new model in qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.dev.model
+topic: article
+uid: qiotoolkit.dev.model
 ---
 
 Model Development

@@ -1,8 +1,8 @@
 ---
 title: Clock model
 description: This document describes the input format for the clock model.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.model.clock
+topic: article
+uid: qiotoolkit.spec.model.clock
 ---
 
 Clock Spin Glass

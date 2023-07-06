@@ -24,8 +24,6 @@ sudo apt-get install -y libboost-all-dev=1.65.1.0ubuntu1
 ==Build Dev Evironment
 For Linux
 	run setup/linuxsetup.sh
-For Windows
-	run setup/windowssetup.ps1
 
 ==Build System
 

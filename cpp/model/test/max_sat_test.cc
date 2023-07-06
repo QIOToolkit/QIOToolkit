@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "../max_sat.h"
 
 #include <cmath>
@@ -335,13 +335,13 @@ TEST(MaxSat, MinCostEqual)
 TEST_F(MaxSatTest, RunsWithSolvers)
 {
   std::vector<std::string> solvers = {
-      "microsoft.populationannealing-parameterfree.cpu",
-      "microsoft.simulatedannealing-parameterfree.qiotoolkit",      
-      "microsoft.substochasticmontecarlo-parameterfree.cpu",
-      "microsoft.simulatedannealing.qiotoolkit",
-      "microsoft.paralleltempering.qiotoolkit",
-      "microsoft.populationannealing.cpu",
-      "microsoft.substochasticmontecarlo.cpu"};
+      "populationannealing-parameterfree.cpu",
+      "simulatedannealing-parameterfree.qiotoolkit",      
+      "substochasticmontecarlo-parameterfree.cpu",
+      "simulatedannealing.qiotoolkit",
+      "paralleltempering.qiotoolkit",
+      "populationannealing.cpu",
+      "substochasticmontecarlo.cpu"};
   auto params = utils::json_from_string(R"({"params": {"seed": 1}})");
   for (const auto& solver_name : solvers)
   {

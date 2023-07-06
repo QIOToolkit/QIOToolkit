@@ -1,8 +1,8 @@
 ---
 title: Potts Model
 description: This document describes the input format for the Potts model.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.model.potts
+topic: article
+uid: qiotoolkit.spec.model.potts
 ---
 
 Potts Spin Glass

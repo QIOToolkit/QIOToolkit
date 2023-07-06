@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "utils/qio_signal.h"
 
 #include <signal.h>

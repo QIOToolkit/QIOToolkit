@@ -1,8 +1,8 @@
 ---
 title: Configuration
 description: This explains setting up configuration infrastructure.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.dev.configuration
+topic: article
+uid: qiotoolkit.dev.configuration
 ---
 
 Configuration

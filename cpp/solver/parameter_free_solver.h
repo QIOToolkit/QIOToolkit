@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 #include "utils/structure.h"
 #include "solver/stepping_solver.h"

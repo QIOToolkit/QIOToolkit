@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "../node.h"
 
 #include <cmath>
@@ -166,7 +166,7 @@ TEST(NodeWithFaces, AddsNodeId)
 
 TEST(Node, StreamProtoLoad)
 {
-  AzureQuantum::Problem_Term term;
+  QuantumUtil::Problem_Term term;
   term.set_c(3.4);
   term.add_ids(100);
   term.add_ids(101);

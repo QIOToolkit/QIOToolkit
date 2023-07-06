@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "solver/evaluation_counter.h"
 
 solver::EvaluationCounter operator+(const solver::EvaluationCounter& left,

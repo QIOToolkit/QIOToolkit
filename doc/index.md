@@ -1,8 +1,8 @@
 ---
 title: qiotoolkit
 description: This document introduces qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit
+topic: article
+uid: qiotoolkit
 ---
 
 <div style="width: 100%; max-width: 700px; margin: 0 auto; padding-right: 15%;">
@@ -15,9 +15,6 @@ Tools for rapid development, analysis and deployment of quantum inspired optimiz
 
 Content
 -------
-
-You can find the qiotoolkit source code on 
-[GitHub](https://github.com/QIOToolkit/QIOToolkit).
 This documentation contains:
 
 * [API](api/index.md): Documentation of the C++ interfaces of qiotoolkit components,

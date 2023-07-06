@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "utils/config.h"
 
 #include "utils/exception.h"

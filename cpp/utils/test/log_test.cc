@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "utils/log.h"
 
 #include "gtest/gtest.h"

@@ -1,8 +1,8 @@
 ---
 title: I/O Specifications
 description: This explains outlines qiotoolkit i/o specifications.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec
+topic: article
+uid: qiotoolkit.spec
 ---
 
 Specifications

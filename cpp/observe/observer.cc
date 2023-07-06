@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "observe/observer.h"
 
 #include "utils/config.h"

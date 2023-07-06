@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 // File for storing error handling related functions.
@@ -12,14 +12,14 @@
 namespace utils
 {
 // returns codes in form " _<subcode> " in 3 digits and with spaces
-// E.g. format_subcode(1) -> " _AZQ001 "
-// format_subcode(101) -> " _AZQ101 "
+// E.g. format_subcode(1) -> " _QTK001 "
+// format_subcode(101) -> " _QTK101 "
 inline std::string format_subcode(unsigned subcode)
 {
   std::ostringstream codeString;
   codeString << std::setw(3) << std::setfill('0') << subcode;
 
-  return " _AZQ" + codeString.str() + " ";
+  return " _QTK" + codeString.str() + " ";
 }
 
 enum Error

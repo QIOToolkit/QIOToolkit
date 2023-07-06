@@ -3,7 +3,7 @@
 rm -rf doxygen
 cd ..
 doxygen doxygen.config
-cd doc
+cd ./doc
 
 find api -iname "*yml" | grep -v "toc.yml" | while read file; do
   rm $file
@@ -28,7 +28,6 @@ cat templates/cpp/partials/footer.tmpl.partial.in | sed -e"s#{{GIT_BRANCH}}#`git
 rm -rf _site
 docfx
 
-find _site -iname "*.html" | while read file; do
-  sed -i -e"<site-url>" $file;
+find _site -iname "*.html" | while read file; do 
   sed -i -e"s#amp;version=GBdoc#amp;version=GBmaster#g" $file
 done

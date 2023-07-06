@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "strategy/linear_search.h"
 
 #include <assert.h>

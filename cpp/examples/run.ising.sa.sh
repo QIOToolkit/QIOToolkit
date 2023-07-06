@@ -7,7 +7,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
 
 ./app/qiotoolkit -v \
-  --solver microsoft.simulatedannealing.qiotoolkit \
+  --solver simulatedannealing.qiotoolkit \
   --parameters ../examples/params.sa.json \
   --input ../examples/input-data.ising.json \
   --output ../examples/output.ising.sa.json

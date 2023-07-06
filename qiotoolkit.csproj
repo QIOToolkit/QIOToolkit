@@ -1,8 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <NuspecFile>qiotoolkit.nuspec</NuspecFile>
-    <NuspecProperties>config=release</NuspecProperties>
-    <NuspecBasePath></NuspecBasePath>
-  </PropertyGroup>
-</Project>

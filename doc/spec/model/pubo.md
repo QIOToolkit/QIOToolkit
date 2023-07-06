@@ -1,8 +1,8 @@
 ---
 title: PUBO model
 description: This document describes the input format for the pubo model.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.model.pubo
+topic: article
+uid: qiotoolkit.spec.model.pubo
 ---
 
 PUBO

@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <fstream>
@@ -113,7 +113,7 @@ using ModelPreviewObjectHandler = utils::ObjectStreamHandler<
 
 // Function to write tp protobuf folder
 unsigned write_to_protobuf_folder(
-    std::string& folder_path, std::vector<AzureQuantum::Problem*>& problem_msgs)
+    std::string& folder_path, std::vector<QuantumUtil::Problem*>& problem_msgs)
 {
   // Writing 10 terms per message file
   unsigned file_count = 0;
@@ -142,23 +142,23 @@ unsigned write_to_protobuf_folder(
 }
 
 // Function to create a vector of problem messages for testing
-void create_test_proto_msgs(std::vector<AzureQuantum::Problem*>& problem_msgs)
+void create_test_proto_msgs(std::vector<QuantumUtil::Problem*>& problem_msgs)
 {
   std::ofstream out;
   for (unsigned p = 0; p < 4; p++)
   {
-    AzureQuantum::Problem* problem = new AzureQuantum::Problem();
-    AzureQuantum::Problem_CostFunction* cost_function =
+    QuantumUtil::Problem* problem = new QuantumUtil::Problem();
+    QuantumUtil::Problem_CostFunction* cost_function =
         problem->mutable_cost_function();
     if (p == 0)
     {
       // Add the version and type for the first message
       cost_function->set_version("1.0");
-      cost_function->set_type(AzureQuantum::Problem_ProblemType_ISING);
+      cost_function->set_type(QuantumUtil::Problem_ProblemType_ISING);
     }
     for (unsigned i = 0; i < (p + 1); i++)
     {
-      AzureQuantum::Problem_Term* term = cost_function->add_terms();
+      QuantumUtil::Problem_Term* term = cost_function->add_terms();
       term->set_c(i + 2.5);
       term->add_ids(i);
       term->add_ids(i + 1);

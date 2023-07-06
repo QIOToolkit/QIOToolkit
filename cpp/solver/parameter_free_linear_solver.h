@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 #include "utils/structure.h"
 #include "strategy/linear_search.h"

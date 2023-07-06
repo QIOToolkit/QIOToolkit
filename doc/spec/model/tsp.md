@@ -1,8 +1,8 @@
 ---
 title: Traveling Salesman Problem
 description: This document describes the input format for the tsp model.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.model.tsp
+topic: article
+uid: qiotoolkit.spec.model.tsp
 ---
 
 Travelling Salesman Problem (TSP)

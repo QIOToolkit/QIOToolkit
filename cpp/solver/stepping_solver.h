@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <chrono>
@@ -138,7 +138,7 @@ class SteppingSolver : public ModelSolver<Model_T>
         {
 #if defined(qiotoolkit_PROFILING) || defined(_DEBUG)
           // ONLY logging this information in profiling build, because this may
-          // produce a lot of message on Azure Quantum's log
+          // produce a lot of message on Qiotoolkit's log
           // NOTE: if the solver does not call `update_lowest_cost()` to avoid
           // copying the lowest state, then no milestones will be recorded.
           // and benchmarking time-to-solution WILL NOT WORK.

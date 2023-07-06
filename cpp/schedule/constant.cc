@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "schedule/constant.h"
 
 #include "utils/config.h"

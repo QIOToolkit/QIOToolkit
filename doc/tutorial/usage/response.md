@@ -1,8 +1,8 @@
 ---
 title: Anatomy of a Response
 description: This tutorial outlines the anatomy of a response
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.usage.response
+topic: article
+uid: qiotoolkit.tutorial.usage.response
 ---
 
 Anatomy of a Response
@@ -17,7 +17,7 @@ A qiotoolkit response is in JSON format. It contains:
 
 ```json
 {
-  "target": "microsoft.parallel-tempering.qiotoolkit",
+  "target": "parallel-tempering.qiotoolkit",
   "input_params": {...}
   "input_data": {...}
   "benchmark": {

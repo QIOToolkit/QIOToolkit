@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "solver/solver_registry.h"
 
 #include <string>
@@ -11,7 +11,7 @@ using ::solver::SolverRegistry;
 
 TEST(SolverRegistry, InstantiatesSimulatedAnnealing)
 {
-  std::string identifier = "microsoft.simulatedannealing.qiotoolkit";
+  std::string identifier = "simulatedannealing.qiotoolkit";
   EXPECT_TRUE(SolverRegistry::has(identifier));
   auto* sa = SolverRegistry::create_for_model<TestModel>(identifier);
   EXPECT_EQ(sa->get_class_name(), "solver::SimulatedAnnealing<TestModel>");
@@ -19,7 +19,7 @@ TEST(SolverRegistry, InstantiatesSimulatedAnnealing)
 
 TEST(SolverRegistry, InstantiatesParallelTempering)
 {
-  std::string identifier = "microsoft.paralleltempering.qiotoolkit";
+  std::string identifier = "paralleltempering.qiotoolkit";
   EXPECT_TRUE(SolverRegistry::has(identifier));
   auto* pt = SolverRegistry::create_for_model<TestModel>(identifier);
   EXPECT_EQ(pt->get_class_name(), "solver::ParallelTempering<TestModel>");

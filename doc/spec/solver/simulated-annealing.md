@@ -1,8 +1,8 @@
 ---
 title: Simulated Annealing
 description: This document contains the I/O specification for simulated annealing
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.solver.simulated-annealing
+topic: article
+uid: qiotoolkit.spec.solver.simulated-annealing
 ---
 
 Simulated Annealing
@@ -23,9 +23,9 @@ while still being allowed to escape local minima as the simulation progresses.
     restarts are mutually independent.
 
 > [!NOTE]
-> If you use the Azure QIO-comptaible parameters `beta_start` and `beta_stop`,
+> If you use the QIOtoolkit-comptaible parameters `beta_start` and `beta_stop`,
 > the solver will attempt to infer the number of annealing steps from `step_limit`
-> or its Azure QIO-alias `sweeps`.
+> or its Qiotoolkit-alias `sweeps`.
 
 
 Example
@@ -33,7 +33,7 @@ Example
 
 ```json
 {
-  "target": "microsoft.simulated-annealing.qiotoolkit",
+  "target": "simulated-annealing.qiotoolkit",
   "version": "1.0",
   "input_params": {
     "seed": 42,

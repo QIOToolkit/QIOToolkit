@@ -1,8 +1,8 @@
 ---
 title: Model Specifications
 description: This document describes outlines the model input format.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.model.models
+topic: article
+uid: qiotoolkit.spec.model.models
 ---
 
 Built-in Models

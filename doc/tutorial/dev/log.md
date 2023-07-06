@@ -1,8 +1,8 @@
 ---
 title: Logging
 description: This explains how to enable and use logging functionality in qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.dev.log
+topic: article
+uid: qiotoolkit.dev.log
 ---
 
 Logging

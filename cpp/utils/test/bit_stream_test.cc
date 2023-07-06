@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "utils/bit_stream.h"
 
 #include "utils/error_handling.h"

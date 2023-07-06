@@ -1,7 +1,3 @@
-# Get the qiotoolkit version from nuspec
-file(STRINGS ../qiotoolkit.nuspec qiotoolkit_VERSION REGEX <version>)
-string(REGEX REPLACE " *</?version> *" "" qiotoolkit_VERSION "${qiotoolkit_VERSION}")
-
 # Get the current working branch
 execute_process(
   COMMAND git rev-parse --abbrev-ref HEAD

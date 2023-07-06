@@ -1,8 +1,8 @@
 ---
 title: Build with CMake
 description: This tutorial shows how to build qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.setup.cmake
+topic: article
+uid: qiotoolkit.tutorial.setup.cmake
 ---
 
 Build with CMake
