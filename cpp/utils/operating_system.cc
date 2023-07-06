@@ -6,6 +6,9 @@
 #include <sstream>
 // include OS specific functions
 
+namespace utils
+{
+
 #ifdef __unix__
 
 #include <sys/resource.h>
@@ -14,8 +17,6 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-namespace utils
-{
 size_t get_max_memory_usage()
 {
   struct rusage ru;
@@ -70,8 +71,6 @@ bool isFolder(std::string input_problem)
 #include <filesystem>
 // clang-format on
 
-namespace utils
-{
 size_t get_max_memory_usage()
 {
   PROCESS_MEMORY_COUNTERS_EX pmc;
