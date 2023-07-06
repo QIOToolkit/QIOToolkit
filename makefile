@@ -36,5 +36,5 @@ build-documentation:
 	cd doc && ./generate.sh
 
 static-code-analysis:
-	cppcheck --enable=all --suppress=missingIncludeSystem -i build_coverage -i build_make -i externals --xml ./cpp 2> cppcheck-result.xml
-	python3 ci/count_cppcheck_analysis.py -f cppcheck-result.xml --error-threshold 4 --warning-threshold 23
+	cppcheck --enable=all --suppress=missingIncludeSystem -i build_coverage -i build_make -i externals -i build_release -i test --xml ./cpp 2> cppcheck-result.xml
+	python3 ci/count_cppcheck_analysis.py -f cppcheck-result.xml --error-threshold 2 --warning-threshold 2
