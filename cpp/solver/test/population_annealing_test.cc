@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "solver/population_annealing.h"
 
 #include <cmath>

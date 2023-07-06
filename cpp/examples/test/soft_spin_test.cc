@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "../soft_spin.h"
 
 #include <algorithm>
@@ -26,14 +26,14 @@ using Transition_T = ::examples::SoftSpinTransition;
 
 void create_spin_proto_test()
 {
-  AzureQuantum::Problem* problem = new AzureQuantum::Problem();
-  AzureQuantum::Problem_CostFunction* cost_function =
+  QuantumUtil::Problem* problem = new QuantumUtil::Problem();
+  QuantumUtil::Problem_CostFunction* cost_function =
       problem->mutable_cost_function();
   cost_function->set_version("0.1");
-  cost_function->set_type(AzureQuantum::Problem_ProblemType_SOFTSPIN);
+  cost_function->set_type(QuantumUtil::Problem_ProblemType_SOFTSPIN);
   for (unsigned i = 0; i < 3; i++)
   {
-    AzureQuantum::Problem_Term* term = cost_function->add_terms();
+    QuantumUtil::Problem_Term* term = cost_function->add_terms();
     term->set_c(1.0);
     term->add_ids(i);
     i == 2 ? term->add_ids(0) : term->add_ids(i + 1);

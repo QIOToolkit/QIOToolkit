@@ -1,8 +1,8 @@
 ---
 title: Benchmark
 description: This tutorial shows how to benchmark a solver.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.usage.benchmark
+topic: article
+uid: qiotoolkit.tutorial.usage.benchmark
 ---
 
 Benchmark
@@ -26,7 +26,7 @@ $ mkdir release_build
 $ cd release_build
 $ cmake .. -DCMAKE_BUILD_TYPE=Release
 $ make -j8
-$ ./app/qiotoolkit --user --log_level=WARN --solver microsoft.simulatedannealing.qiotoolkit \
+$ ./app/qiotoolkit --user --log_level=WARN --solver simulatedannealing.qiotoolkit \
       --parameters ../examples/params-sa.json \
       --input ../examples/ising.json
 ```

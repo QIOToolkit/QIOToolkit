@@ -1,8 +1,8 @@
 ---
 title: Solver Development
 description: This explains how to implement a new solver in qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.dev.solver
+topic: article
+uid: qiotoolkit.dev.solver
 ---
 
 Solver Development

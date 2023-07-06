@@ -6,7 +6,7 @@
   "properties": {
     "target": {
       "type": "string",
-      "const": "microsoft.paralleltempering.qiotoolkit"
+      "const": "paralleltempering.qiotoolkit"
     },
     "input_params": {
       "type": "object",

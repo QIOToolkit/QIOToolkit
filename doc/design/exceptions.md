@@ -1,8 +1,8 @@
 ---
 title: Design: Exceptions
 description: This document discusses the guidelines for exceptions in qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.design.exceptions
+topic: article
+uid: qiotoolkit.design.exceptions
 ---
 
 Design: Exceptions

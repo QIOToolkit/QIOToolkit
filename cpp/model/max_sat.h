@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <assert.h>
@@ -515,6 +515,8 @@ class MaxSat : public markov::Model<MaxSatState<Counter_T>, size_t>
   }
 
   // the min cost difference is similar from PUBO mode's estimate_min_cost_diff
+  // description of the algorithm can be found at
+  // https://microsoft.sharepoint.com/:b:/r/teams/QuArC6/Shared%20Documents/Optimization/beta.pdf?csf=1&web=1&e=XA3qN9
   double estimate_min_cost_diff() const override
   {
     Cost_T min_weight_diff_var = std::numeric_limits<double>::max();

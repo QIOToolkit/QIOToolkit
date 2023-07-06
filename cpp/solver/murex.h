@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <set>
@@ -60,7 +60,7 @@ class Murex : public SteppingSolver<Model_T>
 
   std::string get_identifier() const override
   {
-    return "microsoft.murex.qiotoolkit";
+    return "murex.qiotoolkit";
   }
 
   /// Representation of a node in the replica exchange grid.

@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include <cmath>
 #include <sstream>
 #include <string>
@@ -48,7 +48,7 @@ class IsingTermCachedTest : public testing::Test
     utils::configure_with_configuration_from_json_string(input, ising);
     ising.init();
 
-    create_proto_test_problem(AzureQuantum::Problem_ProblemType_ISING);
+    create_proto_test_problem(QuantumUtil::Problem_ProblemType_ISING);
     utils::configure_with_configuration_from_proto_folder(
         utils::data_path("models_input_problem_pb"), ising_proto);
     ising_proto.init();

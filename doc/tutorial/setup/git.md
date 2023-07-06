@@ -1,8 +1,8 @@
 ---
 title: Cloning the Repository
 description: This tutorial shows how to clone the qiotoolkit repository.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.setup.git
+topic: article
+uid: qiotoolkit.tutorial.setup.git
 ---
 
 Cloning the Repository
@@ -11,16 +11,13 @@ Cloning the Repository
 > [!NOTE]
 > These instructions are for \*sh/linux.
 
-1) To get a current copy of qiotoolkit, head on over to its [repository on GitHub](https://github.com/QIOToolkit/QIOToolkit) and
+1) To get a current copy of qiotoolkit, head on over to its and
    click the \[Clone\] button in the top right corner.
 
 2) Select the mode of download (I recommend SSH, for which you might need to
    [upload your SSH public key](ssh-setup.md)).
 
 3) Copy the repository handle and run `git clone` in your CLI:
-   ```bash
-   git clone https://github.com/QIOToolkit/QIOToolkit.git
-   ```
    
 4) Check the contents of the `qiotoolkit` folder, which was just created.
    ```bash

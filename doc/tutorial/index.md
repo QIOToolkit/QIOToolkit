@@ -1,8 +1,8 @@
 ---
 title: Tutorials
 description: This document lists the available tutorials for qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial
+topic: article
+uid: qiotoolkit.tutorial
 ---
 
 Tutorials
@@ -12,7 +12,7 @@ Tutorials
 Getting Stated
 --------------
 
-If this is your first time chasing the roadrunner, here's a good
+If this is your first time working with the qiotoolkit , here's a good
 place to start; you will learn how to check out a current copy
 of the framework, build a binary and run your first simulation:
 

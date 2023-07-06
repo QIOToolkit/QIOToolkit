@@ -1,8 +1,8 @@
 ---
 title: Limits
 description: This tutorial shows how to set simulation limits.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.usage.limits
+topic: article
+uid: qiotoolkit.tutorial.usage.limits
 ---
 
 Make it Stop

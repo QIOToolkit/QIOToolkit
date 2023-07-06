@@ -1,8 +1,8 @@
 ---
 title: Constant Schedule
 description: This document describes outlines the constant schedule input format.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.schedule.constant
+topic: article
+uid: qiotoolkit.spec.schedule.constant
 ---
 
 Constant Schedule

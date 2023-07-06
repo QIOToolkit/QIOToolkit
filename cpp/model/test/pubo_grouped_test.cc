@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "model/pubo_grouped.h"
 
 #include <cmath>

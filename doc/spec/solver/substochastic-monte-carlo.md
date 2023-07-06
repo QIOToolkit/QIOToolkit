@@ -1,8 +1,8 @@
 ---
 title: Substochastic Monte Carlo
 description: This document contains the I/O specification for substochastic Monte Carlo.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.solver.substuchastic-monte-carlo
+topic: article
+uid: qiotoolkit.spec.solver.substuchastic-monte-carlo
 ---
 
 Substochastic Monte Carlo
@@ -20,7 +20,7 @@ Example
 
 ```json
 {
-  "target": "microsoft.substochastic-monte-carlo.qiotoolkit",
+  "target": "substochastic-monte-carlo.qiotoolkit",
   "version": "1.0",
   "input_params": {
     "seed": 42,

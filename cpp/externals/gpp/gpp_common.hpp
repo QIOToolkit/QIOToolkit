@@ -281,7 +281,7 @@
 
       For those unfamiliar with the concept, further reading:
       http://pic.dhe.ibm.com/infocenter/lnxpcomp/v111v131/index.jsp?topic=%2Fcom.ibm.xlcpp111.linux.doc%2Flanguage_ref%2Fexplicit_instantiation.html
-      http://msdn.microsoft.com/en-us/library/7k8twfx7.aspx
+      http://msdn.com/en-us/library/7k8twfx7.aspx
       http://stackoverflow.com/questions/2351148/explicit-instantiation-when-is-it-used
 
    7. Matrix-loop Idiom

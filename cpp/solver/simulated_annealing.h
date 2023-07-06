@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <algorithm>
@@ -29,7 +29,7 @@ class SimulatedAnnealing : public SteppingSolver<Model_T>
   /// Identifier of this solver (`target` in the request)
   std::string get_identifier() const override
   {
-    return "microsoft.simulatedannealing.qiotoolkit";
+    return "simulatedannealing.qiotoolkit";
   }
 
   std::string init_memory_check_error_message() const override
@@ -145,7 +145,7 @@ class SimulatedAnnealing : public SteppingSolver<Model_T>
     }
     else
     {
-      // For compatibility with microsoft.simulatedannealing.cpu, allow the
+      // For compatibility with simulatedannealing.cpu, allow the
       // annealing schedule to be specified with beta_low, beta_high.
       using ::matcher::GreaterEqual;
       using ::matcher::GreaterThan;

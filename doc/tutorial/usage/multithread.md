@@ -1,8 +1,8 @@
 ---
 title: Multi-threading
 description: This tutorial explains how to control multi-threading.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.usage.multithread
+topic: article
+uid: qiotoolkit.tutorial.usage.multithread
 ---
 
 Multi-threading
@@ -18,7 +18,7 @@ by setting a maximum number of threads in the `input_params`:
 
 ```json
 {
-  "target": "microsoft.paralleltempering.qiotoolkit",
+  "target": "paralleltempering.qiotoolkit",
   "input_params": {
     "threads": 1,
     ...

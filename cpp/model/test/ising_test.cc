@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "../ising.h"
 
 #include <cmath>
@@ -59,7 +59,7 @@ class IsingTest : public testing::Test
     })");
     utils::configure_with_configuration_from_json_string(input_str, ising);
 
-    create_proto_test_problem(AzureQuantum::Problem_ProblemType_ISING);
+    create_proto_test_problem(QuantumUtil::Problem_ProblemType_ISING);
     utils::configure_with_configuration_from_proto_folder(
         utils::data_path("models_input_problem_pb"), ising_proto);
   }
@@ -435,7 +435,7 @@ TEST(Ising, MinCost_proto)
 {
   IsingTermCached ising_proto;
 
-  create_proto_test_problem2(AzureQuantum::Problem_ProblemType_ISING);
+  create_proto_test_problem2(QuantumUtil::Problem_ProblemType_ISING);
   utils::configure_with_configuration_from_proto_folder(
       utils::data_path("models_input_problem2_pb"), ising_proto);
   double min_cost = ising_proto.estimate_min_cost_diff();

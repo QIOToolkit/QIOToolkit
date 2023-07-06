@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "schedule/schedule.h"
 
 #include <cmath>

@@ -1,8 +1,8 @@
 ---
 title: Population Annealing
 description: This document contains the I/O specification for population annealing
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.solver.population-annealing
+topic: article
+uid: qiotoolkit.spec.solver.population-annealing
 ---
 
 Population Annealing
@@ -36,7 +36,7 @@ Example
 
 ```json
 {
-  "target": "microsoft.population-annealing.cpu",
+  "target": "population-annealing.cpu",
   "version": "1.0",
   "input_params": {
     "seed": 42,

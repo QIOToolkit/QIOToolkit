@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <vector>
@@ -41,7 +41,7 @@ class Tabu : public SteppingSolver<Model_T>
   Tabu& operator=(const Tabu&) = delete;
 
   /// Identifier of this solver (`target` in the request)
-  std::string get_identifier() const override { return "microsoft.tabu.qiotoolkit"; }
+  std::string get_identifier() const override { return "tabu.qiotoolkit"; }
 
   std::string init_memory_check_error_message() const override
   {

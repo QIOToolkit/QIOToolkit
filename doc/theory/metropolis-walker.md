@@ -1,8 +1,8 @@
 ---
 title: Metropolis Walker
 description: This document explains a walker with metropolis dynamics.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.theory.metropolis-walker
+topic: article
+uid: qiotoolkit.theory.metropolis-walker
 ---
 
 Metropolis Walker

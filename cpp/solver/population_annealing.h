@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include <vector>
@@ -34,7 +34,7 @@ namespace solver
 ///
 ///   ```json
 ///   {
-///     'target': 'microsoft.populationannealing.cpu',
+///     'target': 'populationannealing.cpu',
 ///     'version': '1.0',
 ///     'resampling_strategy': 'friction_tensor',
 ///     'friction_tensor_constant': 1
@@ -51,7 +51,7 @@ namespace solver
 ///
 ///   ```json
 ///   {
-///     'target': 'microsoft.populationannealing.cpu',
+///     'target': 'populationannealing.cpu',
 ///     'version': '1.0',
 ///     'resampling_strategy': 'energy_variance',
 ///     'initial_culling_fraction': 0.5
@@ -64,7 +64,7 @@ namespace solver
 ///
 ///   ```json
 ///   {
-///     'target': 'microsoft.populationannealing.cpu',
+///     'target': 'populationannealing.cpu',
 ///     'version': '1.0',
 ///     'resampling_strategy': 'constant_culling',
 ///     'culling_fraction': 0.1
@@ -86,7 +86,7 @@ class PopulationAnnealing : public SteppingSolver<Model_T>
   /// Identifier of this solver (`target` in the request)
   std::string get_identifier() const override
   {
-    return "microsoft.populationannealing.cpu";
+    return "populationannealing.cpu";
   }
 
   std::string init_memory_check_error_message() const override
@@ -668,7 +668,7 @@ class PopulationAnnealing : public SteppingSolver<Model_T>
       }
       else
       {
-        // For compatibility with microsoft.simulatedannealing.cpu, allow the
+        // For compatibility with simulatedannealing.cpu, allow the
         // annealing schedule to be specified with beta_low, beta_high.
         this->param(params, "beta_start", beta_start_)
             .description("the initial inverse temperature for the schedule")

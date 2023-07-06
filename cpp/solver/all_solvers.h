@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #pragma once
 
 #include "solver/murex.h"
@@ -22,53 +22,53 @@ template <class Model_T>
 Solver* create_solver(const std::string& identifier)
 {
   Solver* model_solver;
-  if (identifier == "microsoft.paralleltempering.qiotoolkit")
+  if (identifier == "paralleltempering.qiotoolkit")
   {
     model_solver = new ::solver::ParallelTempering<Model_T>();
   }
-  else if (identifier == "microsoft.simulatedannealing.qiotoolkit")
+  else if (identifier == "simulatedannealing.qiotoolkit")
   {
     model_solver = new ::solver::SimulatedAnnealing<Model_T>();
   }
-  else if (identifier == "microsoft.populationannealing.cpu")
+  else if (identifier == "populationannealing.cpu")
   {
     model_solver = new ::solver::PopulationAnnealing<Model_T>();
   }
-  else if (identifier == "microsoft.substochasticmontecarlo.cpu")
+  else if (identifier == "substochasticmontecarlo.cpu")
   {
     model_solver = new ::solver::SubstochasticMonteCarlo<Model_T>();
   }
-  else if (identifier == "microsoft.tabu.qiotoolkit")
+  else if (identifier == "tabu.qiotoolkit")
   {
     model_solver = new ::solver::Tabu<Model_T>();
   }
-  else if (identifier == "microsoft.quantummontecarlo.qiotoolkit")
+  else if (identifier == "quantummontecarlo.qiotoolkit")
   {
     model_solver = new ::solver::QuantumMonteCarlo<Model_T>();
   }
-  else if (identifier == "microsoft.substochasticmontecarlo-parameterfree.cpu")
+  else if (identifier == "substochasticmontecarlo-parameterfree.cpu")
   {
     model_solver = new ::solver::ParameterFreeSolver<
         Model_T, ::solver::SSMCParameterFree<Model_T>>();
   }
-  else if (identifier == "microsoft.populationannealing-parameterfree.cpu")
+  else if (identifier == "populationannealing-parameterfree.cpu")
   {
     model_solver =
         new ::solver::ParameterFreeSolver<Model_T,
                                           ::solver::PAParameterFree<Model_T>>();
   }
-  else if (identifier == "microsoft.simulatedannealing-parameterfree.qiotoolkit")
+  else if (identifier == "simulatedannealing-parameterfree.qiotoolkit")
   {
     model_solver =
         new ::solver::ParameterFreeLinearSearchSolver<Model_T,
                                           ::solver::SAParameterFree<Model_T>>();
   }
-  else if (identifier == "microsoft.paralleltempering-parameterfree.qiotoolkit")
+  else if (identifier == "paralleltempering-parameterfree.qiotoolkit")
   {
     model_solver = new ::solver::ParameterFreeLinearSearchSolver<
         Model_T, ::solver::PTParameterFree<Model_T>>();
   }
-  else if (identifier == "microsoft.tabu-parameterfree.qiotoolkit")
+  else if (identifier == "tabu-parameterfree.qiotoolkit")
   {
     model_solver = new ::solver::ParameterFreeLinearSearchSolver<
         Model_T, ::solver::TabuParameterFree<Model_T>>();

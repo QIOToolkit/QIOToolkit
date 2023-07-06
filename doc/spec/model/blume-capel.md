@@ -1,8 +1,8 @@
 ---
 title: Blume-Capel model
 description: This document describes the input format for the blume-capel model.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.model.blume-capel
+topic: article
+uid: qiotoolkit.spec.model.blume-capel
 ---
 
 Blume-Capel Model

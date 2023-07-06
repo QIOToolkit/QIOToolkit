@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "../pubo_adaptive.h"
 
 #include <cmath>

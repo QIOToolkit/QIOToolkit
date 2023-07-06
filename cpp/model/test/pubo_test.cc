@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "../pubo.h"
 
 #include <cmath>
@@ -59,7 +59,7 @@ class PuboTest : public testing::Test
     })");
     utils::configure_with_configuration_from_json_string(input_str, pubo);
 
-    create_proto_test_problem(AzureQuantum::Problem_ProblemType_PUBO);
+    create_proto_test_problem(QuantumUtil::Problem_ProblemType_PUBO);
     utils::configure_with_configuration_from_proto_folder(
         utils::data_path("models_input_problem_pb"), pubo_proto);
   }
@@ -319,7 +319,7 @@ TEST(Pubo, ConstantTerms)
   EXPECT_EQ(-3, cost);
   auto result = pubo.render_state(state);
 
-  AzureQuantum::Problem prob;
+  QuantumUtil::Problem prob;
   EXPECT_EQ(std::string("{}"), result.to_string());
 }
 

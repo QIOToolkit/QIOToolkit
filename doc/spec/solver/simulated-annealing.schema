@@ -7,7 +7,7 @@
   "properties": {
     "target": {
       "type": "string",
-      "const": "microsoft.simulatedannealing.qiotoolkit"
+      "const": "simulatedannealing.qiotoolkit"
     },
     "input_params": {
       "type": "object",

@@ -7,7 +7,7 @@
   "properties": {
     "target": {
       "type": "string",
-      "const": "microsoft.substochasticmontecarlo.qiotoolkit"
+      "const": "substochasticmontecarlo.qiotoolkit"
     },
     "input_params": {
       "type": "object",

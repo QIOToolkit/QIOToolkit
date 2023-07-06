@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 
 #include <fstream>
 #include <typeinfo>
@@ -17,7 +17,7 @@
 
 TEST(Stream, StreamPROTOEdge)
 {
-  AzureQuantum::Problem_Term term;
+  QuantumUtil::Problem_Term term;
   term.set_c(3.4);
   term.add_ids(100);
   term.add_ids(101.1);
@@ -34,13 +34,13 @@ TEST(Stream, StreamPROTOEdge)
 
 TEST(Stream, NegativeTestVersion)
 {
-  AzureQuantum::Problem* problem = new AzureQuantum::Problem();
+  QuantumUtil::Problem* problem = new QuantumUtil::Problem();
   utils::ProtoReader reader;
   utils::PROTOHandlerProxy<ModelObjectHandler> handler_proxy;
-  AzureQuantum::Problem_CostFunction* cost_function =
+  QuantumUtil::Problem_CostFunction* cost_function =
       problem->mutable_cost_function();
   cost_function->set_version("foo");
-  cost_function->set_type(AzureQuantum::Problem_ProblemType_ISING);
+  cost_function->set_type(QuantumUtil::Problem_ProblemType_ISING);
   std::ofstream out(utils::data_path("input_problem_pb/input_problem_pb_0.pb"),
                     std::ios::out | std::ios::binary);
   problem->SerializeToOstream(&out);
@@ -53,7 +53,7 @@ TEST(Stream, NegativeTestVersion)
 
 TEST(Stream, NegativeTestCF)
 {
-  AzureQuantum::Problem* problem = new AzureQuantum::Problem();
+  QuantumUtil::Problem* problem = new QuantumUtil::Problem();
   utils::ProtoReader reader;
   utils::PROTOHandlerProxy<ModelObjectHandler> handler_proxy;
   std::ofstream out(utils::data_path("input_problem_pb/input_problem_pb_0.pb"),
@@ -69,13 +69,13 @@ TEST(Stream, NegativeTestCF)
 
 TEST(Stream, NegativeTestTerms)
 {
-  AzureQuantum::Problem* problem = new AzureQuantum::Problem();
+  QuantumUtil::Problem* problem = new QuantumUtil::Problem();
   utils::ProtoReader reader;
   utils::PROTOHandlerProxy<ModelObjectHandler> handler_proxy;
-  AzureQuantum::Problem_CostFunction* cost_function =
+  QuantumUtil::Problem_CostFunction* cost_function =
       problem->mutable_cost_function();
   cost_function->set_version("1.0");
-  cost_function->set_type(AzureQuantum::Problem_ProblemType_ISING);
+  cost_function->set_type(QuantumUtil::Problem_ProblemType_ISING);
   std::ofstream out(utils::data_path("input_problem_pb/input_problem_pb_0.pb"),
                     std::ios::out | std::ios::binary);
   problem->SerializeToOstream(&out);
@@ -94,7 +94,7 @@ TEST(Stream, ProtoMessagesTest)
   utils::PROTOHandlerProxy<ModelObjectHandler> handler_proxy;
   std::string input_folder = utils::data_path("input_problem_pb");
   // Create a vector of problem messages
-  std::vector<AzureQuantum::Problem*> problem_msgs;
+  std::vector<QuantumUtil::Problem*> problem_msgs;
   create_test_proto_msgs(problem_msgs);
   write_to_protobuf_folder(input_folder, problem_msgs);
 

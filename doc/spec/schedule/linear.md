@@ -1,8 +1,8 @@
 ---
 title: Linear Schedule
 description: This document describes outlines the linear schedule input format.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.schedule.linear
+topic: article
+uid: qiotoolkit.spec.schedule.linear
 ---
 
 Linear Schedule

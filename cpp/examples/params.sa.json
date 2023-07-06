@@ -1,5 +1,5 @@
 {
-  "type": "microsoft.simulated-annealing.qiotoolkit",
+  "type": "simulated-annealing.qiotoolkit",
   "version": "1.0",
   "params": {
     "step_limit": 100,

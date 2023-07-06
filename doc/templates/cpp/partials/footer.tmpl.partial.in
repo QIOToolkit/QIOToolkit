@@ -10,8 +10,7 @@
       {{{_appFooter}}}
       {{^_appFooter}}<span>
         Generated with <strong>Doxygen</strong>
-        and <strong>DocFX</strong></span>
-        | <a href="[site-url]?version=GB{{GIT_BRANCH}}">{{GIT_BRANCH}}</a> (<a href="[site-url]/{{GIT_HASH}}">{{GIT_HASH_SHORT}}</a>)
+        and <strong>DocFX</strong></span> 
       {{/_appFooter}}
     </div>
   </div>

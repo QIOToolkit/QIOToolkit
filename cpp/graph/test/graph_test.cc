@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "../graph.h"
 
 #include <cmath>
@@ -27,14 +27,14 @@ using utils::Json;
 
 void create_graph_proto_test()
 {
-  AzureQuantum::Problem* problem = new AzureQuantum::Problem();
-  AzureQuantum::Problem_CostFunction* cost_function =
+  QuantumUtil::Problem* problem = new QuantumUtil::Problem();
+  QuantumUtil::Problem_CostFunction* cost_function =
       problem->mutable_cost_function();
   cost_function->set_version("1.0");
-  cost_function->set_type(AzureQuantum::Problem_ProblemType_ISING);
+  cost_function->set_type(QuantumUtil::Problem_ProblemType_ISING);
   for (unsigned i = 0; i < 4; i++)
   {
-    AzureQuantum::Problem_Term* term = cost_function->add_terms();
+    QuantumUtil::Problem_Term* term = cost_function->add_terms();
     term->set_c(1.0);
     term->add_ids(i);
     i == 3 ? term->add_ids(0) : term->add_ids(i + 1);
@@ -68,7 +68,7 @@ class GraphTest : public testing::Test
     std::string folder_name = utils::data_path("graph_input_problem_pb");
 
     std::ifstream in(utils::data_path("graph_input_problem_pb_0.pb"));
-    AzureQuantum::Problem* prob = new AzureQuantum::Problem();
+    QuantumUtil::Problem* prob = new QuantumUtil::Problem();
     prob->ParseFromIstream(&in);
     utils::configure_with_configuration_from_proto_folder(folder_name,
                                                          square_proto);

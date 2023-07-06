@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "solver/test/test_model.h"
 
 double TestModel::kInitValue = 42;

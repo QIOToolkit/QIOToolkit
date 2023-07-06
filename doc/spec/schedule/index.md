@@ -1,8 +1,8 @@
 ---
 title: Schedule Specifications
 description: This document describes outlines the schedule input format.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.schedule
+topic: article
+uid: qiotoolkit.spec.schedule
 ---
 
 Schedule

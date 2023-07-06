@@ -1,8 +1,8 @@
 ---
 title: Multi-Objective Replica Exchange
 description: This document contains the I/O specification for Multi-Objective Replica Exchange.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.solver.multi-objective-replica-exchange
+topic: article
+uid: qiotoolkit.spec.solver.multi-objective-replica-exchange
 ---
 
 Multiobjective Replica Exchange (MUREX)

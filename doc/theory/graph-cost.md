@@ -1,8 +1,8 @@
 ---
 title: Graph Correspondency
 description: This document outlines the graph interpretation of cost terms.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.theory.graph-cost
+topic: article
+uid: qiotoolkit.theory.graph-cost
 ---
 
 Graph Cost Functions
@@ -38,7 +38,7 @@ Implementation
 
 qiotoolkit provies a [model::GraphModel](../api/model/graph-model.yml) base class
 which implements the input and access of a graph in the edge-list
-representation used by the QIO solvers in Azure quantum. Namely:
+representation used by the QIO solvers in Qiotoolkit. Namely:
 
 ```json
 "terms": [

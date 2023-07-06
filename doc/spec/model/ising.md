@@ -1,8 +1,8 @@
 ---
 title: Ising model
 description: This document describes the input format for the ising model.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.model.ising
+topic: article
+uid: qiotoolkit.spec.model.ising
 ---
 
 Ising Spin Glass

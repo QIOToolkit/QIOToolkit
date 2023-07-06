@@ -1,8 +1,8 @@
 ---
 title: Prerequisites
 description: This tutorial shows the prerequisites needed for qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.setup.prerequisites
+topic: article
+uid: qiotoolkit.tutorial.setup.prerequisites
 ---
 
 Prerequisites

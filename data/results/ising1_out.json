@@ -97,7 +97,7 @@
       {
         "configuration": {"0": -1, "2": -1, "3": -1},
         "cost": -10.000000,
-        "stage": "microsoft.simulatedannealing.qiotoolkit",
+        "stage": "simulatedannealing.qiotoolkit",
         "time_in_stage_ms": 5.856991
       }
     ]

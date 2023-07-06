@@ -1,8 +1,8 @@
 ---
 title: First Simulation
 description: This tutorial shows how to run your first simulation with qiotoolkit.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.tutorial.setup.run
+topic: article
+uid: qiotoolkit.tutorial.setup.run
 ---
 
 First Simulation
@@ -41,7 +41,7 @@ $ cd release_build
 $ cmake .. -DCMAKE_BUILD_TYPE=Release
 $ make -j8
 $ ./app/qiotoolkit --user --log_level=WARN \
-      --solver microsoft.simulatedannealing.qiotoolkit \
+      --solver simulatedannealing.qiotoolkit \
       --parameters ../data/params1.json \
       --input ../data/ising1.json
 ```
@@ -51,7 +51,7 @@ Runtime Output
 
 ```
 [INFO] app/runner.cc:41: Reading file: ../data/params1.json
-[INFO] app/qiotoolkit.cc:191: Running solver microsoft.simulatedannealing.qiotoolkit
+[INFO] app/qiotoolkit.cc:191: Running solver simulatedannealing.qiotoolkit
 [DEBUG] solver/simulated_annealing.h:116: recorded cost:10.000000
 [DEBUG] solver/simulated_annealing.h:117: calculated_cost:10.000000
 [INFO] solver/stepping_solver.h:228: Stop due to step limit: 999, steps:999

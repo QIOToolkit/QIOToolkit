@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #include "model/partition.h"
 
 #include "gtest/gtest.h"

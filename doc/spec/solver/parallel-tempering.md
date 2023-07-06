@@ -1,8 +1,8 @@
 ---
 title: Parallel Tempering
 description: This document contains the I/O specification for parallel tempering.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.spec.solver.parallel-tempering
+topic: article
+uid: qiotoolkit.spec.solver.parallel-tempering
 ---
 
 Parallel Tempering
@@ -21,7 +21,7 @@ Example
 
 ```json
 {
-  "target": "microsoft.parallel-tempering.qiotoolkit",
+  "target": "parallel-tempering.qiotoolkit",
   "version": "1.0",
   "input_params": {
     "seed": 42,

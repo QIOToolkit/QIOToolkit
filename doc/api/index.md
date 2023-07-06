@@ -1,8 +1,8 @@
 ---
 title: API documentation
 description: This document gives an overview of the API documentation.
-ms.topic: article
-uid: microsoft.azure.quantum.qiotoolkit.api
+topic: article
+uid: qiotoolkit.api
 ---
 
 API documentation

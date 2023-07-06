@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft. All Rights Reserved.
+
 #ifndef MATCHER_MATCHERS_H
 #define MATCHER_MATCHERS_H
 
