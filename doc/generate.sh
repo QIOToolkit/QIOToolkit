@@ -17,14 +17,6 @@ done
 
 python generate_xrefmap.py $(find api -iname "*.yml" | grep -v "toc.yml")
 
-#find api -type d | grep / | while read dir; do
-#  cd $dir;
-#  #ls *.yml | grep -v "toc.yml" | while read file; do
-#  #  echo "# [${file/.yml/}](${file})"
-#  #done > toc.md
-#  cd ../..
-#done
-
 cat templates/cpp/partials/footer.tmpl.partial.in | sed -e"s#{{GIT_BRANCH}}#`git branch --show-current`#g" -e"s#{{GIT_HASH}}#`git rev-parse HEAD`#g" -e"s#{{GIT_HASH_SHORT}}#`git rev-parse --short HEAD`#g" > templates/cpp/partials/footer.tmpl.partial
 
 rm -rf _site

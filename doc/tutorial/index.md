@@ -9,16 +9,13 @@ Tutorials
 =========
 
 
-Getting Stated
+Getting Started
 --------------
 
 If this is your first time working with the qiotoolkit , here's a good
-place to start; you will learn how to check out a current copy
-of the framework, build a binary and run your first simulation:
+place to start; build the binary and run your first simulation:
 
- * [Clone the GIT repository](setup/git.md)
- * [Install the Prerequisites](setup/prerequisites.md)
- * [Build with cmake](setup/cmake.md)
+ * [Build the QIOToolkit](setup/build.md)
  * [Run your first simulation](setup/run.md)
 
 Usage
@@ -45,6 +42,6 @@ your own solver. Besides these tutorials, the [API](../api/index.md)
 section provides machine-generated interface descriptions.
 
 * [Configuration](dev/configuration.md)
-* [Logging from qiotoolkit](dev/logging.md)
+* [Logging from qiotoolkit](dev/log.md)
 * [Writing a custom model](dev/model.md)
 * [Adding a solver](dev/solver.md)
