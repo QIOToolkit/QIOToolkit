@@ -7,70 +7,24 @@ This project provides the components for building and running Quantum inspired o
 
 ## Getting Started
 
-The QIOToolkit build environment supported is targeted for linux systems. The
-dockerfile located in the repo is the main build environment which the CI also
-runs in. If you want to build natively, you can follow the dockerfile for
-setting up your native environment. We do however recommend to stick with the
-dockerfile for the build process for building the x86-64 binary application.
+Getting started with the QIO Toolkit is as simple as running a binary or building the binary yourself and then running it. We have a [tutorial](https://qiotoolkit.github.io/qiotoolkit/tutorial/index.html) that will guide you through the process of running the QIO Toolkit solver.
 
-Running the two commands below should provide you with the build environment:
+### Fetching a binary
 
-```bash
-qio-toolkit$ docker build -t qio-toolkit .
-qio-toolkit$ docker run -it --rm -v $(pwd):/qio-toolkit qio-toolkit
-```
+You can fetch a binary for x86-64 cpu architecture from the latest [CI/CD](https://github.com/QIOToolkit/QIOToolkit/actions/workflows/qio-toolkit-ci-integration.yaml) run, under artifacts.
 
-## Build and Test
+### Running the QIO Toolkit solver
 
-Once you have the docker environment up and running and have attached the
-repostiory inside of your docker environment you are ready to build the application and run tests.
-
-We have a single entrypoint for operating and building the application which is
-the root makefile. This file will provide you with all the necessary targets to
-do development on the QIOToolkit.
-
-The following targets are available:
-
-* `build` - Builds the application in debug mode
-* `build-release` - Builds the application in release mode
-* `build-coverage` - Builds the application in debug mode with coverage
-* `test` - Runs the unit tests
-* `test-coverage` - Runs the unit tests with coverage
-* `clean` - Cleans the build directory
-* `build-documentation` - Builds the documentation
-* `static-code-analysis` - Runs the static code analysis
-
-### Building the application
-
-Building the application in debug mode can be done with the following command
-within your build environment:
-
-```bash
-qio-toolkit$ make build
-```
-
-### Testing
-
-Testing the application can be done with the following command within your build
-environment:
-
-```bash
-qio-toolkit$ make test
-```
-
-### Getting test coverage
-
-Getting the test coverage can be done with the following command within your
-build environment:
-
-```bash
-qio-toolkit$ make test-coverage
-```
+After building the binary you can go a tutorial in the [documentation](https://qiotoolkit.github.io/qiotoolkit/tutorial/index.html) and go to `Run your first simulation`. This will guide you through the process of running the QIO Toolkit solver with data examples within the repo.
 
 ## Contributions
 
 We have a [contributing guide](./doc/CONTRIBUTING.md) that outlines how to
 contribute to the project. Please read it before making any contributions.
+
+### Adding in a solver
+
+If you are here to experiement and try to add in a solver. We have some specific documentation for that [here](https://qiotoolkit.github.io/qiotoolkit/tutorial/dev/solver.html).
 
 ## Code of Conduct
 
