@@ -76,12 +76,12 @@ jobs:
             threshold-change: 90
       
         - name: Create the Badge
-          if: false
           uses: schneegans/dynamic-badges-action@v1.6.0
+          if: github.ref == 'refs/heads/main' 
           with:
             auth: ${{ secrets.CODE_COVERAGE_BADGE }}
-            gistID: 2789401c320d5cc8caac2fd89c649e75
-            filename: qio-toolkit-coverage.json
+            gistID: fba0eacadbe787c890db8a8288ff9bd5
+            filename: qiotoolkit-coverage.json
             label: Test Coverage
             message: ${{ env.COVERAGE }}
             color: green
