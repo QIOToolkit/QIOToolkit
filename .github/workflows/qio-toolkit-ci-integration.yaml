@@ -119,9 +119,6 @@ jobs:
     build-documentation:
       runs-on: ubuntu-latest
       needs: build-docker-container
-      permissions:
-          packages: write
-          contents: read
       steps:
       - uses: actions/checkout@v3
         with:
@@ -138,8 +135,8 @@ jobs:
         run: |
           docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "make build-documentation"
       
-      # - name: Release the documentation
-        # if: github.ref == 'refs/heads/main'
-        # run: |
-          # docker run -v $(pwd):/workdir -w /workdir ${{ env.DOCKER_POST_BUILD_NAME }} bash -c "./ci/release_documentation.sh"
+      - name: Release the documentation
+        if: github.ref == 'refs/heads/main'
+        run: |
+          ./ci/release_documentation.sh
         
