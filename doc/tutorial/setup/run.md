@@ -35,15 +35,12 @@ Running the Solver
 Additionally, the CLI command must specify the solver to use:
 
 ```bash
-$ cd path/to/qiotoolkit/cpp
-$ mkdir release_build
-$ cd release_build
-$ cmake .. -DCMAKE_BUILD_TYPE=Release
-$ make -j8
-$ ./app/qiotoolkit --user --log_level=WARN \
+$ cd path/to/qiotoolkit
+$ make build
+$ ./cpp/build_make/app/qiotoolkit --user --log_level=WARN \
       --solver simulatedannealing.qiotoolkit \
-      --parameters ../data/params1.json \
-      --input ../data/ising1.json
+      --parameters ./data/params1.json \
+      --input ./data/ising1.json
 ```
 
 Runtime Output
