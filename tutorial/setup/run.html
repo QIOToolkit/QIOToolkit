@@ -122,15 +122,12 @@ For this we need 2 inputs:</p>
 }
 </code></pre><h2 id="running-the-solver">Running the Solver</h2>
 <p>Additionally, the CLI command must specify the solver to use:</p>
-<pre><code class="lang-bash">$ cd path/to/qiotoolkit/cpp
-$ mkdir release_build
-$ cd release_build
-$ cmake .. -DCMAKE_BUILD_TYPE=Release
-$ make -j8
-$ ./app/qiotoolkit --user --log_level=WARN \
+<pre><code class="lang-bash">$ cd path/to/qiotoolkit
+$ make build
+$ ./cpp/build_make/app/qiotoolkit --user --log_level=WARN \
       --solver simulatedannealing.qiotoolkit \
-      --parameters ../data/params1.json \
-      --input ../data/ising1.json
+      --parameters ./data/params1.json \
+      --input ./data/ising1.json
 </code></pre>
 <h2 id="runtime-output">Runtime Output</h2>
 <pre><code>[INFO] app/runner.cc:41: Reading file: ../data/params1.json

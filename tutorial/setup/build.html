@@ -85,7 +85,7 @@ setting up your native environment. We do however recommend to stick with the
 dockerfile for the build process for building the x86-64 binary application.</p>
 <p>Running the two commands below should provide you with the build environment:</p>
 <pre><code class="lang-bash">qio-toolkit$ docker build -t qio-toolkit .
-qio-toolkit$ docker run -it --rm -v $(pwd):/qio-toolkit qio-toolkit
+qio-toolkit$ docker run -it --rm -v $(pwd):/qio-toolkit -w /qio-toolkit qio-toolkit
 </code></pre>
 <h2 id="build-and-test">Build and Test</h2>
 <p>Once you have the docker environment up and running and have attached the
