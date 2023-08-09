@@ -18,7 +18,7 @@ Running the two commands below should provide you with the build environment:
 
 ```bash
 qio-toolkit$ docker build -t qio-toolkit .
-qio-toolkit$ docker run -it --rm -v $(pwd):/qio-toolkit qio-toolkit
+qio-toolkit$ docker run -it --rm -v $(pwd):/qio-toolkit -w /qio-toolkit qio-toolkit
 ```
 
 ## Build and Test
