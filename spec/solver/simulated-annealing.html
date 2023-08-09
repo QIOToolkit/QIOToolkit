@@ -75,7 +75,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.spec.solver.simulated-annealing">
+            <article class="content wrap" id="_content" data-uid="qiotoolkit.spec.solver.simulated-annealing">
 <h1 id="simulated-annealing">Simulated Annealing</h1>
 
 <p>Performs metropolis dynamics on the model while gratually lowering (&quot;annealing&quot;)
@@ -95,13 +95,13 @@ restarts are mutually independent.</p>
 </ul>
 <div class="NOTE">
 <h5>Note</h5>
-<p>If you use the Azure QIO-comptaible parameters <code>beta_start</code> and <code>beta_stop</code>,
+<p>If you use the QIOtoolkit-comptaible parameters <code>beta_start</code> and <code>beta_stop</code>,
 the solver will attempt to infer the number of annealing steps from <code>step_limit</code>
-or its Azure QIO-alias <code>sweeps</code>.</p>
+or its Qiotoolkit-alias <code>sweeps</code>.</p>
 </div>
 <h2 id="example">Example</h2>
 <pre><code class="lang-json">{
-  &quot;target&quot;: &quot;microsoft.simulated-annealing.qiotoolkit&quot;,
+  &quot;target&quot;: &quot;simulated-annealing.qiotoolkit&quot;,
   &quot;version&quot;: &quot;1.0&quot;,
   &quot;input_params&quot;: {
     &quot;seed&quot;: 42,
@@ -189,7 +189,7 @@ spaced geometrically.</p>
   &quot;properties&quot;: {
     &quot;target&quot;: {
       &quot;type&quot;: &quot;string&quot;,
-      &quot;const&quot;: &quot;microsoft.simulatedannealing.qiotoolkit&quot;
+      &quot;const&quot;: &quot;simulatedannealing.qiotoolkit&quot;
     },
     &quot;input_params&quot;: {
       &quot;type&quot;: &quot;object&quot;,
@@ -259,8 +259,7 @@ spaced geometrically.</p>
       
       <span>
               Generated with <strong>Doxygen</strong>
-              and <strong>DocFX</strong></span>
-              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+              and <strong>DocFX</strong></span> 
           </div>
         </div>
       </footer>

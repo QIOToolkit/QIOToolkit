@@ -1,0 +1,637 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class GenericDocument
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class GenericDocument
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classGenericDocument">
+
+
+
+  <h1 id="classGenericDocument" data-uid="classGenericDocument" class="text-break">Class GenericDocument
+</h1>
+  <div class="markdown level0 summary"><p>A document for parsing JSON text as DOM.</p>
+<p>implements Handler concept</p>
+<p>Encoding</p>
+<p>Encoding for both parsing and string storage.</p>
+<p>Allocator</p>
+<p>Allocator for allocating memory for the DOM</p>
+<p>StackAllocator</p>
+<p>Allocator for allocating memory for stack during parsing.</p>
+<p>Although <a class="xref" href="generic-document.html">GenericDocument</a> inherits from <a class="xref" href="generic-value.html">GenericValue</a>, the API does not provide any virtual functions, especially no virtual destructor. To avoid memory leaks, do not <code>delete</code> a <a class="xref" href="generic-document.html">GenericDocument</a> object via a pointer to a <a class="xref" href="generic-value.html">GenericValue</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">GenericDocument</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classGenericDocument_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classGenericDocument_1a3da21e72ec8f26b9da77d86cc1d41cdd" data-uid="classGenericDocument_1a3da21e72ec8f26b9da77d86cc1d41cdd">GenericDocument()</h4>
+  <div class="markdown level1 summary"><p>Constructor.</p>
+<p>Creates an empty document of specified type.</p>
+<p>type</p>
+<p>Mandatory type of object to create.</p>
+<p>allocator</p>
+<p>Optional allocator for allocating memory.</p>
+<p>stackCapacity</p>
+<p>Optional initial capacity of stack in bytes.</p>
+<p>stackAllocator</p>
+<p>Optional allocator for allocating memory for stack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::GenericDocument(Type type, Allocator *allocator=0, size_t stackCapacity=kDefaultStackCapacity, StackAllocator *stackAllocator=0)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a6b1c313ad538cafc4d23d4bd5f97178c" data-uid="classGenericDocument_1a6b1c313ad538cafc4d23d4bd5f97178c">GenericDocument()</h4>
+  <div class="markdown level1 summary"><p>Constructor.</p>
+<p>Creates an empty document which type is Null.</p>
+<p>allocator</p>
+<p>Optional allocator for allocating memory.</p>
+<p>stackCapacity</p>
+<p>Optional initial capacity of stack in bytes.</p>
+<p>stackAllocator</p>
+<p>Optional allocator for allocating memory for stack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::GenericDocument(Allocator *allocator=0, size_t stackCapacity=kDefaultStackCapacity, StackAllocator *stackAllocator=0)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a58dd6c300949aeb9627de7f9e34796db" data-uid="classGenericDocument_1a58dd6c300949aeb9627de7f9e34796db">GenericDocument()</h4>
+  <div class="markdown level1 summary"><p>Prohibit copying.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::GenericDocument(const GenericDocument&amp;)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classGenericDocument_1afe94c0abc83a20f2d7dc1ba7677e6238" data-uid="classGenericDocument_1afe94c0abc83a20f2d7dc1ba7677e6238">ParseStream()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text from an input stream (with Encoding conversion)</p>
+<p>parseFlags</p>
+<p>Combination of <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450">ParseFlag</a>.</p>
+<p>SourceEncoding</p>
+<p>Encoding of input stream</p>
+<p>InputStream</p>
+<p>Type of input stream, implementing Stream concept</p>
+<p>is</p>
+<p>Input stream to be parsed.</p>
+<p>The document itself for fluent API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::ParseStream(InputStream&amp;is)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a6e154066c6f5024b91aaab25e03700e3" data-uid="classGenericDocument_1a6e154066c6f5024b91aaab25e03700e3">ParseStream()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text from an input stream.</p>
+<p>parseFlags</p>
+<p>Combination of <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450">ParseFlag</a>.</p>
+<p>InputStream</p>
+<p>Type of input stream, implementing Stream concept</p>
+<p>is</p>
+<p>Input stream to be parsed.</p>
+<p>The document itself for fluent API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::ParseStream(InputStream&amp;is)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1abe07ededbe9aaceb0058e3d254892b71" data-uid="classGenericDocument_1abe07ededbe9aaceb0058e3d254892b71">ParseStream()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text from an input stream (with <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450a9104b0946d648e9467cb7a967401ec80">kParseDefaultFlags</a>)</p>
+<p>InputStream</p>
+<p>Type of input stream, implementing Stream concept</p>
+<p>is</p>
+<p>Input stream to be parsed.</p>
+<p>The document itself for fluent API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::ParseStream(InputStream&amp;is)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a301f8f297a5a0da4b6be5459ad766f75" data-uid="classGenericDocument_1a301f8f297a5a0da4b6be5459ad766f75">ParseInsitu()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text from a mutable string.</p>
+<p>parseFlags</p>
+<p>Combination of <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450">ParseFlag</a>.</p>
+<p>str</p>
+<p>Mutable zero-terminated string to be parsed.</p>
+<p>The document itself for fluent API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::ParseInsitu(Ch *str)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a81922881357539d5482d31aea14b5664" data-uid="classGenericDocument_1a81922881357539d5482d31aea14b5664">ParseInsitu()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text from a mutable string (with <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450a9104b0946d648e9467cb7a967401ec80">kParseDefaultFlags</a>)</p>
+<p>str</p>
+<p>Mutable zero-terminated string to be parsed.</p>
+<p>The document itself for fluent API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::ParseInsitu(Ch *str)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1aadee36db7064cc9894a75c848831cdae" data-uid="classGenericDocument_1aadee36db7064cc9894a75c848831cdae">Parse()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text from a read-only string (with Encoding conversion)</p>
+<p>parseFlags</p>
+<p>Combination of <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450">ParseFlag</a> (must not contain <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450a13188bd483b4df0b6582bebe2aeb5b01">kParseInsituFlag</a>).</p>
+<p>SourceEncoding</p>
+<p>Transcoding from input Encoding</p>
+<p>str</p>
+<p>Read-only zero-terminated string to be parsed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Parse(const typename SourceEncoding::Ch *str)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a5e377f840009b5cee6757be29525ce0b" data-uid="classGenericDocument_1a5e377f840009b5cee6757be29525ce0b">Parse()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text from a read-only string.</p>
+<p>parseFlags</p>
+<p>Combination of <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450">ParseFlag</a> (must not contain <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450a13188bd483b4df0b6582bebe2aeb5b01">kParseInsituFlag</a>).</p>
+<p>str</p>
+<p>Read-only zero-terminated string to be parsed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Parse(const Ch *str)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a49ae6de6fd0bc820d9864a106c10b4da" data-uid="classGenericDocument_1a49ae6de6fd0bc820d9864a106c10b4da">Parse()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text from a read-only string (with <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450a9104b0946d648e9467cb7a967401ec80">kParseDefaultFlags</a>)</p>
+<p>str</p>
+<p>Read-only zero-terminated string to be parsed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Parse(const Ch *str)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a46b5028cc760c4e915a0d5216af9f7e2" data-uid="classGenericDocument_1a46b5028cc760c4e915a0d5216af9f7e2">Parse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Parse(const typename SourceEncoding::Ch *str, size_t length)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a93fec16eacec4f4b42075bb3bc242a6b" data-uid="classGenericDocument_1a93fec16eacec4f4b42075bb3bc242a6b">Parse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Parse(const Ch *str, size_t length)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1ab13d8358acc0648e3f91f6b825365e4f" data-uid="classGenericDocument_1ab13d8358acc0648e3f91f6b825365e4f">Parse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Parse(const Ch *str, size_t length)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a510a0588db4eb372f5d81bc3646578fb" data-uid="classGenericDocument_1a510a0588db4eb372f5d81bc3646578fb">HasParseError()</h4>
+  <div class="markdown level1 summary"><p>Whether a parse error has occurred in the last parsing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::HasParseError() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a9400a5bd3169cc6ed545e681ccc06070" data-uid="classGenericDocument_1a9400a5bd3169cc6ed545e681ccc06070">GetParseError()</h4>
+  <div class="markdown level1 summary"><p>Get the <a href="xref:group__RAPIDJSON__ERRORS_1ga8d4b32dfc45840bca189ade2bbcb6ba7">ParseErrorCode</a> of last parsing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">ParseErrorCode GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::GetParseError() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1ae1ef7ca99ced428e9300c68e5142afdb" data-uid="classGenericDocument_1ae1ef7ca99ced428e9300c68e5142afdb">GetErrorOffset()</h4>
+  <div class="markdown level1 summary"><p>Get the position of last parsing error in input, 0 otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::GetErrorOffset() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1af9bb8eade3eae0c039161378e8d2923a" data-uid="classGenericDocument_1af9bb8eade3eae0c039161378e8d2923a">operator ParseResult()</h4>
+  <div class="markdown level1 summary"><p>Implicit conversion to get the last parse result.</p>
+<p><a class="xref" href="parse-result.html">ParseResult</a> of the last parse operation</p>
+<pre><code>Document doc;
+ParseResult ok = doc.Parse(json);
+if (!ok)
+  printf( &quot;JSON parse error: %s (%u)\n&quot;, GetParseError_En(ok.Code()), ok.Offset());
+</code></pre>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::operator ParseResult() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1aa9f980909298a4de32f66526484820bf" data-uid="classGenericDocument_1aa9f980909298a4de32f66526484820bf">~GenericDocument()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::~GenericDocument()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a6290e1290fad74177625af5938c0c58f" data-uid="classGenericDocument_1a6290e1290fad74177625af5938c0c58f">Swap()</h4>
+  <div class="markdown level1 summary"><p>Exchange the contents of this document with those of another.</p>
+<p>rhs</p>
+<p>Another document.</p>
+<p>Constant complexity.</p>
+<p>GenericValue::Swap</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Swap(GenericDocument&amp;rhs) RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a36fbc7d0a9595d26e0d2c8859d207d1f" data-uid="classGenericDocument_1a36fbc7d0a9595d26e0d2c8859d207d1f">Populate()</h4>
+  <div class="markdown level1 summary"><p>Populate this document by a generator which produces SAX events.</p>
+<p>Generator</p>
+<p>A functor with <code>bool f(Handler)</code> prototype.</p>
+<p>g</p>
+<p>Generator functor which sends SAX events to the parameter.</p>
+<p>The document itself for fluent API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Populate(Generator&amp;g)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1aa4609d6b19f86aec1a6b96edf2c27686" data-uid="classGenericDocument_1aa4609d6b19f86aec1a6b96edf2c27686">GetAllocator()</h4>
+  <div class="markdown level1 summary"><p>Get the allocator of this document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">Allocator&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::GetAllocator()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a9e2e543c326b8b981d4f2c3d6793d15b" data-uid="classGenericDocument_1a9e2e543c326b8b981d4f2c3d6793d15b">GetStackCapacity()</h4>
+  <div class="markdown level1 summary"><p>Get the capacity of stack in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::GetStackCapacity() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a87dc7f66b2b92660b8a43546733f9df2" data-uid="classGenericDocument_1a87dc7f66b2b92660b8a43546733f9df2">Null()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Null()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a4c44780642518dd34bd241a1ea0ceaf1" data-uid="classGenericDocument_1a4c44780642518dd34bd241a1ea0ceaf1">Bool()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Bool(bool b)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a8cc986266becaa268474c607489745c7" data-uid="classGenericDocument_1a8cc986266becaa268474c607489745c7">Int()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Int(int i)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a530dd899a04a00ba74f52507b488d2c1" data-uid="classGenericDocument_1a530dd899a04a00ba74f52507b488d2c1">Uint()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Uint(unsigned i)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a934b1b7a7ed89917615a5410db77a942" data-uid="classGenericDocument_1a934b1b7a7ed89917615a5410db77a942">Int64()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Int64(int64_t i)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a50ac3451a1afd0ce248dcc023d5e09e8" data-uid="classGenericDocument_1a50ac3451a1afd0ce248dcc023d5e09e8">Uint64()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Uint64(uint64_t i)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a934bf7a5d1ff062ab079756d842e4f6b" data-uid="classGenericDocument_1a934bf7a5d1ff062ab079756d842e4f6b">Double()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Double(double d)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1af703994dec5af6ef049a24b5243aceab" data-uid="classGenericDocument_1af703994dec5af6ef049a24b5243aceab">RawNumber()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::RawNumber(const Ch *str, SizeType length, bool copy)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1ad319fcc9e13606b6795424b9374a7398" data-uid="classGenericDocument_1ad319fcc9e13606b6795424b9374a7398">String()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::String(const Ch *str, SizeType length, bool copy)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1abb1417fde52cc34cb340e3b50a3295da" data-uid="classGenericDocument_1abb1417fde52cc34cb340e3b50a3295da">StartObject()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::StartObject()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a600d0950baabbcab11197cacb1459c7a" data-uid="classGenericDocument_1a600d0950baabbcab11197cacb1459c7a">Key()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Key(const Ch *str, SizeType length, bool copy)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a42f2df68f9c9d8b88a15b609716867d9" data-uid="classGenericDocument_1a42f2df68f9c9d8b88a15b609716867d9">EndObject()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::EndObject(SizeType memberCount)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1ae12c513c61745ae731a47b1ca33db063" data-uid="classGenericDocument_1ae12c513c61745ae731a47b1ca33db063">StartArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::StartArray()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1a14097c833bed1a9c7be064ea619c887f" data-uid="classGenericDocument_1a14097c833bed1a9c7be064ea619c887f">EndArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::EndArray(SizeType elementCount)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1ae31cd36a3b677d697d0a3bed68edf3c3" data-uid="classGenericDocument_1ae31cd36a3b677d697d0a3bed68edf3c3">operator=()</h4>
+  <div class="markdown level1 summary"><p>Prohibit assignment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericDocument&amp;GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::operator=(const GenericDocument&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1aa6f040219ed1d4cdd48f7ed9353942a4" data-uid="classGenericDocument_1aa6f040219ed1d4cdd48f7ed9353942a4">ClearStack()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::ClearStack()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericDocument_1ad72f36087f5129ad4b5321cf8418c923" data-uid="classGenericDocument_1ad72f36087f5129ad4b5321cf8418c923">Destroy()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericDocument&lt;Encoding, Allocator, StackAllocator&gt;::Destroy()</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span> 
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

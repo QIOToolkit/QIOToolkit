@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class GenericReader
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class GenericReader
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classGenericReader">
+
+
+
+  <h1 id="classGenericReader" data-uid="classGenericReader" class="text-break">Class GenericReader
+</h1>
+  <div class="markdown level0 summary"><p>SAX-style JSON parser. Use <a href="xref:md_cpp_build_make__deps_rapidjson-src_doc_sax_8zh-cn_1Reader">Reader</a> for <a class="xref" href="utf8.html">UTF8</a> encoding and default allocator.</p>
+<p><a class="xref" href="generic-reader.html">GenericReader</a> parses JSON text from a stream, and send events synchronously to an object implementing Handler concept.
+It needs to allocate a stack for storing a single decoded string during non-destructive parsing.
+For in-situ parsing, the decoded string is directly written to the source text string, no temporary buffer is required.
+A <a class="xref" href="generic-reader.html">GenericReader</a> object can be reused for parsing multiple JSON text.</p>
+<p>SourceEncoding</p>
+<p>Encoding of the input stream.</p>
+<p>TargetEncoding</p>
+<p>Encoding of the parse output.</p>
+<p>StackAllocator</p>
+<p>Allocator type for stack.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">GenericReader</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classGenericReader_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classGenericReader_1aab875a34b3092df9fb4e2b8eac6dbb96" data-uid="classGenericReader_1aab875a34b3092df9fb4e2b8eac6dbb96">GenericReader()</h4>
+  <div class="markdown level1 summary"><p>Constructor.</p>
+<p>stackAllocator</p>
+<p>Optional allocator for allocating stack memory. (Only use for non-destructive parsing)</p>
+<p>stackCapacity</p>
+<p>stack capacity in bytes for storing a single decoded string. (Only use for non-destructive parsing)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::GenericReader(StackAllocator *stackAllocator=0, size_t stackCapacity=kDefaultStackCapacity)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1ac767384e34b7078fa9f97ba57c884328" data-uid="classGenericReader_1ac767384e34b7078fa9f97ba57c884328">GenericReader()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::GenericReader(const GenericReader&amp;)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classGenericReader_1a0c450620d14ff1824e58bb7bd9b42099" data-uid="classGenericReader_1a0c450620d14ff1824e58bb7bd9b42099">Parse()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text.</p>
+<p>parseFlags</p>
+<p>Combination of <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450">ParseFlag</a>.</p>
+<p>InputStream</p>
+<p>Type of input stream, implementing Stream concept.</p>
+<p>Handler</p>
+<p>Type of handler, implementing Handler concept.</p>
+<p>is</p>
+<p>Input stream to be parsed.</p>
+<p>handler</p>
+<p>The handler to receive events.</p>
+<p>Whether the parsing is successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">ParseResult GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::Parse(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a76d91e5fd8dfe48aea7dd6d8a51dd6dc" data-uid="classGenericReader_1a76d91e5fd8dfe48aea7dd6d8a51dd6dc">Parse()</h4>
+  <div class="markdown level1 summary"><p>Parse JSON text (with <a href="xref:reader_8h_1ab7be7dabe6ffcba60fad441505583450a9104b0946d648e9467cb7a967401ec80">kParseDefaultFlags</a>)</p>
+<p>InputStream</p>
+<p>Type of input stream, implementing Stream concept</p>
+<p>Handler</p>
+<p>Type of handler, implementing Handler concept.</p>
+<p>is</p>
+<p>Input stream to be parsed.</p>
+<p>handler</p>
+<p>The handler to receive events.</p>
+<p>Whether the parsing is successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">ParseResult GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::Parse(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a7de472eda2ad9de13cfd8c1de74f1754" data-uid="classGenericReader_1a7de472eda2ad9de13cfd8c1de74f1754">IterativeParseInit()</h4>
+  <div class="markdown level1 summary"><p>Initialize JSON text token-by-token parsing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::IterativeParseInit()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a257891331e0c259903e7066fb4cebf92" data-uid="classGenericReader_1a257891331e0c259903e7066fb4cebf92">IterativeParseNext()</h4>
+  <div class="markdown level1 summary"><p>Parse one token from JSON text.</p>
+<p>InputStream</p>
+<p>Type of input stream, implementing Stream concept</p>
+<p>Handler</p>
+<p>Type of handler, implementing Handler concept.</p>
+<p>is</p>
+<p>Input stream to be parsed.</p>
+<p>handler</p>
+<p>The handler to receive events.</p>
+<p>Whether the parsing is successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::IterativeParseNext(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1aa1e9e1eef614fde971550ed2f955151d" data-uid="classGenericReader_1aa1e9e1eef614fde971550ed2f955151d">IterativeParseComplete()</h4>
+  <div class="markdown level1 summary"><p>Check if token-by-token parsing JSON text is complete.</p>
+<p>Whether the JSON has been fully decoded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE bool GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::IterativeParseComplete() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1ac417441794477ea747b63adb6d3653a9" data-uid="classGenericReader_1ac417441794477ea747b63adb6d3653a9">HasParseError()</h4>
+  <div class="markdown level1 summary"><p>Whether a parse error has occurred in the last parsing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::HasParseError() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a937bf90919f50e1c370b312cee5833e8" data-uid="classGenericReader_1a937bf90919f50e1c370b312cee5833e8">GetParseErrorCode()</h4>
+  <div class="markdown level1 summary"><p>Get the <a href="xref:group__RAPIDJSON__ERRORS_1ga8d4b32dfc45840bca189ade2bbcb6ba7">ParseErrorCode</a> of last parsing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">ParseErrorCode GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::GetParseErrorCode() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1ae9008523ccd06d839a57335835cb4091" data-uid="classGenericReader_1ae9008523ccd06d839a57335835cb4091">GetErrorOffset()</h4>
+  <div class="markdown level1 summary"><p>Get the position of last parsing error in input, 0 otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::GetErrorOffset() const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1ae50079444295bf109730c3b708a818a6" data-uid="classGenericReader_1ae50079444295bf109730c3b708a818a6">SetParseError()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::SetParseError(ParseErrorCode code, size_t offset)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1ab07a979626cfa121365bb09b61558c11" data-uid="classGenericReader_1ab07a979626cfa121365bb09b61558c11">operator=()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericReader&amp;GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::operator=(const GenericReader&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a1c3db4c395db98714ffb257d559fb28e" data-uid="classGenericReader_1a1c3db4c395db98714ffb257d559fb28e">ClearStack()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ClearStack()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a4d01a1cbfbb63744361af3e1eb98aa52" data-uid="classGenericReader_1a4d01a1cbfbb63744361af3e1eb98aa52">SkipWhitespaceAndComments()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::SkipWhitespaceAndComments(InputStream&amp;is)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1af7943451d58ae465e9803d5a78beeb90" data-uid="classGenericReader_1af7943451d58ae465e9803d5a78beeb90">ParseObject()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseObject(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a8f226bb3c17b232ce142594b7620c8a4" data-uid="classGenericReader_1a8f226bb3c17b232ce142594b7620c8a4">ParseArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseArray(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1ae624956124c98a85d23decd86a406a0b" data-uid="classGenericReader_1ae624956124c98a85d23decd86a406a0b">ParseNull()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseNull(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a762f074e0f99c71f0a82cff19bb763cd" data-uid="classGenericReader_1a762f074e0f99c71f0a82cff19bb763cd">ParseTrue()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseTrue(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1af3af2d4e8efa1b8ef2f0bb281d8f0540" data-uid="classGenericReader_1af3af2d4e8efa1b8ef2f0bb281d8f0540">ParseFalse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseFalse(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1afc44000d3b4d538080b09c6a43c00f20" data-uid="classGenericReader_1afc44000d3b4d538080b09c6a43c00f20">ParseHex4()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">unsigned GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseHex4(InputStream&amp;is, size_t escapeOffset)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1ab4d4f63b23b55a72069e2e13eb010cff" data-uid="classGenericReader_1ab4d4f63b23b55a72069e2e13eb010cff">ParseString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseString(InputStream&amp;is, Handler&amp;handler, bool isKey=false)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a8fa22aded7085b3fe5f9d59467318f8a" data-uid="classGenericReader_1a8fa22aded7085b3fe5f9d59467318f8a">ParseStringToStream()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseStringToStream(InputStream&amp;is, OutputStream&amp;os)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a2447207fde31185e2bb8fbf1250b72e0" data-uid="classGenericReader_1a2447207fde31185e2bb8fbf1250b72e0">ParseNumber()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseNumber(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a8c0d07512c0fa447f45c9e5b00dd2d70" data-uid="classGenericReader_1a8c0d07512c0fa447f45c9e5b00dd2d70">ParseValue()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ParseValue(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a0871b9653ca8283d92ac753bf63e33ce" data-uid="classGenericReader_1a0871b9653ca8283d92ac753bf63e33ce">Tokenize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE Token GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::Tokenize(Ch c) const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1ad0be8224856167550255d2c9d09f4278" data-uid="classGenericReader_1ad0be8224856167550255d2c9d09f4278">Predict()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE IterativeParsingState GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::Predict(IterativeParsingState state, Token token) const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a09637865e7aea8e50fb8f9fc25dd65ad" data-uid="classGenericReader_1a09637865e7aea8e50fb8f9fc25dd65ad">Transit()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE IterativeParsingState GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::Transit(IterativeParsingState src, Token token, IterativeParsingState dst, InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a46660019ff1ed42bc192d9b5f9119b0f" data-uid="classGenericReader_1a46660019ff1ed42bc192d9b5f9119b0f">HandleError()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::HandleError(IterativeParsingState src, InputStream&amp;is)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a115b4d35f57ef8dbe9eef467cba471ae" data-uid="classGenericReader_1a115b4d35f57ef8dbe9eef467cba471ae">IsIterativeParsingDelimiterState()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE bool GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::IsIterativeParsingDelimiterState(IterativeParsingState s) const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a2907a45d73d2f8cebe1a31bdc3a6e483" data-uid="classGenericReader_1a2907a45d73d2f8cebe1a31bdc3a6e483">IsIterativeParsingCompleteState()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE bool GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::IsIterativeParsingCompleteState(IterativeParsingState s) const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a55a2d3fd3d5261f26513ed303724bc3a" data-uid="classGenericReader_1a55a2d3fd3d5261f26513ed303724bc3a">IterativeParse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">ParseResult GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::IterativeParse(InputStream&amp;is, Handler&amp;handler)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a5552ffdca0c3872ffeab6d35ea7038c2" data-uid="classGenericReader_1a5552ffdca0c3872ffeab6d35ea7038c2">Consume()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static RAPIDJSON_FORCEINLINE bool GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::Consume(InputStream&amp;is, typename InputStream::Ch expect)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericReader_1a22d69758dcadf454e372226be028483c" data-uid="classGenericReader_1a22d69758dcadf454e372226be028483c">ScanCopyUnescapedString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static RAPIDJSON_FORCEINLINE void GenericReader&lt;SourceEncoding, TargetEncoding, StackAllocator&gt;::ScanCopyUnescapedString(InputStream&amp;, OutputStream&amp;)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span> 
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

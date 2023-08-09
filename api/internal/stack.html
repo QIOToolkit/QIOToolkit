@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class internal::Stack
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class internal::Stack
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classinternal_1_1Stack">
+
+
+
+  <h1 id="classinternal_1_1Stack" data-uid="classinternal_1_1Stack" class="text-break">Class internal::Stack
+</h1>
+  <div class="markdown level0 summary"><p>A type-unsafe stack for storing different types of data.</p>
+<p>Allocator</p>
+<p>Allocator for allocating stack memory.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">internal::Stack</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classinternal_1_1Stack_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classinternal_1_1Stack_1af09ab91f9e5143deccf7c9af837f451e" data-uid="classinternal_1_1Stack_1af09ab91f9e5143deccf7c9af837f451e">Stack()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">internal::Stack&lt;Allocator&gt;::Stack(Allocator *allocator, size_t stackCapacity)</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1af4109a9e632f85f70ac01c69d3ccdb3b" data-uid="classinternal_1_1Stack_1af4109a9e632f85f70ac01c69d3ccdb3b">Stack()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">internal::Stack&lt;Allocator&gt;::Stack(const Stack&amp;)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classinternal_1_1Stack_1afedce84c8816abe9277a71ebd5e1808a" data-uid="classinternal_1_1Stack_1afedce84c8816abe9277a71ebd5e1808a">~Stack()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">internal::Stack&lt;Allocator&gt;::~Stack()</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a5e601199a21d84b1ac612f558be0f2c3" data-uid="classinternal_1_1Stack_1a5e601199a21d84b1ac612f558be0f2c3">Swap()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void internal::Stack&lt;Allocator&gt;::Swap(Stack&amp;rhs) RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a02da31665a372738e81ded2f7b7d598e" data-uid="classinternal_1_1Stack_1a02da31665a372738e81ded2f7b7d598e">Clear()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void internal::Stack&lt;Allocator&gt;::Clear()</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a3852b8494d69c91f6a238a51572e591e" data-uid="classinternal_1_1Stack_1a3852b8494d69c91f6a238a51572e591e">ShrinkToFit()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void internal::Stack&lt;Allocator&gt;::ShrinkToFit()</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a7ae5de892834b7fc16099eb5e23dd97c" data-uid="classinternal_1_1Stack_1a7ae5de892834b7fc16099eb5e23dd97c">Reserve()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE void internal::Stack&lt;Allocator&gt;::Reserve(size_t count=1)</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a8038223ec0ed6ea92bb5f48e645a25ca" data-uid="classinternal_1_1Stack_1a8038223ec0ed6ea92bb5f48e645a25ca">Push()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE T* internal::Stack&lt;Allocator&gt;::Push(size_t count=1)</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a63b4eabd209d4fc9b43027f4e5660532" data-uid="classinternal_1_1Stack_1a63b4eabd209d4fc9b43027f4e5660532">PushUnsafe()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">RAPIDJSON_FORCEINLINE T* internal::Stack&lt;Allocator&gt;::PushUnsafe(size_t count=1)</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a8545a8ccba595ac6e4ade9784474aa1c" data-uid="classinternal_1_1Stack_1a8545a8ccba595ac6e4ade9784474aa1c">Pop()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">T* internal::Stack&lt;Allocator&gt;::Pop(size_t count)</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1ab3ed5b4afed3c73c516678516d5e195b" data-uid="classinternal_1_1Stack_1ab3ed5b4afed3c73c516678516d5e195b">Top()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">T* internal::Stack&lt;Allocator&gt;::Top()</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1abd8941a6b827a7ea359cb59b79d7a886" data-uid="classinternal_1_1Stack_1abd8941a6b827a7ea359cb59b79d7a886">Top()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const T* internal::Stack&lt;Allocator&gt;::Top() const</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a54987ae8ad774dd3ee80a43d268ef080" data-uid="classinternal_1_1Stack_1a54987ae8ad774dd3ee80a43d268ef080">End()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">T* internal::Stack&lt;Allocator&gt;::End()</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a605246623b39f9d36d3d12eee25f9d82" data-uid="classinternal_1_1Stack_1a605246623b39f9d36d3d12eee25f9d82">End()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const T* internal::Stack&lt;Allocator&gt;::End() const</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a10aa1bc716b82cb0a40b3a3b9d5efe87" data-uid="classinternal_1_1Stack_1a10aa1bc716b82cb0a40b3a3b9d5efe87">Bottom()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">T* internal::Stack&lt;Allocator&gt;::Bottom()</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1af5c55983c553c7355ff6d24beb48c722" data-uid="classinternal_1_1Stack_1af5c55983c553c7355ff6d24beb48c722">Bottom()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">const T* internal::Stack&lt;Allocator&gt;::Bottom() const</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a657ae4d477b25d4e0045aee0efd809c3" data-uid="classinternal_1_1Stack_1a657ae4d477b25d4e0045aee0efd809c3">HasAllocator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool internal::Stack&lt;Allocator&gt;::HasAllocator() const</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1ab01f693833dfe136f574d66547623cfa" data-uid="classinternal_1_1Stack_1ab01f693833dfe136f574d66547623cfa">GetAllocator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">Allocator&amp;internal::Stack&lt;Allocator&gt;::GetAllocator()</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a2b8bda380e33838a99e3c73ff9785f03" data-uid="classinternal_1_1Stack_1a2b8bda380e33838a99e3c73ff9785f03">Empty()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool internal::Stack&lt;Allocator&gt;::Empty() const</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1ac484468a2791bd3e9ba609bd1600ab48" data-uid="classinternal_1_1Stack_1ac484468a2791bd3e9ba609bd1600ab48">GetSize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t internal::Stack&lt;Allocator&gt;::GetSize() const</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a67d5d7ee9424d3dd46cf9d001b6cdc6b" data-uid="classinternal_1_1Stack_1a67d5d7ee9424d3dd46cf9d001b6cdc6b">GetCapacity()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t internal::Stack&lt;Allocator&gt;::GetCapacity() const</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a5a530d1d2a39a05812e4fee0e299004a" data-uid="classinternal_1_1Stack_1a5a530d1d2a39a05812e4fee0e299004a">Expand()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void internal::Stack&lt;Allocator&gt;::Expand(size_t count)</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a0a23948aa17a9870a5e228d465e40e92" data-uid="classinternal_1_1Stack_1a0a23948aa17a9870a5e228d465e40e92">Resize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void internal::Stack&lt;Allocator&gt;::Resize(size_t newCapacity)</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1a5efa6fdbfaf93c5e519a2e6f39bd081f" data-uid="classinternal_1_1Stack_1a5efa6fdbfaf93c5e519a2e6f39bd081f">Destroy()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void internal::Stack&lt;Allocator&gt;::Destroy()</code></pre>
+  </div>
+
+
+  <h4 id="classinternal_1_1Stack_1ae21d491cc0c4a22a2c131d88c0a37ae1" data-uid="classinternal_1_1Stack_1ae21d491cc0c4a22a2c131d88c0a37ae1">operator=()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">Stack&amp;internal::Stack&lt;Allocator&gt;::operator=(const Stack&amp;)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span> 
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

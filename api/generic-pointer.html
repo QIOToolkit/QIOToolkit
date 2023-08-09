@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class GenericPointer
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class GenericPointer
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classGenericPointer">
+
+
+
+  <h1 id="classGenericPointer" data-uid="classGenericPointer" class="text-break">Class GenericPointer
+</h1>
+  <div class="markdown level0 summary"><p>Represents a JSON Pointer. Use Pointer for <a class="xref" href="utf8.html">UTF8</a> encoding and default allocator.</p>
+<p>This class implements RFC 6901 &quot;JavaScript Object Notation (JSON) Pointer&quot; (<a href="https://tools.ietf.org/html/rfc6901">https://tools.ietf.org/html/rfc6901</a>).
+A JSON pointer is for identifying a specific value in a JSON document (<a class="xref" href="generic-document.html">GenericDocument</a>). It can simplify coding of DOM tree manipulation, because it can access multiple-level depth of DOM tree with single API call.
+After it parses a string representation (e.g. &quot;/foo/0&quot; or URI fragment representation (e.g. &quot;#/foo/0&quot;) into its internal representation (tokens), it can be used to resolve a specific value in multiple documents, or sub-tree of documents.
+Contrary to <a class="xref" href="generic-value.html">GenericValue</a>, Pointer can be copy constructed and copy assigned. Apart from assignment, a Pointer cannot be modified after construction.
+Although Pointer is very convenient, please aware that constructing Pointer involves parsing and dynamic memory allocation. A special constructor with user- supplied tokens eliminates these.
+<a class="xref" href="generic-pointer.html">GenericPointer</a> depends on <a class="xref" href="generic-document.html">GenericDocument</a> and <a class="xref" href="generic-value.html">GenericValue</a>.</p>
+<p>ValueType</p>
+<p>The value type of the DOM tree. E.g. <a class="xref" href="generic-value.html">GenericValue</a>&lt;UTF8&lt;&gt; &gt;</p>
+<p>Allocator</p>
+<p>The allocator type for allocating memory for internal representation.</p>
+<p><a class="xref" href="generic-pointer.html">GenericPointer</a> uses same encoding of ValueType. However, Allocator of <a class="xref" href="generic-pointer.html">GenericPointer</a> is independent of Allocator of Value.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">GenericPointer</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classGenericPointer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classGenericPointer_1a5d85b7dc82719643e8f7adccd5a74fbe" data-uid="classGenericPointer_1a5d85b7dc82719643e8f7adccd5a74fbe">GenericPointer()</h4>
+  <div class="markdown level1 summary"><p>Default constructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&lt;ValueType, Allocator&gt;::GenericPointer(Allocator *allocator=0)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1a4ad549b8a826c3c2dedf03fcc07be9b0" data-uid="classGenericPointer_1a4ad549b8a826c3c2dedf03fcc07be9b0">GenericPointer()</h4>
+  <div class="markdown level1 summary"><p>Constructor that parses a string or URI fragment representation.</p>
+<p>source</p>
+<p>A null-terminated, string or URI fragment representation of JSON pointer.</p>
+<p>allocator</p>
+<p>User supplied allocator for this pointer. If no allocator is provided, it creates a self-owned one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&lt;ValueType, Allocator&gt;::GenericPointer(const Ch *source, Allocator *allocator=0)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1a9c05684ea95306aac7626e70cb3946cc" data-uid="classGenericPointer_1a9c05684ea95306aac7626e70cb3946cc">GenericPointer()</h4>
+  <div class="markdown level1 summary"><p>Constructor that parses a string or URI fragment representation, with length of the source string.</p>
+<p>source</p>
+<p>A string or URI fragment representation of JSON pointer.</p>
+<p>length</p>
+<p>Length of source.</p>
+<p>allocator</p>
+<p>User supplied allocator for this pointer. If no allocator is provided, it creates a self-owned one.</p>
+<p>Slightly faster than the overload without length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&lt;ValueType, Allocator&gt;::GenericPointer(const Ch *source, size_t length, Allocator *allocator=0)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1a524a9921eff68f389a817a20ca7f1d84" data-uid="classGenericPointer_1a524a9921eff68f389a817a20ca7f1d84">GenericPointer()</h4>
+  <div class="markdown level1 summary"><p>Constructor with user-supplied tokens.</p>
+<p>This constructor let user supplies const array of tokens. This prevents the parsing process and eliminates allocation. This is preferred for memory constrained environments.</p>
+<p>tokens</p>
+<p>An constant array of tokens representing the JSON pointer.</p>
+<p>tokenCount</p>
+<p>Number of tokens.</p>
+<p>Example</p>
+<pre><code>#define NAME(s) { s, sizeof(s) / sizeof(s[0]) - 1, kPointerInvalidIndex }
+#define INDEX(i) { #i, sizeof(#i) - 1, i }
+
+static const Pointer::Token kTokens[] = { NAME(&quot;foo&quot;), INDEX(123) };
+static const Pointer p(kTokens, sizeof(kTokens) / sizeof(kTokens[0]));
+// Equivalent to static const Pointer p(&quot;/foo/123&quot;);
+
+#undef NAME
+#undef INDEX
+</code></pre>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&lt;ValueType, Allocator&gt;::GenericPointer(const Token *tokens, size_t tokenCount)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1a7803645e8f7f349ee09c7d50351e9432" data-uid="classGenericPointer_1a7803645e8f7f349ee09c7d50351e9432">GenericPointer()</h4>
+  <div class="markdown level1 summary"><p>Copy constructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&lt;ValueType, Allocator&gt;::GenericPointer(const GenericPointer&amp;rhs)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1a4395ca3f5c646e47cc9b93d21d1660ae" data-uid="classGenericPointer_1a4395ca3f5c646e47cc9b93d21d1660ae">GenericPointer()</h4>
+  <div class="markdown level1 summary"><p>Copy constructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&lt;ValueType, Allocator&gt;::GenericPointer(const GenericPointer&amp;rhs, Allocator *allocator)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classGenericPointer_1acf3eb2f7c4ebf9256f638aafa17534cb" data-uid="classGenericPointer_1acf3eb2f7c4ebf9256f638aafa17534cb">~GenericPointer()</h4>
+  <div class="markdown level1 summary"><p>Destructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&lt;ValueType, Allocator&gt;::~GenericPointer()</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1a1d0174a6e72daa4024da9e08ce1e7951" data-uid="classGenericPointer_1a1d0174a6e72daa4024da9e08ce1e7951">operator=()</h4>
+  <div class="markdown level1 summary"><p>Assignment operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&amp;GenericPointer&lt;ValueType, Allocator&gt;::operator=(const GenericPointer&amp;rhs)</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1a64fd102622f772efefd445cbed56b16e" data-uid="classGenericPointer_1a64fd102622f772efefd445cbed56b16e">Swap()</h4>
+  <div class="markdown level1 summary"><p>Swap the content of this pointer with an other.</p>
+<p>other</p>
+<p>The pointer to swap with.</p>
+<p>Constant complexity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&amp;GenericPointer&lt;ValueType, Allocator&gt;::Swap(GenericPointer&amp;other) RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1aa8f86c0f330807f337351a95ae254b78" data-uid="classGenericPointer_1aa8f86c0f330807f337351a95ae254b78">Append()</h4>
+  <div class="markdown level1 summary"><p>Append a token and return a new Pointer.</p>
+<p>token</p>
+<p><a class="xref" href="generic-pointer/token.html">Token</a> to be appended.</p>
+<p>allocator</p>
+<p>Allocator for the newly return Pointer.</p>
+<p>A new Pointer with appended token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer GenericPointer&lt;ValueType, Allocator&gt;::Append(const Token&amp;token, Allocator *allocator=0) const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1a9f8a1711f5b8e0d951c25c6c65326f77" data-uid="classGenericPointer_1a9f8a1711f5b8e0d951c25c6c65326f77">Append()</h4>
+  <div class="markdown level1 summary"><p>Append a name token with length, and return a new Pointer.</p>
+<p>name</p>
+<p>Name to be appended.</p>
+<p>length</p>
+<p>Length of name.</p>
+<p>allocator</p>
+<p>Allocator for the newly return Pointer.</p>
+<p>A new Pointer with appended token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer GenericPointer&lt;ValueType, Allocator&gt;::Append(const Ch *name, SizeType length, Allocator *allocator=0) const</code></pre>
+  </div>
+
+
+  <h4 id="classGenericPointer_1aaf4d7d852098878d24188d134182d42f" data-uid="classGenericPointer_1aaf4d7d852098878d24188d134182d42f">RAPIDJSON_DISABLEIF_RETURN()</h4>
+  <div class="markdown level1 summary"><p>Append a name token without length, and return a new Pointer.</p>
+<p>name</p>
+<p>Name (const Ch*) to be appended.</p>
+<p>allocator</p>
+<p>Allocator for the newly return Pointer.</p>
+<p>A new Pointer with appended token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">GenericPointer&lt;ValueType, Allocator&gt;::RAPIDJSON_DISABLEIF_RETURN((internal::NotExpr&lt;internal::IsSame&lt;typename internal::RemoveConst&lt;T&gt;::Type, Ch&gt;&gt;),(GenericPointer)) Append(T *name</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span> 
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

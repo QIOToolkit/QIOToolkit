@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class MemoryPoolAllocator
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class MemoryPoolAllocator
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classMemoryPoolAllocator">
+
+
+
+  <h1 id="classMemoryPoolAllocator" data-uid="classMemoryPoolAllocator" class="text-break">Class MemoryPoolAllocator
+</h1>
+  <div class="markdown level0 summary"><p>Default memory allocator used by the parser and DOM.</p>
+<p>This allocator allocate memory blocks from pre-allocated memory chunks.
+It does not free memory blocks. And <a class="xref" href="memory-pool-allocator.html#classMemoryPoolAllocator_1aba75280d42184b0ad414243f7f5ac6c7">Realloc()</a> only allocate new memory.
+The memory chunks are allocated by BaseAllocator, which is <a class="xref" href="crt-allocator.html">CrtAllocator</a> by default.
+User may also supply a buffer as the first chunk.
+If the user-buffer is full then additional chunks are allocated by BaseAllocator.
+The user-buffer is not deallocated by this allocator.</p>
+<p>BaseAllocator</p>
+<p>the allocator type for allocating memory chunks. Default is <a class="xref" href="crt-allocator.html">CrtAllocator</a>.</p>
+<p>implements Allocator concept</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">MemoryPoolAllocator</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classMemoryPoolAllocator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classMemoryPoolAllocator_1aeec85ac657f242ac5620115141be5209" data-uid="classMemoryPoolAllocator_1aeec85ac657f242ac5620115141be5209">MemoryPoolAllocator()</h4>
+  <div class="markdown level1 summary"><p>Constructor with chunkSize.</p>
+<p>chunkSize</p>
+<p>The size of memory chunk. The default is kDefaultChunkSize.</p>
+<p>baseAllocator</p>
+<p>The allocator for allocating memory chunks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">MemoryPoolAllocator&lt;BaseAllocator&gt;::MemoryPoolAllocator(size_t chunkSize=kDefaultChunkCapacity, BaseAllocator *baseAllocator=0)</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1a1f0d865093fdb955d956b7a445a8ddbf" data-uid="classMemoryPoolAllocator_1a1f0d865093fdb955d956b7a445a8ddbf">MemoryPoolAllocator()</h4>
+  <div class="markdown level1 summary"><p>Constructor with user-supplied buffer.</p>
+<p>The user buffer will be used firstly. When it is full, memory pool allocates new chunk with chunk size.
+The user buffer will not be deallocated when this allocator is destructed.</p>
+<p>buffer</p>
+<p>User supplied buffer.</p>
+<p>size</p>
+<p>Size of the buffer in bytes. It must at least larger than sizeof(ChunkHeader).</p>
+<p>chunkSize</p>
+<p>The size of memory chunk. The default is kDefaultChunkSize.</p>
+<p>baseAllocator</p>
+<p>The allocator for allocating memory chunks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">MemoryPoolAllocator&lt;BaseAllocator&gt;::MemoryPoolAllocator(void *buffer, size_t size, size_t chunkSize=kDefaultChunkCapacity, BaseAllocator *baseAllocator=0)</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1afa7a6555d8a6e151148c8876c60a36c5" data-uid="classMemoryPoolAllocator_1afa7a6555d8a6e151148c8876c60a36c5">MemoryPoolAllocator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">MemoryPoolAllocator&lt;BaseAllocator&gt;::MemoryPoolAllocator(const MemoryPoolAllocator&amp;rhs) RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classMemoryPoolAllocator_1a2740669a8b5ba8f781bd11c7c3fd988a" data-uid="classMemoryPoolAllocator_1a2740669a8b5ba8f781bd11c7c3fd988a">GetChunkHead()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static ChunkHeader* MemoryPoolAllocator&lt;BaseAllocator&gt;::GetChunkHead(SharedData *shared)</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1a0d325a2c92c347a9e56970e600a388f5" data-uid="classMemoryPoolAllocator_1a0d325a2c92c347a9e56970e600a388f5">GetChunkBuffer()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static uint8_t* MemoryPoolAllocator&lt;BaseAllocator&gt;::GetChunkBuffer(SharedData *shared)</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1afced2c61ee261874a3b45d3343f63eb2" data-uid="classMemoryPoolAllocator_1afced2c61ee261874a3b45d3343f63eb2">AlignBuffer()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static void* MemoryPoolAllocator&lt;BaseAllocator&gt;::AlignBuffer(void *buf, size_t&amp;size)</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1a37de236cab0a94c6836b1d02475d4683" data-uid="classMemoryPoolAllocator_1a37de236cab0a94c6836b1d02475d4683">operator=()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">MemoryPoolAllocator&amp;MemoryPoolAllocator&lt;BaseAllocator&gt;::operator=(const MemoryPoolAllocator&amp;rhs) RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1aff48c4c1fa43bdd3a2b406231f0eb00e" data-uid="classMemoryPoolAllocator_1aff48c4c1fa43bdd3a2b406231f0eb00e">~MemoryPoolAllocator()</h4>
+  <div class="markdown level1 summary"><p>Destructor.</p>
+<p>This deallocates all memory chunks, excluding the user-supplied buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">MemoryPoolAllocator&lt;BaseAllocator&gt;::~MemoryPoolAllocator() RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1a6f6dce308aa10a28c898348db3bc75c1" data-uid="classMemoryPoolAllocator_1a6f6dce308aa10a28c898348db3bc75c1">Clear()</h4>
+  <div class="markdown level1 summary"><p>Deallocates all memory chunks, excluding the first/user one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void MemoryPoolAllocator&lt;BaseAllocator&gt;::Clear() RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1a60526f0a1e6bb225c49f10537635e30f" data-uid="classMemoryPoolAllocator_1a60526f0a1e6bb225c49f10537635e30f">Capacity()</h4>
+  <div class="markdown level1 summary"><p>Computes the total capacity of allocated memory chunks.</p>
+<p>total capacity in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t MemoryPoolAllocator&lt;BaseAllocator&gt;::Capacity() const RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1a53abb6188aea4a687ca9f6d778fd1d2d" data-uid="classMemoryPoolAllocator_1a53abb6188aea4a687ca9f6d778fd1d2d">Size()</h4>
+  <div class="markdown level1 summary"><p>Computes the memory blocks allocated.</p>
+<p>total used bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">size_t MemoryPoolAllocator&lt;BaseAllocator&gt;::Size() const RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1aee5e0b6d09dfbbc9bbbc59399a14cc53" data-uid="classMemoryPoolAllocator_1aee5e0b6d09dfbbc9bbbc59399a14cc53">Shared()</h4>
+  <div class="markdown level1 summary"><p>Whether the allocator is shared.</p>
+<p>true or false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool MemoryPoolAllocator&lt;BaseAllocator&gt;::Shared() const RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1a02f6832910453446cb77bf919ba49e99" data-uid="classMemoryPoolAllocator_1a02f6832910453446cb77bf919ba49e99">Malloc()</h4>
+  <div class="markdown level1 summary"><p>Allocates a memory block. (concept Allocator)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void* MemoryPoolAllocator&lt;BaseAllocator&gt;::Malloc(size_t size)</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1aba75280d42184b0ad414243f7f5ac6c7" data-uid="classMemoryPoolAllocator_1aba75280d42184b0ad414243f7f5ac6c7">Realloc()</h4>
+  <div class="markdown level1 summary"><p>Resizes a memory block (concept Allocator)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void* MemoryPoolAllocator&lt;BaseAllocator&gt;::Realloc(void *originalPtr, size_t originalSize, size_t newSize)</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1ab2b847d46e865b541c38fb68dfc7d408" data-uid="classMemoryPoolAllocator_1ab2b847d46e865b541c38fb68dfc7d408">operator==()</h4>
+  <div class="markdown level1 summary"><p>Compare (equality) with another <a class="xref" href="memory-pool-allocator.html">MemoryPoolAllocator</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool MemoryPoolAllocator&lt;BaseAllocator&gt;::operator==(const MemoryPoolAllocator&amp;rhs) const RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1ab81d11c88aef06b905cece2e5a4e7b4d" data-uid="classMemoryPoolAllocator_1ab81d11c88aef06b905cece2e5a4e7b4d">operator!=()</h4>
+  <div class="markdown level1 summary"><p>Compare (inequality) with another <a class="xref" href="memory-pool-allocator.html">MemoryPoolAllocator</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool MemoryPoolAllocator&lt;BaseAllocator&gt;::operator!=(const MemoryPoolAllocator&amp;rhs) const RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1ab2ba66e50d09ab315fbfb37f2a231f33" data-uid="classMemoryPoolAllocator_1ab2ba66e50d09ab315fbfb37f2a231f33">Free()</h4>
+  <div class="markdown level1 summary"><p>Frees a memory block (concept Allocator)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">static void MemoryPoolAllocator&lt;BaseAllocator&gt;::Free(void *ptr) RAPIDJSON_NOEXCEPT</code></pre>
+  </div>
+
+
+  <h4 id="classMemoryPoolAllocator_1a41bebe49979dc69921519c7556af18fc" data-uid="classMemoryPoolAllocator_1a41bebe49979dc69921519c7556af18fc">AddChunk()</h4>
+  <div class="markdown level1 summary"><p>Creates a new chunk.</p>
+<p>capacity</p>
+<p>Capacity of the chunk in bytes.</p>
+<p>true if success.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool MemoryPoolAllocator&lt;BaseAllocator&gt;::AddChunk(size_t capacity)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span> 
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

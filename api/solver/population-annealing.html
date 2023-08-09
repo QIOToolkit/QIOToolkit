@@ -93,7 +93,7 @@ Stepping method
 <pre><code class="lang-math"> \Delta\beta = c_{FT} / \sqrt\zeta 
 </code></pre>
 <pre><code class="lang-.json">{
-  'target': 'microsoft.populationannealing.cpu',
+  'target': 'populationannealing.cpu',
   'version': '1.0',
   'resampling_strategy': 'friction_tensor',
   'friction_tensor_constant': 1
@@ -106,7 +106,7 @@ Stepping method
 </code></pre>
 <p>for this, the initial value for the culling fraction needs to be specified:</p>
 <pre><code class="lang-.json">{
-  'target': 'microsoft.populationannealing.cpu',
+  'target': 'populationannealing.cpu',
   'version': '1.0',
   'resampling_strategy': 'energy_variance',
   'initial_culling_fraction': 0.5
@@ -116,7 +116,7 @@ Stepping method
 <li><code>constant_culling</code>: The stepping size is chosen to keep the culling rate constant at <code>culling_fraction</code> (by estimating the expected death ratio and solving for <code>delta_beta</code>):</li>
 </ul>
 <pre><code class="lang-.json">{
-  'target': 'microsoft.populationannealing.cpu',
+  'target': 'populationannealing.cpu',
   'version': '1.0',
   'resampling_strategy': 'constant_culling',
   'culling_fraction': 0.1
@@ -537,8 +537,7 @@ Stepping method
       
       <span>
               Generated with <strong>Doxygen</strong>
-              and <strong>DocFX</strong></span>
-              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+              and <strong>DocFX</strong></span> 
           </div>
         </div>
       </footer>

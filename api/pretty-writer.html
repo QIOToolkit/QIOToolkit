@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class PrettyWriter
+ | qiotoolkit </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class PrettyWriter
+ | qiotoolkit ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classPrettyWriter">
+
+
+
+  <h1 id="classPrettyWriter" data-uid="classPrettyWriter" class="text-break">Class PrettyWriter
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="writer.html">Writer</a> with indentation and spacing.</p>
+<p>OutputStream</p>
+<p>Type of output os.</p>
+<p>SourceEncoding</p>
+<p>Encoding of source string.</p>
+<p>TargetEncoding</p>
+<p>Encoding of output stream.</p>
+<p>StackAllocator</p>
+<p>Type of allocator for allocating memory of stack.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">PrettyWriter</span></div>
+  </div>
+  <!--<h6><strong>Namespace</strong>: </h6>-->
+  <!--<h5 id="classPrettyWriter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs"></code></pre>
+  </div>
+  -->
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <h4 id="classPrettyWriter_1af573bc27031d90fbc03aab668b099faa" data-uid="classPrettyWriter_1af573bc27031d90fbc03aab668b099faa">PrettyWriter()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::PrettyWriter(const PrettyWriter&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a928ac2a5235b8877048ebdd5f35a556f" data-uid="classPrettyWriter_1a928ac2a5235b8877048ebdd5f35a556f">PrettyWriter()</h4>
+  <div class="markdown level1 summary"><p>Constructor.</p>
+<p>os</p>
+<p>Output stream.</p>
+<p>allocator</p>
+<p>User supplied allocator. If it is null, it will create a private one.</p>
+<p>levelDepth</p>
+<p>Initial capacity of stack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::PrettyWriter(OutputStream&amp;os, StackAllocator *allocator=0, size_t levelDepth=Base::kDefaultLevelDepth)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a4a9077e0300c6b0e1c830a58c1e738d2" data-uid="classPrettyWriter_1a4a9077e0300c6b0e1c830a58c1e738d2">PrettyWriter()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::PrettyWriter(StackAllocator *allocator=0, size_t levelDepth=Base::kDefaultLevelDepth)</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="classPrettyWriter_1aa144f2d0f0c3c69248cdbe957349528c" data-uid="classPrettyWriter_1aa144f2d0f0c3c69248cdbe957349528c">Null()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Null()</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a6e765ee7ada5ed40f317c78a98f6f90b" data-uid="classPrettyWriter_1a6e765ee7ada5ed40f317c78a98f6f90b">Bool()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Bool(bool b)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1aa1815263e61cb7af3b6dfba480a0f481" data-uid="classPrettyWriter_1aa1815263e61cb7af3b6dfba480a0f481">Int()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Int(int i)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a8c82302877a5588eae77eb7d042c49ef" data-uid="classPrettyWriter_1a8c82302877a5588eae77eb7d042c49ef">Uint()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Uint(unsigned u)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1ad42b797429f4ee19efdce610f5aff976" data-uid="classPrettyWriter_1ad42b797429f4ee19efdce610f5aff976">Int64()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Int64(int64_t i64)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1aba75ac1f13c2629b2a55ffbf3d8a116c" data-uid="classPrettyWriter_1aba75ac1f13c2629b2a55ffbf3d8a116c">Uint64()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Uint64(uint64_t u64)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1ad9d592e86b985da666665926e87db415" data-uid="classPrettyWriter_1ad9d592e86b985da666665926e87db415">Double()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Double(double d)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a3941bc21d6a261ca8a86eff330db30ef" data-uid="classPrettyWriter_1a3941bc21d6a261ca8a86eff330db30ef">RawNumber()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::RawNumber(const Ch *str, SizeType length, bool copy=false)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1ae544ccfe35dd7e80ed694873062409f6" data-uid="classPrettyWriter_1ae544ccfe35dd7e80ed694873062409f6">String()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::String(const Ch *str, SizeType length, bool copy=false)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a27bdda225dc152b8974e44c1df7525b7" data-uid="classPrettyWriter_1a27bdda225dc152b8974e44c1df7525b7">StartObject()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::StartObject()</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a20ecbe1d31a871e4da4a3899b40ad3cd" data-uid="classPrettyWriter_1a20ecbe1d31a871e4da4a3899b40ad3cd">Key()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Key(const Ch *str, SizeType length, bool copy=false)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a6bfdfa4193193ef763cce5c592c4d20c" data-uid="classPrettyWriter_1a6bfdfa4193193ef763cce5c592c4d20c">EndObject()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::EndObject(SizeType memberCount=0)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1aec7fdf4798a3af5e31c147633f4798ed" data-uid="classPrettyWriter_1aec7fdf4798a3af5e31c147633f4798ed">StartArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::StartArray()</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a1e9d97fc950d349f55abd864c787ff37" data-uid="classPrettyWriter_1a1e9d97fc950d349f55abd864c787ff37">EndArray()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::EndArray(SizeType memberCount=0)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a7e85689355a827d273f272c26b447225" data-uid="classPrettyWriter_1a7e85689355a827d273f272c26b447225">String()</h4>
+  <div class="markdown level1 summary"><p>Simpler but slower overload.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::String(const Ch *str)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a4b2a2a6eef02c12d7a3fd77966bd4499" data-uid="classPrettyWriter_1a4b2a2a6eef02c12d7a3fd77966bd4499">Key()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::Key(const Ch *str)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a440890a72408a150ef46edda6becdc94" data-uid="classPrettyWriter_1a440890a72408a150ef46edda6becdc94">RawValue()</h4>
+  <div class="markdown level1 summary"><p>Write a raw JSON value.</p>
+<p>For user to write a stringified JSON as a value.</p>
+<p>json</p>
+<p>A well-formed JSON value. It should not contain null character within [0, length - 1] range.</p>
+<p>length</p>
+<p>Length of the json.</p>
+<p>type</p>
+<p>Type of the root of json.</p>
+<p>When using <a class="xref" href="pretty-writer.html#classPrettyWriter_1a440890a72408a150ef46edda6becdc94">PrettyWriter::RawValue()</a>, the result json may not be indented correctly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">bool PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::RawValue(const Ch *json, size_t length, Type type)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a09709ffa3b545e007631ecfd35029843" data-uid="classPrettyWriter_1a09709ffa3b545e007631ecfd35029843">PrettyPrefix()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::PrettyPrefix(Type type)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a6f244ecc94fd5b134d424033b1574b7e" data-uid="classPrettyWriter_1a6f244ecc94fd5b134d424033b1574b7e">WriteIndent()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">void PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::WriteIndent()</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1acf82b0bb61c1fab002d84a458674ff03" data-uid="classPrettyWriter_1acf82b0bb61c1fab002d84a458674ff03">operator=()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PrettyWriter&amp;PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::operator=(const PrettyWriter&amp;)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1ad307b4c8d61af25042d0adcd0910c19a" data-uid="classPrettyWriter_1ad307b4c8d61af25042d0adcd0910c19a">SetIndent()</h4>
+  <div class="markdown level1 summary"><p>Set custom indentation.</p>
+<p>indentChar</p>
+<p>Character for indentation. Must be whitespace character (' ', '\t', '\n', '\r').</p>
+<p>indentCharCount</p>
+<p>Number of indent characters for each indentation level.</p>
+<p>The default indentation is 4 spaces.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PrettyWriter&amp;PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::SetIndent(Ch indentChar, unsigned indentCharCount)</code></pre>
+  </div>
+
+
+  <h4 id="classPrettyWriter_1a1ff9dbeff9b9c724080cb65987a41b73" data-uid="classPrettyWriter_1a1ff9dbeff9b9c724080cb65987a41b73">SetFormatOptions()</h4>
+  <div class="markdown level1 summary"><p>Set pretty writer formatting options.</p>
+<p>options</p>
+<p>Formatting options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">PrettyWriter&amp;PrettyWriter&lt;OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags&gt;::SetFormatOptions(PrettyFormatOptions options)</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>
+              Generated with <strong>Doxygen</strong>
+              and <strong>DocFX</strong></span> 
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    -->
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var codes = document.getElementsByTagName("code");
+        [].slice.call(codes).forEach(function(code){
+          var pre = code.parentNode;
+          if (pre.tagName == "PRE" && code.classList.contains('lang-math')) {
+            math_div = document.createElement('div');
+            math_div.innerHTML = katex.renderToString(code.textContent, { displayMode: true });
+            pre.parentNode.replaceChild(math_div, pre);
+          } else {
+            var before = code.previousSibling;
+            var after = code.nextSibling;
+            if (before && before.textContent !== undefined && before.textContent.endsWith('$')
+                && after && after.textContent !== undefined && after.textContent.startsWith('$'))
+            {
+              math_span = document.createElement('span');
+              math_span.innerHTML = katex.renderToString(code.innerHTML, { displayMode: false });
+              code.parentNode.replaceChild(math_span, code);
+              before.textContent = before.textContent.replace(/\$$/, '');
+              after.textContent = after.textContent.replace(/^\$/, '');
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

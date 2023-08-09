@@ -75,7 +75,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="microsoft.azure.quantum.qiotoolkit.dev.solver">
+            <article class="content wrap" id="_content" data-uid="qiotoolkit.dev.solver">
 <h1 id="solver-development">Solver Development</h1>
 
 <p>A new solver is created by extending <code>solver::AbstractSolver</code> or <code>solver::SteppingSolver</code>.
@@ -132,7 +132,7 @@ it provides.</p>
 because the <code>::markov::Model</code> interfaces do not allow us to enumerate all possible transitions from a given
 starting point. (And, depending on the model, this might be infeasible). Instead we settle for sampling a
 number of different candidates and picking the best choice (or none) at each step:</p>
-<pre><code class="lang-cpp" name="Descent Solver">// Copyright (c) Microsoft. All Rights Reserved.
+<pre><code class="lang-cpp" name="Descent Solver">
 #pragma once
 
 #include &quot;utils/random_generator.h&quot;
@@ -150,7 +150,7 @@ class Descent : public ::solver::SteppingSolver&lt;Model_T&gt;
 
   std::string get_identifier() const override
   {
-    return &quot;microsoft.descent.qiotoolkit&quot;;
+    return &quot;descent.qiotoolkit&quot;;
   }
 
   void configure(const utils::Json&amp; json) override
@@ -240,8 +240,7 @@ class Descent : public ::solver::SteppingSolver&lt;Model_T&gt;
       
       <span>
               Generated with <strong>Doxygen</strong>
-              and <strong>DocFX</strong></span>
-              | <a href="[site-url]?version=GB"></a> (<a href="[site-url]/"></a>)
+              and <strong>DocFX</strong></span> 
           </div>
         </div>
       </footer>
