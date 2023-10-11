@@ -23,7 +23,7 @@ namespace model
 class PolyState : public ::markov::State
 {
  public:
-  /// Render the current state of the spins in the model in the azure response
+  /// Render the current state of the spins in the model
   /// output format: {"0": +1, "1": -1, ...}
   utils::Structure render() const;
 
