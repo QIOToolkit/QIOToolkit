@@ -44,7 +44,7 @@ To compile a **release** version (essential for large scale simulations), use
   /path/to/repo/release_build $ make
 
 ==Dependency Tracking
-All open source C++ dependencies must be tracked in the components governance tool so that we can receive alerts if vulnerabilities are discovered in them. For most of our code, dependencies are detected and registered automatically. However, for C++ code, there is no automatic detection. Thus, we must register them manually in the **cgmanifest.json** file at the repo root. For more information, see [here](https://docs.opensource.microsoft.com/tools/cg/cgmanifest.html).
+All open source C++ dependencies must be tracked in the components governance tool so that we can receive alerts if vulnerabilities are discovered in them. For most of our code, dependencies are detected and registered automatically. However, for C++ code, there is no automatic detection. Thus, we must register them manually in the **cgmanifest.json** file at the repo root.
 
 ==Build Profiling
 In order to build your code with profiling code, you need to define build macro "qiotoolkit_PROFILING" to

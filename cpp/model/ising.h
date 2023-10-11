@@ -507,8 +507,6 @@ class IsingCompact
         this->graph_.nodes_size());
   }
 
-  // Details about the algorithm used can be found at
-  // https://microsoft.sharepoint.com/:b:/r/teams/QuArC6/Shared%20Documents/Optimization/beta.pdf?csf=1&web=1&e=XA3qN9
   double estimate_min_cost_diff() const override
   {
     double min_diff = std::numeric_limits<double>::max();
