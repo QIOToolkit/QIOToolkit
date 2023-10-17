@@ -7,7 +7,7 @@ This project provides the components for building and running Quantum inspired o
 
 ## Getting Started
 
-Getting started with the QIO Toolkit is as simple as running a binary or building the binary yourself and then running it. We have a [tutorial](https://qiotoolkit.github.io/qiotoolkit/tutorial/index.html) that will guide you through the process of running the QIO Toolkit solver.
+Getting started with the QIO Toolkit is as simple as running a binary or building the binary yourself and then running it. We have a [tutorial](https://qiotoolkit.github.io/QIOToolkit/tutorial/index.html) that will guide you through the process of running the QIO Toolkit solver.
 
 ### Fetching a binary
 
@@ -15,7 +15,7 @@ You can fetch a binary for x86-64 cpu architecture from the latest [CI/CD](https
 
 ### Running the QIO Toolkit solver
 
-After building the binary you can go a tutorial in the [documentation](https://qiotoolkit.github.io/qiotoolkit/tutorial/index.html) and go to `Run your first simulation`. This will guide you through the process of running the QIO Toolkit solver with data examples within the repo.
+After building the binary you can go a tutorial in the [documentation](https://qiotoolkit.github.io/QIOToolkit/tutorial/index.html) and go to `Run your first simulation`. This will guide you through the process of running the QIO Toolkit solver with data examples within the repo.
 
 ## Contributions
 
@@ -24,7 +24,7 @@ contribute to the project. Please read it before making any contributions.
 
 ### Adding in a solver
 
-If you are here to experiement and try to add in a solver. We have some specific documentation for that [here](https://qiotoolkit.github.io/qiotoolkit/tutorial/dev/solver.html).
+If you are here to experiement and try to add in a solver. We have some specific documentation for that [here](https://qiotoolkit.github.io/QIOToolkit/tutorial/dev/solver.html).
 
 ## Code of Conduct
 
