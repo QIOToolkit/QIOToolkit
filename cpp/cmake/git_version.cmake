@@ -1,3 +1,11 @@
+# Get the repository's release version
+execute_process(
+  COMMAND git describe --tags --abbrev=0
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  OUTPUT_VARIABLE qiotoolkit_VERSION
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
 # Get the current working branch
 execute_process(
   COMMAND git rev-parse --abbrev-ref HEAD
