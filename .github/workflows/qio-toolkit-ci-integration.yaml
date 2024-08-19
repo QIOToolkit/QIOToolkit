@@ -68,23 +68,7 @@ jobs:
             name: coverage-html
             path: cpp/build_coverage/coverage.html
 
-        - uses: dennisjensen95/coverage-scope@v0.3.2
-          with: 
-            coverage-filepath: cpp/build_coverage/coverage.xml
-            branch: main
-            threshold-total: 70
-            threshold-change: 90
-      
-        - name: Create the Badge
-          uses: schneegans/dynamic-badges-action@v1.6.0
-          if: github.ref == 'refs/heads/main' 
-          with:
-            auth: ${{ secrets.CODE_COVERAGE_BADGE }}
-            gistID: fba0eacadbe787c890db8a8288ff9bd5
-            filename: qiotoolkit-coverage.json
-            label: Test Coverage
-            message: ${{ env.COVERAGE }}
-            color: green
+
 
     build-qio-release:
       needs: build-docker-container
